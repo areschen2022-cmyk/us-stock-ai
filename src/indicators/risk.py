@@ -39,29 +39,29 @@ def risk_score(
         days_to_earnings = (earnings_date - today).days
         if 0 <= days_to_earnings <= 5:
             penalty += 6
-            reasons.append(f"Earnings in {days_to_earnings}d — high gap risk")
+            reasons.append(f"財報 {days_to_earnings} 日內 — 跳空風險高")
         elif 0 <= days_to_earnings <= 14:
             penalty += 3
-            reasons.append(f"Earnings in {days_to_earnings}d")
+            reasons.append(f"財報將近（{days_to_earnings} 日）")
 
     # ATR overextension
     if atr_pct > 5:
         penalty += 3
-        reasons.append(f"High ATR {atr_pct:.1f}% — volatile")
+        reasons.append(f"波動過大 ATR {atr_pct:.1f}%")
     elif atr_pct > 3:
         penalty += 1
-        reasons.append(f"ATR {atr_pct:.1f}%")
+        reasons.append(f"波動偏高 ATR {atr_pct:.1f}%")
 
     # Short float (>20% = short-squeeze risk / danger)
     short_float = info.get("shortPercentOfFloat")
     if short_float and short_float > 0.2:
         penalty += 2
-        reasons.append(f"Short float {short_float*100:.0f}%")
+        reasons.append(f"高放空比 {short_float*100:.0f}%")
 
     # Market cap: micro-cap risk
     market_cap = info.get("marketCap", 0)
     if market_cap and market_cap < 500_000_000:
         penalty += 2
-        reasons.append("Micro-cap risk (<$500M)")
+        reasons.append("微型股風險（市值 < $5億）")
 
     return min(penalty, 10), reasons
