@@ -36,6 +36,7 @@ def _get_revenue_yoy(symbol: str) -> float | None:
 
 def run_daily_update() -> None:
     today = date.today()
+    pipeline_start = time.monotonic()
     cfg = get_config()
     store = SQLiteStore()
 
