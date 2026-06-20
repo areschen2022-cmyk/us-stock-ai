@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>美股 AI 選股儀表板</title>
 <style>
   :root {
@@ -336,12 +339,17 @@ function render(data) {
 
   // AI stats bar
   const aiTotal = ai.total || 0;
+  let covHtml = '';
+  if (ai.coverage_pct != null && ai.candidates) {
+    const covColor = ai.coverage_pct >= 80 ? 'var(--green)' : ai.coverage_pct >= 50 ? 'var(--yellow)' : 'var(--red)';
+    covHtml = `<span class="ai-label">覆蓋率 <b style="color:${covColor}">${ai.coverage_pct}%</b>（${aiTotal}/${ai.candidates} 候選）</span>`;
+  }
   document.getElementById('ai-stats-bar').innerHTML = aiTotal > 0 ? `
     <span class="ai-label">🤖 AI 複核</span>
     <span class="ai-stat ai-buy">同意 ${ai.buy||0}</span>
     <span class="ai-stat ai-hold">保留 ${ai.hold||0}</span>
     <span class="ai-stat ai-avoid">不建議 ${ai.avoid||0}</span>
-    <span class="ai-label">共複核 ${aiTotal} 檔</span>
+    ${covHtml}
   ` : '<span class="ai-label" style="opacity:.5">今日無 AI 複核</span>';
 
   // Stats

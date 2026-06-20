@@ -33,11 +33,17 @@ def _market_direction(vix: float) -> str:
     return "空頭"
 
 
-def _ai_stats(ai_reviews: dict[str, dict]) -> dict[str, int]:
+def _ai_stats(ai_reviews: dict[str, dict], candidates: int = 0) -> dict[str, int]:
     buy = sum(1 for r in ai_reviews.values() if r.get("action") == "Buy")
     hold = sum(1 for r in ai_reviews.values() if r.get("action") == "Hold")
     avoid = sum(1 for r in ai_reviews.values() if r.get("action") == "Avoid")
-    return {"buy": buy, "hold": hold, "avoid": avoid, "total": len(ai_reviews)}
+    total = len(ai_reviews)
+    # 複核覆蓋率 = 已複核 / 應複核候選（S+A 級）。candidates=0 時回傳 None 避免除以零
+    coverage = round(total / candidates * 100) if candidates else None
+    return {
+        "buy": buy, "hold": hold, "avoid": avoid, "total": total,
+        "candidates": candidates, "coverage_pct": coverage,
+    }
 
 
 def _theme_heating(
@@ -190,7 +196,10 @@ def build_dashboard_json(
             "grade_D": sum(1 for c in cards if c["grade"] == "D"),
         },
         "highlights": _highlights(sorted_scores, ai_reviews),
-        "ai_stats": _ai_stats(ai_reviews),
+        "ai_stats": _ai_stats(
+            ai_reviews,
+            candidates=sum(1 for c in cards if c["grade"] in ("S", "A")),
+        ),
         "data_health": data_health or {},
         "watchlist": cards,
         "top10": cards[:10],

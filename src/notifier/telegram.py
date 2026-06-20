@@ -100,6 +100,8 @@ def _build_morning_report(
     ai_hold = overview.get("ai_hold", 0)
     ai_avoid = overview.get("ai_avoid", 0)
     ai_total = overview.get("ai_total", len(ai_summaries))
+    ai_candidates = overview.get("ai_candidates", 0)
+    ai_coverage = overview.get("ai_coverage_pct")
 
     # === 第一段：標頭 ===
     vix_str = f"{vix:.1f}"
@@ -160,9 +162,12 @@ def _build_morning_report(
             )
 
     if ai_total > 0:
+        cov = ""
+        if ai_coverage is not None and ai_candidates:
+            cov = f"｜覆蓋 {ai_coverage}%（{ai_total}/{ai_candidates}）"
         _flush(
             f"AI 複核：同意 {ai_buy}｜保留 {ai_hold}｜"
-            f"不建議 {ai_avoid}｜已複核 {ai_total}\n"
+            f"不建議 {ai_avoid}｜已複核 {ai_total}{cov}\n"
         )
 
     _flush("\n")
