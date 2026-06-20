@@ -105,8 +105,15 @@ def run_daily_update() -> None:
     # 9. Telegram morning report (if requested via mode)
     if "--telegram" in sys.argv:
         top = sorted(scores, key=lambda s: s.total_score, reverse=True)[:10]
+        overview = {
+            **dash_data["overview"],
+            "ai_buy": dash_data["ai_stats"]["buy"],
+            "ai_hold": dash_data["ai_stats"]["hold"],
+            "ai_avoid": dash_data["ai_stats"]["avoid"],
+            "ai_total": dash_data["ai_stats"]["total"],
+        }
         notifier = TelegramNotifier()
-        ok = notifier.send_morning_report(top, market_prices, today, ai_summaries)
+        ok = notifier.send_morning_report(top, market_prices, today, ai_summaries, overview)
         status = "ok" if ok else "error"
         store.log_delivery("morning_telegram", status)
         if not ok:
