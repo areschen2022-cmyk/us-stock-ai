@@ -7,9 +7,55 @@ from pathlib import Path
 from typing import Any
 
 from src.scoring.score_engine import StockScore
-from src.storage.sqlite_store import SQLiteStore
 
 _DOCS_DIR = Path(__file__).parent.parent.parent / "docs"
+
+THEME_ZH = {
+    "ai_infra": "AI 基礎建設",
+    "semiconductor": "半導體",
+    "cloud_saas": "雲端軟體",
+    "cybersecurity": "資安",
+    "defense": "國防軍工",
+    "energy_power": "能源電力",
+    "crypto_fintech": "加密金融",
+    "glp1_biotech": "GLP-1 生技",
+    "emerging_market": "新興市場",
+}
+
+AI_ACTION_ZH = {"Buy": "同意", "Hold": "保留", "Avoid": "不建議"}
+
+
+def _market_direction(vix: float) -> str:
+    if vix < 18:
+        return "多頭"
+    elif vix < 25:
+        return "中性"
+    return "空頭"
+
+
+def _ai_stats(ai_reviews: dict[str, dict]) -> dict[str, int]:
+    buy = sum(1 for r in ai_reviews.values() if r.get("action") == "Buy")
+    hold = sum(1 for r in ai_reviews.values() if r.get("action") == "Hold")
+    avoid = sum(1 for r in ai_reviews.values() if r.get("action") == "Avoid")
+    return {"buy": buy, "hold": hold, "avoid": avoid, "total": len(ai_reviews)}
+
+
+def _highlights(sorted_scores: list[StockScore], ai_reviews: dict[str, dict]) -> list[dict]:
+    top = [s for s in sorted_scores if s.grade in ("S", "A")][:5]
+    result = []
+    for s in top:
+        ai = ai_reviews.get(s.symbol, {})
+        ai_action = ai.get("action")
+        result.append({
+            "symbol": s.symbol,
+            "score": s.total_score,
+            "grade": s.grade,
+            "action": s.action,
+            "ai_action": ai_action,
+            "ai_action_zh": AI_ACTION_ZH.get(ai_action, "未複核"),
+            "price": s.price,
+        })
+    return result
 
 
 def _score_to_card(s: StockScore) -> dict[str, Any]:
@@ -36,6 +82,7 @@ def _score_to_card(s: StockScore) -> dict[str, Any]:
         },
         "sector": s.sector,
         "market_cap": s.market_cap,
+        "risk_penalty": s.risk_penalty,
     }
 
 
@@ -48,10 +95,11 @@ def build_dashboard_json(
 ) -> dict[str, Any]:
     today = today or date.today()
     sorted_scores = sorted(scores, key=lambda s: s.total_score, reverse=True)
-
     cards = [_score_to_card(s) for s in sorted_scores]
 
-    # Theme aggregation
+    vix = market_prices.get("^VIX") or 20.0
+
+    # Theme aggregation with ZH labels
     theme_counts: dict[str, list[dict]] = {}
     for s in sorted_scores:
         for t in s.themes:
@@ -59,27 +107,49 @@ def build_dashboard_json(
                 {"symbol": s.symbol, "score": s.total_score}
             )
 
+    themes_list = [
+        {
+            "theme": t,
+            "theme_zh": THEME_ZH.get(t, t),
+            "count": len(v),
+            "symbols": v[:5],
+        }
+        for t, v in sorted(theme_counts.items(), key=lambda x: -len(x[1]))
+    ]
+
+    # Risk alerts: high risk penalty or grade D
+    risk_alerts = [
+        _score_to_card(s)
+        for s in sorted_scores
+        if s.risk_penalty >= 6 or (s.grade == "D" and s.total_score > 30)
+    ][:5]
+
     return {
         "generated_at": str(today),
         "market": {
             "SPY": market_prices.get("SPY"),
             "QQQ": market_prices.get("QQQ"),
-            "VIX": market_prices.get("^VIX"),
+            "VIX": vix,
             "TLT": market_prices.get("TLT"),
             "HYG": market_prices.get("HYG"),
+            "IWM": market_prices.get("IWM"),
+            "SMH": market_prices.get("SMH"),
         },
+        "market_direction": _market_direction(vix),
         "overview": {
             "total_scored": len(cards),
             "grade_S": sum(1 for c in cards if c["grade"] == "S"),
             "grade_A": sum(1 for c in cards if c["grade"] == "A"),
             "grade_B": sum(1 for c in cards if c["grade"] == "B"),
+            "grade_C": sum(1 for c in cards if c["grade"] == "C"),
+            "grade_D": sum(1 for c in cards if c["grade"] == "D"),
         },
+        "highlights": _highlights(sorted_scores, ai_reviews),
+        "ai_stats": _ai_stats(ai_reviews),
         "watchlist": cards,
         "top10": cards[:10],
-        "themes": [
-            {"theme": t, "count": len(v), "symbols": v[:5]}
-            for t, v in sorted(theme_counts.items(), key=lambda x: -len(x[1]))
-        ],
+        "themes": themes_list,
+        "risk_alerts": risk_alerts,
         "open_signals": open_signals,
         "ai_reviews": [
             {

@@ -11,57 +11,111 @@
     --green: #48bb78; --red: #f56565; --yellow: #ed8936; --blue: #63b3ed;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif; }
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-  header h1 { font-size: 1.2rem; color: var(--accent); letter-spacing: .05em; }
-  #market-bar { font-size: .8rem; color: var(--muted); }
-  nav { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; }
-  nav button { padding: 10px 18px; border: none; background: none; color: var(--muted); cursor: pointer; font-size: .85rem; white-space: nowrap; transition: color .15s; }
-  nav button.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
-  nav button:hover { color: var(--text); }
-  .tab { display: none; padding: 20px 24px; }
-  .tab.active { display: block; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; transition: border-color .15s; }
-  .card:hover { border-color: var(--accent); }
-  .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-  .symbol { font-weight: 700; font-size: 1rem; }
-  .grade { font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 12px; }
-  .grade-S { background: #553c9a; color: #e9d8fd; }
-  .grade-A { background: #2b6cb0; color: #bee3f8; }
-  .grade-B { background: #276749; color: #c6f6d5; }
-  .grade-C { background: #744210; color: #fefcbf; }
-  .grade-D { background: #742a2a; color: #fed7d7; }
-  .score-bar { height: 4px; background: var(--border); border-radius: 2px; margin: 6px 0; }
-  .score-fill { height: 4px; border-radius: 2px; background: var(--accent); }
-  .sub-scores { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
-  .sub { font-size: .72rem; color: var(--muted); background: var(--border); padding: 2px 6px; border-radius: 4px; }
-  .themes { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
-  .theme-tag { font-size: .65rem; color: var(--blue); border: 1px solid var(--blue); padding: 1px 5px; border-radius: 10px; }
-  .action-text { font-size: .78rem; color: var(--green); margin-top: 4px; }
-  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
-  th, td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; }
-  th { color: var(--muted); font-weight: 600; font-size: .78rem; letter-spacing: .04em; }
-  tr:hover td { background: rgba(99,102,241,.06); }
-  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: .72rem; }
-  .pill-win { background: #276749; color: #c6f6d5; }
-  .pill-loss { background: #742a2a; color: #fed7d7; }
-  .pill-neutral { background: #2d3748; color: #a0aec0; }
-  .stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
-  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 20px; min-width: 110px; }
-  .stat-val { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
-  .stat-label { font-size: .73rem; color: var(--muted); margin-top: 3px; }
-  .updated { font-size: .75rem; color: var(--muted); margin-bottom: 14px; }
-  .section-title { font-size: .9rem; font-weight: 600; color: var(--muted); margin-bottom: 12px; letter-spacing: .04em; }
-  #debug-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'Cascadia Code', 'Consolas', monospace; font-size: .8rem; white-space: pre-wrap; max-height: 60vh; overflow-y: auto; }
-  .empty-hint { color: var(--muted); font-size: .85rem; padding: 24px 0; }
-  input[type=text] { outline: none; }
-  input[type=text]:focus { border-color: var(--accent) !important; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
+
+  /* ── Header ── */
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { font-size: 1.1rem; color: var(--accent); letter-spacing:.05em; }
+  #direction-badge { font-size:.8rem; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .dir-bull { background:#1c4532; color:#68d391; }
+  .dir-bear { background:#742a2a; color:#fc8181; }
+  .dir-neu  { background:#2d3748; color:#cbd5e0; }
+  #market-bar { font-size:.8rem; color:var(--muted); }
+
+  /* ── Nav ── */
+  nav { display:flex; background:var(--surface); border-bottom:1px solid var(--border); overflow-x:auto; }
+  nav button { padding:10px 18px; border:none; background:none; color:var(--muted); cursor:pointer; font-size:.85rem; white-space:nowrap; transition:color .15s; }
+  nav button.active { color:var(--accent); border-bottom:2px solid var(--accent); }
+  nav button:hover { color:var(--text); }
+
+  /* ── Tabs ── */
+  .tab { display:none; padding:20px 24px; }
+  .tab.active { display:block; }
+
+  /* ── Grid / Cards ── */
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px; transition:border-color .15s; }
+  .card:hover { border-color:var(--accent); }
+  .card-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+  .symbol { font-weight:700; font-size:1rem; }
+  .grade { font-size:.75rem; font-weight:700; padding:2px 8px; border-radius:12px; }
+  .grade-S { background:#553c9a; color:#e9d8fd; }
+  .grade-A { background:#2b6cb0; color:#bee3f8; }
+  .grade-B { background:#276749; color:#c6f6d5; }
+  .grade-C { background:#744210; color:#fefcbf; }
+  .grade-D { background:#742a2a; color:#fed7d7; }
+  .score-bar { height:4px; background:var(--border); border-radius:2px; margin:6px 0; }
+  .score-fill { height:4px; border-radius:2px; background:var(--accent); }
+  .sub-scores { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+  .sub { font-size:.72rem; color:var(--muted); background:var(--border); padding:2px 6px; border-radius:4px; }
+  .themes { display:flex; gap:4px; flex-wrap:wrap; margin-top:6px; }
+  .theme-tag { font-size:.65rem; color:var(--blue); border:1px solid var(--blue); padding:1px 5px; border-radius:10px; }
+  .action-text { font-size:.78rem; color:var(--green); margin-top:4px; }
+
+  /* ── Stats / Overview ── */
+  .stat-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+  .stat { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:12px 18px; min-width:100px; }
+  .stat-val { font-size:1.5rem; font-weight:700; color:var(--accent); }
+  .stat-label { font-size:.72rem; color:var(--muted); margin-top:3px; }
+
+  /* ── AI stats row ── */
+  .ai-stats-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; align-items:center; }
+  .ai-stat { font-size:.8rem; padding:4px 12px; border-radius:20px; }
+  .ai-buy  { background:#1c4532; color:#68d391; }
+  .ai-hold { background:#744210; color:#fefcbf; }
+  .ai-avoid{ background:#742a2a; color:#fc8181; }
+  .ai-label{ color:var(--muted); font-size:.8rem; }
+
+  /* ── 今日重點 ── */
+  .highlights { margin-bottom:20px; }
+  .highlight-row { display:flex; align-items:center; gap:10px; padding:8px 12px; background:var(--surface); border:1px solid var(--border); border-radius:6px; margin-bottom:6px; }
+  .hl-symbol { font-weight:700; min-width:60px; }
+  .hl-score { font-size:.8rem; color:var(--muted); min-width:60px; }
+  .hl-grade { }
+  .hl-action { font-size:.78rem; color:var(--green); }
+  .hl-ai { font-size:.75rem; padding:2px 8px; border-radius:10px; margin-left:auto; }
+  .hl-ai-buy  { background:#1c4532; color:#68d391; }
+  .hl-ai-hold { background:#744210; color:#fefcbf; }
+  .hl-ai-avoid{ background:#742a2a; color:#fc8181; }
+  .hl-ai-none { background:var(--border); color:var(--muted); }
+
+  /* ── Risk alerts ── */
+  .risk-list { margin-bottom:20px; }
+  .risk-item { display:flex; align-items:center; gap:10px; padding:8px 12px; background:#1a0f0f; border:1px solid #742a2a; border-radius:6px; margin-bottom:6px; font-size:.83rem; }
+  .risk-sym { font-weight:700; min-width:70px; }
+  .risk-penalty { color:var(--red); min-width:60px; }
+  .risk-warn { color:var(--muted); font-size:.75rem; }
+
+  /* ── Grade filter ── */
+  .filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+  .filter-btn { padding:4px 14px; border-radius:20px; border:1px solid var(--border); background:none; color:var(--muted); cursor:pointer; font-size:.8rem; transition:.15s; }
+  .filter-btn.on { border-color:var(--accent); color:var(--accent); background:rgba(99,102,241,.12); }
+  .filter-btn:hover { color:var(--text); }
+
+  /* ── Table ── */
+  table { width:100%; border-collapse:collapse; font-size:.82rem; }
+  th,td { padding:8px 10px; border-bottom:1px solid var(--border); text-align:left; }
+  th { color:var(--muted); font-weight:600; font-size:.78rem; letter-spacing:.04em; }
+  tr:hover td { background:rgba(99,102,241,.06); }
+  .pill { display:inline-block; padding:1px 8px; border-radius:10px; font-size:.72rem; }
+  .pill-win { background:#276749; color:#c6f6d5; }
+  .pill-loss { background:#742a2a; color:#fed7d7; }
+  .pill-neutral { background:#2d3748; color:#a0aec0; }
+
+  /* ── Misc ── */
+  .updated { font-size:.75rem; color:var(--muted); margin-bottom:14px; }
+  .section-title { font-size:.88rem; font-weight:600; color:var(--muted); margin:0 0 10px; letter-spacing:.04em; text-transform:uppercase; }
+  .section-block { margin-bottom:28px; }
+  #debug-box { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:16px; font-family:'Cascadia Code','Consolas',monospace; font-size:.8rem; white-space:pre-wrap; max-height:60vh; overflow-y:auto; }
+  .empty-hint { color:var(--muted); font-size:.85rem; padding:20px 0; }
+  input[type=text] { outline:none; }
+  input[type=text]:focus { border-color:var(--accent) !important; }
 </style>
 </head>
 <body>
 <header>
   <h1>🇺🇸 美股 AI 選股</h1>
+  <span id="direction-badge" class="dir-neu">↔️ 中性</span>
   <div id="market-bar">載入市場資料中…</div>
 </header>
 <nav>
@@ -73,29 +127,55 @@
   <button onclick="showTab('debug',this)">🔧 系統偵錯</button>
 </nav>
 
+<!-- 總覽 -->
 <div id="overview" class="tab active">
   <div class="updated" id="updated-at"></div>
+
+  <!-- AI 複核統計 -->
+  <div class="ai-stats-bar" id="ai-stats-bar"></div>
+
+  <!-- 掃描統計 -->
   <div class="stat-row" id="stats"></div>
-  <div class="section-title">今日 Top 10 候選股</div>
-  <div class="grid" id="top10-grid"></div>
+
+  <!-- 今日重點 -->
+  <div class="section-block">
+    <div class="section-title">🔥 今日重點</div>
+    <div class="highlights" id="highlights"></div>
+  </div>
+
+  <!-- 危險名單 -->
+  <div class="section-block" id="risk-block" style="display:none">
+    <div class="section-title">🛡 危險名單</div>
+    <div class="risk-list" id="risk-list"></div>
+  </div>
+
+  <!-- Top 10 with grade filter -->
+  <div class="section-block">
+    <div class="section-title">今日候選股</div>
+    <div class="filter-bar" id="grade-filters"></div>
+    <div class="grid" id="top10-grid"></div>
+  </div>
 </div>
 
+<!-- 觀察清單 -->
 <div id="watchlist" class="tab">
   <input id="search" type="text" placeholder="搜尋代碼或名稱…"
     style="background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:6px;width:240px;margin-bottom:14px;font-size:.85rem">
   <table>
     <thead><tr>
       <th>代碼 / 名稱</th><th>評分</th><th>等級</th><th>現價</th>
-      <th>進場價</th><th>停損價</th><th>建議操作</th><th>主題</th>
+      <th>停損價</th><th>建議操作</th><th>主題</th>
     </tr></thead>
     <tbody id="watchlist-body"></tbody>
   </table>
 </div>
 
+<!-- 主題板塊 -->
 <div id="themes" class="tab">
   <div id="themes-grid" class="grid"></div>
 </div>
 
+<!-- 選股記錄 -->
 <div id="signals" class="tab">
   <table>
     <thead><tr>
@@ -106,17 +186,36 @@
   </table>
 </div>
 
+<!-- AI 複核 -->
 <div id="ai" class="tab">
   <div class="grid" id="ai-grid"></div>
 </div>
 
+<!-- 系統偵錯 -->
 <div id="debug" class="tab">
   <div class="section-title">系統狀態快照</div>
   <pre id="debug-box">載入中…</pre>
 </div>
 
 <script>
-let DATA = {};
+const ACTION_ZH = {
+  'Strong Buy Candidate': '強力買進候選',
+  'Watch / Buy Pullback': '觀察 / 回調買進',
+  'Monitor': '持續觀察',
+  'Avoid': '迴避',
+};
+const AI_ACTION_ZH = { Buy: '同意', Hold: '保留', Avoid: '不建議' };
+const AI_ACTION_COLOR_CLASS = { Buy: 'hl-ai-buy', Hold: 'hl-ai-hold', Avoid: 'hl-ai-avoid' };
+const OUTCOME_ZH = { win: '獲利', loss: '虧損', neutral: '持平' };
+const OUTCOME_CLASS = { win: 'pill-win', loss: 'pill-loss', neutral: 'pill-neutral' };
+const THEME_ZH = {
+  'ai_infra': 'AI 基礎建設', 'semiconductor': '半導體', 'cloud_saas': '雲端軟體',
+  'cybersecurity': '資安', 'defense': '國防軍工', 'energy_power': '能源電力',
+  'crypto_fintech': '加密金融', 'glp1_biotech': 'GLP-1 生技', 'emerging_market': '新興市場',
+};
+
+let allCards = [];
+let activeFilter = 'ALL';
 
 function showTab(name, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -126,38 +225,29 @@ function showTab(name, btn) {
 }
 
 function gradeClass(g) { return 'grade grade-' + (g || 'D'); }
-
-const ACTION_ZH = {
-  'Strong Buy Candidate': '強力買進候選',
-  'Watch / Buy Pullback': '觀察 / 回調買進',
-  'Monitor': '持續觀察',
-  'Avoid': '迴避',
-};
 function zhAction(a) { return ACTION_ZH[a] || a || '—'; }
-
-const OUTCOME_ZH = { win: '獲利', loss: '虧損', neutral: '持平' };
-const OUTCOME_CLASS = { win: 'pill-win', loss: 'pill-loss', neutral: 'pill-neutral' };
+function thZh(t) { return THEME_ZH[t] || t; }
+function fmtPrice(v) { return v != null ? '$' + Number(v).toFixed(2) : '—'; }
 
 function renderCard(s) {
   const fill = Math.min(100, s.score);
   const sub = s.sub || {};
-  const themes = (s.themes || []).map(t => `<span class="theme-tag">${t}</span>`).join('');
-  const stopStr = s.stop ? `$${s.stop.toFixed(2)}` : '—';
-  return `<div class="card">
+  const themes = (s.themes || []).map(t => `<span class="theme-tag">${thZh(t)}</span>`).join('');
+  return `<div class="card" data-grade="${s.grade}">
     <div class="card-header">
       <span class="symbol">${s.symbol}</span>
       <span class="${gradeClass(s.grade)}">${s.grade} ${s.score}分</span>
     </div>
     <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${s.name || ''}</div>
     <div class="score-bar"><div class="score-fill" style="width:${fill}%"></div></div>
-    <div style="font-size:.85rem">現價 $${(s.price||0).toFixed(2)} &nbsp;→&nbsp; 停損 ${stopStr}</div>
+    <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}</div>
     <div class="sub-scores">
       <span class="sub" title="技術">技${sub.T||0}</span>
       <span class="sub" title="基本面">基${sub.F||0}</span>
       <span class="sub" title="資金流">流${sub.Fl||0}</span>
       <span class="sub" title="新聞">聞${sub.N||0}</span>
-      <span class="sub" title="市場">市${sub.M||0}</span>
-      <span class="sub" style="color:var(--red)" title="風險懲罰">-險${Math.abs(sub.R||0)}</span>
+      <span class="sub" title="市場情緒">市${sub.M||0}</span>
+      <span class="sub" style="color:var(--red)" title="風險扣分">-${Math.abs(sub.R||0)}</span>
     </div>
     <div class="themes">${themes}</div>
     <div class="action-text">${zhAction(s.action)}</div>
@@ -165,74 +255,132 @@ function renderCard(s) {
 }
 
 function renderWatchlistRow(s) {
-  const themes = (s.themes || []).join('、');
+  const themes = (s.themes || []).map(thZh).join('、');
   return `<tr>
     <td><b>${s.symbol}</b><br><small style="color:var(--muted)">${s.name||''}</small></td>
     <td><b>${s.score}</b></td>
     <td><span class="${gradeClass(s.grade)}">${s.grade}</span></td>
-    <td>$${(s.price||0).toFixed(2)}</td>
-    <td>$${(s.entry||0).toFixed(2)}</td>
-    <td style="color:var(--red)">$${(s.stop||0).toFixed(2)}</td>
+    <td>${fmtPrice(s.price)}</td>
+    <td style="color:var(--red)">${fmtPrice(s.stop)}</td>
     <td style="font-size:.78rem;color:var(--green)">${zhAction(s.action)}</td>
     <td style="font-size:.72rem;color:var(--blue)">${themes}</td>
   </tr>`;
 }
 
 function renderSignalRow(s) {
-  const r5 = s.return_5d != null ? `<span style="color:${s.return_5d>=0?'var(--green)':'var(--red)'}">${s.return_5d>0?'+':''}${s.return_5d}%</span>` : '—';
-  const r10 = s.return_10d != null ? `<span style="color:${s.return_10d>=0?'var(--green)':'var(--red)'}">${s.return_10d>0?'+':''}${s.return_10d}%</span>` : '—';
-  const outcome = s.outcome ? `<span class="pill ${OUTCOME_CLASS[s.outcome]||''}">${OUTCOME_ZH[s.outcome]||s.outcome}</span>` : '—';
+  const r5 = s.return_5d != null
+    ? `<span style="color:${s.return_5d>=0?'var(--green)':'var(--red)'}">${s.return_5d>0?'+':''}${s.return_5d}%</span>` : '—';
+  const r10 = s.return_10d != null
+    ? `<span style="color:${s.return_10d>=0?'var(--green)':'var(--red)'}">${s.return_10d>0?'+':''}${s.return_10d}%</span>` : '—';
+  const outcome = s.outcome
+    ? `<span class="pill ${OUTCOME_CLASS[s.outcome]||''}">${OUTCOME_ZH[s.outcome]||s.outcome}</span>` : '—';
   return `<tr>
     <td>${s.signal_date}</td>
     <td><b>${s.symbol}</b></td>
     <td>${s.score}</td>
     <td><span class="${gradeClass(s.grade)}">${s.grade}</span></td>
-    <td>$${(s.entry_price||0).toFixed(2)}</td>
-    <td>${r5}</td>
-    <td>${r10}</td>
-    <td>${outcome}</td>
+    <td>${fmtPrice(s.entry_price)}</td>
+    <td>${r5}</td><td>${r10}</td><td>${outcome}</td>
   </tr>`;
 }
 
-const AI_ACTION_COLOR = { Buy: 'var(--green)', Avoid: 'var(--red)', Hold: 'var(--yellow)' };
-const AI_ACTION_ZH = { Buy: '買進', Hold: '持有', Avoid: '迴避', 'N/A': '無資料' };
+function applyGradeFilter(grade) {
+  activeFilter = grade;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('on', b.dataset.g === grade));
+  document.querySelectorAll('#top10-grid .card').forEach(c => {
+    c.style.display = (grade === 'ALL' || c.dataset.grade === grade) ? '' : 'none';
+  });
+}
 
 function render(data) {
-  DATA = data;
   const m = data.market || {};
+  const ov = data.overview || {};
+  const ai = data.ai_stats || {};
+
+  // 風向 badge
+  const dir = data.market_direction || '中性';
+  const badge = document.getElementById('direction-badge');
+  const icons = { '多頭': '📈', '空頭': '📉', '中性': '↔️' };
+  badge.textContent = (icons[dir] || '') + ' ' + dir;
+  badge.className = 'dir-' + ({ '多頭': 'bull', '空頭': 'bear', '中性': 'neu' }[dir] || 'neu');
 
   // Market bar
-  const vixColor = (m.VIX||0) < 20 ? 'var(--green)' : (m.VIX||0) > 28 ? 'var(--red)' : 'var(--yellow)';
-  document.getElementById('market-bar').innerHTML =
-    `SPY <b>$${(m.SPY||0).toFixed(2)}</b> &nbsp;|&nbsp; ` +
-    `QQQ <b>$${(m.QQQ||0).toFixed(2)}</b> &nbsp;|&nbsp; ` +
-    `VIX <b style="color:${vixColor}">${(m.VIX||0).toFixed(1)}</b> &nbsp;|&nbsp; ` +
-    `TLT <b>$${(m.TLT||0).toFixed(2)}</b> &nbsp;|&nbsp; ` +
-    `HYG <b>$${(m.HYG||0).toFixed(2)}</b>`;
+  const vixColor = (m.VIX||0)<20 ? 'var(--green)' : (m.VIX||0)>28 ? 'var(--red)' : 'var(--yellow)';
+  let mbar = `SPY <b>${fmtPrice(m.SPY)}</b> | QQQ <b>${fmtPrice(m.QQQ)}</b> | VIX <b style="color:${vixColor}">${(m.VIX||0).toFixed(1)}</b>`;
+  if (m.SMH) mbar += ` | SMH <b>${fmtPrice(m.SMH)}</b>`;
+  if (m.IWM) mbar += ` | IWM <b>${fmtPrice(m.IWM)}</b>`;
+  if (m.TLT) mbar += ` | TLT <b>${fmtPrice(m.TLT)}</b>`;
+  document.getElementById('market-bar').innerHTML = mbar;
 
-  // Updated timestamp
+  // Updated
   document.getElementById('updated-at').textContent = '更新時間：' + (data.generated_at || '未知');
 
+  // AI stats bar
+  const aiTotal = ai.total || 0;
+  document.getElementById('ai-stats-bar').innerHTML = aiTotal > 0 ? `
+    <span class="ai-label">🤖 AI 複核</span>
+    <span class="ai-stat ai-buy">同意 ${ai.buy||0}</span>
+    <span class="ai-stat ai-hold">保留 ${ai.hold||0}</span>
+    <span class="ai-stat ai-avoid">不建議 ${ai.avoid||0}</span>
+    <span class="ai-label">共複核 ${aiTotal} 檔</span>
+  ` : '<span class="ai-label" style="opacity:.5">今日無 AI 複核</span>';
+
   // Stats
-  const ov = data.overview || {};
   document.getElementById('stats').innerHTML = `
-    <div class="stat"><div class="stat-val">${ov.total_scored||0}</div><div class="stat-label">評分股數</div></div>
+    <div class="stat"><div class="stat-val">${ov.total_scored||0}</div><div class="stat-label">掃描股數</div></div>
     <div class="stat"><div class="stat-val" style="color:#c084fc">${ov.grade_S||0}</div><div class="stat-label">S 強買</div></div>
     <div class="stat"><div class="stat-val" style="color:var(--blue)">${ov.grade_A||0}</div><div class="stat-label">A 觀察買</div></div>
-    <div class="stat"><div class="stat-val" style="color:var(--green)">${ov.grade_B||0}</div><div class="stat-label">B 持續追蹤</div></div>
-    <div class="stat"><div class="stat-val" style="color:var(--muted)">${(data.open_signals||[]).length}</div><div class="stat-label">未結選股</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--green)">${ov.grade_B||0}</div><div class="stat-label">B 追蹤</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--muted)">${ov.grade_C||0}</div><div class="stat-label">C</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--red)">${ov.grade_D||0}</div><div class="stat-label">D 迴避</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--muted)">${(data.open_signals||[]).length}</div><div class="stat-label">未結訊號</div></div>
   `;
 
-  // Top 10 cards
+  // 今日重點
+  const highlights = data.highlights || [];
+  document.getElementById('highlights').innerHTML = highlights.length ? highlights.map(h => {
+    const aiCls = AI_ACTION_COLOR_CLASS[h.ai_action] || 'hl-ai-none';
+    const aiLabel = h.ai_action ? AI_ACTION_ZH[h.ai_action] || h.ai_action : '未複核';
+    return `<div class="highlight-row">
+      <span class="hl-symbol">${h.symbol}</span>
+      <span class="hl-score">${h.score}/100</span>
+      <span class="${gradeClass(h.grade)} hl-grade">${h.grade}</span>
+      <span class="hl-action">${zhAction(h.action)}</span>
+      <span class="hl-ai ${aiCls}">${aiLabel}</span>
+    </div>`;
+  }).join('') : '<p class="empty-hint">今日無 S/A 級候選股。</p>';
+
+  // 危險名單
+  const risks = data.risk_alerts || [];
+  if (risks.length) {
+    document.getElementById('risk-block').style.display = '';
+    document.getElementById('risk-list').innerHTML = risks.map(r => {
+      const warns = (r.warnings || []).join('、') || '高風險扣分';
+      return `<div class="risk-item">
+        <span class="risk-sym">${r.symbol}</span>
+        <span class="risk-penalty">風險 -${r.risk_penalty || 0}</span>
+        <span class="risk-warn">${warns}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // Grade filters
+  const grades = ['ALL','S','A','B','C','D'];
+  const gradeCounts = {};
+  (data.top10 || []).forEach(s => { gradeCounts[s.grade] = (gradeCounts[s.grade]||0)+1; });
+  document.getElementById('grade-filters').innerHTML = grades.map(g => {
+    const cnt = g === 'ALL' ? (data.top10||[]).length : (gradeCounts[g]||0);
+    return `<button class="filter-btn${g==='ALL'?' on':''}" data-g="${g}" onclick="applyGradeFilter('${g}')">${g} (${cnt})</button>`;
+  }).join('');
+
+  // Top10 cards
   document.getElementById('top10-grid').innerHTML =
     (data.top10 || []).map(renderCard).join('') ||
-    '<p class="empty-hint">今日尚無資料，請等待每日更新排程執行。</p>';
+    '<p class="empty-hint">今日尚無資料，請等待排程執行後重新整理。</p>';
 
-  // Watchlist table
+  // Watchlist
   document.getElementById('watchlist-body').innerHTML =
     (data.watchlist || []).map(renderWatchlistRow).join('');
-
-  // Search filter
   document.getElementById('search').oninput = function() {
     const q = this.value.toLowerCase();
     document.querySelectorAll('#watchlist-body tr').forEach(tr => {
@@ -245,10 +393,11 @@ function render(data) {
     (data.themes || []).map(t => `
       <div class="card">
         <div class="card-header">
-          <span class="symbol">${t.theme}</span>
+          <span class="symbol">${t.theme_zh || t.theme}</span>
           <span style="color:var(--muted);font-size:.8rem">${t.count} 支</span>
         </div>
-        <div class="themes" style="margin-top:8px">
+        <div style="font-size:.72rem;color:var(--muted);margin-bottom:6px">${t.theme}</div>
+        <div class="themes">
           ${(t.symbols||[]).map(s=>`<span class="theme-tag">${s.symbol}&nbsp;${s.score}分</span>`).join('')}
         </div>
       </div>`).join('') ||
@@ -260,12 +409,13 @@ function render(data) {
     '<tr><td colspan="8" style="color:var(--muted);padding:16px">尚無選股記錄。</td></tr>';
 
   // AI reviews
+  const AI_C = { Buy:'var(--green)', Avoid:'var(--red)', Hold:'var(--yellow)' };
   document.getElementById('ai-grid').innerHTML =
     (data.ai_reviews || []).filter(r => r.action && r.action !== 'N/A').map(r => `
       <div class="card">
         <div class="card-header">
           <span class="symbol">${r.symbol}</span>
-          <span style="color:${AI_ACTION_COLOR[r.action]||'var(--muted)'}">
+          <span style="color:${AI_C[r.action]||'var(--muted)'}">
             ${AI_ACTION_ZH[r.action]||r.action}
           </span>
         </div>
@@ -274,13 +424,17 @@ function render(data) {
         </div>
         <div style="font-size:.82rem;margin-top:6px;line-height:1.5">${r.reason||''}</div>
       </div>`).join('') ||
-    '<p class="empty-hint">今日無 AI 複核（高分候選未達門檻或 AI 未設定）。</p>';
+    '<p class="empty-hint">今日無 AI 複核。</p>';
 
   // Debug
   document.getElementById('debug-box').textContent = JSON.stringify({
     generated_at: data.generated_at,
     market: data.market,
+    market_direction: data.market_direction,
     overview: data.overview,
+    ai_stats: data.ai_stats,
+    highlights_count: (data.highlights||[]).length,
+    risk_alerts_count: (data.risk_alerts||[]).length,
     ai_reviews_count: (data.ai_reviews||[]).length,
     open_signals_count: (data.open_signals||[]).length,
     watchlist_count: (data.watchlist||[]).length,
@@ -288,16 +442,15 @@ function render(data) {
   }, null, 2);
 }
 
-// Load data
 fetch('dashboard_data.json?_=' + Date.now())
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(render)
   .catch(e => {
-    document.getElementById('debug-box').textContent =
-      '載入資料失敗：' + e + '\n\n請確認 dashboard_data.json 已由 GitHub Actions 生成並部署。';
+    document.getElementById('debug-box').textContent = '載入資料失敗：' + e +
+      '\n\n請確認 dashboard_data.json 已由 GitHub Actions 生成並部署。';
     document.getElementById('market-bar').textContent = '資料未載入';
     document.getElementById('stats').innerHTML =
-      '<p class="empty-hint" style="padding:0">尚無資料 — 請等待每日排程執行後重新整理。</p>';
+      '<p class="empty-hint" style="padding:0">尚無資料 — 請等待排程執行後重新整理。</p>';
   });
 </script>
 </body>
