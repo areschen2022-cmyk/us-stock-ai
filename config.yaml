@@ -1,0 +1,133 @@
+universe:
+  # Static curated watchlist: high-liquidity stocks across key themes
+  # Full dynamic universe loaded from Nasdaq symbol file at runtime
+  core_symbols:
+    - NVDA
+    - AMD
+    - MSFT
+    - AAPL
+    - GOOGL
+    - META
+    - AMZN
+    - TSLA
+    - AVGO
+    - TSM
+    - ASML
+    - SMCI
+    - ARM
+    - PLTR
+    - MSTR
+    - COIN
+    - APP
+    - AXON
+    - LMT
+    - RTX
+    - NOC
+    - GEV
+    - VST
+    - CRDO
+    - ANET
+    - SNOW
+    - NET
+    - DDOG
+    - MDB
+    - CRWD
+    - PANW
+    - ZS
+    - MELI
+    - NU
+    - SE
+    - LLY
+    - NVO
+    - ABBV
+    - GILD
+    - MRNA
+  exclude_symbols: []
+  min_market_cap_b: 1.0
+  min_avg_volume: 500000
+
+symbols:
+  - NVDA
+  - AMD
+  - MSFT
+  - AAPL
+  - GOOGL
+  - META
+  - AMZN
+  - TSLA
+  - AVGO
+  - TSM
+  - ASML
+  - SMCI
+  - ARM
+  - PLTR
+  - MSTR
+  - COIN
+  - APP
+  - AXON
+  - LMT
+  - RTX
+  - NOC
+  - GEV
+  - VST
+  - CRDO
+  - ANET
+  - SNOW
+  - NET
+  - DDOG
+  - MDB
+  - CRWD
+  - PANW
+  - ZS
+  - MELI
+  - NU
+  - SE
+  - LLY
+  - NVO
+  - ABBV
+  - GILD
+  - MRNA
+
+scoring:
+  weights:
+    technical: 30
+    fundamental: 20
+    flow: 15
+    news_catalyst: 15
+    market_sentiment: 10
+    risk: 10
+  ai_review_threshold: 75
+  ai_review_top_n: 5
+
+market_indices:
+  - SPY
+  - QQQ
+  - IWM
+  - DIA
+  - SMH
+  - XLF
+  - XLK
+  - XLE
+  - XLV
+  - TLT
+  - HYG
+  - VIX
+
+themes:
+  ai_infra: [NVDA, AMD, AVGO, ASML, TSM, ARM, CRDO, SMCI]
+  cloud_saas: [MSFT, GOOGL, AMZN, SNOW, NET, DDOG, MDB, CRM]
+  cybersecurity: [CRWD, PANW, ZS, AXON]
+  defense: [LMT, RTX, NOC, GEV, AXON]
+  energy_power: [VST, GEV, CEG, NRG]
+  crypto_fintech: [COIN, MSTR, NU, MELI]
+  glp1_biotech: [LLY, NVO, ABBV, GILD, MRNA]
+  emerging_market: [MELI, NU, SE]
+
+telegram:
+  morning_report_hour_et: 6
+  max_candidates_in_message: 8
+
+ai:
+  primary_model: "deepseek/deepseek-chat"
+  fallback_model: "openai/gpt-4o-mini"
+  compact_payload: true

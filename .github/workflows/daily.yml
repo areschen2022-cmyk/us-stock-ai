@@ -1,0 +1,102 @@
+name: US Stock AI Daily
+
+on:
+  schedule:
+    # Dashboard update: Mon-Fri 21:30 UTC = ~5:30 PM ET (after market close)
+    - cron: "30 21 * * 1-5"
+    # Morning Telegram: Mon-Fri 10:00 UTC = ~6 AM ET
+    - cron: "0 10 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode (update / telegram / check / export)"
+        default: "update"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: us-stock-ai-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  dashboard-update:
+    name: Daily Score Update & Dashboard
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.schedule == '30 21 * * 1-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run daily scoring pipeline
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python main.py
+
+      - name: Post-update health check
+        run: python scripts/post_update_check.py
+
+      - name: Weekly knowledge hub export (Fridays only)
+        if: github.event.schedule == '30 21 * * 1-5'
+        run: |
+          DOW=$(date +%u)
+          if [ "$DOW" = "5" ]; then
+            echo "Friday — running knowledge export"
+            python scripts/export_learning_to_knowledge_hub.py
+          else
+            echo "Not Friday — skipping knowledge export"
+          fi
+
+      - name: Commit dashboard JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/dashboard_data.json data/us_stock_ai.sqlite3 || true
+          git diff --staged --quiet || git commit -m "chore: update dashboard $(date -u +%Y-%m-%d)"
+          git push || true
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+
+  morning-telegram:
+    name: Morning Telegram Brief
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.schedule == '0 10 * * 1-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send morning Telegram brief
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python main.py --telegram-only
