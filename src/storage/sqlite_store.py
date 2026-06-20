@@ -194,6 +194,34 @@ class SQLiteStore:
             ).fetchall()
             return [dict(r) for r in rows]
 
+    def get_theme_count_history(self, as_of: date, lookback: int = 4) -> dict[str, dict[str, int]]:
+        """Return {date_str: {theme: stock_count}} for the most recent `lookback`
+        trading days up to and including as_of. Used for theme-heating detection."""
+        with self._connect() as conn:
+            conn.row_factory = sqlite3.Row
+            dates = conn.execute(
+                """SELECT DISTINCT as_of_date FROM daily_scores
+                   WHERE as_of_date <= ? ORDER BY as_of_date DESC LIMIT ?""",
+                (str(as_of), lookback),
+            ).fetchall()
+            date_list = [r["as_of_date"] for r in dates]
+            history: dict[str, dict[str, int]] = {}
+            for d in date_list:
+                rows = conn.execute(
+                    "SELECT themes_json FROM daily_scores WHERE as_of_date=?",
+                    (d,),
+                ).fetchall()
+                counts: dict[str, int] = {}
+                for r in rows:
+                    try:
+                        themes = json.loads(r["themes_json"] or "[]")
+                    except Exception:
+                        themes = []
+                    for t in themes:
+                        counts[t] = counts.get(t, 0) + 1
+                history[d] = counts
+            return history
+
     # ── watch signals ─────────────────────────────────────────────────────────
 
     def upsert_watch_signal(self, score: StockScore, signal_date: date) -> None:
