@@ -79,6 +79,14 @@
   .hl-ai-avoid{ background:#742a2a; color:#fc8181; }
   .hl-ai-none { background:var(--border); color:var(--muted); }
 
+  /* ── Theme heating alerts ── */
+  .alert-list { margin-bottom:20px; }
+  .alert-item { display:flex; align-items:center; gap:10px; padding:8px 12px; background:#1a160f; border:1px solid #744210; border-radius:6px; margin-bottom:6px; font-size:.83rem; }
+  .alert-icon { color:var(--yellow); }
+  .alert-theme { font-weight:700; min-width:110px; }
+  .alert-detail { color:var(--muted); font-size:.78rem; }
+  .rising-badge { font-size:.6rem; color:var(--yellow); border:1px solid var(--yellow); padding:0 4px; border-radius:8px; margin-left:4px; }
+
   /* ── Risk alerts ── */
   .risk-list { margin-bottom:20px; }
   .risk-item { display:flex; align-items:center; gap:10px; padding:8px 12px; background:#1a0f0f; border:1px solid #742a2a; border-radius:6px; margin-bottom:6px; font-size:.83rem; }
@@ -141,6 +149,12 @@
   <div class="section-block">
     <div class="section-title">🔥 今日重點</div>
     <div class="highlights" id="highlights"></div>
+  </div>
+
+  <!-- 題材升溫提醒 -->
+  <div class="section-block" id="theme-alert-block" style="display:none">
+    <div class="section-title">🚨 題材升溫提醒</div>
+    <div class="alert-list" id="theme-alert-list"></div>
   </div>
 
   <!-- 危險名單 -->
@@ -310,6 +324,11 @@ function render(data) {
   if (m.SMH) mbar += ` | SMH <b>${fmtPrice(m.SMH)}</b>`;
   if (m.IWM) mbar += ` | IWM <b>${fmtPrice(m.IWM)}</b>`;
   if (m.TLT) mbar += ` | TLT <b>${fmtPrice(m.TLT)}</b>`;
+  const dh = data.data_health || {};
+  if (dh.source_status) {
+    const delay = dh.elapsed_min != null ? `延遲 ${dh.elapsed_min} 分 | ` : '';
+    mbar += ` &nbsp;·&nbsp; <span style="font-size:.75rem">${delay}資料源 ${dh.source_status} | 品質 ${dh.quality||'—'}</span>`;
+  }
   document.getElementById('market-bar').innerHTML = mbar;
 
   // Updated
@@ -349,6 +368,20 @@ function render(data) {
       <span class="hl-ai ${aiCls}">${aiLabel}</span>
     </div>`;
   }).join('') : '<p class="empty-hint">今日無 S/A 級候選股。</p>';
+
+  // 題材升溫提醒
+  const themeAlerts = data.theme_alerts || [];
+  if (themeAlerts.length) {
+    document.getElementById('theme-alert-block').style.display = '';
+    document.getElementById('theme-alert-list').innerHTML = themeAlerts.map(a => {
+      const detail = a.prev_avg ? `今日 ${a.count} 檔（前均 ${a.prev_avg} 檔）` : `今日 ${a.count} 檔（新題材）`;
+      return `<div class="alert-item">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-theme">${a.theme_zh || a.theme}</span>
+        <span class="alert-detail">${detail}</span>
+      </div>`;
+    }).join('');
+  }
 
   // 危險名單
   const risks = data.risk_alerts || [];
@@ -393,8 +426,8 @@ function render(data) {
     (data.themes || []).map(t => `
       <div class="card">
         <div class="card-header">
-          <span class="symbol">${t.theme_zh || t.theme}</span>
-          <span style="color:var(--muted);font-size:.8rem">${t.count} 支</span>
+          <span class="symbol">${t.theme_zh || t.theme}${t.rising ? '<span class="rising-badge">升溫↑</span>' : ''}</span>
+          <span style="color:var(--muted);font-size:.8rem">${t.count} 支${t.prev_avg ? ` (前均 ${t.prev_avg})` : ''}</span>
         </div>
         <div style="font-size:.72rem;color:var(--muted);margin-bottom:6px">${t.theme}</div>
         <div class="themes">
@@ -431,9 +464,11 @@ function render(data) {
     generated_at: data.generated_at,
     market: data.market,
     market_direction: data.market_direction,
+    data_health: data.data_health,
     overview: data.overview,
     ai_stats: data.ai_stats,
     highlights_count: (data.highlights||[]).length,
+    theme_alerts_count: (data.theme_alerts||[]).length,
     risk_alerts_count: (data.risk_alerts||[]).length,
     ai_reviews_count: (data.ai_reviews||[]).length,
     open_signals_count: (data.open_signals||[]).length,

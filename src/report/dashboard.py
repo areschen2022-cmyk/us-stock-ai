@@ -40,6 +40,46 @@ def _ai_stats(ai_reviews: dict[str, dict]) -> dict[str, int]:
     return {"buy": buy, "hold": hold, "avoid": avoid, "total": len(ai_reviews)}
 
 
+def _theme_heating(
+    themes_list: list[dict],
+    theme_history: dict[str, dict[str, int]] | None,
+    today: date,
+) -> list[dict]:
+    """Mark each theme as rising when today's stock count meaningfully exceeds the
+    prior-days average. Mutates themes_list in place (adds `rising`, `prev_avg`,
+    `delta`) and returns the subset of surging themes for the alert section."""
+    today_str = str(today)
+    # Prior days = all history dates except today
+    prior_dates = [d for d in (theme_history or {}) if d != today_str]
+    alerts: list[dict] = []
+
+    for item in themes_list:
+        theme = item["theme"]
+        today_count = item["count"]
+        prior_counts = [theme_history[d].get(theme, 0) for d in prior_dates] if prior_dates else []
+        prev_avg = round(sum(prior_counts) / len(prior_counts), 1) if prior_counts else 0.0
+        item["prev_avg"] = prev_avg
+        item["delta"] = round(today_count - prev_avg, 1)
+
+        # Rising: new theme (no prior presence) with >=2 today, or >=1.8x average and >=3
+        rising = False
+        if prior_dates:
+            if prev_avg == 0 and today_count >= 2:
+                rising = True
+            elif prev_avg > 0 and today_count >= 3 and today_count >= prev_avg * 1.8:
+                rising = True
+        item["rising"] = rising
+        if rising:
+            alerts.append({
+                "theme": theme,
+                "theme_zh": item["theme_zh"],
+                "count": today_count,
+                "prev_avg": prev_avg,
+            })
+
+    return alerts
+
+
 def _highlights(sorted_scores: list[StockScore], ai_reviews: dict[str, dict]) -> list[dict]:
     top = [s for s in sorted_scores if s.grade in ("S", "A")][:5]
     result = []
@@ -92,6 +132,8 @@ def build_dashboard_json(
     open_signals: list[dict],
     ai_reviews: dict[str, dict],
     today: date | None = None,
+    theme_history: dict[str, dict[str, int]] | None = None,
+    data_health: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     today = today or date.today()
     sorted_scores = sorted(scores, key=lambda s: s.total_score, reverse=True)
@@ -116,6 +158,9 @@ def build_dashboard_json(
         }
         for t, v in sorted(theme_counts.items(), key=lambda x: -len(x[1]))
     ]
+
+    # Theme heating detection (today vs prior-days average)
+    theme_alerts = _theme_heating(themes_list, theme_history, today)
 
     # Risk alerts: high risk penalty or grade D
     risk_alerts = [
@@ -146,9 +191,11 @@ def build_dashboard_json(
         },
         "highlights": _highlights(sorted_scores, ai_reviews),
         "ai_stats": _ai_stats(ai_reviews),
+        "data_health": data_health or {},
         "watchlist": cards,
         "top10": cards[:10],
         "themes": themes_list,
+        "theme_alerts": theme_alerts,
         "risk_alerts": risk_alerts,
         "open_signals": open_signals,
         "ai_reviews": [

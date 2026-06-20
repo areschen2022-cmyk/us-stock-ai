@@ -100,7 +100,34 @@ def run_daily_update() -> None:
 
     # 8. Dashboard
     open_signals = store.get_open_signals()
-    dash_data = build_dashboard_json(scores, market_prices, open_signals, ai_reviews, today)
+    theme_history = store.get_theme_count_history(today, lookback=4)
+
+    elapsed_min = round((time.monotonic() - pipeline_start) / 60, 1)
+    requested = len(symbols)
+    success = len(scores)
+    miss_rate = (missing_data / requested) if requested else 0.0
+    if miss_rate == 0:
+        source_status = "正常"
+        quality = "高"
+    elif miss_rate < 0.15:
+        source_status = "正常"
+        quality = "中"
+    else:
+        source_status = "部分缺漏"
+        quality = "低"
+    data_health = {
+        "elapsed_min": elapsed_min,
+        "requested": requested,
+        "scored": success,
+        "missing": missing_data,
+        "source_status": source_status,
+        "quality": quality,
+    }
+
+    dash_data = build_dashboard_json(
+        scores, market_prices, open_signals, ai_reviews, today,
+        theme_history=theme_history, data_health=data_health,
+    )
     write_dashboard_json(dash_data)
 
     perf_data = build_performance_payload(store, today)
@@ -115,6 +142,9 @@ def run_daily_update() -> None:
             "ai_hold": dash_data["ai_stats"]["hold"],
             "ai_avoid": dash_data["ai_stats"]["avoid"],
             "ai_total": dash_data["ai_stats"]["total"],
+            "theme_alerts": dash_data["theme_alerts"],
+            "risk_alerts": dash_data["risk_alerts"],
+            "data_health": dash_data["data_health"],
         }
         notifier = TelegramNotifier()
         ok = notifier.send_morning_report(top, market_prices, today, ai_summaries, overview)
@@ -139,12 +169,11 @@ def run_morning_telegram() -> None:
         print("[Main] No scores for today yet — skipping Telegram")
         return
 
-    # Reconstruct lightweight objects for Telegram
-    from src.scoring.grade import grade_label, action_from_grade
-    from dataclasses import fields
-    top = []
-    for r in sorted(scores_raw, key=lambda x: x["total_score"], reverse=True)[:10]:
-        s = StockScore(
+    # Reconstruct full StockScore objects (incl. warnings) from stored rows
+    import json as _json
+
+    def _row_to_score(r: dict) -> StockScore:
+        return StockScore(
             symbol=r["symbol"],
             name=r.get("name") or r["symbol"],
             total_score=r["total_score"],
@@ -157,19 +186,33 @@ def run_morning_telegram() -> None:
             news_catalyst_score=r.get("news_catalyst_score", 0),
             market_sentiment_score=r.get("market_sentiment_score", 0),
             risk_penalty=r.get("risk_penalty", 0),
-            themes=__import__("json").loads(r.get("themes_json") or "[]"),
+            themes=_json.loads(r.get("themes_json") or "[]"),
+            warnings=_json.loads(r.get("warnings_json") or "[]"),
             stop_price=None,
             entry_price=r.get("price"),
             atr_pct=r.get("atr_pct", 0),
         )
-        top.append(s)
+
+    all_scores = [_row_to_score(r) for r in scores_raw]
+    top = sorted(all_scores, key=lambda s: s.total_score, reverse=True)[:10]
 
     market_prices = fetch_market_indices()
+    theme_history = store.get_theme_count_history(today, lookback=4)
+
+    # Reuse the dashboard builder so Telegram and web stay consistent
+    dash_data = build_dashboard_json(
+        all_scores, market_prices, store.get_open_signals(), {}, today,
+        theme_history=theme_history,
+    )
     overview = {
-        "total_scored": len(scores_raw),
-        "grade_S": sum(1 for r in scores_raw if r.get("grade") == "S"),
-        "grade_A": sum(1 for r in scores_raw if r.get("grade") == "A"),
-        "grade_B": sum(1 for r in scores_raw if r.get("grade") == "B"),
+        **dash_data["overview"],
+        "ai_buy": dash_data["ai_stats"]["buy"],
+        "ai_hold": dash_data["ai_stats"]["hold"],
+        "ai_avoid": dash_data["ai_stats"]["avoid"],
+        "ai_total": dash_data["ai_stats"]["total"],
+        "theme_alerts": dash_data["theme_alerts"],
+        "risk_alerts": dash_data["risk_alerts"],
+        "data_health": {"source_status": "讀取快取", "quality": "高"},
     }
     notifier = TelegramNotifier()
     ok = notifier.send_morning_report(top, market_prices, today, overview=overview)

@@ -78,6 +78,12 @@ def _build_morning_report(
     grade_a = overview.get("grade_A", sum(1 for s in top_scores if s.grade == "A"))
     grade_b = overview.get("grade_B", sum(1 for s in top_scores if s.grade == "B"))
 
+    # 題材升溫 / 危險名單 / 資料源（由 overview 攜帶）
+    theme_alerts = overview.get("theme_alerts", []) or []
+    risk_alerts = overview.get("risk_alerts", []) or []
+    data_health = overview.get("data_health", {}) or {}
+    rising_set = {a["theme"] for a in theme_alerts}
+
     # 主題彙整
     theme_counts: dict[str, int] = {}
     for s in top_scores:
@@ -85,7 +91,8 @@ def _build_morning_report(
             theme_counts[t] = theme_counts.get(t, 0) + 1
     top_themes = sorted(theme_counts.items(), key=lambda x: -x[1])[:4]
     themes_str = "、".join(
-        f"{THEME_ZH.get(t, t)}({n})" for t, n in top_themes
+        f"{THEME_ZH.get(t, t)}({n}){'升溫↑' if t in rising_set else ''}"
+        for t, n in top_themes
     ) if top_themes else "無明顯題材"
 
     # AI 統計
@@ -105,6 +112,14 @@ def _build_morning_report(
     if iwm:
         extra_indices += f"｜IWM {_fmt_price(iwm)}"
 
+    # 資料源 / 延遲 / 品質
+    source_status = data_health.get("source_status", "正常")
+    quality = data_health.get("quality", "高")
+    elapsed = data_health.get("elapsed_min")
+    health_line = f"資料源：{source_status}｜資料品質：{quality}"
+    if elapsed is not None:
+        health_line = f"延遲：{elapsed} 分｜" + health_line
+
     header = (
         f"美股 AI 早報｜{today}\n"
         f"大盤：SPY {spy_str}｜QQQ {qqq_str}｜VIX {vix_str}{extra_indices}\n"
@@ -112,6 +127,7 @@ def _build_morning_report(
         f"{dir_icon} 風向：{direction}\n"
         f"題材：{themes_str}\n"
         f"掃描 {total} 檔｜S {grade_s}｜A {grade_a}｜B {grade_b}\n"
+        f"{health_line}\n"
         f"\n"
     )
 
@@ -150,6 +166,26 @@ def _build_morning_report(
         )
 
     _flush("\n")
+
+    # === 🚨 提醒（題材升溫）===
+    if theme_alerts:
+        _flush("🚨 提醒\n")
+        for a in theme_alerts[:5]:
+            prev = a.get("prev_avg", 0)
+            _flush(
+                f"⚠️ 題材升溫 {a['theme_zh']}：今日 {a['count']} 檔"
+                + (f"（前均 {prev} 檔）\n" if prev else "（新題材）\n")
+            )
+        _flush("\n")
+
+    # === 🛡 危險名單 ===
+    if risk_alerts:
+        _flush("🛡 危險名單\n")
+        for r in risk_alerts[:5]:
+            sym = r.get("symbol", "?")
+            warns = "、".join(r.get("warnings") or []) or "高風險扣分"
+            _flush(f"▸ {sym}｜風險 -{r.get('risk_penalty', 0)}｜{warns}\n")
+        _flush("\n")
 
     # === 完整 S 級 ===
     grade_s_list = [s for s in top_scores if s.grade == "S"]
