@@ -17,6 +17,7 @@ from src.scoring.score_engine import StockScore, compute_score
 from src.storage.sqlite_store import SQLiteStore
 from src.ai.model_council import ModelCouncil
 from src.report.dashboard import build_dashboard_json, write_dashboard_json
+from src.report.performance import build_performance_payload, write_performance_json
 from src.notifier.telegram import TelegramNotifier
 from src.backtest.forward_tracker import fill_open_signals
 
