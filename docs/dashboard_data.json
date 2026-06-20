@@ -3,15 +3,35 @@
   "market": {
     "SPY": 746.739990234375,
     "QQQ": 740.6199951171875,
-    "VIX": 16.399999618530273,
+    "VIX": 18.440000534057617,
     "TLT": 86.75,
-    "HYG": 80.01000213623047
+    "HYG": 80.01000213623047,
+    "IWM": 295.5899963378906,
+    "SMH": 659.8800048828125
   },
+  "market_direction": "中性",
   "overview": {
     "total_scored": 40,
     "grade_S": 0,
     "grade_A": 0,
-    "grade_B": 0
+    "grade_B": 0,
+    "grade_C": 0,
+    "grade_D": 40
+  },
+  "highlights": [],
+  "ai_stats": {
+    "buy": 0,
+    "hold": 0,
+    "avoid": 0,
+    "total": 5
+  },
+  "data_health": {
+    "elapsed_min": 0.4,
+    "requested": 40,
+    "scored": 40,
+    "missing": 0,
+    "source_status": "正常",
+    "quality": "高"
   },
   "watchlist": [
     {
@@ -29,7 +49,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 10.0% — volatile"
+        "波動過大 ATR 10.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -41,7 +61,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 469377908736
+      "market_cap": 469377908736,
+      "risk_penalty": 3
     },
     {
       "symbol": "TSM",
@@ -58,7 +79,7 @@
         "ai_infra"
       ],
       "warnings": [
-        "ATR 4.5%"
+        "波動偏高 ATR 4.5%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -70,7 +91,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 2396773416960
+      "market_cap": 2396773416960,
+      "risk_penalty": 1
     },
     {
       "symbol": "CRDO",
@@ -87,7 +109,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 10.4% — volatile"
+        "波動過大 ATR 10.4%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -99,7 +121,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 50690285568
+      "market_cap": 50690285568,
+      "risk_penalty": 3
     },
     {
       "symbol": "PANW",
@@ -115,7 +138,7 @@
         "cybersecurity"
       ],
       "warnings": [
-        "ATR 4.7%"
+        "波動偏高 ATR 4.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -127,7 +150,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 234540695552
+      "market_cap": 234540695552,
+      "risk_penalty": 1
     },
     {
       "symbol": "NVDA",
@@ -144,7 +168,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "ATR 4.0%"
+        "波動偏高 ATR 4.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -156,7 +180,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 5103122644992
+      "market_cap": 5103122644992,
+      "risk_penalty": 1
     },
     {
       "symbol": "AMD",
@@ -173,7 +198,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 6.9% — volatile"
+        "波動過大 ATR 6.9%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -185,7 +210,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 876235849728
+      "market_cap": 876235849728,
+      "risk_penalty": 3
     },
     {
       "symbol": "ABBV",
@@ -211,7 +237,8 @@
         "R": 0
       },
       "sector": "Healthcare",
-      "market_cap": 382492999680
+      "market_cap": 382492999680,
+      "risk_penalty": 0
     },
     {
       "symbol": "GOOGL",
@@ -228,7 +255,7 @@
         "ai_infra"
       ],
       "warnings": [
-        "ATR 3.1%"
+        "波動偏高 ATR 3.1%"
       ],
       "matched_headlines": [
         "Google shake-up highlights how human brains may be the scarcest AI resource of all"
@@ -242,7 +269,8 @@
         "R": -1
       },
       "sector": "Communication Services",
-      "market_cap": 4490912595968
+      "market_cap": 4490912595968,
+      "risk_penalty": 1
     },
     {
       "symbol": "LLY",
@@ -258,7 +286,7 @@
         "glp1_biotech"
       ],
       "warnings": [
-        "ATR 3.4%"
+        "波動偏高 ATR 3.4%"
       ],
       "matched_headlines": [
         "‘We are habitually frugal’: My wife and I have money. How do we help our children without ruining their independence?"
@@ -272,7 +300,8 @@
         "R": -1
       },
       "sector": "Healthcare",
-      "market_cap": 979640254464
+      "market_cap": 979640254464,
+      "risk_penalty": 1
     },
     {
       "symbol": "AAPL",
@@ -298,7 +327,8 @@
         "R": 0
       },
       "sector": "Technology",
-      "market_cap": 4376979046400
+      "market_cap": 4376979046400,
+      "risk_penalty": 0
     },
     {
       "symbol": "ASML",
@@ -314,7 +344,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 5.1% — volatile"
+        "波動過大 ATR 5.1%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -326,7 +356,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 743732805632
+      "market_cap": 743732805632,
+      "risk_penalty": 3
     },
     {
       "symbol": "ANET",
@@ -343,7 +374,7 @@
         "cloud_saas"
       ],
       "warnings": [
-        "High ATR 5.3% — volatile"
+        "波動過大 ATR 5.3%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -355,7 +386,41 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 213643264000
+      "market_cap": 213643264000,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 35,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 91.27999877929688,
+      "entry": 91.27999877929688,
+      "stop": 81.94,
+      "atr_pct": 5.114952920941962,
+      "themes": [
+        "emerging_market"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.1%"
+      ],
+      "matched_headlines": [
+        "Americans’ 401(k) balances hit record levels last year. See how you compare.",
+        "Tesla booted from the ‘Magnificent Seven’ by a top fund manager. Here is the tech giant he’s crowned.",
+        "Nike Q4 Earnings Preview: A Most Critical Quarter For These Reasons"
+      ],
+      "sub": {
+        "T": 8,
+        "F": 15,
+        "Fl": 3,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 55907590144,
+      "risk_penalty": 3
     },
     {
       "symbol": "RTX",
@@ -381,39 +446,8 @@
         "R": 0
       },
       "sector": "Industrials",
-      "market_cap": 249944440832
-    },
-    {
-      "symbol": "SE",
-      "name": "Sea Limited",
-      "score": 32,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 91.27999877929688,
-      "entry": 91.27999877929688,
-      "stop": 81.94,
-      "atr_pct": 5.114952920941962,
-      "themes": [
-        "emerging_market"
-      ],
-      "warnings": [
-        "High ATR 5.1% — volatile"
-      ],
-      "matched_headlines": [
-        "The Campbell's Company -  Sell: Structural Problems Are Serious",
-        "Salesforce Isn't Defending The Seat, It's Metering It",
-        "BST: 6% Yield On Tech Assets, 11% Discount (Rating Upgrade)"
-      ],
-      "sub": {
-        "T": 8,
-        "F": 15,
-        "Fl": 3,
-        "N": 3,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 55907590144
+      "market_cap": 249944440832,
+      "risk_penalty": 0
     },
     {
       "symbol": "MSFT",
@@ -430,7 +464,7 @@
         "ai_infra"
       ],
       "warnings": [
-        "ATR 3.3%"
+        "波動偏高 ATR 3.3%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -442,7 +476,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 2818348154880
+      "market_cap": 2818348154880,
+      "risk_penalty": 1
     },
     {
       "symbol": "META",
@@ -459,7 +494,7 @@
         "cloud_saas"
       ],
       "warnings": [
-        "ATR 4.0%"
+        "波動偏高 ATR 4.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -471,7 +506,8 @@
         "R": -1
       },
       "sector": "Communication Services",
-      "market_cap": 1465228591104
+      "market_cap": 1465228591104,
+      "risk_penalty": 1
     },
     {
       "symbol": "VST",
@@ -487,7 +523,7 @@
         "energy_power"
       ],
       "warnings": [
-        "ATR 4.3%"
+        "波動偏高 ATR 4.3%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -499,7 +535,8 @@
         "R": -1
       },
       "sector": "Utilities",
-      "market_cap": 55213629440
+      "market_cap": 55213629440,
+      "risk_penalty": 1
     },
     {
       "symbol": "GEV",
@@ -516,7 +553,7 @@
         "defense"
       ],
       "warnings": [
-        "ATR 4.3%"
+        "波動偏高 ATR 4.3%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -528,7 +565,8 @@
         "R": -1
       },
       "sector": "Industrials",
-      "market_cap": 298206625792
+      "market_cap": 298206625792,
+      "risk_penalty": 1
     },
     {
       "symbol": "DDOG",
@@ -544,7 +582,7 @@
         "cloud_saas"
       ],
       "warnings": [
-        "High ATR 6.5% — volatile"
+        "波動過大 ATR 6.5%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -556,7 +594,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 79379120128
+      "market_cap": 79379120128,
+      "risk_penalty": 3
     },
     {
       "symbol": "PLTR",
@@ -573,7 +612,7 @@
         "defense"
       ],
       "warnings": [
-        "High ATR 5.2% — volatile"
+        "波動過大 ATR 5.2%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -585,7 +624,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 307982663680
+      "market_cap": 307982663680,
+      "risk_penalty": 3
     },
     {
       "symbol": "CRWD",
@@ -601,7 +641,7 @@
         "cybersecurity"
       ],
       "warnings": [
-        "High ATR 5.7% — volatile"
+        "波動過大 ATR 5.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -613,7 +653,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 174341259264
+      "market_cap": 174341259264,
+      "risk_penalty": 3
     },
     {
       "symbol": "GILD",
@@ -629,7 +670,7 @@
         "glp1_biotech"
       ],
       "warnings": [
-        "ATR 3.0%"
+        "波動偏高 ATR 3.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -641,7 +682,8 @@
         "R": -1
       },
       "sector": "Healthcare",
-      "market_cap": 153656688640
+      "market_cap": 153656688640,
+      "risk_penalty": 1
     },
     {
       "symbol": "AVGO",
@@ -658,7 +700,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 6.3% — volatile"
+        "波動過大 ATR 6.3%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -670,7 +712,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 1957030658048
+      "market_cap": 1957030658048,
+      "risk_penalty": 3
     },
     {
       "symbol": "AMZN",
@@ -686,7 +729,7 @@
         "cloud_saas"
       ],
       "warnings": [
-        "ATR 3.4%"
+        "波動偏高 ATR 3.4%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -698,7 +741,8 @@
         "R": -1
       },
       "sector": "Consumer Cyclical",
-      "market_cap": 2628929978368
+      "market_cap": 2628929978368,
+      "risk_penalty": 1
     },
     {
       "symbol": "NVO",
@@ -714,7 +758,7 @@
         "glp1_biotech"
       ],
       "warnings": [
-        "ATR 3.5%"
+        "波動偏高 ATR 3.5%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -726,7 +770,8 @@
         "R": -1
       },
       "sector": "Healthcare",
-      "market_cap": 191242321920
+      "market_cap": 191242321920,
+      "risk_penalty": 1
     },
     {
       "symbol": "APP",
@@ -742,10 +787,10 @@
         "ai_infra"
       ],
       "warnings": [
-        "High ATR 7.1% — volatile"
+        "波動過大 ATR 7.1%"
       ],
       "matched_headlines": [
-        "‘I’ll probably be working until I die’: I’m 60, work as a waiter and have $2,000 in a Roth IRA. What will happen to me?"
+        "‘Money can make you happy’: My wife and I have no heirs, but we’re making the world a better place by giving it away"
       ],
       "sub": {
         "T": 3,
@@ -756,7 +801,8 @@
         "R": -3
       },
       "sector": "Communication Services",
-      "market_cap": 157794156544
+      "market_cap": 157794156544,
+      "risk_penalty": 3
     },
     {
       "symbol": "MDB",
@@ -772,7 +818,7 @@
         "cloud_saas"
       ],
       "warnings": [
-        "High ATR 8.2% — volatile"
+        "波動過大 ATR 8.2%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -784,7 +830,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 26763724800
+      "market_cap": 26763724800,
+      "risk_penalty": 3
     },
     {
       "symbol": "ZS",
@@ -800,7 +847,7 @@
         "cybersecurity"
       ],
       "warnings": [
-        "High ATR 6.7% — volatile"
+        "波動過大 ATR 6.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -812,7 +859,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 20189433856
+      "market_cap": 20189433856,
+      "risk_penalty": 3
     },
     {
       "symbol": "AXON",
@@ -829,7 +877,7 @@
         "cybersecurity"
       ],
       "warnings": [
-        "High ATR 6.8% — volatile"
+        "波動過大 ATR 6.8%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -841,7 +889,8 @@
         "R": -3
       },
       "sector": "Industrials",
-      "market_cap": 34126919680
+      "market_cap": 34126919680,
+      "risk_penalty": 3
     },
     {
       "symbol": "LMT",
@@ -867,7 +916,8 @@
         "R": 0
       },
       "sector": "Industrials",
-      "market_cap": 117806481408
+      "market_cap": 117806481408,
+      "risk_penalty": 0
     },
     {
       "symbol": "NOC",
@@ -893,7 +943,8 @@
         "R": 0
       },
       "sector": "Industrials",
-      "market_cap": 74070458368
+      "market_cap": 74070458368,
+      "risk_penalty": 0
     },
     {
       "symbol": "SNOW",
@@ -909,7 +960,7 @@
         "cloud_saas"
       ],
       "warnings": [
-        "High ATR 6.7% — volatile"
+        "波動過大 ATR 6.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -921,7 +972,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 80511713280
+      "market_cap": 80511713280,
+      "risk_penalty": 3
     },
     {
       "symbol": "NET",
@@ -938,7 +990,7 @@
         "cybersecurity"
       ],
       "warnings": [
-        "High ATR 6.7% — volatile"
+        "波動過大 ATR 6.7%"
       ],
       "matched_headlines": [
         "Netlist Turned A Profit, But The Real Money Is Still In Court"
@@ -952,7 +1004,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 79527755776
+      "market_cap": 79527755776,
+      "risk_penalty": 3
     },
     {
       "symbol": "MRNA",
@@ -968,7 +1021,7 @@
         "glp1_biotech"
       ],
       "warnings": [
-        "High ATR 6.2% — volatile"
+        "波動過大 ATR 6.2%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -980,25 +1033,24 @@
         "R": -3
       },
       "sector": "Healthcare",
-      "market_cap": 25378449408
+      "market_cap": 25378449408,
+      "risk_penalty": 3
     },
     {
       "symbol": "MELI",
       "name": "MercadoLibre, Inc.",
-      "score": 18,
+      "score": 19,
       "grade": "D",
       "action": "Avoid",
-      "price": 1635.1500244140625,
-      "entry": 1635.1500244140625,
-      "stop": 1511.68,
-      "atr_pct": 3.7754072655065545,
+      "price": NaN,
+      "entry": NaN,
+      "stop": null,
+      "atr_pct": 0.0,
       "themes": [
         "emerging_market",
         "crypto_fintech"
       ],
-      "warnings": [
-        "ATR 3.8%"
-      ],
+      "warnings": [],
       "matched_headlines": [],
       "sub": {
         "T": 0,
@@ -1006,10 +1058,11 @@
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": -1
+        "R": 0
       },
       "sector": "Consumer Cyclical",
-      "market_cap": 82897502208
+      "market_cap": 82897502208,
+      "risk_penalty": 0
     },
     {
       "symbol": "NU",
@@ -1026,7 +1079,7 @@
         "crypto_fintech"
       ],
       "warnings": [
-        "ATR 4.4%"
+        "波動偏高 ATR 4.4%"
       ],
       "matched_headlines": [
         "My two sons will inherit a $30,000 annuity from their grandmother. What should I do with the money?"
@@ -1040,7 +1093,8 @@
         "R": -1
       },
       "sector": "Financial Services",
-      "market_cap": 61792727040
+      "market_cap": 61792727040,
+      "risk_penalty": 1
     },
     {
       "symbol": "TSLA",
@@ -1057,7 +1111,7 @@
         "energy_power"
       ],
       "warnings": [
-        "ATR 4.6%"
+        "波動偏高 ATR 4.6%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1069,7 +1123,8 @@
         "R": -1
       },
       "sector": "Consumer Cyclical",
-      "market_cap": 1504129843200
+      "market_cap": 1504129843200,
+      "risk_penalty": 1
     },
     {
       "symbol": "COIN",
@@ -1085,7 +1140,7 @@
         "crypto_fintech"
       ],
       "warnings": [
-        "High ATR 6.7% — volatile"
+        "波動過大 ATR 6.7%"
       ],
       "matched_headlines": [
         "Toncoin (TON) Price Prediction 2025, 2026, 2027-2030",
@@ -1100,7 +1155,8 @@
         "R": -3
       },
       "sector": "Financial Services",
-      "market_cap": 43012603904
+      "market_cap": 43012603904,
+      "risk_penalty": 3
     },
     {
       "symbol": "MSTR",
@@ -1116,7 +1172,7 @@
         "crypto_fintech"
       ],
       "warnings": [
-        "High ATR 9.6% — volatile"
+        "波動過大 ATR 9.6%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1128,7 +1184,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 39954190336
+      "market_cap": 39954190336,
+      "risk_penalty": 3
     },
     {
       "symbol": "SMCI",
@@ -1144,7 +1201,7 @@
         "ai_infra"
       ],
       "warnings": [
-        "High ATR 13.0% — volatile"
+        "波動過大 ATR 13.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1156,7 +1213,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 19833126912
+      "market_cap": 19833126912,
+      "risk_penalty": 3
     }
   ],
   "top10": [
@@ -1175,7 +1233,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 10.0% — volatile"
+        "波動過大 ATR 10.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1187,7 +1245,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 469377908736
+      "market_cap": 469377908736,
+      "risk_penalty": 3
     },
     {
       "symbol": "TSM",
@@ -1204,7 +1263,7 @@
         "ai_infra"
       ],
       "warnings": [
-        "ATR 4.5%"
+        "波動偏高 ATR 4.5%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1216,7 +1275,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 2396773416960
+      "market_cap": 2396773416960,
+      "risk_penalty": 1
     },
     {
       "symbol": "CRDO",
@@ -1233,7 +1293,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 10.4% — volatile"
+        "波動過大 ATR 10.4%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1245,7 +1305,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 50690285568
+      "market_cap": 50690285568,
+      "risk_penalty": 3
     },
     {
       "symbol": "PANW",
@@ -1261,7 +1322,7 @@
         "cybersecurity"
       ],
       "warnings": [
-        "ATR 4.7%"
+        "波動偏高 ATR 4.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1273,7 +1334,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 234540695552
+      "market_cap": 234540695552,
+      "risk_penalty": 1
     },
     {
       "symbol": "NVDA",
@@ -1290,7 +1352,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "ATR 4.0%"
+        "波動偏高 ATR 4.0%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1302,7 +1364,8 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 5103122644992
+      "market_cap": 5103122644992,
+      "risk_penalty": 1
     },
     {
       "symbol": "AMD",
@@ -1319,7 +1382,7 @@
         "semiconductor"
       ],
       "warnings": [
-        "High ATR 6.9% — volatile"
+        "波動過大 ATR 6.9%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1331,7 +1394,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 876235849728
+      "market_cap": 876235849728,
+      "risk_penalty": 3
     },
     {
       "symbol": "ABBV",
@@ -1357,7 +1421,8 @@
         "R": 0
       },
       "sector": "Healthcare",
-      "market_cap": 382492999680
+      "market_cap": 382492999680,
+      "risk_penalty": 0
     },
     {
       "symbol": "GOOGL",
@@ -1374,7 +1439,7 @@
         "ai_infra"
       ],
       "warnings": [
-        "ATR 3.1%"
+        "波動偏高 ATR 3.1%"
       ],
       "matched_headlines": [
         "Google shake-up highlights how human brains may be the scarcest AI resource of all"
@@ -1388,7 +1453,8 @@
         "R": -1
       },
       "sector": "Communication Services",
-      "market_cap": 4490912595968
+      "market_cap": 4490912595968,
+      "risk_penalty": 1
     },
     {
       "symbol": "LLY",
@@ -1404,7 +1470,7 @@
         "glp1_biotech"
       ],
       "warnings": [
-        "ATR 3.4%"
+        "波動偏高 ATR 3.4%"
       ],
       "matched_headlines": [
         "‘We are habitually frugal’: My wife and I have money. How do we help our children without ruining their independence?"
@@ -1418,7 +1484,8 @@
         "R": -1
       },
       "sector": "Healthcare",
-      "market_cap": 979640254464
+      "market_cap": 979640254464,
+      "risk_penalty": 1
     },
     {
       "symbol": "AAPL",
@@ -1444,12 +1511,14 @@
         "R": 0
       },
       "sector": "Technology",
-      "market_cap": 4376979046400
+      "market_cap": 4376979046400,
+      "risk_penalty": 0
     }
   ],
   "themes": [
     {
       "theme": "ai_infra",
+      "theme_zh": "AI 基礎建設",
       "count": 15,
       "symbols": [
         {
@@ -1472,10 +1541,14 @@
           "symbol": "AMD",
           "score": 38
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 15.0,
+      "rising": false
     },
     {
       "theme": "cloud_saas",
+      "theme_zh": "雲端軟體",
       "count": 9,
       "symbols": [
         {
@@ -1498,10 +1571,14 @@
           "symbol": "DDOG",
           "score": 30
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 9.0,
+      "rising": false
     },
     {
       "theme": "semiconductor",
+      "theme_zh": "半導體",
       "count": 7,
       "symbols": [
         {
@@ -1524,10 +1601,14 @@
           "symbol": "AMD",
           "score": 38
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 7.0,
+      "rising": false
     },
     {
       "theme": "defense",
+      "theme_zh": "國防軍工",
       "count": 6,
       "symbols": [
         {
@@ -1550,10 +1631,14 @@
           "symbol": "LMT",
           "score": 22
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 6.0,
+      "rising": false
     },
     {
       "theme": "cybersecurity",
+      "theme_zh": "資安",
       "count": 5,
       "symbols": [
         {
@@ -1576,10 +1661,14 @@
           "symbol": "NET",
           "score": 22
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 5.0,
+      "rising": false
     },
     {
       "theme": "glp1_biotech",
+      "theme_zh": "GLP-1 生技",
       "count": 5,
       "symbols": [
         {
@@ -1602,15 +1691,19 @@
           "symbol": "MRNA",
           "score": 21
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 5.0,
+      "rising": false
     },
     {
       "theme": "crypto_fintech",
+      "theme_zh": "加密金融",
       "count": 4,
       "symbols": [
         {
           "symbol": "MELI",
-          "score": 18
+          "score": 19
         },
         {
           "symbol": "NU",
@@ -1624,28 +1717,36 @@
           "symbol": "MSTR",
           "score": 15
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 4.0,
+      "rising": false
     },
     {
       "theme": "emerging_market",
+      "theme_zh": "新興市場",
       "count": 3,
       "symbols": [
         {
           "symbol": "SE",
-          "score": 32
+          "score": 35
         },
         {
           "symbol": "MELI",
-          "score": 18
+          "score": 19
         },
         {
           "symbol": "NU",
           "score": 18
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 3.0,
+      "rising": false
     },
     {
       "theme": "energy_power",
+      "theme_zh": "能源電力",
       "count": 3,
       "symbols": [
         {
@@ -1660,7 +1761,162 @@
           "symbol": "TSLA",
           "score": 16
         }
-      ]
+      ],
+      "prev_avg": 0.0,
+      "delta": 3.0,
+      "rising": false
+    }
+  ],
+  "theme_alerts": [],
+  "risk_alerts": [
+    {
+      "symbol": "ARM",
+      "name": "Arm Holdings plc",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 439.4599914550781,
+      "entry": 439.4599914550781,
+      "stop": 351.95,
+      "atr_pct": 9.956521016660702,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 10.0%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 20,
+        "F": 19,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 469377908736,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "TSM",
+      "name": "Taiwan Semiconductor Manufactur",
+      "score": 44,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 462.1199951171875,
+      "entry": 462.1199951171875,
+      "stop": 420.4,
+      "atr_pct": 4.513606663555302,
+      "themes": [
+        "semiconductor",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.5%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 17,
+        "F": 19,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 2396773416960,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "CRDO",
+      "name": "Credo Technology Group Holding ",
+      "score": 40,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 271.8299865722656,
+      "entry": 271.8299865722656,
+      "stop": 215.53,
+      "atr_pct": 10.355738114417067,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 10.4%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 14,
+        "F": 20,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 50690285568,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "PANW",
+      "name": "Palo Alto Networks, Inc.",
+      "score": 39,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 287.7799987792969,
+      "entry": 287.7799987792969,
+      "stop": 260.98,
+      "atr_pct": 4.656585591614581,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.7%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 14,
+        "F": 17,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 234540695552,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "score": 38,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 210.69000244140625,
+      "entry": 210.69000244140625,
+      "stop": 193.71,
+      "atr_pct": 4.030689939790149,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.0%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 10,
+        "F": 20,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 5103122644992,
+      "risk_penalty": 1
     }
   ],
   "open_signals": [],
