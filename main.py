@@ -99,6 +99,9 @@ def run_daily_update() -> None:
     dash_data = build_dashboard_json(scores, market_prices, open_signals, ai_reviews, today)
     write_dashboard_json(dash_data)
 
+    perf_data = build_performance_payload(store, today)
+    write_performance_json(perf_data)
+
     # 9. Telegram morning report (if requested via mode)
     if "--telegram" in sys.argv:
         top = sorted(scores, key=lambda s: s.total_score, reverse=True)[:10]
