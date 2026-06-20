@@ -3,13 +3,13 @@
   "market": {
     "SPY": 746.739990234375,
     "QQQ": 740.6199951171875,
-    "VIX": 18.440000534057617,
+    "VIX": 16.399999618530273,
     "TLT": 86.75,
     "HYG": 80.01000213623047,
     "IWM": 295.5899963378906,
     "SMH": 659.8800048828125
   },
-  "market_direction": "中性",
+  "market_direction": "多頭",
   "overview": {
     "total_scored": 40,
     "grade_S": 0,
@@ -23,7 +23,9 @@
     "buy": 0,
     "hold": 0,
     "avoid": 0,
-    "total": 5
+    "total": 5,
+    "candidates": 0,
+    "coverage_pct": null
   },
   "data_health": {
     "elapsed_min": 0.4,
@@ -408,7 +410,7 @@
       "matched_headlines": [
         "Americans’ 401(k) balances hit record levels last year. See how you compare.",
         "Tesla booted from the ‘Magnificent Seven’ by a top fund manager. Here is the tech giant he’s crowned.",
-        "Nike Q4 Earnings Preview: A Most Critical Quarter For These Reasons"
+        "Micron, FedEx Set To Headline Earnings Next Week"
       ],
       "sub": {
         "T": 8,
@@ -1039,18 +1041,20 @@
     {
       "symbol": "MELI",
       "name": "MercadoLibre, Inc.",
-      "score": 19,
+      "score": 18,
       "grade": "D",
       "action": "Avoid",
-      "price": NaN,
-      "entry": NaN,
-      "stop": null,
-      "atr_pct": 0.0,
+      "price": 1635.1500244140625,
+      "entry": 1635.1500244140625,
+      "stop": 1511.68,
+      "atr_pct": 3.7754072655065545,
       "themes": [
         "emerging_market",
         "crypto_fintech"
       ],
-      "warnings": [],
+      "warnings": [
+        "波動偏高 ATR 3.8%"
+      ],
       "matched_headlines": [],
       "sub": {
         "T": 0,
@@ -1058,11 +1062,11 @@
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": 0
+        "R": -1
       },
       "sector": "Consumer Cyclical",
       "market_cap": 82897502208,
-      "risk_penalty": 0
+      "risk_penalty": 1
     },
     {
       "symbol": "NU",
@@ -1081,9 +1085,7 @@
       "warnings": [
         "波動偏高 ATR 4.4%"
       ],
-      "matched_headlines": [
-        "My two sons will inherit a $30,000 annuity from their grandmother. What should I do with the money?"
-      ],
+      "matched_headlines": [],
       "sub": {
         "T": 0,
         "F": 10,
@@ -1703,7 +1705,7 @@
       "symbols": [
         {
           "symbol": "MELI",
-          "score": 19
+          "score": 18
         },
         {
           "symbol": "NU",
@@ -1733,7 +1735,7 @@
         },
         {
           "symbol": "MELI",
-          "score": 19
+          "score": 18
         },
         {
           "symbol": "NU",
