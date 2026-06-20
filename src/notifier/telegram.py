@@ -80,8 +80,8 @@ def _build_morning_report(
 
 class TelegramNotifier:
     def __init__(self) -> None:
-        self.token = env("TELEGRAM_BOT_TOKEN", "")
-        self.chat_id = env("TELEGRAM_CHAT_ID", "")
+        self.token = env("TELEGRAM_BOT_TOKEN", "").strip()
+        self.chat_id = env("TELEGRAM_CHAT_ID", "").strip()
 
     def _is_configured(self) -> bool:
         return bool(self.token and self.chat_id)

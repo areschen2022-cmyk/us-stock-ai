@@ -105,6 +105,8 @@ def run_daily_update() -> None:
         ok = notifier.send_morning_report(top, market_prices, today, ai_summaries)
         status = "ok" if ok else "error"
         store.log_delivery("morning_telegram", status)
+        if not ok:
+            raise RuntimeError("Telegram morning report failed")
 
     store.log_delivery("daily_update", "ok", f"scored={len(scores)}")
     print(f"[Main] Done.")
@@ -151,6 +153,8 @@ def run_morning_telegram() -> None:
     notifier = TelegramNotifier()
     ok = notifier.send_morning_report(top, market_prices, today)
     store.log_delivery("morning_telegram", "ok" if ok else "error")
+    if not ok:
+        raise RuntimeError("Telegram morning report failed")
 
 
 if __name__ == "__main__":
