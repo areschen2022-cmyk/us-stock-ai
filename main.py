@@ -161,8 +161,14 @@ def run_morning_telegram() -> None:
         top.append(s)
 
     market_prices = fetch_market_indices()
+    overview = {
+        "total_scored": len(scores_raw),
+        "grade_S": sum(1 for r in scores_raw if r.get("grade") == "S"),
+        "grade_A": sum(1 for r in scores_raw if r.get("grade") == "A"),
+        "grade_B": sum(1 for r in scores_raw if r.get("grade") == "B"),
+    }
     notifier = TelegramNotifier()
-    ok = notifier.send_morning_report(top, market_prices, today)
+    ok = notifier.send_morning_report(top, market_prices, today, overview=overview)
     store.log_delivery("morning_telegram", "ok" if ok else "error")
     if not ok:
         raise RuntimeError("Telegram morning report failed")
