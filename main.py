@@ -59,10 +59,12 @@ def run_daily_update() -> None:
 
     # 5. Score each symbol
     scores: list[StockScore] = []
+    missing_data = 0
     for symbol in symbols:
         ohlcv = ohlcv_map.get(symbol)
         if ohlcv is None or ohlcv.empty:
             print(f"[Main] No OHLCV for {symbol}, skipping")
+            missing_data += 1
             continue
         try:
             info = fetch_info(symbol)
