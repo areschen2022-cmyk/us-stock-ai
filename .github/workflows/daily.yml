@@ -25,8 +25,11 @@ jobs:
   dashboard-update:
     name: Daily Score Update & Dashboard
     if: >
-      github.event_name == 'workflow_dispatch' ||
-      github.event.schedule == '30 21 * * 1-5'
+      github.event.schedule == '30 21 * * 1-5' ||
+      (
+        github.event_name == 'workflow_dispatch' &&
+        (inputs.mode == 'update' || inputs.mode == 'check' || inputs.mode == 'export')
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -79,8 +82,11 @@ jobs:
   morning-telegram:
     name: Morning Telegram Brief
     if: >
-      github.event_name == 'workflow_dispatch' ||
-      github.event.schedule == '0 10 * * 1-5'
+      github.event.schedule == '0 10 * * 1-5' ||
+      (
+        github.event_name == 'workflow_dispatch' &&
+        inputs.mode == 'telegram'
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
