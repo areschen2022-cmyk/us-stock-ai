@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-20",
+  "generated_at": "2026-06-22",
   "market": {
-    "SPY": 746.739990234375,
-    "QQQ": 740.6199951171875,
-    "VIX": 16.399999618530273,
-    "TLT": 86.75,
-    "HYG": 80.01000213623047,
-    "IWM": 295.5899963378906,
-    "SMH": 659.8800048828125
+    "SPY": 744.3900146484375,
+    "QQQ": 737.9500122070312,
+    "VIX": 17.280000686645508,
+    "TLT": 86.08999633789062,
+    "HYG": 79.94000244140625,
+    "IWM": 298.17999267578125,
+    "SMH": 668.9099731445312
   },
   "market_direction": "多頭",
   "overview": {
@@ -37,55 +37,54 @@
   },
   "watchlist": [
     {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 45,
+      "symbol": "ABBV",
+      "name": "AbbVie Inc.",
+      "score": 44,
       "grade": "D",
       "action": "Avoid",
-      "price": 439.4599914550781,
-      "entry": 439.4599914550781,
-      "stop": 351.95,
-      "atr_pct": 9.956521016660702,
+      "price": 230.00999450683594,
+      "entry": 230.00999450683594,
+      "stop": 217.28,
+      "atr_pct": 2.7675819220396,
       "themes": [
-        "ai_infra",
-        "semiconductor"
+        "glp1_biotech"
       ],
-      "warnings": [
-        "波動過大 ATR 10.0%"
+      "warnings": [],
+      "matched_headlines": [
+        "AbbVie Inc. (ABBV) M&A Call Transcript"
       ],
-      "matched_headlines": [],
       "sub": {
-        "T": 20,
-        "F": 19,
+        "T": 17,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": -3
+        "R": 0
       },
-      "sector": "Technology",
-      "market_cap": 469377908736,
-      "risk_penalty": 3
+      "sector": "Healthcare",
+      "market_cap": 406380019712,
+      "risk_penalty": 0
     },
     {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
-      "score": 44,
+      "score": 41,
       "grade": "D",
       "action": "Avoid",
-      "price": 462.1199951171875,
-      "entry": 462.1199951171875,
-      "stop": 420.4,
-      "atr_pct": 4.513606663555302,
+      "price": 467.6700134277344,
+      "entry": 467.6700134277344,
+      "stop": 428.34,
+      "atr_pct": 4.205318396876232,
       "themes": [
         "semiconductor",
         "ai_infra"
       ],
       "warnings": [
-        "波動偏高 ATR 4.5%"
+        "波動偏高 ATR 4.2%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 17,
+        "T": 14,
         "F": 19,
         "Fl": 3,
         "N": 0,
@@ -93,7 +92,7 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 2396773416960,
+      "market_cap": 2425558401024,
       "risk_penalty": 1
     },
     {
@@ -102,16 +101,16 @@
       "score": 40,
       "grade": "D",
       "action": "Avoid",
-      "price": 271.8299865722656,
-      "entry": 271.8299865722656,
-      "stop": 215.53,
-      "atr_pct": 10.355738114417067,
+      "price": 302.5199890136719,
+      "entry": 302.5199890136719,
+      "stop": 243.77,
+      "atr_pct": 9.710572327105204,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動過大 ATR 10.4%"
+        "波動過大 ATR 9.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -123,58 +122,92 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 50690285568,
+      "market_cap": 56413294592,
       "risk_penalty": 3
     },
     {
-      "symbol": "PANW",
-      "name": "Palo Alto Networks, Inc.",
-      "score": 39,
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "score": 40,
       "grade": "D",
       "action": "Avoid",
-      "price": 287.7799987792969,
-      "entry": 287.7799987792969,
-      "stop": 260.98,
-      "atr_pct": 4.656585591614581,
+      "price": 174.55999755859375,
+      "entry": 174.55999755859375,
+      "stop": 157.27,
+      "atr_pct": 4.9523251496745475,
       "themes": [
-        "cybersecurity"
+        "ai_infra",
+        "cloud_saas"
       ],
       "warnings": [
-        "波動偏高 ATR 4.7%"
+        "波動偏高 ATR 5.0%"
       ],
       "matched_headlines": [],
       "sub": {
         "T": 14,
-        "F": 17,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 234540695552,
+      "market_cap": 219800616960,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "LLY",
+      "name": "Eli Lilly and Company",
+      "score": 37,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1102.0799560546875,
+      "entry": 1102.0799560546875,
+      "stop": 1029.36,
+      "atr_pct": 3.2990834963179734,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.3%"
+      ],
+      "matched_headlines": [
+        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?",
+        "Caterpillar’s stock hits a milestone as AI-fueled industrials rally sweeps up Wall Street",
+        "Adyen Is Betting Big on Agentic AI. The Rally Could Just Be Getting Started."
+      ],
+      "sub": {
+        "T": 11,
+        "F": 18,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 982770319360,
       "risk_penalty": 1
     },
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "score": 38,
+      "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 210.69000244140625,
-      "entry": 210.69000244140625,
-      "stop": 193.71,
-      "atr_pct": 4.030689939790149,
+      "price": 208.64999389648438,
+      "entry": 208.64999389648438,
+      "stop": 192.73,
+      "atr_pct": 3.8152631501796335,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動偏高 ATR 4.0%"
+        "波動偏高 ATR 3.8%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 10,
+        "T": 7,
         "F": 20,
         "Fl": 3,
         "N": 0,
@@ -182,29 +215,29 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 5103122644992,
+      "market_cap": 5053711646720,
       "risk_penalty": 1
     },
     {
       "symbol": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "score": 38,
+      "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 537.3699951171875,
-      "entry": 537.3699951171875,
-      "stop": 463.59,
-      "atr_pct": 6.86531608282929,
+      "price": 551.6300048828125,
+      "entry": 551.6300048828125,
+      "stop": 478.33,
+      "atr_pct": 6.643556514718596,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動過大 ATR 6.9%"
+        "波動過大 ATR 6.6%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 17,
+        "T": 14,
         "F": 15,
         "Fl": 3,
         "N": 0,
@@ -212,125 +245,8 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 876235849728,
+      "market_cap": 899488219136,
       "risk_penalty": 3
-    },
-    {
-      "symbol": "ABBV",
-      "name": "AbbVie Inc.",
-      "score": 37,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 216.49000549316406,
-      "entry": 216.49000549316406,
-      "stop": 205.13,
-      "atr_pct": 2.6230183262036277,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Healthcare",
-      "market_cap": 382492999680,
-      "risk_penalty": 0
-    },
-    {
-      "symbol": "GOOGL",
-      "name": "Alphabet Inc.",
-      "score": 36,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 368.0299987792969,
-      "entry": 368.0299987792969,
-      "stop": 345.1,
-      "atr_pct": 3.1145846638150867,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.1%"
-      ],
-      "matched_headlines": [
-        "Google shake-up highlights how human brains may be the scarcest AI resource of all"
-      ],
-      "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 4490912595968,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "LLY",
-      "name": "Eli Lilly and Company",
-      "score": 36,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1098.5699462890625,
-      "entry": 1098.5699462890625,
-      "stop": 1024.61,
-      "atr_pct": 3.3663219935045485,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [
-        "‘We are habitually frugal’: My wife and I have money. How do we help our children without ruining their independence?"
-      ],
-      "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 979640254464,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "score": 35,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 298.010009765625,
-      "entry": 298.010009765625,
-      "stop": 281.68,
-      "atr_pct": 2.7393638840602708,
-      "themes": [
-        "ai_infra"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 10,
-        "F": 16,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Technology",
-      "market_cap": 4376979046400,
-      "risk_penalty": 0
     },
     {
       "symbol": "ASML",
@@ -338,10 +254,10 @@
       "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 1929.6800537109375,
-      "entry": 1929.6800537109375,
-      "stop": 1733.84,
-      "atr_pct": 5.074453412301249,
+      "price": 1929.25,
+      "entry": 1929.25,
+      "stop": 1731.9,
+      "atr_pct": 5.11475581074483,
       "themes": [
         "semiconductor"
       ],
@@ -358,37 +274,7 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 743732805632,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
-      "score": 35,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 169.6699981689453,
-      "entry": 169.6699981689453,
-      "stop": 151.76,
-      "atr_pct": 5.278187079726952,
-      "themes": [
-        "ai_infra",
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 11,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 213643264000,
+      "market_cap": 743566999552,
       "risk_penalty": 3
     },
     {
@@ -397,365 +283,43 @@
       "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 91.27999877929688,
-      "entry": 91.27999877929688,
-      "stop": 81.94,
-      "atr_pct": 5.114952920941962,
+      "price": 89.04000091552734,
+      "entry": 89.04000091552734,
+      "stop": 80.38,
+      "atr_pct": 4.8641863618894465,
       "themes": [
         "emerging_market"
       ],
       "warnings": [
-        "波動過大 ATR 5.1%"
+        "波動偏高 ATR 4.9%"
       ],
       "matched_headlines": [
-        "Americans’ 401(k) balances hit record levels last year. See how you compare.",
-        "Tesla booted from the ‘Magnificent Seven’ by a top fund manager. Here is the tech giant he’s crowned.",
-        "Micron, FedEx Set To Headline Earnings Next Week"
+        "Wall Street loves growth stocks — but these 10 ‘losers’ are primed to win",
+        "Super Micro’s stock is seeing its best run in a year thanks to Nvidia partnership",
+        "Salesforce’s stock extends record losing streak. Can the company disrupt itself?"
       ],
       "sub": {
-        "T": 8,
+        "T": 0,
         "F": 15,
         "Fl": 3,
-        "N": 6,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 55907590144,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "RTX",
-      "name": "RTX Corporation",
-      "score": 33,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 185.60000610351562,
-      "entry": 185.60000610351562,
-      "stop": 174.99,
-      "atr_pct": 2.8579128434252152,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 14,
-        "F": 10,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Industrials",
-      "market_cap": 249944440832,
-      "risk_penalty": 0
-    },
-    {
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "score": 31,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 379.3999938964844,
-      "entry": 379.3999938964844,
-      "stop": 354.32,
-      "atr_pct": 3.3046539950880693,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 2818348154880,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "score": 31,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 577.219970703125,
-      "entry": 577.219970703125,
-      "stop": 531.2,
-      "atr_pct": 3.986585117923795,
-      "themes": [
-        "ai_infra",
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.0%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 1465228591104,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "VST",
-      "name": "Vistra Corp.",
-      "score": 31,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 163.75,
-      "entry": 163.75,
-      "stop": 149.79,
-      "atr_pct": 4.263902038108301,
-      "themes": [
-        "energy_power"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 14,
-        "F": 9,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Utilities",
-      "market_cap": 55213629440,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova Inc.",
-      "score": 30,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1109.72998046875,
-      "entry": 1109.72998046875,
-      "stop": 1015.17,
-      "atr_pct": 4.2605618093777515,
-      "themes": [
-        "energy_power",
-        "defense"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 14,
-        "F": 8,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Industrials",
-      "market_cap": 298206625792,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "score": 30,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 223.0,
-      "entry": 223.0,
-      "stop": 193.96,
-      "atr_pct": 6.510280631124629,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動過大 ATR 6.5%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 7,
-        "F": 17,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 79379120128,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "PLTR",
-      "name": "Palantir Technologies Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 128.47000122070312,
-      "entry": 128.47000122070312,
-      "stop": 115.1,
-      "atr_pct": 5.204549453499202,
-      "themes": [
-        "ai_infra",
-        "defense"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.2%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 307982663680,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "CRWD",
-      "name": "CrowdStrike Holdings, Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 684.8599853515625,
-      "entry": 684.8599853515625,
-      "stop": 606.68,
-      "atr_pct": 5.707474478842265,
-      "themes": [
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.7%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 10,
-        "F": 13,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 174341259264,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "GILD",
-      "name": "Gilead Sciences, Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 123.76000213623047,
-      "entry": 123.76000213623047,
-      "stop": 116.27,
-      "atr_pct": 3.026169328400496,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.0%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 153656688640,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 411.3500061035156,
-      "entry": 411.3500061035156,
-      "stop": 359.48,
-      "atr_pct": 6.304850257306489,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 6.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 4,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 1957030658048,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "score": 26,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 244.38999938964844,
-      "entry": 244.38999938964844,
-      "stop": 227.93,
-      "atr_pct": 3.3672761628544046,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 6,
-        "F": 12,
-        "Fl": 3,
-        "N": 0,
+        "N": 12,
         "M": 6,
         "R": -1
       },
       "sector": "Consumer Cyclical",
-      "market_cap": 2628929978368,
+      "market_cap": 54535622656,
       "risk_penalty": 1
     },
     {
       "symbol": "NVO",
       "name": "Novo Nordisk A/S",
-      "score": 26,
+      "score": 33,
       "grade": "D",
       "action": "Avoid",
-      "price": 43.189998626708984,
-      "entry": 43.189998626708984,
-      "stop": 40.2,
-      "atr_pct": 3.4581405885757706,
+      "price": 45.880001068115234,
+      "entry": 45.880001068115234,
+      "stop": 42.68,
+      "atr_pct": 3.484040992957266,
       "themes": [
         "glp1_biotech"
       ],
@@ -764,7 +328,7 @@
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 4,
+        "T": 11,
         "F": 14,
         "Fl": 3,
         "N": 0,
@@ -772,8 +336,385 @@
         "R": -1
       },
       "sector": "Healthcare",
-      "market_cap": 191242321920,
+      "market_cap": 203153457152,
       "risk_penalty": 1
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "score": 32,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 297.010009765625,
+      "entry": 297.010009765625,
+      "stop": 280.88,
+      "atr_pct": 2.715398988547384,
+      "themes": [
+        "ai_infra"
+      ],
+      "warnings": [],
+      "matched_headlines": [],
+      "sub": {
+        "T": 7,
+        "F": 16,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Technology",
+      "market_cap": 4362291642368,
+      "risk_penalty": 0
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "score": 32,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 349.67999267578125,
+      "entry": 349.67999267578125,
+      "stop": 323.97,
+      "atr_pct": 3.6761910107947884,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.7%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 6,
+        "F": 18,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 4266995482624,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "ARM",
+      "name": "Arm Holdings plc",
+      "score": 32,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 407.7200012207031,
+      "entry": 407.7200012207031,
+      "stop": 323.85,
+      "atr_pct": 10.285752587197278,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 10.3%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 7,
+        "F": 19,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 435477086208,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "PANW",
+      "name": "Palo Alto Networks, Inc.",
+      "score": 32,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 286.3999938964844,
+      "entry": 286.3999938964844,
+      "stop": 260.99,
+      "atr_pct": 4.435357434173066,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.4%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 7,
+        "F": 17,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 233415999488,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "score": 29,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 119.5,
+      "entry": 119.5,
+      "stop": 105.86,
+      "atr_pct": 5.705797522636637,
+      "themes": [
+        "ai_infra",
+        "defense"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.7%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 3,
+        "F": 20,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 286478794752,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "score": 28,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 367.3399963378906,
+      "entry": 367.3399963378906,
+      "stop": 342.48,
+      "atr_pct": 3.3835913202793497,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.4%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 20,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 2728761229312,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "score": 28,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 563.8499755859375,
+      "entry": 563.8499755859375,
+      "stop": 520.51,
+      "atr_pct": 3.8432545544021632,
+      "themes": [
+        "ai_infra",
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.8%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 20,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 1431289856000,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "VST",
+      "name": "Vistra Corp.",
+      "score": 28,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 167.25999450683594,
+      "entry": 167.25999450683594,
+      "stop": 153.49,
+      "atr_pct": 4.1176250644509285,
+      "themes": [
+        "energy_power"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.1%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 11,
+        "F": 9,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Utilities",
+      "market_cap": 56397135872,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "DDOG",
+      "name": "Datadog, Inc.",
+      "score": 27,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 221.3699951171875,
+      "entry": 221.3699951171875,
+      "stop": 195.11,
+      "atr_pct": 5.931097022657754,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.9%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 4,
+        "F": 17,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 78798905344,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "score": 27,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 124.87000274658203,
+      "entry": 124.87000274658203,
+      "stop": 117.62,
+      "atr_pct": 2.9017658223996046,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 18,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Healthcare",
+      "market_cap": 155034845184,
+      "risk_penalty": 0
+    },
+    {
+      "symbol": "RTX",
+      "name": "RTX Corporation",
+      "score": 26,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 181.8300018310547,
+      "entry": 181.8300018310547,
+      "stop": 171.33,
+      "atr_pct": 2.8861344481752336,
+      "themes": [
+        "defense"
+      ],
+      "warnings": [],
+      "matched_headlines": [],
+      "sub": {
+        "T": 7,
+        "F": 10,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Industrials",
+      "market_cap": 244867448832,
+      "risk_penalty": 0
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova Inc.",
+      "score": 26,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1127.5899658203125,
+      "entry": 1127.5899658203125,
+      "stop": 1033.2,
+      "atr_pct": 4.1853893288705475,
+      "themes": [
+        "energy_power",
+        "defense"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.2%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 10,
+        "F": 8,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Industrials",
+      "market_cap": 303005990912,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike Holdings, Inc.",
+      "score": 26,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 675.4400024414062,
+      "entry": 675.4400024414062,
+      "stop": 599.5,
+      "atr_pct": 5.621308592516326,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.6%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 7,
+        "F": 13,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 171943264256,
+      "risk_penalty": 3
     },
     {
       "symbol": "APP",
@@ -781,10 +722,10 @@
       "score": 25,
       "grade": "D",
       "action": "Avoid",
-      "price": 469.7099914550781,
-      "entry": 469.7099914550781,
-      "stop": 402.62,
-      "atr_pct": 7.141534516749871,
+      "price": 469.3900146484375,
+      "entry": 469.3900146484375,
+      "stop": 402.66,
+      "atr_pct": 7.108359044446049,
       "themes": [
         "ai_infra"
       ],
@@ -792,7 +733,7 @@
         "波動過大 ATR 7.1%"
       ],
       "matched_headlines": [
-        "‘Money can make you happy’: My wife and I have no heirs, but we’re making the world a better place by giving it away"
+        "Baldwin Insurance: Go-Private Rumors Appear Credible"
       ],
       "sub": {
         "T": 3,
@@ -803,77 +744,169 @@
         "R": -3
       },
       "sector": "Communication Services",
-      "market_cap": 157794156544,
+      "market_cap": 157686661120,
       "risk_penalty": 3
     },
     {
-      "symbol": "MDB",
-      "name": "MongoDB, Inc.",
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "score": 24,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 392.1300048828125,
+      "entry": 392.1300048828125,
+      "stop": 340.44,
+      "atr_pct": 6.5907449303693895,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.6%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 18,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 1865589981184,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
       "score": 23,
       "grade": "D",
       "action": "Avoid",
-      "price": 332.75,
-      "entry": 332.75,
-      "stop": 278.35,
-      "atr_pct": 8.173789867480144,
+      "price": 232.7899932861328,
+      "entry": 232.7899932861328,
+      "stop": 216.02,
+      "atr_pct": 3.60257273717933,
       "themes": [
         "cloud_saas"
       ],
       "warnings": [
-        "波動過大 ATR 8.2%"
+        "波動偏高 ATR 3.6%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 3,
+        "F": 12,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 2504147599360,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "SNOW",
+      "name": "Snowflake Inc.",
+      "score": 22,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 226.58999633789062,
+      "entry": 226.58999633789062,
+      "stop": 197.15,
+      "atr_pct": 6.497229967876243,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.5%"
       ],
       "matched_headlines": [],
       "sub": {
         "T": 4,
-        "F": 13,
+        "F": 12,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 26763724800,
+      "market_cap": 78536089600,
       "risk_penalty": 3
     },
     {
-      "symbol": "ZS",
-      "name": "Zscaler, Inc.",
-      "score": 23,
+      "symbol": "SMCI",
+      "name": "Super Micro Computer, Inc.",
+      "score": 21,
       "grade": "D",
       "action": "Avoid",
-      "price": 124.8499984741211,
-      "entry": 124.8499984741211,
-      "stop": 108.1,
-      "atr_pct": 6.709767763043425,
+      "price": 35.459999084472656,
+      "entry": 35.459999084472656,
+      "stop": 26.93,
+      "atr_pct": 12.031665676492825,
       "themes": [
-        "cybersecurity"
+        "ai_infra"
       ],
       "warnings": [
-        "波動過大 ATR 6.7%"
+        "波動過大 ATR 12.0%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 6,
-        "F": 11,
+        "T": 7,
+        "F": 8,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 20189433856,
+      "market_cap": 22938116096,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "COIN",
+      "name": "Coinbase Global, Inc.",
+      "score": 19,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 164.83999633789062,
+      "entry": 164.83999633789062,
+      "stop": 143.03,
+      "atr_pct": 6.615070285405269,
+      "themes": [
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.6%"
+      ],
+      "matched_headlines": [
+        "BITX: Beware The Leveraged Bitcoin ETFs",
+        "Keel Infrastructure Corp. (KEEL) Discusses Transition From Bitcoin Mining to HPC AI Data Center Strategy and Power Advantages Transcript",
+        "Toncoin (TON) Price Prediction 2025, 2026, 2027-2030"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 10,
+        "Fl": 3,
+        "N": 3,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Financial Services",
+      "market_cap": 43428872192,
       "risk_penalty": 3
     },
     {
       "symbol": "AXON",
       "name": "Axon Enterprise, Inc.",
-      "score": 22,
+      "score": 19,
       "grade": "D",
       "action": "Avoid",
-      "price": 423.3999938964844,
-      "entry": 423.3999938964844,
-      "stop": 365.6,
-      "atr_pct": 6.8260336465416325,
+      "price": 410.0299987792969,
+      "entry": 410.0299987792969,
+      "stop": 354.59,
+      "atr_pct": 6.7610027835842885,
       "themes": [
         "defense",
         "cybersecurity"
@@ -883,7 +916,7 @@
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 3,
+        "T": 0,
         "F": 13,
         "Fl": 3,
         "N": 0,
@@ -891,143 +924,57 @@
         "R": -3
       },
       "sector": "Industrials",
-      "market_cap": 34126919680,
+      "market_cap": 33049270272,
       "risk_penalty": 3
     },
     {
-      "symbol": "LMT",
-      "name": "Lockheed Martin Corporation",
-      "score": 22,
+      "symbol": "MDB",
+      "name": "MongoDB, Inc.",
+      "score": 19,
       "grade": "D",
       "action": "Avoid",
-      "price": 510.95001220703125,
-      "entry": 510.95001220703125,
-      "stop": 484.18,
-      "atr_pct": 2.6192095933375925,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 6,
-        "F": 7,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Industrials",
-      "market_cap": 117806481408,
-      "risk_penalty": 0
-    },
-    {
-      "symbol": "NOC",
-      "name": "Northrop Grumman Corporation",
-      "score": 22,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 521.5,
-      "entry": 521.5,
-      "stop": 490.95,
-      "atr_pct": 2.9291892538265305,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 6,
-        "F": 7,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Industrials",
-      "market_cap": 74070458368,
-      "risk_penalty": 0
-    },
-    {
-      "symbol": "SNOW",
-      "name": "Snowflake Inc.",
-      "score": 22,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 232.2899932861328,
-      "entry": 232.2899932861328,
-      "stop": 201.0,
-      "atr_pct": 6.736008171053018,
+      "price": 319.1600036621094,
+      "entry": 319.1600036621094,
+      "stop": 271.9,
+      "atr_pct": 7.403943946018206,
       "themes": [
         "cloud_saas"
       ],
       "warnings": [
-        "波動過大 ATR 6.7%"
+        "波動過大 ATR 7.4%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 4,
-        "F": 12,
+        "T": 0,
+        "F": 13,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 80511713280,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "NET",
-      "name": "Cloudflare, Inc.",
-      "score": 22,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 224.05999755859375,
-      "entry": 224.05999755859375,
-      "stop": 194.07,
-      "atr_pct": 6.692149739076475,
-      "themes": [
-        "cloud_saas",
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動過大 ATR 6.7%"
-      ],
-      "matched_headlines": [
-        "Netlist Turned A Profit, But The Real Money Is Still In Court"
-      ],
-      "sub": {
-        "T": 4,
-        "F": 12,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 79527755776,
+      "market_cap": 25670653952,
       "risk_penalty": 3
     },
     {
       "symbol": "MRNA",
       "name": "Moderna, Inc.",
-      "score": 21,
+      "score": 19,
       "grade": "D",
       "action": "Avoid",
-      "price": 63.959999084472656,
-      "entry": 63.959999084472656,
-      "stop": 56.08,
-      "atr_pct": 6.157866117688337,
+      "price": 59.345001220703125,
+      "entry": 59.345001220703125,
+      "stop": 50.75,
+      "atr_pct": 7.24095165195585,
       "themes": [
         "glp1_biotech"
       ],
       "warnings": [
-        "波動過大 ATR 6.2%"
+        "波動過大 ATR 7.2%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 13,
+        "T": 11,
         "F": 2,
         "Fl": 3,
         "N": 0,
@@ -1035,7 +982,37 @@
         "R": -3
       },
       "sector": "Healthcare",
-      "market_cap": 25378449408,
+      "market_cap": 23547281408,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "NET",
+      "name": "Cloudflare, Inc.",
+      "score": 18,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 218.3800048828125,
+      "entry": 218.3800048828125,
+      "stop": 190.69,
+      "atr_pct": 6.338950874577959,
+      "themes": [
+        "cloud_saas",
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.3%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 12,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 77511704576,
       "risk_penalty": 3
     },
     {
@@ -1044,16 +1021,16 @@
       "score": 18,
       "grade": "D",
       "action": "Avoid",
-      "price": 1635.1500244140625,
-      "entry": 1635.1500244140625,
-      "stop": 1511.68,
-      "atr_pct": 3.7754072655065545,
+      "price": 1589.449951171875,
+      "entry": 1589.449951171875,
+      "stop": 1466.75,
+      "atr_pct": 3.8597359880449504,
       "themes": [
         "emerging_market",
         "crypto_fintech"
       ],
       "warnings": [
-        "波動偏高 ATR 3.8%"
+        "波動偏高 ATR 3.9%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1065,7 +1042,7 @@
         "R": -1
       },
       "sector": "Consumer Cyclical",
-      "market_cap": 82897502208,
+      "market_cap": 80580632576,
       "risk_penalty": 1
     },
     {
@@ -1074,10 +1051,10 @@
       "score": 18,
       "grade": "D",
       "action": "Avoid",
-      "price": 12.710000038146973,
-      "entry": 12.710000038146973,
-      "stop": 11.6,
-      "atr_pct": 4.375070149514844,
+      "price": 12.789999961853027,
+      "entry": 12.789999961853027,
+      "stop": 11.65,
+      "atr_pct": 4.448229742178041,
       "themes": [
         "emerging_market",
         "crypto_fintech"
@@ -1085,7 +1062,11 @@
       "warnings": [
         "波動偏高 ATR 4.4%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "A Pair Trade Opportunity By Nuveen Municipal Credit Income Funds",
+        "'It's that simple': Kevin O'Leary says this one number can turn your $65K salary into millions — will it work for you?",
+        "In 10 Years, Will You Wish You'd Bought NuScale Power Stock Right Now?"
+      ],
       "sub": {
         "T": 0,
         "F": 10,
@@ -1095,8 +1076,37 @@
         "R": -1
       },
       "sector": "Financial Services",
-      "market_cap": 61792727040,
+      "market_cap": 62181666816,
       "risk_penalty": 1
+    },
+    {
+      "symbol": "ZS",
+      "name": "Zscaler, Inc.",
+      "score": 17,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 124.05999755859375,
+      "entry": 124.05999755859375,
+      "stop": 108.74,
+      "atr_pct": 6.174433042902919,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.2%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 11,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 20061681664,
+      "risk_penalty": 3
     },
     {
       "symbol": "TSLA",
@@ -1104,16 +1114,16 @@
       "score": 16,
       "grade": "D",
       "action": "Avoid",
-      "price": 400.489990234375,
-      "entry": 400.489990234375,
-      "stop": 363.72,
-      "atr_pct": 4.590805382880155,
+      "price": 405.04998779296875,
+      "entry": 405.04998779296875,
+      "stop": 368.28,
+      "atr_pct": 4.5389462042680035,
       "themes": [
         "ai_infra",
         "energy_power"
       ],
       "warnings": [
-        "波動偏高 ATR 4.6%"
+        "波動偏高 ATR 4.5%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1125,60 +1135,82 @@
         "R": -1
       },
       "sector": "Consumer Cyclical",
-      "market_cap": 1504129843200,
+      "market_cap": 1521255841792,
       "risk_penalty": 1
     },
     {
-      "symbol": "COIN",
-      "name": "Coinbase Global, Inc.",
+      "symbol": "LMT",
+      "name": "Lockheed Martin Corporation",
       "score": 16,
       "grade": "D",
       "action": "Avoid",
-      "price": 163.25999450683594,
-      "entry": 163.25999450683594,
-      "stop": 141.53,
-      "atr_pct": 6.6537185525462155,
+      "price": 493.6000061035156,
+      "entry": 493.6000061035156,
+      "stop": 465.44,
+      "atr_pct": 2.8528008679032357,
       "themes": [
-        "crypto_fintech"
+        "defense"
       ],
-      "warnings": [
-        "波動過大 ATR 6.7%"
-      ],
-      "matched_headlines": [
-        "Toncoin (TON) Price Prediction 2025, 2026, 2027-2030",
-        "Filecoin (FIL) Price Prediction: 2025, 2025, 2030"
-      ],
+      "warnings": [],
+      "matched_headlines": [],
       "sub": {
         "T": 0,
-        "F": 10,
+        "F": 7,
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": -3
+        "R": 0
       },
-      "sector": "Financial Services",
-      "market_cap": 43012603904,
-      "risk_penalty": 3
+      "sector": "Industrials",
+      "market_cap": 113806204928,
+      "risk_penalty": 0
+    },
+    {
+      "symbol": "NOC",
+      "name": "Northrop Grumman Corporation",
+      "score": 16,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 507.3299865722656,
+      "entry": 507.3299865722656,
+      "stop": 477.46,
+      "atr_pct": 2.943562711970061,
+      "themes": [
+        "defense"
+      ],
+      "warnings": [],
+      "matched_headlines": [],
+      "sub": {
+        "T": 0,
+        "F": 7,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Industrials",
+      "market_cap": 72057839616,
+      "risk_penalty": 0
     },
     {
       "symbol": "MSTR",
       "name": "Strategy Inc",
-      "score": 15,
+      "score": 12,
       "grade": "D",
       "action": "Avoid",
-      "price": 112.52999877929688,
-      "entry": 112.52999877929688,
-      "stop": 90.87,
-      "atr_pct": 9.624100034399156,
+      "price": 109.45999908447266,
+      "entry": 109.45999908447266,
+      "stop": 88.1,
+      "atr_pct": 9.756336023422964,
       "themes": [
         "crypto_fintech"
       ],
       "warnings": [
-        "波動過大 ATR 9.6%"
+        "波動過大 ATR 9.8%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 3,
+        "T": 0,
         "F": 6,
         "Fl": 3,
         "N": 0,
@@ -1186,90 +1218,60 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 39954190336,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "SMCI",
-      "name": "Super Micro Computer, Inc.",
-      "score": 14,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 30.65999984741211,
-      "entry": 30.65999984741211,
-      "stop": 22.66,
-      "atr_pct": 13.048644677797874,
-      "themes": [
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動過大 ATR 13.0%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 8,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 19833126912,
+      "market_cap": 38864179200,
       "risk_penalty": 3
     }
   ],
   "top10": [
     {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 45,
+      "symbol": "ABBV",
+      "name": "AbbVie Inc.",
+      "score": 44,
       "grade": "D",
       "action": "Avoid",
-      "price": 439.4599914550781,
-      "entry": 439.4599914550781,
-      "stop": 351.95,
-      "atr_pct": 9.956521016660702,
+      "price": 230.00999450683594,
+      "entry": 230.00999450683594,
+      "stop": 217.28,
+      "atr_pct": 2.7675819220396,
       "themes": [
-        "ai_infra",
-        "semiconductor"
+        "glp1_biotech"
       ],
-      "warnings": [
-        "波動過大 ATR 10.0%"
+      "warnings": [],
+      "matched_headlines": [
+        "AbbVie Inc. (ABBV) M&A Call Transcript"
       ],
-      "matched_headlines": [],
       "sub": {
-        "T": 20,
-        "F": 19,
+        "T": 17,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": -3
+        "R": 0
       },
-      "sector": "Technology",
-      "market_cap": 469377908736,
-      "risk_penalty": 3
+      "sector": "Healthcare",
+      "market_cap": 406380019712,
+      "risk_penalty": 0
     },
     {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
-      "score": 44,
+      "score": 41,
       "grade": "D",
       "action": "Avoid",
-      "price": 462.1199951171875,
-      "entry": 462.1199951171875,
-      "stop": 420.4,
-      "atr_pct": 4.513606663555302,
+      "price": 467.6700134277344,
+      "entry": 467.6700134277344,
+      "stop": 428.34,
+      "atr_pct": 4.205318396876232,
       "themes": [
         "semiconductor",
         "ai_infra"
       ],
       "warnings": [
-        "波動偏高 ATR 4.5%"
+        "波動偏高 ATR 4.2%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 17,
+        "T": 14,
         "F": 19,
         "Fl": 3,
         "N": 0,
@@ -1277,7 +1279,7 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 2396773416960,
+      "market_cap": 2425558401024,
       "risk_penalty": 1
     },
     {
@@ -1286,16 +1288,16 @@
       "score": 40,
       "grade": "D",
       "action": "Avoid",
-      "price": 271.8299865722656,
-      "entry": 271.8299865722656,
-      "stop": 215.53,
-      "atr_pct": 10.355738114417067,
+      "price": 302.5199890136719,
+      "entry": 302.5199890136719,
+      "stop": 243.77,
+      "atr_pct": 9.710572327105204,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動過大 ATR 10.4%"
+        "波動過大 ATR 9.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1307,58 +1309,92 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 50690285568,
+      "market_cap": 56413294592,
       "risk_penalty": 3
     },
     {
-      "symbol": "PANW",
-      "name": "Palo Alto Networks, Inc.",
-      "score": 39,
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "score": 40,
       "grade": "D",
       "action": "Avoid",
-      "price": 287.7799987792969,
-      "entry": 287.7799987792969,
-      "stop": 260.98,
-      "atr_pct": 4.656585591614581,
+      "price": 174.55999755859375,
+      "entry": 174.55999755859375,
+      "stop": 157.27,
+      "atr_pct": 4.9523251496745475,
       "themes": [
-        "cybersecurity"
+        "ai_infra",
+        "cloud_saas"
       ],
       "warnings": [
-        "波動偏高 ATR 4.7%"
+        "波動偏高 ATR 5.0%"
       ],
       "matched_headlines": [],
       "sub": {
         "T": 14,
-        "F": 17,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 234540695552,
+      "market_cap": 219800616960,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "LLY",
+      "name": "Eli Lilly and Company",
+      "score": 37,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1102.0799560546875,
+      "entry": 1102.0799560546875,
+      "stop": 1029.36,
+      "atr_pct": 3.2990834963179734,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.3%"
+      ],
+      "matched_headlines": [
+        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?",
+        "Caterpillar’s stock hits a milestone as AI-fueled industrials rally sweeps up Wall Street",
+        "Adyen Is Betting Big on Agentic AI. The Rally Could Just Be Getting Started."
+      ],
+      "sub": {
+        "T": 11,
+        "F": 18,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 982770319360,
       "risk_penalty": 1
     },
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "score": 38,
+      "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 210.69000244140625,
-      "entry": 210.69000244140625,
-      "stop": 193.71,
-      "atr_pct": 4.030689939790149,
+      "price": 208.64999389648438,
+      "entry": 208.64999389648438,
+      "stop": 192.73,
+      "atr_pct": 3.8152631501796335,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動偏高 ATR 4.0%"
+        "波動偏高 ATR 3.8%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 10,
+        "T": 7,
         "F": 20,
         "Fl": 3,
         "N": 0,
@@ -1366,29 +1402,29 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 5103122644992,
+      "market_cap": 5053711646720,
       "risk_penalty": 1
     },
     {
       "symbol": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "score": 38,
+      "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 537.3699951171875,
-      "entry": 537.3699951171875,
-      "stop": 463.59,
-      "atr_pct": 6.86531608282929,
+      "price": 551.6300048828125,
+      "entry": 551.6300048828125,
+      "stop": 478.33,
+      "atr_pct": 6.643556514718596,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動過大 ATR 6.9%"
+        "波動過大 ATR 6.6%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 17,
+        "T": 14,
         "F": 15,
         "Fl": 3,
         "N": 0,
@@ -1396,125 +1432,99 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 876235849728,
+      "market_cap": 899488219136,
       "risk_penalty": 3
     },
     {
-      "symbol": "ABBV",
-      "name": "AbbVie Inc.",
-      "score": 37,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 216.49000549316406,
-      "entry": 216.49000549316406,
-      "stop": 205.13,
-      "atr_pct": 2.6230183262036277,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Healthcare",
-      "market_cap": 382492999680,
-      "risk_penalty": 0
-    },
-    {
-      "symbol": "GOOGL",
-      "name": "Alphabet Inc.",
-      "score": 36,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 368.0299987792969,
-      "entry": 368.0299987792969,
-      "stop": 345.1,
-      "atr_pct": 3.1145846638150867,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.1%"
-      ],
-      "matched_headlines": [
-        "Google shake-up highlights how human brains may be the scarcest AI resource of all"
-      ],
-      "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 4490912595968,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "LLY",
-      "name": "Eli Lilly and Company",
-      "score": 36,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1098.5699462890625,
-      "entry": 1098.5699462890625,
-      "stop": 1024.61,
-      "atr_pct": 3.3663219935045485,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [
-        "‘We are habitually frugal’: My wife and I have money. How do we help our children without ruining their independence?"
-      ],
-      "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 979640254464,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
+      "symbol": "ASML",
+      "name": "ASML Holding N.V. - New York Re",
       "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 298.010009765625,
-      "entry": 298.010009765625,
-      "stop": 281.68,
-      "atr_pct": 2.7393638840602708,
+      "price": 1929.25,
+      "entry": 1929.25,
+      "stop": 1731.9,
+      "atr_pct": 5.11475581074483,
       "themes": [
-        "ai_infra"
+        "semiconductor"
       ],
-      "warnings": [],
+      "warnings": [
+        "波動過大 ATR 5.1%"
+      ],
       "matched_headlines": [],
       "sub": {
-        "T": 10,
-        "F": 16,
+        "T": 14,
+        "F": 15,
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": 0
+        "R": -3
       },
       "sector": "Technology",
-      "market_cap": 4376979046400,
-      "risk_penalty": 0
+      "market_cap": 743566999552,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 35,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 89.04000091552734,
+      "entry": 89.04000091552734,
+      "stop": 80.38,
+      "atr_pct": 4.8641863618894465,
+      "themes": [
+        "emerging_market"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Wall Street loves growth stocks — but these 10 ‘losers’ are primed to win",
+        "Super Micro’s stock is seeing its best run in a year thanks to Nvidia partnership",
+        "Salesforce’s stock extends record losing streak. Can the company disrupt itself?"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 15,
+        "Fl": 3,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 54535622656,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "NVO",
+      "name": "Novo Nordisk A/S",
+      "score": 33,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 45.880001068115234,
+      "entry": 45.880001068115234,
+      "stop": 42.68,
+      "atr_pct": 3.484040992957266,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.5%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 11,
+        "F": 14,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 203153457152,
+      "risk_penalty": 1
     }
   ],
   "themes": [
@@ -1524,28 +1534,28 @@
       "count": 15,
       "symbols": [
         {
-          "symbol": "ARM",
-          "score": 45
-        },
-        {
           "symbol": "TSM",
-          "score": 44
+          "score": 41
         },
         {
           "symbol": "CRDO",
           "score": 40
         },
         {
+          "symbol": "ANET",
+          "score": 40
+        },
+        {
           "symbol": "NVDA",
-          "score": 38
+          "score": 35
         },
         {
           "symbol": "AMD",
-          "score": 38
+          "score": 35
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 15.0,
+      "prev_avg": 15.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1554,28 +1564,28 @@
       "count": 9,
       "symbols": [
         {
-          "symbol": "GOOGL",
-          "score": 36
+          "symbol": "ANET",
+          "score": 40
         },
         {
-          "symbol": "ANET",
-          "score": 35
+          "symbol": "GOOGL",
+          "score": 32
         },
         {
           "symbol": "MSFT",
-          "score": 31
+          "score": 28
         },
         {
           "symbol": "META",
-          "score": 31
+          "score": 28
         },
         {
           "symbol": "DDOG",
-          "score": 30
+          "score": 27
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 9.0,
+      "prev_avg": 9.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1584,12 +1594,8 @@
       "count": 7,
       "symbols": [
         {
-          "symbol": "ARM",
-          "score": 45
-        },
-        {
           "symbol": "TSM",
-          "score": 44
+          "score": 41
         },
         {
           "symbol": "CRDO",
@@ -1597,15 +1603,19 @@
         },
         {
           "symbol": "NVDA",
-          "score": 38
+          "score": 35
         },
         {
           "symbol": "AMD",
-          "score": 38
+          "score": 35
+        },
+        {
+          "symbol": "ASML",
+          "score": 35
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 7.0,
+      "prev_avg": 7.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1614,58 +1624,28 @@
       "count": 6,
       "symbols": [
         {
-          "symbol": "RTX",
-          "score": 33
-        },
-        {
-          "symbol": "GEV",
-          "score": 30
-        },
-        {
           "symbol": "PLTR",
           "score": 29
         },
         {
+          "symbol": "RTX",
+          "score": 26
+        },
+        {
+          "symbol": "GEV",
+          "score": 26
+        },
+        {
           "symbol": "AXON",
-          "score": 22
+          "score": 19
         },
         {
           "symbol": "LMT",
-          "score": 22
+          "score": 16
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 6.0,
-      "rising": false
-    },
-    {
-      "theme": "cybersecurity",
-      "theme_zh": "資安",
-      "count": 5,
-      "symbols": [
-        {
-          "symbol": "PANW",
-          "score": 39
-        },
-        {
-          "symbol": "CRWD",
-          "score": 29
-        },
-        {
-          "symbol": "ZS",
-          "score": 23
-        },
-        {
-          "symbol": "AXON",
-          "score": 22
-        },
-        {
-          "symbol": "NET",
-          "score": 22
-        }
-      ],
-      "prev_avg": 0.0,
-      "delta": 5.0,
+      "prev_avg": 6.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1675,27 +1655,57 @@
       "symbols": [
         {
           "symbol": "ABBV",
-          "score": 37
+          "score": 44
         },
         {
           "symbol": "LLY",
-          "score": 36
-        },
-        {
-          "symbol": "GILD",
-          "score": 29
+          "score": 37
         },
         {
           "symbol": "NVO",
-          "score": 26
+          "score": 33
+        },
+        {
+          "symbol": "GILD",
+          "score": 27
         },
         {
           "symbol": "MRNA",
-          "score": 21
+          "score": 19
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 5.0,
+      "prev_avg": 5.0,
+      "delta": 0.0,
+      "rising": false
+    },
+    {
+      "theme": "cybersecurity",
+      "theme_zh": "資安",
+      "count": 5,
+      "symbols": [
+        {
+          "symbol": "PANW",
+          "score": 32
+        },
+        {
+          "symbol": "CRWD",
+          "score": 26
+        },
+        {
+          "symbol": "AXON",
+          "score": 19
+        },
+        {
+          "symbol": "NET",
+          "score": 18
+        },
+        {
+          "symbol": "ZS",
+          "score": 17
+        }
+      ],
+      "prev_avg": 5.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1703,6 +1713,10 @@
       "theme_zh": "加密金融",
       "count": 4,
       "symbols": [
+        {
+          "symbol": "COIN",
+          "score": 19
+        },
         {
           "symbol": "MELI",
           "score": 18
@@ -1712,16 +1726,12 @@
           "score": 18
         },
         {
-          "symbol": "COIN",
-          "score": 16
-        },
-        {
           "symbol": "MSTR",
-          "score": 15
+          "score": 12
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 4.0,
+      "prev_avg": 4.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1742,8 +1752,8 @@
           "score": 18
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 3.0,
+      "prev_avg": 3.0,
+      "delta": 0.0,
       "rising": false
     },
     {
@@ -1753,74 +1763,73 @@
       "symbols": [
         {
           "symbol": "VST",
-          "score": 31
+          "score": 28
         },
         {
           "symbol": "GEV",
-          "score": 30
+          "score": 26
         },
         {
           "symbol": "TSLA",
           "score": 16
         }
       ],
-      "prev_avg": 0.0,
-      "delta": 3.0,
+      "prev_avg": 3.0,
+      "delta": 0.0,
       "rising": false
     }
   ],
   "theme_alerts": [],
   "risk_alerts": [
     {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 45,
+      "symbol": "ABBV",
+      "name": "AbbVie Inc.",
+      "score": 44,
       "grade": "D",
       "action": "Avoid",
-      "price": 439.4599914550781,
-      "entry": 439.4599914550781,
-      "stop": 351.95,
-      "atr_pct": 9.956521016660702,
+      "price": 230.00999450683594,
+      "entry": 230.00999450683594,
+      "stop": 217.28,
+      "atr_pct": 2.7675819220396,
       "themes": [
-        "ai_infra",
-        "semiconductor"
+        "glp1_biotech"
       ],
-      "warnings": [
-        "波動過大 ATR 10.0%"
+      "warnings": [],
+      "matched_headlines": [
+        "AbbVie Inc. (ABBV) M&A Call Transcript"
       ],
-      "matched_headlines": [],
       "sub": {
-        "T": 20,
-        "F": 19,
+        "T": 17,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
-        "R": -3
+        "R": 0
       },
-      "sector": "Technology",
-      "market_cap": 469377908736,
-      "risk_penalty": 3
+      "sector": "Healthcare",
+      "market_cap": 406380019712,
+      "risk_penalty": 0
     },
     {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
-      "score": 44,
+      "score": 41,
       "grade": "D",
       "action": "Avoid",
-      "price": 462.1199951171875,
-      "entry": 462.1199951171875,
-      "stop": 420.4,
-      "atr_pct": 4.513606663555302,
+      "price": 467.6700134277344,
+      "entry": 467.6700134277344,
+      "stop": 428.34,
+      "atr_pct": 4.205318396876232,
       "themes": [
         "semiconductor",
         "ai_infra"
       ],
       "warnings": [
-        "波動偏高 ATR 4.5%"
+        "波動偏高 ATR 4.2%"
       ],
       "matched_headlines": [],
       "sub": {
-        "T": 17,
+        "T": 14,
         "F": 19,
         "Fl": 3,
         "N": 0,
@@ -1828,7 +1837,7 @@
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 2396773416960,
+      "market_cap": 2425558401024,
       "risk_penalty": 1
     },
     {
@@ -1837,16 +1846,16 @@
       "score": 40,
       "grade": "D",
       "action": "Avoid",
-      "price": 271.8299865722656,
-      "entry": 271.8299865722656,
-      "stop": 215.53,
-      "atr_pct": 10.355738114417067,
+      "price": 302.5199890136719,
+      "entry": 302.5199890136719,
+      "stop": 243.77,
+      "atr_pct": 9.710572327105204,
       "themes": [
         "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動過大 ATR 10.4%"
+        "波動過大 ATR 9.7%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1858,73 +1867,77 @@
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 50690285568,
+      "market_cap": 56413294592,
       "risk_penalty": 3
     },
     {
-      "symbol": "PANW",
-      "name": "Palo Alto Networks, Inc.",
-      "score": 39,
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "score": 40,
       "grade": "D",
       "action": "Avoid",
-      "price": 287.7799987792969,
-      "entry": 287.7799987792969,
-      "stop": 260.98,
-      "atr_pct": 4.656585591614581,
+      "price": 174.55999755859375,
+      "entry": 174.55999755859375,
+      "stop": 157.27,
+      "atr_pct": 4.9523251496745475,
       "themes": [
-        "cybersecurity"
+        "ai_infra",
+        "cloud_saas"
       ],
       "warnings": [
-        "波動偏高 ATR 4.7%"
+        "波動偏高 ATR 5.0%"
       ],
       "matched_headlines": [],
       "sub": {
         "T": 14,
-        "F": 17,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 234540695552,
+      "market_cap": 219800616960,
       "risk_penalty": 1
     },
     {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "score": 38,
+      "symbol": "LLY",
+      "name": "Eli Lilly and Company",
+      "score": 37,
       "grade": "D",
       "action": "Avoid",
-      "price": 210.69000244140625,
-      "entry": 210.69000244140625,
-      "stop": 193.71,
-      "atr_pct": 4.030689939790149,
+      "price": 1102.0799560546875,
+      "entry": 1102.0799560546875,
+      "stop": 1029.36,
+      "atr_pct": 3.2990834963179734,
       "themes": [
-        "ai_infra",
-        "semiconductor"
+        "glp1_biotech"
       ],
       "warnings": [
-        "波動偏高 ATR 4.0%"
+        "波動偏高 ATR 3.3%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?",
+        "Caterpillar’s stock hits a milestone as AI-fueled industrials rally sweeps up Wall Street",
+        "Adyen Is Betting Big on Agentic AI. The Rally Could Just Be Getting Started."
+      ],
       "sub": {
-        "T": 10,
-        "F": 20,
+        "T": 11,
+        "F": 18,
         "Fl": 3,
         "N": 0,
         "M": 6,
         "R": -1
       },
-      "sector": "Technology",
-      "market_cap": 5103122644992,
+      "sector": "Healthcare",
+      "market_cap": 982770319360,
       "risk_penalty": 1
     }
   ],
   "open_signals": [],
   "ai_reviews": [
     {
-      "symbol": "ARM",
+      "symbol": "ABBV",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
@@ -1942,13 +1955,13 @@
       "reason": "AI unavailable"
     },
     {
-      "symbol": "PANW",
+      "symbol": "ANET",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
     },
     {
-      "symbol": "NVDA",
+      "symbol": "LLY",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
