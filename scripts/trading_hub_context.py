@@ -85,6 +85,10 @@ def main() -> int:
     parser.add_argument("--hub-root", default=str(DEFAULT_HUB_ROOT))
     parser.add_argument("--limit", type=int, default=40)
     args = parser.parse_args()
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")  # 避免 Windows cp950 主控台印中文/≥ 報錯
+    except Exception:
+        pass
     context = build_context(Path(args.hub_root), args.limit)
     print(json.dumps(context, ensure_ascii=False, indent=2, default=str))
     return 0
