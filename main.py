@@ -19,6 +19,7 @@ from src.storage.sqlite_store import SQLiteStore
 from src.ai.model_council import ModelCouncil
 from src.report.dashboard import build_dashboard_json, write_dashboard_json
 from src.report.performance import build_performance_payload, write_performance_json
+from src.report.history import update_divergence_history
 from src.notifier.telegram import TelegramNotifier
 from src.backtest.forward_tracker import fill_open_signals
 from src.strategy import us_market
@@ -187,6 +188,9 @@ def run_daily_update() -> None:
 
     perf_data = build_performance_payload(store, today)
     write_performance_json(perf_data)
+
+    # Append daily divergence snapshot for the trend chart
+    update_divergence_history(dash_data["strategy"].get("divergence", {}), today)
 
     # 9. Telegram morning report (if requested via mode)
     if "--telegram" in sys.argv:
