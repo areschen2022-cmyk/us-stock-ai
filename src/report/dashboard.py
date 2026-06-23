@@ -46,6 +46,52 @@ def _ai_stats(ai_reviews: dict[str, dict], candidates: int = 0) -> dict[str, int
     }
 
 
+def _divergence(cards: list[dict]) -> dict[str, Any]:
+    """Quantify disagreement between the live grade engine and the shadow US
+    strategy (RS rating). Surfaces cases where the two systems most disagree so
+    the validation period is legible at a glance.
+
+    - **missed_strong**: shadow says strong (RS>=80 AND Minervini phase2) but the
+      live grade is weak (C/D). These are momentum names the engine may be
+      under-rating — the core evidence for eventually re-weighting.
+    - **overrated**: live grade is high (S/A) but shadow is weak (RS<50 or not
+      phase2). Possible over-rating by the current engine.
+    - **avg_gap**: mean |RS_rating - live_score| across comparable stocks.
+    """
+    gaps: list[float] = []
+    missed_strong: list[dict] = []
+    overrated: list[dict] = []
+    for c in cards:
+        st = c.get("strategy") or {}
+        rs = st.get("rs_rating")
+        if rs is None:
+            continue
+        gaps.append(abs(rs - c["score"]))
+        grade = c["grade"]
+        phase2 = bool(st.get("phase2"))
+        entry = {
+            "symbol": c["symbol"], "grade": grade, "score": c["score"],
+            "rs_rating": rs, "minervini_pass": st.get("minervini_pass"),
+            "phase2": phase2, "gap": rs - c["score"],
+        }
+        if rs >= 80 and phase2 and grade in ("C", "D"):
+            missed_strong.append(entry)
+        elif grade in ("S", "A") and (rs < 50 or not phase2):
+            overrated.append(entry)
+
+    missed_strong.sort(key=lambda e: -e["rs_rating"])
+    overrated.sort(key=lambda e: e["rs_rating"])
+    avg_gap = round(sum(gaps) / len(gaps), 1) if gaps else None
+    return {
+        "n_compared": len(gaps),
+        "avg_gap": avg_gap,
+        "missed_strong": missed_strong[:8],
+        "overrated": overrated[:8],
+        "missed_count": len(missed_strong),
+        "overrated_count": len(overrated),
+    }
+
+
 # Self-calibration switches over to z-score once enough trading days exist.
 _ZSCORE_MIN_DAYS = 8     # need ~8 prior days for a meaningful std-dev
 _ZSCORE_THRESHOLD = 1.5  # today's count must be >=1.5 std above prior mean
@@ -182,6 +228,10 @@ def build_dashboard_json(
         sig = strat_per_symbol.get(c["symbol"])
         if sig:
             c["strategy"] = sig
+            if sig.get("rs_rating") is not None:
+                c["divergence_gap"] = sig["rs_rating"] - c["score"]
+
+    divergence = _divergence(cards)
 
     vix = market_prices.get("^VIX") or 20.0
 
@@ -241,6 +291,7 @@ def build_dashboard_json(
         "data_health": data_health or {},
         "strategy": {  # SHADOW: US-market strategy overlay (display-only)
             "regime": strategy_signals.get("regime", {}),
+            "divergence": divergence,
             "mode": "shadow",
         },
         "watchlist": cards,

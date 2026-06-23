@@ -82,6 +82,15 @@
   .hl-ai-avoid{ background:#742a2a; color:#fc8181; }
   .hl-ai-none { background:var(--border); color:var(--muted); }
 
+  /* ── Divergence ── */
+  .div-row { display:flex; align-items:center; gap:10px; padding:7px 12px; border-radius:6px; margin-bottom:5px; font-size:.82rem; }
+  .div-missed { background:#0f1a14; border:1px solid #276749; }
+  .div-over { background:#1a160f; border:1px solid #744210; }
+  .div-sym { font-weight:700; min-width:56px; }
+  .div-tag { font-size:.68rem; padding:1px 7px; border-radius:10px; }
+  .div-detail { color:var(--muted); font-size:.76rem; margin-left:auto; }
+  .div-head { font-size:.78rem; color:var(--muted); margin:10px 0 6px; }
+
   /* ── Strategy shadow badges ── */
   .strat-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); }
   .strat-badge { font-size:.65rem; padding:1px 6px; border-radius:4px; background:rgba(255,255,255,.03); }
@@ -162,6 +171,14 @@
   <div class="section-block">
     <div class="section-title">🔥 今日重點</div>
     <div class="highlights" id="highlights"></div>
+  </div>
+
+  <!-- 策略背離（影子 vs 現行評分） -->
+  <div class="section-block" id="divergence-block" style="display:none">
+    <div class="section-title">⚖️ 策略背離度（影子 vs 現行評分）</div>
+    <div id="divergence-summary" class="updated"></div>
+    <div id="divergence-missed"></div>
+    <div id="divergence-overrated"></div>
   </div>
 
   <!-- 題材升溫提醒 -->
@@ -375,6 +392,38 @@ function render(data) {
     banner.innerHTML = `📐 市場狀態：<b>${reg.regime}</b> · ${spy200}${breadth ? ' · ' + breadth : ''} · ${allow}<span class="shadow-tag">影子模式</span>`;
   }
 
+  // 策略背離度
+  const div = strat.divergence || {};
+  if (div.n_compared) {
+    document.getElementById('divergence-block').style.display = '';
+    document.getElementById('divergence-summary').innerHTML =
+      `比對 ${div.n_compared} 檔 · 平均分差 <b>${div.avg_gap}</b> 分 · ` +
+      `影子看好但現行低評 <b style="color:var(--green)">${div.missed_count}</b> 檔 · ` +
+      `現行高評但影子偏弱 <b style="color:var(--yellow)">${div.overrated_count}</b> 檔`;
+
+    const missed = div.missed_strong || [];
+    document.getElementById('divergence-missed').innerHTML = missed.length ? (
+      '<div class="div-head">🟢 影子看好、現行低評（RS≥80 + 趨勢樣板 phase2，但評為 C/D）</div>' +
+      missed.map(e => `<div class="div-row div-missed">
+        <span class="div-sym">${e.symbol}</span>
+        <span class="div-tag ${gradeClass(e.grade)}">${e.grade} ${e.score}</span>
+        <span class="div-tag" style="background:#1c4532;color:#68d391">RS ${e.rs_rating} · 趨勢 ${e.minervini_pass}/8</span>
+        <span class="div-detail">分差 +${e.gap}</span>
+      </div>`).join('')
+    ) : '';
+
+    const over = div.overrated || [];
+    document.getElementById('divergence-overrated').innerHTML = over.length ? (
+      '<div class="div-head">🟡 現行高評、影子偏弱（評為 S/A，但 RS<50 或非 phase2）</div>' +
+      over.map(e => `<div class="div-row div-over">
+        <span class="div-sym">${e.symbol}</span>
+        <span class="div-tag ${gradeClass(e.grade)}">${e.grade} ${e.score}</span>
+        <span class="div-tag" style="background:#744210;color:#fefcbf">RS ${e.rs_rating} · 趨勢 ${e.minervini_pass}/8</span>
+        <span class="div-detail">分差 ${e.gap}</span>
+      </div>`).join('')
+    ) : '';
+  }
+
   // AI stats bar
   const aiTotal = ai.total || 0;
   let covHtml = '';
@@ -512,6 +561,7 @@ function render(data) {
     market_direction: data.market_direction,
     data_health: data.data_health,
     strategy_regime: (data.strategy||{}).regime,
+    divergence: (data.strategy||{}).divergence,
     overview: data.overview,
     ai_stats: data.ai_stats,
     highlights_count: (data.highlights||[]).length,

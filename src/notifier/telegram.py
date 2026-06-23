@@ -82,6 +82,9 @@ def _build_morning_report(
     theme_alerts = overview.get("theme_alerts", []) or []
     risk_alerts = overview.get("risk_alerts", []) or []
     data_health = overview.get("data_health", {}) or {}
+    strategy = overview.get("strategy", {}) or {}
+    regime = strategy.get("regime", {}) or {}
+    divergence = strategy.get("divergence", {}) or {}
     rising_set = {a["theme"] for a in theme_alerts}
 
     # 主題彙整
@@ -190,6 +193,22 @@ def _build_morning_report(
             sym = r.get("symbol", "?")
             warns = "、".join(r.get("warnings") or []) or "高風險扣分"
             _flush(f"▸ {sym}｜風險 -{r.get('risk_penalty', 0)}｜{warns}\n")
+        _flush("\n")
+
+    # === 📐 策略疊加（影子模式）===
+    if regime.get("regime") and regime.get("regime") != "未知":
+        allow = "允許新進場" if regime.get("allow_new_entries") else "優先持盈/觀望"
+        _flush(f"📐 市場狀態：{regime['regime']}｜{allow}（影子）\n")
+    missed = divergence.get("missed_strong") or []
+    if missed:
+        _flush(f"🔍 影子看好、現行低評（{divergence.get('missed_count', len(missed))} 檔）\n")
+        for e in missed[:5]:
+            _flush(
+                f"▸ {e['symbol']}｜現行 {e['grade']} {e['score']}｜"
+                f"RS {e['rs_rating']}｜趨勢 {e.get('minervini_pass')}/8\n"
+            )
+        _flush("（影子指標尚未計入評分，累積驗證中）\n")
+    if regime.get("regime") and regime.get("regime") != "未知" or missed:
         _flush("\n")
 
     # === 完整 S 級 ===

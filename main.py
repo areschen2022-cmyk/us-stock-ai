@@ -202,6 +202,7 @@ def run_daily_update() -> None:
             "theme_alerts": dash_data["theme_alerts"],
             "risk_alerts": dash_data["risk_alerts"],
             "data_health": dash_data["data_health"],
+            "strategy": dash_data["strategy"],
         }
         notifier = TelegramNotifier()
         ok = notifier.send_morning_report(top, market_prices, today, ai_summaries, overview)
@@ -261,6 +262,19 @@ def run_morning_telegram() -> None:
         all_scores, market_prices, store.get_open_signals(), {}, today,
         theme_history=theme_history,
     )
+    # Morning run has no OHLCV → reuse the shadow strategy block persisted by the
+    # evening daily-update run (regime/divergence don't change overnight).
+    strategy_block = dash_data["strategy"]
+    try:
+        from pathlib import Path as _Path
+        cached = _Path(__file__).parent / "docs" / "dashboard_data.json"
+        if cached.exists():
+            persisted = _json.loads(cached.read_text(encoding="utf-8")).get("strategy")
+            if persisted and (persisted.get("divergence", {}) or {}).get("n_compared"):
+                strategy_block = persisted
+    except Exception as _e:
+        print(f"[Main] could not load persisted strategy block: {_e}")
+
     overview = {
         **dash_data["overview"],
         "ai_buy": dash_data["ai_stats"]["buy"],
@@ -272,6 +286,7 @@ def run_morning_telegram() -> None:
         "theme_alerts": dash_data["theme_alerts"],
         "risk_alerts": dash_data["risk_alerts"],
         "data_health": {"source_status": "讀取快取", "quality": "高"},
+        "strategy": strategy_block,
     }
     notifier = TelegramNotifier()
     ok = notifier.send_morning_report(top, market_prices, today, overview=overview)
