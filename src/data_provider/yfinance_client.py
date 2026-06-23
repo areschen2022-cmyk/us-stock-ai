@@ -80,8 +80,13 @@ def fetch_info(symbol: str) -> dict[str, Any]:
     return {}
 
 
-def fetch_batch_ohlcv(symbols: list[str], period: str = "6mo") -> dict[str, pd.DataFrame]:
-    """Batch download OHLCV for multiple symbols."""
+def fetch_batch_ohlcv(symbols: list[str], period: str = "2y") -> dict[str, pd.DataFrame]:
+    """Batch download OHLCV for multiple symbols.
+
+    2y window (~504 bars) supports US-strategy indicators that need long history:
+    200-day SMA, 63-day RS slope, 6/12-month momentum, and a clean 52-week range.
+    Existing technical_score still uses tail() slices so more history is harmless.
+    """
     cache_key = f"batch_{'_'.join(sorted(symbols)[:5])}_{period}_{date.today()}"
     if len(symbols) <= 10:
         # Small batch: cache individually
