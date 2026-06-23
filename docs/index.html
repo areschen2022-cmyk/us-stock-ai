@@ -82,6 +82,13 @@
   .hl-ai-avoid{ background:#742a2a; color:#fc8181; }
   .hl-ai-none { background:var(--border); color:var(--muted); }
 
+  /* ── Strategy shadow badges ── */
+  .strat-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); }
+  .strat-badge { font-size:.65rem; padding:1px 6px; border-radius:4px; background:rgba(255,255,255,.03); }
+  #regime-banner { font-size:.78rem; padding:6px 12px; margin-bottom:14px; border-radius:6px; background:rgba(99,102,241,.08); border:1px solid var(--border); color:var(--muted); }
+  #regime-banner b { color:var(--text); }
+  .shadow-tag { font-size:.6rem; color:var(--muted); border:1px solid var(--border); padding:0 5px; border-radius:8px; margin-left:6px; }
+
   /* ── Theme heating alerts ── */
   .alert-list { margin-bottom:20px; }
   .alert-item { display:flex; align-items:center; gap:10px; padding:8px 12px; background:#1a160f; border:1px solid #744210; border-radius:6px; margin-bottom:6px; font-size:.83rem; }
@@ -141,6 +148,9 @@
 <!-- 總覽 -->
 <div id="overview" class="tab active">
   <div class="updated" id="updated-at"></div>
+
+  <!-- 市場 regime（影子策略） -->
+  <div id="regime-banner" style="display:none"></div>
 
   <!-- AI 複核統計 -->
   <div class="ai-stats-bar" id="ai-stats-bar"></div>
@@ -268,6 +278,22 @@ function renderCard(s) {
     </div>
     <div class="themes">${themes}</div>
     <div class="action-text">${zhAction(s.action)}</div>
+    ${renderStrategyBadges(s.strategy)}
+  </div>`;
+}
+
+// SHADOW: US-strategy badges (RS rating / Minervini / liquidity). Display-only.
+function renderStrategyBadges(st) {
+  if (!st) return '';
+  const rs = st.rs_rating;
+  const rsColor = rs == null ? 'var(--muted)' : rs >= 80 ? 'var(--green)' : rs >= 50 ? 'var(--yellow)' : 'var(--red)';
+  const mt = st.minervini_pass;
+  const mtColor = mt == null ? 'var(--muted)' : mt >= 7 ? 'var(--green)' : mt >= 5 ? 'var(--yellow)' : 'var(--red)';
+  const liq = st.liquidity_ok;
+  return `<div class="strat-badges" title="影子策略指標（尚未計入評分）">
+    <span class="strat-badge" style="color:${rsColor}">RS ${rs != null ? rs : '—'}</span>
+    <span class="strat-badge" style="color:${mtColor}">趨勢 ${mt != null ? mt + '/8' : '—'}${st.phase2 ? ' ✓' : ''}</span>
+    <span class="strat-badge" style="color:${liq ? 'var(--green)' : 'var(--red)'}">${liq ? '流動性✓' : '流動性✕'}</span>
   </div>`;
 }
 
@@ -336,6 +362,18 @@ function render(data) {
 
   // Updated
   document.getElementById('updated-at').textContent = '更新時間：' + (data.generated_at || '未知');
+
+  // 市場 regime（影子策略疊加）
+  const strat = data.strategy || {};
+  const reg = strat.regime || {};
+  if (reg.regime) {
+    const banner = document.getElementById('regime-banner');
+    banner.style.display = '';
+    const spy200 = reg.spy_above_200ma == null ? '—' : (reg.spy_above_200ma ? 'SPY 站上 200MA' : 'SPY 跌破 200MA');
+    const breadth = reg.breadth_phase2_pct != null ? `廣度 ${reg.breadth_phase2_pct}% 多頭` : '';
+    const allow = reg.allow_new_entries ? '✅ 允許新進場' : '⛔ 優先持盈/觀望';
+    banner.innerHTML = `📐 市場狀態：<b>${reg.regime}</b> · ${spy200}${breadth ? ' · ' + breadth : ''} · ${allow}<span class="shadow-tag">影子模式</span>`;
+  }
 
   // AI stats bar
   const aiTotal = ai.total || 0;
@@ -473,6 +511,7 @@ function render(data) {
     market: data.market,
     market_direction: data.market_direction,
     data_health: data.data_health,
+    strategy_regime: (data.strategy||{}).regime,
     overview: data.overview,
     ai_stats: data.ai_stats,
     highlights_count: (data.highlights||[]).length,

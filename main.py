@@ -21,6 +21,7 @@ from src.report.dashboard import build_dashboard_json, write_dashboard_json
 from src.report.performance import build_performance_payload, write_performance_json
 from src.notifier.telegram import TelegramNotifier
 from src.backtest.forward_tracker import fill_open_signals
+from src.strategy import us_market
 
 
 def _get_revenue_yoy(symbol: str) -> float | None:
@@ -32,6 +33,44 @@ def _get_revenue_yoy(symbol: str) -> float | None:
         return extract_revenue_yoy(facts)
     except Exception:
         return None
+
+
+def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
+    """Assemble per-symbol US-strategy shadow signals + market regime.
+    Two-pass: RS percentile (cross-sectional) → Minervini (uses RS rating)."""
+    if not strategy_raw:
+        return {"per_symbol": {}, "regime": us_market.market_regime(spy_ohlcv, None)}
+
+    # Pass 1: composite momentum return for cross-sectional RS percentile
+    composites: dict[str, float] = {}
+    for sym, raw in strategy_raw.items():
+        rs = raw.get("rs") or {}
+        r6, r12 = rs.get("ret_6m"), rs.get("ret_12m_skip1")
+        parts = [v for v in (r6, r12) if v is not None]
+        if parts:
+            composites[sym] = sum(parts) / len(parts)
+    rs_pct = us_market.rs_percentile(composites)
+
+    # Pass 2: Minervini using the RS rating; collect breadth
+    per_symbol: dict[str, dict] = {}
+    phase2_count = 0
+    for sym, raw in strategy_raw.items():
+        rating = rs_pct.get(sym)
+        mt = us_market.minervini_trend_template(raw["ohlcv"], rs_rating=rating)
+        if mt.get("phase2"):
+            phase2_count += 1
+        per_symbol[sym] = {
+            "rs_rating": rating,
+            "rs_score_0_10": (raw.get("rs") or {}).get("rs_score_0_10"),
+            "minervini_pass": mt["pass_count"],
+            "phase2": mt["phase2"],
+            "liquidity_ok": (raw.get("liquidity") or {}).get("passed"),
+            "dollar_vol_50d": (raw.get("liquidity") or {}).get("dollar_vol_50d"),
+        }
+
+    breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
+    regime = us_market.market_regime(spy_ohlcv, breadth_pct)
+    return {"per_symbol": per_symbol, "regime": regime}
 
 
 def run_daily_update() -> None:
@@ -60,6 +99,8 @@ def run_daily_update() -> None:
     # 5. Score each symbol
     scores: list[StockScore] = []
     missing_data = 0
+    strategy_raw: dict[str, dict] = {}  # SHADOW: per-symbol US-strategy signals
+    spy_close = spy_ohlcv["Close"] if (spy_ohlcv is not None and not spy_ohlcv.empty) else None
     for symbol in symbols:
         ohlcv = ohlcv_map.get(symbol)
         if ohlcv is None or ohlcv.empty:
@@ -83,11 +124,22 @@ def run_daily_update() -> None:
             store.upsert_score(today, score)
             if score.grade in ("S", "A"):
                 store.upsert_watch_signal(score, today)
+
+            # SHADOW strategy signals (display-only, does not affect grade yet)
+            try:
+                rs = us_market.rs_rating_63d(ohlcv["Close"], spy_close) if spy_close is not None else {}
+                liq = us_market.liquidity_gate(ohlcv, score.price)
+                strategy_raw[symbol] = {"ohlcv": ohlcv, "rs": rs, "liquidity": liq}
+            except Exception as sx:
+                print(f"[Main] shadow-strategy error {symbol}: {sx}")
         except Exception as exc:
             print(f"[Main] Error scoring {symbol}: {exc}")
             traceback.print_exc()
 
     print(f"[Main] Scored {len(scores)} symbols")
+
+    # 5b. SHADOW: cross-sectional RS percentile + Minervini + market regime
+    strategy_signals = _build_shadow_signals(strategy_raw, spy_ohlcv)
 
     # 6. Forward return fill-back
     fill_open_signals(store)
@@ -127,6 +179,7 @@ def run_daily_update() -> None:
     dash_data = build_dashboard_json(
         scores, market_prices, open_signals, ai_reviews, today,
         theme_history=theme_history, data_health=data_health,
+        strategy_signals=strategy_signals,
     )
     write_dashboard_json(dash_data)
 

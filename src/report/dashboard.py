@@ -46,17 +46,32 @@ def _ai_stats(ai_reviews: dict[str, dict], candidates: int = 0) -> dict[str, int
     }
 
 
+# Self-calibration switches over to z-score once enough trading days exist.
+_ZSCORE_MIN_DAYS = 8     # need ~8 prior days for a meaningful std-dev
+_ZSCORE_THRESHOLD = 1.5  # today's count must be >=1.5 std above prior mean
+
+
 def _theme_heating(
     themes_list: list[dict],
     theme_history: dict[str, dict[str, int]] | None,
     today: date,
 ) -> list[dict]:
-    """Mark each theme as rising when today's stock count meaningfully exceeds the
-    prior-days average. Mutates themes_list in place (adds `rising`, `prev_avg`,
-    `delta`) and returns the subset of surging themes for the alert section."""
+    """Mark each theme as rising when today's stock count meaningfully exceeds
+    the prior-days baseline. Two modes, auto-selected per data availability:
+
+    - **fixed** (default, < _ZSCORE_MIN_DAYS history): new theme with >=2 today,
+      or >=1.8x prior average and >=3 today.
+    - **zscore** (>= _ZSCORE_MIN_DAYS history): today's count is >= 1.5 std-devs
+      above the prior mean (and >=3 absolute, to avoid noise on tiny baselines).
+
+    Mutates themes_list in place (adds `rising`, `prev_avg`, `zscore`, `mode`)
+    and returns the surging subset for the alert section.
+    """
     today_str = str(today)
-    # Prior days = all history dates except today
     prior_dates = [d for d in (theme_history or {}) if d != today_str]
+    n_prior = len(prior_dates)
+    use_zscore = n_prior >= _ZSCORE_MIN_DAYS
+    mode = "zscore" if use_zscore else "fixed"
     alerts: list[dict] = []
 
     for item in themes_list:
@@ -66,21 +81,36 @@ def _theme_heating(
         prev_avg = round(sum(prior_counts) / len(prior_counts), 1) if prior_counts else 0.0
         item["prev_avg"] = prev_avg
         item["delta"] = round(today_count - prev_avg, 1)
+        item["mode"] = mode
 
-        # Rising: new theme (no prior presence) with >=2 today, or >=1.8x average and >=3
         rising = False
-        if prior_dates:
+        zscore = None
+        if use_zscore and prior_counts:
+            mean = sum(prior_counts) / len(prior_counts)
+            var = sum((x - mean) ** 2 for x in prior_counts) / len(prior_counts)
+            std = var ** 0.5
+            if std > 0:
+                zscore = round((today_count - mean) / std, 2)
+                rising = zscore >= _ZSCORE_THRESHOLD and today_count >= 3
+            elif today_count > mean and today_count >= 3:
+                # zero-variance baseline that suddenly jumps
+                rising = True
+        elif prior_dates:
             if prev_avg == 0 and today_count >= 2:
                 rising = True
             elif prev_avg > 0 and today_count >= 3 and today_count >= prev_avg * 1.8:
                 rising = True
+
         item["rising"] = rising
+        item["zscore"] = zscore
         if rising:
             alerts.append({
                 "theme": theme,
                 "theme_zh": item["theme_zh"],
                 "count": today_count,
                 "prev_avg": prev_avg,
+                "zscore": zscore,
+                "mode": mode,
             })
 
     return alerts
@@ -140,10 +170,18 @@ def build_dashboard_json(
     today: date | None = None,
     theme_history: dict[str, dict[str, int]] | None = None,
     data_health: dict[str, Any] | None = None,
+    strategy_signals: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     today = today or date.today()
+    strategy_signals = strategy_signals or {}
+    strat_per_symbol = strategy_signals.get("per_symbol", {})
     sorted_scores = sorted(scores, key=lambda s: s.total_score, reverse=True)
     cards = [_score_to_card(s) for s in sorted_scores]
+    # SHADOW: attach US-strategy signals per card (display-only)
+    for c in cards:
+        sig = strat_per_symbol.get(c["symbol"])
+        if sig:
+            c["strategy"] = sig
 
     vix = market_prices.get("^VIX") or 20.0
 
@@ -201,6 +239,10 @@ def build_dashboard_json(
             candidates=sum(1 for c in cards if c["grade"] in ("S", "A")),
         ),
         "data_health": data_health or {},
+        "strategy": {  # SHADOW: US-market strategy overlay (display-only)
+            "regime": strategy_signals.get("regime", {}),
+            "mode": "shadow",
+        },
         "watchlist": cards,
         "top10": cards[:10],
         "themes": themes_list,
