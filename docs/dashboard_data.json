@@ -3,7 +3,7 @@
   "market": {
     "SPY": 744.3900146484375,
     "QQQ": 737.9500122070312,
-    "VIX": 19.81999969482422,
+    "VIX": 19.719999313354492,
     "TLT": 86.08999633789062,
     "HYG": 79.94000244140625,
     "IWM": 298.17999267578125,
@@ -44,7 +44,7 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 25.9,
+      "avg_gap": 25.8,
       "missed_strong": [
         {
           "symbol": "AMD",
@@ -298,7 +298,9 @@
       "warnings": [
         "波動過大 ATR 6.6%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Why AMD's AI Position Is Expanding"
+      ],
       "sub": {
         "T": 24,
         "F": 15,
@@ -376,7 +378,8 @@
       ],
       "matched_headlines": [
         "Dolly Parton’s former hideaway in the quaint town of Solvang is listed for $2 million, complete with windmill",
-        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?"
+        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?",
+        "The AI rally has a new test — a rising dollar: Chart of the Day"
       ],
       "sub": {
         "T": 17,
@@ -1011,48 +1014,6 @@
       "divergence_gap": 2
     },
     {
-      "symbol": "SE",
-      "name": "Sea Limited",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 89.04000091552734,
-      "entry": 89.04000091552734,
-      "stop": 80.38,
-      "atr_pct": 4.8641863618894465,
-      "themes": [
-        "emerging_market"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [
-        "These 6 fast-growing stocks sit at the cutting edge of space and military technology",
-        "Wall Street loves growth stocks — but these 10 ‘losers’ are primed to win",
-        "Octave Intelligence: A Quality Software Asset, But Growth Still Needs To Catch Up"
-      ],
-      "sub": {
-        "T": 2,
-        "F": 15,
-        "Fl": 3,
-        "N": 3,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 54535622656,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 11,
-        "rs_score_0_10": 3.84,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 370383996.0
-      },
-      "divergence_gap": -17
-    },
-    {
       "symbol": "GILD",
       "name": "Gilead Sciences, Inc.",
       "score": 27,
@@ -1164,6 +1125,48 @@
         "dollar_vol_50d": 486085336.0
       },
       "divergence_gap": -17
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 25,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 89.04000091552734,
+      "entry": 89.04000091552734,
+      "stop": 80.38,
+      "atr_pct": 4.8641863618894465,
+      "themes": [
+        "emerging_market"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "These 6 fast-growing stocks sit at the cutting edge of space and military technology",
+        "Octave Intelligence: A Quality Software Asset, But Growth Still Needs To Catch Up",
+        "Fast-food seafood chain closed over 900 stores, mounts comeback"
+      ],
+      "sub": {
+        "T": 2,
+        "F": 15,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 54535622656,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 11,
+        "rs_score_0_10": 3.84,
+        "minervini_pass": 1,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 370383996.0
+      },
+      "divergence_gap": -14
     },
     {
       "symbol": "AVGO",
@@ -1336,9 +1339,7 @@
       "warnings": [
         "波動偏高 ATR 4.4%"
       ],
-      "matched_headlines": [
-        "Kraft Heinz (KHC) Reveals Its Next Move at the Annual dbAccess Global Consumer Conference"
-      ],
+      "matched_headlines": [],
       "sub": {
         "T": 2,
         "F": 10,
@@ -1839,7 +1840,9 @@
       "warnings": [
         "波動過大 ATR 6.6%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Why AMD's AI Position Is Expanding"
+      ],
       "sub": {
         "T": 24,
         "F": 15,
@@ -1917,7 +1920,8 @@
       ],
       "matched_headlines": [
         "Dolly Parton’s former hideaway in the quaint town of Solvang is listed for $2 million, complete with windmill",
-        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?"
+        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?",
+        "The AI rally has a new test — a rising dollar: Chart of the Day"
       ],
       "sub": {
         "T": 17,
@@ -2309,7 +2313,7 @@
       "symbols": [
         {
           "symbol": "SE",
-          "score": 28
+          "score": 25
         },
         {
           "symbol": "NU",
@@ -2346,7 +2350,9 @@
       "warnings": [
         "波動過大 ATR 6.6%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Why AMD's AI Position Is Expanding"
+      ],
       "sub": {
         "T": 24,
         "F": 15,
@@ -2406,7 +2412,8 @@
       ],
       "matched_headlines": [
         "Dolly Parton’s former hideaway in the quaint town of Solvang is listed for $2 million, complete with windmill",
-        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?"
+        "Trump may say he’s banning Wall Street from buying homes. Does the bipartisan housing bill actually do that?",
+        "The AI rally has a new test — a rising dollar: Chart of the Day"
       ],
       "sub": {
         "T": 17,
