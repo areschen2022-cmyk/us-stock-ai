@@ -89,8 +89,10 @@ def run_daily_update() -> None:
     symbols: list[str] = cfg.get("symbols", [])
     print(f"[Main] Scoring {len(symbols)} symbols")
 
-    # 3. Fetch OHLCV batch
-    ohlcv_map = fetch_batch_ohlcv(symbols)
+    # 3. Fetch OHLCV batch (include SPY for relative-strength / regime — it is
+    #    not in the scored `symbols` list, so must be requested explicitly)
+    fetch_list = symbols + (["SPY"] if "SPY" not in symbols else [])
+    ohlcv_map = fetch_batch_ohlcv(fetch_list)
     spy_ohlcv = ohlcv_map.get("SPY")
 
     # 4. Fetch news once (shared)
