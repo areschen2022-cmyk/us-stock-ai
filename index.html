@@ -177,6 +177,7 @@
   <div class="section-block" id="divergence-block" style="display:none">
     <div class="section-title">⚖️ 策略背離度（影子 vs 現行評分）</div>
     <div id="divergence-summary" class="updated"></div>
+    <div id="divergence-trend"></div>
     <div id="divergence-missed"></div>
     <div id="divergence-overrated"></div>
   </div>
@@ -574,6 +575,49 @@ function render(data) {
   }, null, 2);
 }
 
+// 背離度歷史趨勢圖（純 SVG，無外部套件）
+function renderDivergenceTrend(history) {
+  const el = document.getElementById('divergence-trend');
+  if (!el || !history || history.length < 2) return;
+  const W = 680, H = 150, padL = 36, padR = 36, padT = 14, padB = 22;
+  const n = history.length;
+  const gaps = history.map(h => h.avg_gap || 0);
+  const missed = history.map(h => h.missed_count || 0);
+  const maxGap = Math.max(10, ...gaps);
+  const maxMissed = Math.max(1, ...missed);
+  const xw = (W - padL - padR);
+  const x = i => padL + (n === 1 ? xw / 2 : xw * i / (n - 1));
+  const yGap = v => padT + (H - padT - padB) * (1 - v / maxGap);
+  const yBar = v => (H - padB) - (H - padT - padB) * (v / maxMissed);
+
+  // missed_count bars
+  const bw = Math.max(3, xw / n * 0.5);
+  const bars = history.map((h, i) =>
+    `<rect x="${x(i) - bw/2}" y="${yBar(h.missed_count||0)}" width="${bw}" height="${(H-padB)-yBar(h.missed_count||0)}" fill="#276749" opacity="0.5" rx="1"/>`
+  ).join('');
+
+  // avg_gap line
+  const pts = gaps.map((v, i) => `${x(i)},${yGap(v)}`).join(' ');
+  const dots = gaps.map((v, i) => `<circle cx="${x(i)}" cy="${yGap(v)}" r="2.5" fill="#6366f1"/>`).join('');
+
+  // x labels (first, mid, last) — show MM-DD
+  const lbl = i => (history[i].date || '').slice(5);
+  const xticks = [0, Math.floor((n-1)/2), n-1].map(i =>
+    `<text x="${x(i)}" y="${H-6}" fill="#718096" font-size="9" text-anchor="middle">${lbl(i)}</text>`
+  ).join('');
+
+  el.innerHTML = `
+    <div class="div-head">📈 背離趨勢（藍線=平均分差，綠柱=看好低評檔數，近 ${n} 日）</div>
+    <svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:${W}px;background:var(--surface);border:1px solid var(--border);border-radius:6px">
+      <text x="6" y="${padT+4}" fill="#6366f1" font-size="9">${maxGap}</text>
+      <text x="6" y="${H-padB}" fill="#6366f1" font-size="9">0</text>
+      <text x="${W-30}" y="${padT+4}" fill="#48bb78" font-size="9">${maxMissed}</text>
+      ${bars}
+      <polyline points="${pts}" fill="none" stroke="#6366f1" stroke-width="1.6"/>
+      ${dots}${xticks}
+    </svg>`;
+}
+
 fetch('dashboard_data.json?_=' + Date.now())
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(render)
@@ -584,6 +628,12 @@ fetch('dashboard_data.json?_=' + Date.now())
     document.getElementById('stats').innerHTML =
       '<p class="empty-hint" style="padding:0">尚無資料 — 請等待排程執行後重新整理。</p>';
   });
+
+// Divergence history is a separate, optional series
+fetch('divergence_history.json?_=' + Date.now())
+  .then(r => r.ok ? r.json() : [])
+  .then(renderDivergenceTrend)
+  .catch(() => {});
 </script>
 </body>
 </html>
