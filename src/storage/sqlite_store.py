@@ -194,6 +194,20 @@ class SQLiteStore:
             ).fetchall()
             return [dict(r) for r in rows]
 
+    def get_latest_scored_date(self, on_or_before: date | None = None) -> str | None:
+        """Most recent as_of_date that has scores (optionally on/before a date).
+        Morning reports run before the day's scoring, so they must fall back to
+        the latest available trading day rather than strictly today."""
+        with self._connect() as conn:
+            if on_or_before is not None:
+                row = conn.execute(
+                    "SELECT MAX(as_of_date) FROM daily_scores WHERE as_of_date <= ?",
+                    (str(on_or_before),),
+                ).fetchone()
+            else:
+                row = conn.execute("SELECT MAX(as_of_date) FROM daily_scores").fetchone()
+        return row[0] if row and row[0] else None
+
     def get_theme_count_history(self, as_of: date, lookback: int = 4) -> dict[str, dict[str, int]]:
         """Return {date_str: {theme: stock_count}} for the most recent `lookback`
         trading days up to and including as_of. Used for theme-heating detection."""
