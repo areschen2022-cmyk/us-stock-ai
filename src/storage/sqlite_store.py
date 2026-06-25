@@ -284,6 +284,57 @@ class SQLiteStore:
             ).fetchall()
             return [dict(r) for r in rows]
 
+    # ── shadow validation signals ────────────────────────────────────────────
+
+    def upsert_shadow_signal(self, signal_date: date, grp: str, data: dict) -> None:
+        with self._connect() as conn:
+            conn.execute(
+                """INSERT OR IGNORE INTO shadow_signals
+                   (signal_date, symbol, grp, rs_rating, minervini_pass, phase2,
+                    live_grade, live_score, entry_price, stop_price)
+                   VALUES (?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    str(signal_date), data["symbol"], grp,
+                    data.get("rs_rating"), data.get("minervini_pass"),
+                    1 if data.get("phase2") else 0,
+                    data.get("live_grade"), data.get("live_score"),
+                    data.get("entry_price"), data.get("stop_price"),
+                ),
+            )
+
+    def get_open_shadow_signals(self) -> list[dict]:
+        with self._connect() as conn:
+            conn.row_factory = sqlite3.Row
+            rows = conn.execute(
+                "SELECT * FROM shadow_signals WHERE outcome IS NULL ORDER BY signal_date DESC"
+            ).fetchall()
+            return [dict(r) for r in rows]
+
+    def get_shadow_performance(self) -> dict:
+        """Aggregate win-rate / avg forward return per group ('shadow' vs
+        'live_top') over signals that have completed (10d return filled)."""
+        out: dict[str, dict] = {}
+        with self._connect() as conn:
+            conn.row_factory = sqlite3.Row
+            for grp in ("shadow", "live_top"):
+                rows = conn.execute(
+                    "SELECT return_5d, return_10d, outcome FROM shadow_signals WHERE grp=?",
+                    (grp,),
+                ).fetchall()
+                total = len(rows)
+                done = [r for r in rows if r["return_10d"] is not None]
+                r5 = [r["return_5d"] for r in rows if r["return_5d"] is not None]
+                r10 = [r["return_10d"] for r in done]
+                wins = sum(1 for r in done if r["outcome"] == "win")
+                out[grp] = {
+                    "tracked": total,
+                    "completed": len(done),
+                    "win_rate": round(wins / len(done) * 100, 1) if done else None,
+                    "avg_return_5d": round(sum(r5) / len(r5), 2) if r5 else None,
+                    "avg_return_10d": round(sum(r10) / len(r10), 2) if r10 else None,
+                }
+        return out
+
     # ── AI council ────────────────────────────────────────────────────────────
 
     def save_ai_review(self, review_date: date, symbol: str, review: dict) -> None:
