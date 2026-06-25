@@ -77,3 +77,43 @@ def fill_open_signals(store: SQLiteStore) -> int:
 
     print(f"[ForwardTracker] Updated {updated} signals")
     return updated
+
+
+def fill_shadow_signals(store: SQLiteStore) -> int:
+    """Mirror of fill_open_signals for the shadow validation table (both groups:
+    'shadow' and 'live_top'). Lets us compare forward returns apples-to-apples."""
+    today = date.today()
+    open_sigs = store.get_open_shadow_signals()
+    updated = 0
+    with store._connect() as conn:
+        for sig in open_sigs:
+            symbol = sig["symbol"]
+            signal_date = date.fromisoformat(sig["signal_date"])
+            entry_price = sig.get("entry_price")
+            if not entry_price:
+                continue
+            updates: dict[str, object] = {}
+            for h in _HORIZONS:
+                col = f"return_{h}d"
+                if sig.get(col) is not None:
+                    continue
+                target = signal_date + timedelta(days=h)
+                if target > today:
+                    continue
+                price = _fetch_price(symbol, target)
+                if price:
+                    updates[col] = round((price - entry_price) / entry_price * 100, 2)
+            if not updates:
+                continue
+            ret10 = updates.get("return_10d") or sig.get("return_10d")
+            if ret10 is not None:
+                updates["outcome"] = "win" if ret10 >= 10 else "loss" if ret10 <= -5 else "neutral"
+            set_clause = ", ".join(f"{k}=?" for k in updates)
+            vals = list(updates.values()) + [sig["signal_date"], symbol, sig["grp"]]
+            conn.execute(
+                f"UPDATE shadow_signals SET {set_clause} WHERE signal_date=? AND symbol=? AND grp=?",
+                vals,
+            )
+            updated += 1
+    print(f"[ForwardTracker] Updated {updated} shadow signals")
+    return updated
