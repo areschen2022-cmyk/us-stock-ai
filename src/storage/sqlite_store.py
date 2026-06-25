@@ -128,6 +128,25 @@ class SQLiteStore:
                     resolved INTEGER DEFAULT 0
                 );
 
+                CREATE TABLE IF NOT EXISTS shadow_signals (
+                    signal_date TEXT NOT NULL,
+                    symbol TEXT NOT NULL,
+                    grp TEXT NOT NULL,              -- 'shadow' | 'live_top'
+                    rs_rating INTEGER,
+                    minervini_pass INTEGER,
+                    phase2 INTEGER DEFAULT 0,
+                    live_grade TEXT,
+                    live_score INTEGER,
+                    entry_price REAL,
+                    stop_price REAL,
+                    return_3d REAL,
+                    return_5d REAL,
+                    return_10d REAL,
+                    return_20d REAL,
+                    outcome TEXT,
+                    PRIMARY KEY (signal_date, symbol, grp)
+                );
+
                 CREATE TABLE IF NOT EXISTS knowledge_exports (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     exported_at TEXT NOT NULL,
