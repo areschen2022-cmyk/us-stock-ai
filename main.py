@@ -226,10 +226,20 @@ def run_morning_telegram() -> None:
         print("[Main] Morning Telegram already sent today — skipping")
         return
 
+    # Morning report runs BEFORE the day's scoring (scoring is an after-close
+    # job). So fall back to the most recent scored trading day rather than
+    # requiring today's scores — otherwise the report silently never sends.
     scores_raw = store.get_scores_for_date(today)
+    data_date = today
     if not scores_raw:
-        print("[Main] No scores for today yet — skipping Telegram")
-        return
+        latest = store.get_latest_scored_date(on_or_before=today)
+        if not latest:
+            print("[Main] No scores in DB at all — skipping Telegram")
+            store.log_delivery("morning_telegram", "skipped", "no scores in db")
+            return
+        data_date = date.fromisoformat(latest)
+        scores_raw = store.get_scores_for_date(data_date)
+        print(f"[Main] Using latest scored date {data_date} for morning report")
 
     # Reconstruct full StockScore objects (incl. warnings) from stored rows
     import json as _json
@@ -259,11 +269,11 @@ def run_morning_telegram() -> None:
     top = sorted(all_scores, key=lambda s: s.total_score, reverse=True)[:10]
 
     market_prices = fetch_market_indices()
-    theme_history = store.get_theme_count_history(today, lookback=4)
+    theme_history = store.get_theme_count_history(data_date, lookback=4)
 
     # Reuse the dashboard builder so Telegram and web stay consistent
     dash_data = build_dashboard_json(
-        all_scores, market_prices, store.get_open_signals(), {}, today,
+        all_scores, market_prices, store.get_open_signals(), {}, data_date,
         theme_history=theme_history,
     )
     # Morning run has no OHLCV → reuse the shadow strategy block persisted by the
@@ -292,9 +302,10 @@ def run_morning_telegram() -> None:
         "data_health": {"source_status": "讀取快取", "quality": "高"},
         "strategy": strategy_block,
     }
+    overview["data_date"] = str(data_date)
     notifier = TelegramNotifier()
     ok = notifier.send_morning_report(top, market_prices, today, overview=overview)
-    store.log_delivery("morning_telegram", "ok" if ok else "error")
+    store.log_delivery("morning_telegram", "ok" if ok else "error", f"data_date={data_date}")
     if not ok:
         raise RuntimeError("Telegram morning report failed")
 

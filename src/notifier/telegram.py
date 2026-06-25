@@ -125,8 +125,12 @@ def _build_morning_report(
     if elapsed is not None:
         health_line = f"延遲：{elapsed} 分｜" + health_line
 
+    data_date = overview.get("data_date")
+    data_line = f"資料日：{data_date}\n" if data_date and str(data_date) != str(today) else ""
+
     header = (
         f"美股 AI 早報｜{today}\n"
+        f"{data_line}"
         f"大盤：SPY {spy_str}｜QQQ {qqq_str}｜VIX {vix_str}{extra_indices}\n"
         f"\n"
         f"{dir_icon} 風向：{direction}\n"
