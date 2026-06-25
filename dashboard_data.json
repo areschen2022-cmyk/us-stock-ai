@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-24",
+  "generated_at": "2026-06-25",
   "market": {
     "SPY": 733.239990234375,
     "QQQ": 710.6199951171875,
-    "VIX": 18.6299991607666,
+    "VIX": 17.84000015258789,
     "TLT": 87.37999725341797,
     "HYG": 79.8499984741211,
     "IWM": 296.69000244140625,
     "SMH": 618.9199829101562
   },
-  "market_direction": "中性",
+  "market_direction": "多頭",
   "overview": {
     "total_scored": 40,
     "grade_S": 0,
@@ -28,7 +28,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 0.6,
+    "elapsed_min": 0.5,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -103,18 +103,34 @@
         {
           "symbol": "MRNA",
           "grade": "D",
-          "score": 29,
+          "score": 32,
           "rs_rating": 82,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 53
+          "gap": 50
         }
       ],
       "overrated": [],
       "missed_count": 7,
       "overrated_count": 0
     },
-    "mode": "shadow"
+    "mode": "shadow",
+    "validation": {
+      "shadow": {
+        "tracked": 7,
+        "completed": 0,
+        "win_rate": null,
+        "avg_return_5d": null,
+        "avg_return_10d": null
+      },
+      "live_top": {
+        "tracked": 10,
+        "completed": 0,
+        "win_rate": null,
+        "avg_return_5d": null,
+        "avg_return_10d": null
+      }
+    }
   },
   "watchlist": [
     {
@@ -126,7 +142,7 @@
       "price": 234.88999938964844,
       "entry": 234.88999938964844,
       "stop": 222.67,
-      "atr_pct": 2.600305613807651,
+      "atr_pct": 2.60121785781776,
       "themes": [
         "glp1_biotech"
       ],
@@ -149,7 +165,9 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1322138258.0
+        "dollar_vol_50d": 1322323957.0,
+        "entry_price": 234.88999938964844,
+        "stop_price": 222.67
       },
       "divergence_gap": -3
     },
@@ -162,7 +180,7 @@
       "price": 440.8299865722656,
       "entry": 440.8299865722656,
       "stop": 399.08,
-      "atr_pct": 4.735458643265111,
+      "atr_pct": 4.735620833515481,
       "themes": [
         "semiconductor",
         "ai_infra"
@@ -188,7 +206,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 5717372953.0
+        "dollar_vol_50d": 5718422410.0,
+        "entry_price": 440.8299865722656,
+        "stop_price": 399.08
       },
       "divergence_gap": 39
     },
@@ -201,7 +221,7 @@
       "price": 268.989990234375,
       "entry": 268.989990234375,
       "stop": 210.94,
-      "atr_pct": 10.789513209173546,
+      "atr_pct": 10.789515640297848,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -227,7 +247,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1744325377.0
+        "dollar_vol_50d": 1747252569.0,
+        "entry_price": 268.989990234375,
+        "stop_price": 210.94
       },
       "divergence_gap": 47
     },
@@ -239,8 +261,8 @@
       "action": "Avoid",
       "price": 1117.260009765625,
       "entry": 1117.260009765625,
-      "stop": 1043.48,
-      "atr_pct": 3.301889060085043,
+      "stop": 1043.46,
+      "atr_pct": 3.3027842005384325,
       "themes": [
         "glp1_biotech"
       ],
@@ -265,7 +287,9 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3369788437.0
+        "dollar_vol_50d": 3369975377.0,
+        "entry_price": 1117.260009765625,
+        "stop_price": 1043.46
       },
       "divergence_gap": 15
     },
@@ -303,7 +327,9 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1929184904.0
+        "dollar_vol_50d": 1929229371.0,
+        "entry_price": 285.260009765625,
+        "stop_price": 262.45
       },
       "divergence_gap": 24
     },
@@ -316,7 +342,7 @@
       "price": 1762.77001953125,
       "entry": 1762.77001953125,
       "stop": 1552.46,
-      "atr_pct": 5.96540803514026,
+      "atr_pct": 5.965408529776993,
       "themes": [
         "semiconductor"
       ],
@@ -341,9 +367,55 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3071011450.0
+        "dollar_vol_50d": 3073323817.0,
+        "entry_price": 1762.77001953125,
+        "stop_price": 1552.46
       },
       "divergence_gap": 47
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 42,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 92.75,
+      "entry": 92.75,
+      "stop": 83.84,
+      "atr_pct": 4.804775280634807,
+      "themes": [
+        "emerging_market"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.8%"
+      ],
+      "matched_headlines": [
+        "Rocket Lab, Lockheed Martin among the partners in SpaceX’s military space-laser project",
+        "These S&P 500 stocks are expected to make double-digit comebacks",
+        "Consumer spending rises again — and now cheaper gas is on the way"
+      ],
+      "sub": {
+        "T": 10,
+        "F": 15,
+        "Fl": 3,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 56807940096,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 13,
+        "rs_score_0_10": 3.97,
+        "minervini_pass": 1,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 371337066.0,
+        "entry_price": 92.75,
+        "stop_price": 83.84
+      },
+      "divergence_gap": -29
     },
     {
       "symbol": "ANET",
@@ -354,7 +426,7 @@
       "price": 161.74000549316406,
       "entry": 161.74000549316406,
       "stop": 143.77,
-      "atr_pct": 5.555299860235815,
+      "atr_pct": 5.555520214943281,
       "themes": [
         "ai_infra",
         "cloud_saas"
@@ -380,7 +452,9 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1547195626.0
+        "dollar_vol_50d": 1555243770.0,
+        "entry_price": 161.74000549316406,
+        "stop_price": 143.77
       },
       "divergence_gap": 34
     },
@@ -416,7 +490,9 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1038694307.0
+        "dollar_vol_50d": 1039633931.0,
+        "entry_price": 185.05999755859375,
+        "stop_price": 174.41
       },
       "divergence_gap": 17
     },
@@ -428,8 +504,8 @@
       "action": "Avoid",
       "price": 359.0799865722656,
       "entry": 359.0799865722656,
-      "stop": 276.42,
-      "atr_pct": 11.510408552945085,
+      "stop": 276.4,
+      "atr_pct": 11.51219876963488,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -455,7 +531,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3550914213.0
+        "dollar_vol_50d": 3551537871.0,
+        "entry_price": 359.0799865722656,
+        "stop_price": 292.41
       },
       "divergence_gap": 58
     },
@@ -494,9 +572,55 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 15885882702.0
+        "dollar_vol_50d": 15913704477.0,
+        "entry_price": 519.739990234375,
+        "stop_price": 443.57
       },
       "divergence_gap": 61
+    },
+    {
+      "symbol": "NET",
+      "name": "Cloudflare, Inc.",
+      "score": 38,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 223.47999572753906,
+      "entry": 223.47999572753906,
+      "stop": 195.95,
+      "atr_pct": 6.160186563075136,
+      "themes": [
+        "cloud_saas",
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.2%"
+      ],
+      "matched_headlines": [
+        "Prenetics Global Limited (PRE) Receives Bullish Coverage as IM8 Targets Supplement Market Growth",
+        "Is Perion Network Ltd. (PERI) Positioning Itself as an AI-Powered AdTech Growth Story?"
+      ],
+      "sub": {
+        "T": 14,
+        "F": 12,
+        "Fl": 3,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 79321890816,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 60,
+        "rs_score_0_10": 5.66,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 935232062.0,
+        "entry_price": 223.47999572753906,
+        "stop_price": 203.84
+      },
+      "divergence_gap": 22
     },
     {
       "symbol": "AAPL",
@@ -530,7 +654,9 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 14455793456.0
+        "dollar_vol_50d": 14492779933.0,
+        "entry_price": 293.0799865722656,
+        "stop_price": 281.63
       },
       "divergence_gap": 29
     },
@@ -543,7 +669,7 @@
       "price": 673.02001953125,
       "entry": 673.02001953125,
       "stop": 599.45,
-      "atr_pct": 5.465622462342261,
+      "atr_pct": 5.465619223468311,
       "themes": [
         "cybersecurity"
       ],
@@ -568,7 +694,9 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1940647208.0
+        "dollar_vol_50d": 1941595062.0,
+        "entry_price": 673.02001953125,
+        "stop_price": 605.39
       },
       "divergence_gap": 36
     },
@@ -580,8 +708,8 @@
       "action": "Avoid",
       "price": 1057.6500244140625,
       "entry": 1057.6500244140625,
-      "stop": 952.66,
-      "atr_pct": 4.963573043251728,
+      "stop": 952.53,
+      "atr_pct": 4.969644777965544,
       "themes": [
         "energy_power",
         "defense"
@@ -607,7 +735,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2874347054.0
+        "dollar_vol_50d": 2877521548.0,
+        "entry_price": 1057.6500244140625,
+        "stop_price": 952.53
       },
       "divergence_gap": 59
     },
@@ -620,7 +750,7 @@
       "price": 222.64999389648438,
       "entry": 222.64999389648438,
       "stop": 200.2,
-      "atr_pct": 5.0407387308129445,
+      "atr_pct": 5.0407421574443125,
       "themes": [
         "cloud_saas"
       ],
@@ -645,90 +775,11 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1192344592.0
+        "dollar_vol_50d": 1192358338.0,
+        "entry_price": 222.64999389648438,
+        "stop_price": 210.99
       },
       "divergence_gap": 51
-    },
-    {
-      "symbol": "SE",
-      "name": "Sea Limited",
-      "score": 33,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 92.75,
-      "entry": 92.75,
-      "stop": 83.84,
-      "atr_pct": 4.80323471286731,
-      "themes": [
-        "emerging_market"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.8%"
-      ],
-      "matched_headlines": [
-        "‘I’m scared of making a huge financial mistake’: I gave my brother half of my $1.5 million home. Can he force me to sell?",
-        "Qualcomm’s stock is soaring as these big numbers excite Wall Street",
-        "Did the Trump White House just give Warsh the green light to hike interest rates? This analyst thinks so."
-      ],
-      "sub": {
-        "T": 10,
-        "F": 15,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 56807940096,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 13,
-        "rs_score_0_10": 3.97,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 370701693.0
-      },
-      "divergence_gap": -20
-    },
-    {
-      "symbol": "NET",
-      "name": "Cloudflare, Inc.",
-      "score": 32,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 223.47999572753906,
-      "entry": 223.47999572753906,
-      "stop": 195.95,
-      "atr_pct": 6.160186563075136,
-      "themes": [
-        "cloud_saas",
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動過大 ATR 6.2%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 14,
-        "F": 12,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 79321890816,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 60,
-        "rs_score_0_10": 5.66,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 933727747.0
-      },
-      "divergence_gap": 28
     },
     {
       "symbol": "NVO",
@@ -764,9 +815,51 @@
         "minervini_pass": 3,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 670299384.0
+        "dollar_vol_50d": 670326923.0,
+        "entry_price": 47.40999984741211,
+        "stop_price": 44.31
       },
       "divergence_gap": -11
+    },
+    {
+      "symbol": "MRNA",
+      "name": "Moderna, Inc.",
+      "score": 32,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 60.41999816894531,
+      "entry": 60.41999816894531,
+      "stop": 51.54,
+      "atr_pct": 7.350925190838593,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動過大 ATR 7.4%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 24,
+        "F": 2,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Healthcare",
+      "market_cap": 23973826560,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 82,
+        "rs_score_0_10": 3.34,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 388467884.0,
+        "entry_price": 60.41999816894531,
+        "stop_price": 51.54
+      },
+      "divergence_gap": 50
     },
     {
       "symbol": "AXON",
@@ -776,8 +869,8 @@
       "action": "Avoid",
       "price": 456.7300109863281,
       "entry": 456.7300109863281,
-      "stop": 400.27,
-      "atr_pct": 6.181050080294166,
+      "stop": 400.25,
+      "atr_pct": 6.1835523973595885,
       "themes": [
         "defense",
         "cybersecurity"
@@ -785,9 +878,7 @@
       "warnings": [
         "波動過大 ATR 6.2%"
       ],
-      "matched_headlines": [
-        "Axon Enterprise, Inc. (AXON) Discusses Public Safety Innovation and Customer Perspectives in Webinar Panel Transcript"
-      ],
+      "matched_headlines": [],
       "sub": {
         "T": 10,
         "F": 13,
@@ -805,47 +896,11 @@
         "minervini_pass": 2,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 483943006.0
+        "dollar_vol_50d": 485836992.0,
+        "entry_price": 456.7300109863281,
+        "stop_price": 400.25
       },
       "divergence_gap": -18
-    },
-    {
-      "symbol": "MRNA",
-      "name": "Moderna, Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 60.41999816894531,
-      "entry": 60.41999816894531,
-      "stop": 51.54,
-      "atr_pct": 7.350925190838593,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.4%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 2,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Healthcare",
-      "market_cap": 23973826560,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 82,
-        "rs_score_0_10": 3.34,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 379542519.0
-      },
-      "divergence_gap": 53
     },
     {
       "symbol": "NVDA",
@@ -856,7 +911,7 @@
       "price": 199.0,
       "entry": 199.0,
       "stop": 183.86,
-      "atr_pct": 3.802944273719322,
+      "atr_pct": 3.8036623021637204,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -882,7 +937,9 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 34230140432.0
+        "dollar_vol_50d": 34237377672.0,
+        "entry_price": 199.0,
+        "stop_price": 192.65
       },
       "divergence_gap": 39
     },
@@ -921,7 +978,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 15337403943.0
+        "dollar_vol_50d": 15379649591.0,
+        "entry_price": 365.4599914550781,
+        "stop_price": 357.48
       },
       "divergence_gap": -10
     },
@@ -934,7 +993,7 @@
       "price": 557.6699829101562,
       "entry": 557.6699829101562,
       "stop": 516.33,
-      "atr_pct": 3.706341065880498,
+      "atr_pct": 3.706344974692297,
       "themes": [
         "ai_infra",
         "cloud_saas"
@@ -942,7 +1001,10 @@
       "warnings": [
         "波動偏高 ATR 3.7%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Meta: An Inconvenient Truth The Market Hasn't Priced In Before Q2",
+        "Power Metallic Mines appoints Christopher Beal as vice president of operations"
+      ],
       "sub": {
         "T": 0,
         "F": 20,
@@ -960,7 +1022,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 10276205153.0
+        "dollar_vol_50d": 10284774622.0,
+        "entry_price": 557.6699829101562,
+        "stop_price": 544.44
       },
       "divergence_gap": 0
     },
@@ -998,7 +1062,9 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1684694591.0
+        "dollar_vol_50d": 1684740490.0,
+        "entry_price": 225.9499969482422,
+        "stop_price": 200.15
       },
       "divergence_gap": 2
     },
@@ -1036,7 +1102,9 @@
         "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 743992565.0
+        "dollar_vol_50d": 746042437.0,
+        "entry_price": 162.8699951171875,
+        "stop_price": 148.97
       },
       "divergence_gap": 13
     },
@@ -1049,7 +1117,7 @@
       "price": 125.16000366210938,
       "entry": 125.16000366210938,
       "stop": 118.15,
-      "atr_pct": 2.799530584771431,
+      "atr_pct": 2.7998327579697238,
       "themes": [
         "glp1_biotech"
       ],
@@ -1072,7 +1140,9 @@
         "minervini_pass": 3,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 934041701.0
+        "dollar_vol_50d": 935715008.0,
+        "entry_price": 125.16000366210938,
+        "stop_price": 118.19
       },
       "divergence_gap": 23
     },
@@ -1085,7 +1155,7 @@
       "price": 345.2900085449219,
       "entry": 345.2900085449219,
       "stop": 320.33,
-      "atr_pct": 3.6141924547709605,
+      "atr_pct": 3.614275155495309,
       "themes": [
         "cloud_saas",
         "ai_infra"
@@ -1111,7 +1181,9 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 11310519996.0
+        "dollar_vol_50d": 11330433458.0,
+        "entry_price": 345.2900085449219,
+        "stop_price": 333.4
       },
       "divergence_gap": 53
     },
@@ -1150,7 +1222,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 5876109458.0
+        "dollar_vol_50d": 5877538462.0,
+        "entry_price": 113.5,
+        "stop_price": 110.0
       },
       "divergence_gap": -3
     },
@@ -1189,9 +1263,51 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 10935017970.0
+        "dollar_vol_50d": 10947270993.0,
+        "entry_price": 382.07000732421875,
+        "stop_price": 362.35
       },
       "divergence_gap": 53
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "score": 23,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 234.27000427246094,
+      "entry": 234.27000427246094,
+      "stop": 217.77,
+      "atr_pct": 3.521272406324362,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.5%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 3,
+        "F": 12,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 2520068128768,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 55,
+        "rs_score_0_10": 4.64,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 11851819908.0,
+        "entry_price": 234.27000427246094,
+        "stop_price": 227.36
+      },
+      "divergence_gap": 32
     },
     {
       "symbol": "APP",
@@ -1202,14 +1318,17 @@
       "price": 464.9599914550781,
       "entry": 464.9599914550781,
       "stop": 402.91,
-      "atr_pct": 6.672983833208801,
+      "atr_pct": 6.672985708490158,
       "themes": [
         "ai_infra"
       ],
       "warnings": [
         "波動過大 ATR 6.7%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Apple raises prices of MacBooks, iPads as memory costs skyrocket",
+        "Power Metallic Mines appoints Christopher Beal as vice president of operations"
+      ],
       "sub": {
         "T": 0,
         "F": 16,
@@ -1227,7 +1346,9 @@
         "minervini_pass": 2,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2474011187.0
+        "dollar_vol_50d": 2474041567.0,
+        "entry_price": 464.9599914550781,
+        "stop_price": 438.4
       },
       "divergence_gap": 21
     },
@@ -1266,7 +1387,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 953672272.0
+        "dollar_vol_50d": 953941786.0,
+        "entry_price": 1659.5699462890625,
+        "stop_price": 1532.23
       },
       "divergence_gap": -6
     },
@@ -1287,10 +1410,7 @@
       "warnings": [
         "波動偏高 ATR 3.6%"
       ],
-      "matched_headlines": [
-        "Qualcomm’s stock is soaring as these big numbers excite Wall Street",
-        "Jim Cramer on SoFi: “I Continue to Believe It’s Time to Buy”"
-      ],
+      "matched_headlines": [],
       "sub": {
         "T": 4,
         "F": 10,
@@ -1308,7 +1428,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 689254575.0
+        "dollar_vol_50d": 689992485.0,
+        "entry_price": 12.460000038146973,
+        "stop_price": 11.57
       },
       "divergence_gap": 3
     },
@@ -1346,47 +1468,53 @@
         "minervini_pass": 2,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 679188704.0
+        "dollar_vol_50d": 679432234.0,
+        "entry_price": 302.44000244140625,
+        "stop_price": 286.87
       },
       "divergence_gap": 31
     },
     {
-      "symbol": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "score": 20,
+      "symbol": "COIN",
+      "name": "Coinbase Global, Inc.",
+      "score": 19,
       "grade": "D",
       "action": "Avoid",
-      "price": 234.27000427246094,
-      "entry": 234.27000427246094,
-      "stop": 217.77,
-      "atr_pct": 3.5212696148952816,
+      "price": 150.11000061035156,
+      "entry": 150.11000061035156,
+      "stop": 128.8,
+      "atr_pct": 7.0971774892514174,
       "themes": [
-        "cloud_saas"
+        "crypto_fintech"
       ],
       "warnings": [
-        "波動偏高 ATR 3.5%"
+        "波動過大 ATR 7.1%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Bitcoin and ethereum prices today, Thursday, June 25, 2026: Bitcoin hits its lowest levels in years"
+      ],
       "sub": {
         "T": 0,
-        "F": 12,
+        "F": 10,
         "Fl": 3,
-        "N": 0,
+        "N": 3,
         "M": 6,
-        "R": -1
+        "R": -3
       },
-      "sector": "Consumer Cyclical",
-      "market_cap": 2520068128768,
-      "risk_penalty": 1,
+      "sector": "Financial Services",
+      "market_cap": 39548096512,
+      "risk_penalty": 3,
       "strategy": {
-        "rs_rating": 55,
-        "rs_score_0_10": 4.64,
-        "minervini_pass": 5,
+        "rs_rating": 6,
+        "rs_score_0_10": 1.17,
+        "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 11816017782.0
+        "dollar_vol_50d": 1784832851.0,
+        "entry_price": 150.11000061035156,
+        "stop_price": 144.92
       },
-      "divergence_gap": 35
+      "divergence_gap": -13
     },
     {
       "symbol": "ZS",
@@ -1422,50 +1550,11 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 694689965.0
+        "dollar_vol_50d": 694888651.0,
+        "entry_price": 127.2699966430664,
+        "stop_price": 117.11
       },
       "divergence_gap": -11
-    },
-    {
-      "symbol": "COIN",
-      "name": "Coinbase Global, Inc.",
-      "score": 16,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 150.11000061035156,
-      "entry": 150.11000061035156,
-      "stop": 128.8,
-      "atr_pct": 7.096701909115169,
-      "themes": [
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.1%"
-      ],
-      "matched_headlines": [
-        "Toncoin (TON) Price Prediction 2025, 2026, 2027-2030",
-        "Filecoin (FIL) Price Prediction: 2025, 2025, 2030"
-      ],
-      "sub": {
-        "T": 0,
-        "F": 10,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Financial Services",
-      "market_cap": 39548096512,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 6,
-        "rs_score_0_10": 1.17,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1783103473.0
-      },
-      "divergence_gap": -10
     },
     {
       "symbol": "LMT",
@@ -1476,7 +1565,7 @@
       "price": 491.6400146484375,
       "entry": 491.6400146484375,
       "stop": 463.15,
-      "atr_pct": 2.8970088078061607,
+      "atr_pct": 2.8971542360133093,
       "themes": [
         "defense"
       ],
@@ -1499,7 +1588,9 @@
         "minervini_pass": 2,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 746868809.0
+        "dollar_vol_50d": 747177156.0,
+        "entry_price": 491.6400146484375,
+        "stop_price": 480.25
       },
       "divergence_gap": 29
     },
@@ -1537,7 +1628,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2912593116.0
+        "dollar_vol_50d": 2914125180.0,
+        "entry_price": 94.12999725341797,
+        "stop_price": 90.43
       },
       "divergence_gap": -12
     },
@@ -1549,13 +1642,13 @@
       "action": "Avoid",
       "price": 503.010009765625,
       "entry": 503.010009765625,
-      "stop": 472.34,
-      "atr_pct": 3.048648853099259,
+      "stop": 472.21,
+      "atr_pct": 3.061997102681867,
       "themes": [
         "defense"
       ],
       "warnings": [
-        "波動偏高 ATR 3.0%"
+        "波動偏高 ATR 3.1%"
       ],
       "matched_headlines": [],
       "sub": {
@@ -1575,7 +1668,9 @@
         "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 518851733.0
+        "dollar_vol_50d": 518872930.0,
+        "entry_price": 503.010009765625,
+        "stop_price": 492.71
       },
       "divergence_gap": 23
     },
@@ -1614,7 +1709,9 @@
         "minervini_pass": 3,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 22144528239.0
+        "dollar_vol_50d": 22156948773.0,
+        "entry_price": 375.5299987792969,
+        "stop_price": 365.59
       },
       "divergence_gap": 21
     },
@@ -1627,7 +1724,7 @@
       "price": 32.45000076293945,
       "entry": 32.45000076293945,
       "stop": 24.46,
-      "atr_pct": 12.313426419109753,
+      "atr_pct": 12.313448670810208,
       "themes": [
         "ai_infra"
       ],
@@ -1652,7 +1749,9 @@
         "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1774518473.0
+        "dollar_vol_50d": 1775625538.0,
+        "entry_price": 32.45000076293945,
+        "stop_price": 27.16
       },
       "divergence_gap": 19
     }
@@ -1667,7 +1766,7 @@
       "price": 234.88999938964844,
       "entry": 234.88999938964844,
       "stop": 222.67,
-      "atr_pct": 2.600305613807651,
+      "atr_pct": 2.60121785781776,
       "themes": [
         "glp1_biotech"
       ],
@@ -1690,7 +1789,9 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1322138258.0
+        "dollar_vol_50d": 1322323957.0,
+        "entry_price": 234.88999938964844,
+        "stop_price": 222.67
       },
       "divergence_gap": -3
     },
@@ -1703,7 +1804,7 @@
       "price": 440.8299865722656,
       "entry": 440.8299865722656,
       "stop": 399.08,
-      "atr_pct": 4.735458643265111,
+      "atr_pct": 4.735620833515481,
       "themes": [
         "semiconductor",
         "ai_infra"
@@ -1729,7 +1830,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 5717372953.0
+        "dollar_vol_50d": 5718422410.0,
+        "entry_price": 440.8299865722656,
+        "stop_price": 399.08
       },
       "divergence_gap": 39
     },
@@ -1742,7 +1845,7 @@
       "price": 268.989990234375,
       "entry": 268.989990234375,
       "stop": 210.94,
-      "atr_pct": 10.789513209173546,
+      "atr_pct": 10.789515640297848,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -1768,7 +1871,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1744325377.0
+        "dollar_vol_50d": 1747252569.0,
+        "entry_price": 268.989990234375,
+        "stop_price": 210.94
       },
       "divergence_gap": 47
     },
@@ -1780,8 +1885,8 @@
       "action": "Avoid",
       "price": 1117.260009765625,
       "entry": 1117.260009765625,
-      "stop": 1043.48,
-      "atr_pct": 3.301889060085043,
+      "stop": 1043.46,
+      "atr_pct": 3.3027842005384325,
       "themes": [
         "glp1_biotech"
       ],
@@ -1806,7 +1911,9 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3369788437.0
+        "dollar_vol_50d": 3369975377.0,
+        "entry_price": 1117.260009765625,
+        "stop_price": 1043.46
       },
       "divergence_gap": 15
     },
@@ -1844,7 +1951,9 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1929184904.0
+        "dollar_vol_50d": 1929229371.0,
+        "entry_price": 285.260009765625,
+        "stop_price": 262.45
       },
       "divergence_gap": 24
     },
@@ -1857,7 +1966,7 @@
       "price": 1762.77001953125,
       "entry": 1762.77001953125,
       "stop": 1552.46,
-      "atr_pct": 5.96540803514026,
+      "atr_pct": 5.965408529776993,
       "themes": [
         "semiconductor"
       ],
@@ -1882,9 +1991,55 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3071011450.0
+        "dollar_vol_50d": 3073323817.0,
+        "entry_price": 1762.77001953125,
+        "stop_price": 1552.46
       },
       "divergence_gap": 47
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 42,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 92.75,
+      "entry": 92.75,
+      "stop": 83.84,
+      "atr_pct": 4.804775280634807,
+      "themes": [
+        "emerging_market"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.8%"
+      ],
+      "matched_headlines": [
+        "Rocket Lab, Lockheed Martin among the partners in SpaceX’s military space-laser project",
+        "These S&P 500 stocks are expected to make double-digit comebacks",
+        "Consumer spending rises again — and now cheaper gas is on the way"
+      ],
+      "sub": {
+        "T": 10,
+        "F": 15,
+        "Fl": 3,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 56807940096,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 13,
+        "rs_score_0_10": 3.97,
+        "minervini_pass": 1,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 371337066.0,
+        "entry_price": 92.75,
+        "stop_price": 83.84
+      },
+      "divergence_gap": -29
     },
     {
       "symbol": "ANET",
@@ -1895,7 +2050,7 @@
       "price": 161.74000549316406,
       "entry": 161.74000549316406,
       "stop": 143.77,
-      "atr_pct": 5.555299860235815,
+      "atr_pct": 5.555520214943281,
       "themes": [
         "ai_infra",
         "cloud_saas"
@@ -1921,7 +2076,9 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1547195626.0
+        "dollar_vol_50d": 1555243770.0,
+        "entry_price": 161.74000549316406,
+        "stop_price": 143.77
       },
       "divergence_gap": 34
     },
@@ -1957,7 +2114,9 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1038694307.0
+        "dollar_vol_50d": 1039633931.0,
+        "entry_price": 185.05999755859375,
+        "stop_price": 174.41
       },
       "divergence_gap": 17
     },
@@ -1969,8 +2128,8 @@
       "action": "Avoid",
       "price": 359.0799865722656,
       "entry": 359.0799865722656,
-      "stop": 276.42,
-      "atr_pct": 11.510408552945085,
+      "stop": 276.4,
+      "atr_pct": 11.51219876963488,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -1996,48 +2155,11 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3550914213.0
+        "dollar_vol_50d": 3551537871.0,
+        "entry_price": 359.0799865722656,
+        "stop_price": 292.41
       },
       "divergence_gap": 58
-    },
-    {
-      "symbol": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
-      "score": 38,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 519.739990234375,
-      "entry": 519.739990234375,
-      "stop": 443.57,
-      "atr_pct": 7.327565757179329,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 17,
-        "F": 15,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 847488352256,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 99,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 15885882702.0
-      },
-      "divergence_gap": 61
     }
   ],
   "themes": [
@@ -2083,12 +2205,12 @@
           "score": 41
         },
         {
-          "symbol": "DDOG",
-          "score": 33
+          "symbol": "NET",
+          "score": 38
         },
         {
-          "symbol": "NET",
-          "score": 32
+          "symbol": "DDOG",
+          "score": 33
         },
         {
           "symbol": "MSFT",
@@ -2188,7 +2310,7 @@
         },
         {
           "symbol": "MRNA",
-          "score": 29
+          "score": 32
         },
         {
           "symbol": "GILD",
@@ -2211,12 +2333,12 @@
           "score": 46
         },
         {
-          "symbol": "CRWD",
-          "score": 36
+          "symbol": "NET",
+          "score": 38
         },
         {
-          "symbol": "NET",
-          "score": 32
+          "symbol": "CRWD",
+          "score": 36
         },
         {
           "symbol": "AXON",
@@ -2248,7 +2370,7 @@
         },
         {
           "symbol": "COIN",
-          "score": 16
+          "score": 19
         },
         {
           "symbol": "MSTR",
@@ -2256,6 +2378,30 @@
         }
       ],
       "prev_avg": 4.0,
+      "delta": 0.0,
+      "mode": "fixed",
+      "rising": false,
+      "zscore": null
+    },
+    {
+      "theme": "emerging_market",
+      "theme_zh": "新興市場",
+      "count": 3,
+      "symbols": [
+        {
+          "symbol": "SE",
+          "score": 42
+        },
+        {
+          "symbol": "MELI",
+          "score": 22
+        },
+        {
+          "symbol": "NU",
+          "score": 22
+        }
+      ],
+      "prev_avg": 3.0,
       "delta": 0.0,
       "mode": "fixed",
       "rising": false,
@@ -2284,30 +2430,6 @@
       "mode": "fixed",
       "rising": false,
       "zscore": null
-    },
-    {
-      "theme": "emerging_market",
-      "theme_zh": "新興市場",
-      "count": 3,
-      "symbols": [
-        {
-          "symbol": "SE",
-          "score": 33
-        },
-        {
-          "symbol": "MELI",
-          "score": 22
-        },
-        {
-          "symbol": "NU",
-          "score": 22
-        }
-      ],
-      "prev_avg": 3.0,
-      "delta": 0.0,
-      "mode": "fixed",
-      "rising": false,
-      "zscore": null
     }
   ],
   "theme_alerts": [],
@@ -2321,7 +2443,7 @@
       "price": 440.8299865722656,
       "entry": 440.8299865722656,
       "stop": 399.08,
-      "atr_pct": 4.735458643265111,
+      "atr_pct": 4.735620833515481,
       "themes": [
         "semiconductor",
         "ai_infra"
@@ -2351,7 +2473,7 @@
       "price": 268.989990234375,
       "entry": 268.989990234375,
       "stop": 210.94,
-      "atr_pct": 10.789513209173546,
+      "atr_pct": 10.789515640297848,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -2380,8 +2502,8 @@
       "action": "Avoid",
       "price": 1117.260009765625,
       "entry": 1117.260009765625,
-      "stop": 1043.48,
-      "atr_pct": 3.301889060085043,
+      "stop": 1043.46,
+      "atr_pct": 3.3027842005384325,
       "themes": [
         "glp1_biotech"
       ],
@@ -2439,7 +2561,7 @@
       "price": 1762.77001953125,
       "entry": 1762.77001953125,
       "stop": 1552.46,
-      "atr_pct": 5.96540803514026,
+      "atr_pct": 5.965408529776993,
       "themes": [
         "semiconductor"
       ],
