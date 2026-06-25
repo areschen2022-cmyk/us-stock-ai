@@ -21,8 +21,9 @@ from src.report.dashboard import build_dashboard_json, write_dashboard_json
 from src.report.performance import build_performance_payload, write_performance_json
 from src.report.history import update_divergence_history
 from src.notifier.telegram import TelegramNotifier
-from src.backtest.forward_tracker import fill_open_signals
+from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals
 from src.strategy import us_market
+from src.indicators.technical import calc_atr_pct
 
 
 def _get_revenue_yoy(symbol: str) -> float | None:
@@ -57,9 +58,12 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
     phase2_count = 0
     for sym, raw in strategy_raw.items():
         rating = rs_pct.get(sym)
-        mt = us_market.minervini_trend_template(raw["ohlcv"], rs_rating=rating)
+        ohlcv = raw["ohlcv"]
+        mt = us_market.minervini_trend_template(ohlcv, rs_rating=rating)
         if mt.get("phase2"):
             phase2_count += 1
+        price = float(ohlcv["Close"].iloc[-1]) if not ohlcv.empty else None
+        stop = us_market.conservative_stop(ohlcv, price, calc_atr_pct(ohlcv))
         per_symbol[sym] = {
             "rs_rating": rating,
             "rs_score_0_10": (raw.get("rs") or {}).get("rs_score_0_10"),
@@ -67,11 +71,52 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
             "phase2": mt["phase2"],
             "liquidity_ok": (raw.get("liquidity") or {}).get("passed"),
             "dollar_vol_50d": (raw.get("liquidity") or {}).get("dollar_vol_50d"),
+            "entry_price": price,
+            "stop_price": stop.get("stop"),
         }
 
     breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
     regime = us_market.market_regime(spy_ohlcv, breadth_pct)
     return {"per_symbol": per_symbol, "regime": regime}
+
+
+def _log_validation_signals(store, today, scores, per_symbol: dict) -> None:
+    """Record two comparable signal sets for forward-return validation:
+    - 'shadow'   : RS>=80 AND Minervini phase2 (what the US strategy would pick)
+    - 'live_top' : top 10 by the current engine's score (what we pick today)
+    INSERT OR IGNORE makes this idempotent per (date, symbol, group)."""
+    by_symbol = {s.symbol: s for s in scores}
+
+    shadow_n = 0
+    for sym, sig in per_symbol.items():
+        if (sig.get("rs_rating") or 0) >= 80 and sig.get("phase2") and sig.get("liquidity_ok"):
+            sc = by_symbol.get(sym)
+            store.upsert_shadow_signal(today, "shadow", {
+                "symbol": sym,
+                "rs_rating": sig.get("rs_rating"),
+                "minervini_pass": sig.get("minervini_pass"),
+                "phase2": sig.get("phase2"),
+                "live_grade": sc.grade if sc else None,
+                "live_score": sc.total_score if sc else None,
+                "entry_price": sig.get("entry_price"),
+                "stop_price": sig.get("stop_price"),
+            })
+            shadow_n += 1
+
+    live_top = sorted(scores, key=lambda s: s.total_score, reverse=True)[:10]
+    for sc in live_top:
+        sig = per_symbol.get(sc.symbol, {})
+        store.upsert_shadow_signal(today, "live_top", {
+            "symbol": sc.symbol,
+            "rs_rating": sig.get("rs_rating"),
+            "minervini_pass": sig.get("minervini_pass"),
+            "phase2": sig.get("phase2"),
+            "live_grade": sc.grade,
+            "live_score": sc.total_score,
+            "entry_price": sc.price,
+            "stop_price": sig.get("stop_price"),
+        })
+    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top signals")
 
 
 def run_daily_update() -> None:
@@ -144,8 +189,12 @@ def run_daily_update() -> None:
     # 5b. SHADOW: cross-sectional RS percentile + Minervini + market regime
     strategy_signals = _build_shadow_signals(strategy_raw, spy_ohlcv)
 
-    # 6. Forward return fill-back
+    # 5c. VALIDATION: log shadow picks vs live top picks for forward comparison
+    _log_validation_signals(store, today, scores, strategy_signals["per_symbol"])
+
+    # 6. Forward return fill-back (live watch signals + shadow validation)
     fill_open_signals(store)
+    fill_shadow_signals(store)
 
     # 7. AI council (token-gated)
     council = ModelCouncil(store=store)
@@ -184,6 +233,8 @@ def run_daily_update() -> None:
         theme_history=theme_history, data_health=data_health,
         strategy_signals=strategy_signals,
     )
+    # Validation: shadow vs live_top forward-return comparison
+    dash_data["strategy"]["validation"] = store.get_shadow_performance()
     write_dashboard_json(dash_data)
 
     perf_data = build_performance_payload(store, today)

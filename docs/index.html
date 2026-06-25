@@ -177,6 +177,7 @@
   <div class="section-block" id="divergence-block" style="display:none">
     <div class="section-title">⚖️ 策略背離度（影子 vs 現行評分）</div>
     <div id="divergence-summary" class="updated"></div>
+    <div id="validation-block"></div>
     <div id="divergence-trend"></div>
     <div id="divergence-missed"></div>
     <div id="divergence-overrated"></div>
@@ -391,6 +392,26 @@ function render(data) {
     const breadth = reg.breadth_phase2_pct != null ? `廣度 ${reg.breadth_phase2_pct}% 多頭` : '';
     const allow = reg.allow_new_entries ? '✅ 允許新進場' : '⛔ 優先持盈/觀望';
     banner.innerHTML = `📐 市場狀態：<b>${reg.regime}</b> · ${spy200}${breadth ? ' · ' + breadth : ''} · ${allow}<span class="shadow-tag">影子模式</span>`;
+  }
+
+  // 前瞻驗證：影子 vs 現行 績效對比
+  const val = strat.validation || {};
+  const sh = val.shadow, lt = val.live_top;
+  if (sh || lt) {
+    const fmtPct = v => v == null ? '—' : (v > 0 ? '+' : '') + v + '%';
+    const fmtWin = v => v == null ? '—' : v + '%';
+    const row = (label, g, color) => g ? `
+      <div class="div-row" style="background:rgba(255,255,255,.02);border:1px solid var(--border)">
+        <span class="div-sym" style="color:${color}">${label}</span>
+        <span style="font-size:.78rem">追蹤 ${g.tracked} · 已結算 ${g.completed}</span>
+        <span class="div-detail">勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b> · 5日 ${fmtPct(g.avg_return_5d)} · 10日 ${fmtPct(g.avg_return_10d)}</span>
+      </div>` : '';
+    const anyDone = (sh && sh.completed) || (lt && lt.completed);
+    document.getElementById('validation-block').innerHTML =
+      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分，5/10 日報酬）</div>' +
+      row('影子 RS≥80', sh, 'var(--green)') +
+      row('現行 Top10', lt, 'var(--blue)') +
+      (anyDone ? '' : '<div class="updated" style="margin-top:4px">⏳ 訊號已記錄，需 5-10 個交易日結算後才有勝率對比</div>');
   }
 
   // 策略背離度
