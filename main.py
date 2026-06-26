@@ -82,6 +82,16 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
     return {"per_symbol": per_symbol, "regime": regime}
 
 
+def _entry_quality_map(dash_data: dict) -> dict[str, str]:
+    """{symbol: entry_quality_label} from the dashboard cards, for Telegram."""
+    out: dict[str, str] = {}
+    for c in dash_data.get("watchlist", []):
+        eq = (c.get("strategy") or {}).get("entry_quality") or {}
+        if eq.get("label"):
+            out[c["symbol"]] = eq["label"]
+    return out
+
+
 def _log_validation_signals(store, today, scores, per_symbol: dict) -> None:
     """Record two comparable signal sets for forward-return validation:
     - 'shadow'   : RS>=80 AND Minervini phase2 (what the US strategy would pick)
@@ -263,6 +273,7 @@ def run_daily_update() -> None:
             "risk_alerts": dash_data["risk_alerts"],
             "data_health": dash_data["data_health"],
             "strategy": dash_data["strategy"],
+            "entry_quality_map": _entry_quality_map(dash_data),
         }
         notifier = TelegramNotifier()
         ok = notifier.send_morning_report(top, market_prices, today, ai_summaries, overview)
@@ -332,18 +343,21 @@ def run_morning_telegram() -> None:
         all_scores, market_prices, store.get_open_signals(), {}, data_date,
         theme_history=theme_history,
     )
-    # Morning run has no OHLCV → reuse the shadow strategy block persisted by the
-    # evening daily-update run (regime/divergence don't change overnight).
+    # Morning run has no OHLCV → reuse the shadow strategy block + per-card
+    # entry-quality persisted by the evening daily-update run.
     strategy_block = dash_data["strategy"]
+    eq_map: dict[str, str] = {}
     try:
         from pathlib import Path as _Path
         cached = _Path(__file__).parent / "docs" / "dashboard_data.json"
         if cached.exists():
-            persisted = _json.loads(cached.read_text(encoding="utf-8")).get("strategy")
+            persisted_full = _json.loads(cached.read_text(encoding="utf-8"))
+            persisted = persisted_full.get("strategy")
             if persisted and (persisted.get("divergence", {}) or {}).get("n_compared"):
                 strategy_block = persisted
+            eq_map = _entry_quality_map(persisted_full)
     except Exception as _e:
-        print(f"[Main] could not load persisted strategy block: {_e}")
+        print(f"[Main] could not load persisted dashboard: {_e}")
 
     overview = {
         **dash_data["overview"],
@@ -357,6 +371,7 @@ def run_morning_telegram() -> None:
         "risk_alerts": dash_data["risk_alerts"],
         "data_health": {"source_status": "讀取快取", "quality": "高"},
         "strategy": strategy_block,
+        "entry_quality_map": eq_map or _entry_quality_map(dash_data),
     }
     overview["data_date"] = str(data_date)
     notifier = TelegramNotifier()

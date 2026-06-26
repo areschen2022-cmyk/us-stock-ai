@@ -155,6 +155,7 @@ def _build_morning_report(
     if not highlights:
         highlights = top_scores[:3]
 
+    eq_map = overview.get("entry_quality_map", {}) or {}
     if highlights:
         _flush("今日重點\n")
         for s in highlights:
@@ -162,9 +163,11 @@ def _build_morning_report(
             if s.symbol in ai_summaries:
                 ai_tag = "｜AI 同意" if "buy" in ai_summaries[s.symbol].lower() or "強" in ai_summaries[s.symbol] else "｜AI 複核"
             stop_str = _fmt_price(s.stop_price)
+            eq = eq_map.get(s.symbol)
+            eq_tag = f"｜進場：{eq}" if eq else ""
             _flush(
                 f"▸ {s.symbol}｜{s.total_score}/100｜{s.grade}｜"
-                f"{_zh_action(s.action)}{ai_tag}\n"
+                f"{_zh_action(s.action)}{ai_tag}{eq_tag}\n"
                 f"  現價 {_fmt_price(s.price)}  停損 {stop_str}\n"
             )
 
