@@ -72,8 +72,12 @@ def compute_score(
     fl_score, fl_reasons = flow_score(info, insider_data)
     m_score, m_reasons = market_sentiment_score(market_index_prices)
 
-    # News catalyst
-    raw_news_score, matched_headlines = score_news_catalyst(symbol, name, news_items)
+    # News catalyst — prefer per-ticker yfinance news (relevant); fall back to
+    # the shared general-RSS pool with name/ticker matching.
+    if symbol_news:
+        raw_news_score, matched_headlines = score_symbol_news(symbol_news)
+    else:
+        raw_news_score, matched_headlines = score_news_catalyst(symbol, name, news_items)
     theme_bonus = theme_catalyst_score(symbol, matched_headlines)
     n_score = min(raw_news_score + theme_bonus, 15)
     n_reasons = matched_headlines[:3]
