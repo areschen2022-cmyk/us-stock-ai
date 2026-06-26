@@ -309,10 +309,17 @@ function renderStrategyBadges(st) {
   const mt = st.minervini_pass;
   const mtColor = mt == null ? 'var(--muted)' : mt >= 7 ? 'var(--green)' : mt >= 5 ? 'var(--yellow)' : 'var(--red)';
   const liq = st.liquidity_ok;
+  // 台股移植：進場品質（可進場/等拉回/避免追高/觀望）
+  const eq = st.entry_quality || {};
+  const eqColor = {'可進場':'var(--green)','等拉回':'var(--yellow)','避免追高':'var(--red)','觀望':'var(--muted)'}[eq.label] || 'var(--muted)';
+  const eqBadge = eq.label ? `<span class="strat-badge" style="color:${eqColor};border:1px solid ${eqColor}" title="${eq.reason||''}">進場：${eq.label}</span>` : '';
+  const risks = st.failure_risks || [];
+  const riskBadges = risks.map(r => `<span class="strat-badge" style="color:var(--red)" title="${r.detail||''}">⚠️${r.mode}</span>`).join('');
   return `<div class="strat-badges" title="影子策略指標（尚未計入評分）">
     <span class="strat-badge" style="color:${rsColor}">RS ${rs != null ? rs : '—'}</span>
     <span class="strat-badge" style="color:${mtColor}">趨勢 ${mt != null ? mt + '/8' : '—'}${st.phase2 ? ' ✓' : ''}</span>
     <span class="strat-badge" style="color:${liq ? 'var(--green)' : 'var(--red)'}">${liq ? '流動性✓' : '流動性✕'}</span>
+    ${eqBadge}${riskBadges}
   </div>`;
 }
 

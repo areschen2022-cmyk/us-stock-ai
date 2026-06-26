@@ -22,7 +22,7 @@ from src.report.performance import build_performance_payload, write_performance_
 from src.report.history import update_divergence_history
 from src.notifier.telegram import TelegramNotifier
 from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals
-from src.strategy import us_market
+from src.strategy import us_market, tw_lessons
 from src.indicators.technical import calc_atr_pct
 
 
@@ -73,6 +73,8 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
             "dollar_vol_50d": (raw.get("liquidity") or {}).get("dollar_vol_50d"),
             "entry_price": price,
             "stop_price": stop.get("stop"),
+            "entry_quality": (raw.get("tw") or {}).get("entry_quality"),
+            "failure_risks": (raw.get("tw") or {}).get("failure_risks", []),
         }
 
     breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
@@ -179,7 +181,8 @@ def run_daily_update() -> None:
             try:
                 rs = us_market.rs_rating_63d(ohlcv["Close"], spy_close) if spy_close is not None else {}
                 liq = us_market.liquidity_gate(ohlcv, score.price)
-                strategy_raw[symbol] = {"ohlcv": ohlcv, "rs": rs, "liquidity": liq}
+                tw = tw_lessons.entry_quality_from_ohlcv_and_score(ohlcv, score)
+                strategy_raw[symbol] = {"ohlcv": ohlcv, "rs": rs, "liquidity": liq, "tw": tw}
             except Exception as sx:
                 print(f"[Main] shadow-strategy error {symbol}: {sx}")
         except Exception as exc:
