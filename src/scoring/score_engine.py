@@ -60,6 +60,7 @@ def compute_score(
     insider_data: dict | None = None,
     earnings_cal: dict | None = None,
     today: date | None = None,
+    symbol_news: list[dict] | None = None,
 ) -> StockScore:
     today = today or date.today()
     name = info.get("shortName") or info.get("longName") or symbol
