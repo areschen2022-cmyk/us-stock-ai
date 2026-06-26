@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25",
+  "generated_at": "2026-06-26",
   "market": {
     "SPY": 734.2999877929688,
     "QQQ": 716.3800048828125,
@@ -14,9 +14,9 @@
     "total_scored": 40,
     "grade_S": 0,
     "grade_A": 0,
-    "grade_B": 0,
-    "grade_C": 1,
-    "grade_D": 39
+    "grade_B": 3,
+    "grade_C": 5,
+    "grade_D": 32
   },
   "highlights": [],
   "ai_stats": {
@@ -28,7 +28,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 0.4,
+    "elapsed_min": 0.7,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -44,52 +44,43 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 26.4,
+      "avg_gap": 22.7,
       "missed_strong": [
         {
           "symbol": "AMD",
-          "grade": "D",
-          "score": 42,
+          "grade": "C",
+          "score": 56,
           "rs_rating": 99,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 57
+          "gap": 43
         },
         {
           "symbol": "ARM",
-          "grade": "D",
-          "score": 39,
+          "grade": "C",
+          "score": 51,
           "rs_rating": 97,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 58
-        },
-        {
-          "symbol": "CRDO",
-          "grade": "D",
-          "score": 47,
-          "rs_rating": 94,
-          "minervini_pass": 8,
-          "phase2": true,
-          "gap": 47
+          "gap": 46
         },
         {
           "symbol": "ASML",
           "grade": "D",
-          "score": 42,
+          "score": 49,
           "rs_rating": 92,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 50
+          "gap": 43
         },
         {
           "symbol": "GEV",
-          "grade": "D",
-          "score": 37,
+          "grade": "C",
+          "score": 54,
           "rs_rating": 89,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 52
+          "gap": 35
         },
         {
           "symbol": "TSM",
@@ -103,28 +94,28 @@
         {
           "symbol": "MRNA",
           "grade": "D",
-          "score": 29,
+          "score": 43,
           "rs_rating": 84,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 55
+          "gap": 41
         }
       ],
       "overrated": [],
-      "missed_count": 7,
+      "missed_count": 6,
       "overrated_count": 0
     },
     "mode": "shadow",
     "validation": {
       "shadow": {
-        "tracked": 7,
+        "tracked": 14,
         "completed": 0,
         "win_rate": null,
         "avg_return_5d": null,
         "avg_return_10d": null
       },
       "live_top": {
-        "tracked": 11,
+        "tracked": 21,
         "completed": 0,
         "win_rate": null,
         "avg_return_5d": null,
@@ -136,9 +127,9 @@
     {
       "symbol": "ABBV",
       "name": "AbbVie Inc.",
-      "score": 54,
-      "grade": "C",
-      "action": "Avoid",
+      "score": 69,
+      "grade": "B",
+      "action": "Monitor",
       "price": 243.13999938964844,
       "entry": 243.13999938964844,
       "stop": 230.48,
@@ -147,12 +138,16 @@
         "glp1_biotech"
       ],
       "warnings": [],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Will AbbVie's (ABBV) Pediatric Expansions Reveal a Deeper Shift in Its Growth Mix?",
+        "Canaccord Says AbbVie’s (ABBV) Apogee Deal Strengthens Long-Term Growth Outlook",
+        "Why I Can’t Stop Buying This Unstoppable Dividend Juggernaut"
+      ],
       "sub": {
         "T": 27,
         "F": 18,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 6,
+        "N": 12,
         "M": 6,
         "R": 0
       },
@@ -169,14 +164,14 @@
         "entry_price": 243.13999938964844,
         "stop_price": 230.48
       },
-      "divergence_gap": -2
+      "divergence_gap": -17
     },
     {
       "symbol": "PANW",
       "name": "Palo Alto Networks, Inc.",
-      "score": 49,
-      "grade": "D",
-      "action": "Avoid",
+      "score": 66,
+      "grade": "B",
+      "action": "Monitor",
       "price": 293.0899963378906,
       "entry": 293.0899963378906,
       "stop": 270.49,
@@ -187,12 +182,16 @@
       "warnings": [
         "波動偏高 ATR 3.9%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Stock Market Today, June 25: BlackBerry Surges After Earnings Beat and Revenue Tops Estimates",
+        "Can Palo Alto Networks' XSIAM Sustain Its Strong Growth Momentum?",
+        "Growth Through the Microsoft Alliance: Pax8’s Kristen Fehrenbach and New Charter’s Michelle Curtis, Live from Pax8 Beyond 2026"
+      ],
       "sub": {
         "T": 24,
         "F": 17,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 5,
+        "N": 15,
         "M": 6,
         "R": -1
       },
@@ -209,14 +208,14 @@
         "entry_price": 293.0899963378906,
         "stop_price": 270.49
       },
-      "divergence_gap": 23
+      "divergence_gap": 6
     },
     {
       "symbol": "CRDO",
       "name": "Credo Technology Group Holding ",
-      "score": 47,
-      "grade": "D",
-      "action": "Avoid",
+      "score": 65,
+      "grade": "B",
+      "action": "Monitor",
       "price": 268.0299987792969,
       "entry": 268.0299987792969,
       "stop": 209.45,
@@ -228,12 +227,16 @@
       "warnings": [
         "波動過大 ATR 10.9%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "How Credo Technology Group’s (CRDO) 1.6T Connectivity Ramp Is Feeding Its AI Data-Center Growth",
+        "Credo Stock Has Surged: Why Wall Street Thinks $350 Could Be the Next Stop",
+        "The Brown Capital Management Small Company Fund Picked Credo Technology (CRDO) Amid Multiple Durable Growth Drivers"
+      ],
       "sub": {
         "T": 21,
         "F": 20,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 9,
+        "N": 12,
         "M": 6,
         "R": -3
       },
@@ -250,13 +253,145 @@
         "entry_price": 268.0299987792969,
         "stop_price": 209.45
       },
-      "divergence_gap": 47
+      "divergence_gap": 29
+    },
+    {
+      "symbol": "RTX",
+      "name": "RTX Corporation",
+      "score": 57,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 186.58999633789062,
+      "entry": 186.58999633789062,
+      "stop": 176.32,
+      "atr_pct": 2.753172735411567,
+      "themes": [
+        "defense"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "RTX vs. General Dynamics: Which Defense Contractor Offers More Upside?",
+        "This High-Yield Aerospace Stock Just Hiked Its Dividend by More Than 8%",
+        "Trump Calls Stock Buybacks Fake: MicroStrategy Bitcoin Model Shows Another Way to Boost Valuations"
+      ],
+      "sub": {
+        "T": 21,
+        "F": 10,
+        "Fl": 5,
+        "N": 15,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Industrials",
+      "market_cap": 251277656064,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 57,
+        "rs_score_0_10": 1.69,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1039706067.0,
+        "entry_price": 186.58999633789062,
+        "stop_price": 176.32
+      },
+      "divergence_gap": 0
+    },
+    {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "score": 56,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 532.5700073242188,
+      "entry": 532.5700073242188,
+      "stop": 456.23,
+      "atr_pct": 7.167535680489534,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 7.2%"
+      ],
+      "matched_headlines": [
+        "Sandisk, Western Digital, and others soar as Micron results  'justify elevated valuations'",
+        "Qualcomm CFO talks Modular acquisition's significance for AI data centers",
+        "Broadcom Built OpenAI’s First Chip in Record Time, but the Money Went Elsewhere"
+      ],
+      "sub": {
+        "T": 21,
+        "F": 15,
+        "Fl": 5,
+        "N": 12,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 868408950784,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 99,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 16068770113.0,
+        "entry_price": 532.5700073242188,
+        "stop_price": 456.23
+      },
+      "divergence_gap": 43
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova Inc.",
+      "score": 54,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 1085.469970703125,
+      "entry": 1085.469970703125,
+      "stop": 979.03,
+      "atr_pct": 4.90316671657737,
+      "themes": [
+        "energy_power",
+        "defense"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Energy Transition Today - Romania's Wind Energy Milestone Secures Major Investment",
+        "GE Vernova (GEV) Stock After 103% One-Year Rally Is There Upside Left",
+        "Has Chevron Found a New Growth Platform?"
+      ],
+      "sub": {
+        "T": 21,
+        "F": 8,
+        "Fl": 8,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Industrials",
+      "market_cap": 291687497728,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 89,
+        "rs_score_0_10": 3.86,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 2888100415.0,
+        "entry_price": 1085.469970703125,
+        "stop_price": 979.03
+      },
+      "divergence_gap": 35
     },
     {
       "symbol": "LLY",
       "name": "Eli Lilly and Company",
-      "score": 46,
-      "grade": "D",
+      "score": 54,
+      "grade": "C",
       "action": "Avoid",
       "price": 1127.68994140625,
       "entry": 1127.68994140625,
@@ -269,14 +404,14 @@
         "波動偏高 ATR 3.1%"
       ],
       "matched_headlines": [
-        "Can Qualcomm actually compete with Nvidia? Inside its bold data-center gamble.",
-        "Stocks Rally as Falling Crude Prices Knock Bond Yields Lower"
+        "Eli Lilly and Company (LLY) – Among the 10 Reliable Dividend Stocks to Buy for Long-Term Investors",
+        "A $30 Billion Cancer Breakthrough Is Under Threat From Global Conflicts"
       ],
       "sub": {
         "T": 20,
         "F": 18,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 5,
+        "N": 6,
         "M": 6,
         "R": -1
       },
@@ -293,7 +428,314 @@
         "entry_price": 1127.68994140625,
         "stop_price": 1058.21
       },
-      "divergence_gap": 16
+      "divergence_gap": 8
+    },
+    {
+      "symbol": "ARM",
+      "name": "Arm Holdings plc",
+      "score": 51,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 347.7099914550781,
+      "entry": 347.7099914550781,
+      "stop": 265.61,
+      "atr_pct": 11.805136161799428,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 11.8%"
+      ],
+      "matched_headlines": [
+        "Micron and Qualcomm forecasts ignite $400 billion AI chip stock rally",
+        "Qualcomm forecasts $15 billion data center chip sales by 2029, shares soar"
+      ],
+      "sub": {
+        "T": 14,
+        "F": 19,
+        "Fl": 6,
+        "N": 9,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 371381665792,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 97,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3588911370.0,
+        "entry_price": 347.7099914550781,
+        "stop_price": 292.41
+      },
+      "divergence_gap": 46
+    },
+    {
+      "symbol": "ASML",
+      "name": "ASML Holding N.V. - New York Re",
+      "score": 49,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1841.1800537109375,
+      "entry": 1841.1800537109375,
+      "stop": 1632.83,
+      "atr_pct": 5.658134031385624,
+      "themes": [
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.7%"
+      ],
+      "matched_headlines": [
+        "European shares hit record close with healthcare stocks leading broader rally",
+        "Micron and Qualcomm forecasts ignite $400 billion AI chip stock rally",
+        "ASML Holding (ASML): The Best All-Time High Stock with Legs to Rally Further"
+      ],
+      "sub": {
+        "T": 21,
+        "F": 15,
+        "Fl": 1,
+        "N": 9,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 709623283712,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 92,
+        "rs_score_0_10": 8.94,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3100956479.0,
+        "entry_price": 1841.1800537109375,
+        "stop_price": 1632.83
+      },
+      "divergence_gap": 43
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "score": 46,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 165.4499969482422,
+      "entry": 165.4499969482422,
+      "stop": 148.37,
+      "atr_pct": 5.160246141669891,
+      "themes": [
+        "ai_infra",
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.2%"
+      ],
+      "matched_headlines": [],
+      "sub": {
+        "T": 17,
+        "F": 18,
+        "Fl": 8,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 208329572352,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 77,
+        "rs_score_0_10": 5.71,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1560018977.0,
+        "entry_price": 165.4499969482422,
+        "stop_price": 148.37
+      },
+      "divergence_gap": 31
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 195.74000549316406,
+      "entry": 195.74000549316406,
+      "stop": 180.88,
+      "atr_pct": 3.795122259125698,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.8%"
+      ],
+      "matched_headlines": [
+        "Sandisk, Western Digital, and others soar as Micron results  'justify elevated valuations'",
+        "Qualcomm CFO talks Modular acquisition's significance for AI data centers",
+        "JPMorgan Chase Pairs a 10% Dividend Hike With a New $50 Billion Buyback After Clearing the Fed's Stress Test"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 20,
+        "Fl": 8,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 4741018419200,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 67,
+        "rs_score_0_10": 5.56,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 34151606628.0,
+        "entry_price": 195.74000549316406,
+        "stop_price": 188.29
+      },
+      "divergence_gap": 22
+    },
+    {
+      "symbol": "AXON",
+      "name": "Axon Enterprise, Inc.",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 444.7300109863281,
+      "entry": 444.7300109863281,
+      "stop": 390.38,
+      "atr_pct": 6.110769637183334,
+      "themes": [
+        "defense",
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.1%"
+      ],
+      "matched_headlines": [
+        "AXON's Dedrone Expands in CUAS Capability: Can It Deliver Growth?",
+        "US Stock Market Today: S&P 500 Futures Slide As Rate Hike And Growth Worries Build",
+        "Does Axon’s Upgraded Outlook and AI Push Reshape The Bull Case For Axon Enterprise (AXON)?"
+      ],
+      "sub": {
+        "T": 6,
+        "F": 13,
+        "Fl": 8,
+        "N": 15,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Industrials",
+      "market_cap": 35846164480,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 13,
+        "rs_score_0_10": 4.95,
+        "minervini_pass": 2,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 481358863.0,
+        "entry_price": 444.7300109863281,
+        "stop_price": 390.38
+      },
+      "divergence_gap": -32
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike Holdings, Inc.",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 678.6500244140625,
+      "entry": 678.6500244140625,
+      "stop": 612.8,
+      "atr_pct": 4.851816479829498,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Stock Market Today, June 25: BlackBerry Surges After Earnings Beat and Revenue Tops Estimates",
+        "Can AI Detection and Response Become CrowdStrike's Next Growth Driver?",
+        "Growth Through the Microsoft Alliance: Pax8’s Kristen Fehrenbach and New Charter’s Michelle Curtis, Live from Pax8 Beyond 2026"
+      ],
+      "sub": {
+        "T": 13,
+        "F": 13,
+        "Fl": 5,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 172760416256,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 70,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1946382632.0,
+        "entry_price": 678.6500244140625,
+        "stop_price": 612.8
+      },
+      "divergence_gap": 25
+    },
+    {
+      "symbol": "NVO",
+      "name": "Novo Nordisk A/S",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 47.63999938964844,
+      "entry": 47.63999938964844,
+      "stop": 44.74,
+      "atr_pct": 3.038413045651682,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.0%"
+      ],
+      "matched_headlines": [
+        "Novo Nordisk (CPSE:NOVO B) Wins UK Approval For Oral Wegovy With Wider Consumer Ripple Effects",
+        "Is Novo Nordisk A/S (NVO) Strengthening Its Weight-Loss Leadership With Oral Wegovy Launch?",
+        "LLY or PFE: Which Drugmaker Offers the Stronger Growth Story?"
+      ],
+      "sub": {
+        "T": 14,
+        "F": 14,
+        "Fl": 0,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 210895388672,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 21,
+        "rs_score_0_10": 6.58,
+        "minervini_pass": 3,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 663709331.0,
+        "entry_price": 47.63999938964844,
+        "stop_price": 44.74
+      },
+      "divergence_gap": -24
     },
     {
       "symbol": "TSM",
@@ -312,12 +754,14 @@
       "warnings": [
         "波動偏高 ATR 4.8%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "IBM stock surged again: The reason sounds like sci-fi"
+      ],
       "sub": {
         "T": 17,
         "F": 19,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 0,
+        "N": 3,
         "M": 6,
         "R": -1
       },
@@ -337,414 +781,53 @@
       "divergence_gap": 43
     },
     {
-      "symbol": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
-      "score": 42,
+      "symbol": "MRNA",
+      "name": "Moderna, Inc.",
+      "score": 43,
       "grade": "D",
       "action": "Avoid",
-      "price": 532.5700073242188,
-      "entry": 532.5700073242188,
-      "stop": 456.23,
-      "atr_pct": 7.167535680489534,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.2%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 15,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 868408950784,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 99,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 16068770113.0,
-        "entry_price": 532.5700073242188,
-        "stop_price": 456.23
-      },
-      "divergence_gap": 57
-    },
-    {
-      "symbol": "ASML",
-      "name": "ASML Holding N.V. - New York Re",
-      "score": 42,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1841.1800537109375,
-      "entry": 1841.1800537109375,
-      "stop": 1632.83,
-      "atr_pct": 5.658134031385624,
-      "themes": [
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.7%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 15,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 709623283712,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 92,
-        "rs_score_0_10": 8.94,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3100956479.0,
-        "entry_price": 1841.1800537109375,
-        "stop_price": 1632.83
-      },
-      "divergence_gap": 50
-    },
-    {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
-      "score": 41,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 165.4499969482422,
-      "entry": 165.4499969482422,
-      "stop": 148.37,
-      "atr_pct": 5.160246141669891,
-      "themes": [
-        "ai_infra",
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.2%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 17,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 208329572352,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 77,
-        "rs_score_0_10": 5.71,
-        "minervini_pass": 6,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1560018977.0,
-        "entry_price": 165.4499969482422,
-        "stop_price": 148.37
-      },
-      "divergence_gap": 36
-    },
-    {
-      "symbol": "RTX",
-      "name": "RTX Corporation",
-      "score": 40,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 186.58999633789062,
-      "entry": 186.58999633789062,
-      "stop": 176.32,
-      "atr_pct": 2.753172735411567,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 10,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Industrials",
-      "market_cap": 251277656064,
-      "risk_penalty": 0,
-      "strategy": {
-        "rs_rating": 57,
-        "rs_score_0_10": 1.69,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1039706067.0,
-        "entry_price": 186.58999633789062,
-        "stop_price": 176.32
-      },
-      "divergence_gap": 17
-    },
-    {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 39,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 347.7099914550781,
-      "entry": 347.7099914550781,
-      "stop": 265.61,
-      "atr_pct": 11.805136161799428,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 11.8%"
-      ],
-      "matched_headlines": [
-        "Alnylam Pharmaceuticals, Inc. (ALNY) Discusses ALN-6400 RNAi Therapy Targeting Plasminogen for Rare Bleeding Disorders Transcript"
-      ],
-      "sub": {
-        "T": 14,
-        "F": 19,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 371381665792,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 97,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3588911370.0,
-        "entry_price": 347.7099914550781,
-        "stop_price": 292.41
-      },
-      "divergence_gap": 58
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova Inc.",
-      "score": 37,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1085.469970703125,
-      "entry": 1085.469970703125,
-      "stop": 979.03,
-      "atr_pct": 4.90316671657737,
-      "themes": [
-        "energy_power",
-        "defense"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 8,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Industrials",
-      "market_cap": 291687497728,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 89,
-        "rs_score_0_10": 3.86,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 2888100415.0,
-        "entry_price": 1085.469970703125,
-        "stop_price": 979.03
-      },
-      "divergence_gap": 52
-    },
-    {
-      "symbol": "NVO",
-      "name": "Novo Nordisk A/S",
-      "score": 36,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 47.63999938964844,
-      "entry": 47.63999938964844,
-      "stop": 44.74,
-      "atr_pct": 3.038413045651682,
+      "price": 59.75,
+      "entry": 59.75,
+      "stop": 50.73,
+      "atr_pct": 7.551524087617444,
       "themes": [
         "glp1_biotech"
       ],
       "warnings": [
-        "波動偏高 ATR 3.0%"
+        "波動過大 ATR 7.6%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Moderna Stock’s 6-Day Rally Ends in a Dive. Why It’s One of the S&P 500’s Biggest Losers Today.",
+        "Moderna Has Some Key Approvals Ahead. Is the Stock a Buy?",
+        "MRNA Up as Influenza Vaccine Wins Unanimous FDA Advisory Panel Backing"
+      ],
       "sub": {
-        "T": 14,
-        "F": 14,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 210895388672,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 21,
-        "rs_score_0_10": 6.58,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 663709331.0,
-        "entry_price": 47.63999938964844,
-        "stop_price": 44.74
-      },
-      "divergence_gap": -15
-    },
-    {
-      "symbol": "CRWD",
-      "name": "CrowdStrike Holdings, Inc.",
-      "score": 34,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 678.6500244140625,
-      "entry": 678.6500244140625,
-      "stop": 612.8,
-      "atr_pct": 4.851816479829498,
-      "themes": [
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 13,
-        "F": 13,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 172760416256,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 70,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 6,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1946382632.0,
-        "entry_price": 678.6500244140625,
-        "stop_price": 612.8
-      },
-      "divergence_gap": 36
-    },
-    {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "score": 33,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 220.94000244140625,
-      "entry": 220.94000244140625,
-      "stop": 198.61,
-      "atr_pct": 5.052819021240911,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.1%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 10,
-        "F": 17,
-        "Fl": 3,
-        "N": 0,
+        "T": 21,
+        "F": 2,
+        "Fl": 11,
+        "N": 6,
         "M": 6,
         "R": -3
       },
-      "sector": "Technology",
-      "market_cap": 78645846016,
+      "sector": "Healthcare",
+      "market_cap": 23707979776,
       "risk_penalty": 3,
       "strategy": {
-        "rs_rating": 82,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 6,
-        "phase2": false,
+        "rs_rating": 84,
+        "rs_score_0_10": 3.77,
+        "minervini_pass": 8,
+        "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1195712447.0,
-        "entry_price": 220.94000244140625,
-        "stop_price": 209.13
+        "dollar_vol_50d": 390121246.0,
+        "entry_price": 59.75,
+        "stop_price": 50.73
       },
-      "divergence_gap": 49
-    },
-    {
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "score": 31,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 352.8299865722656,
-      "entry": 352.8299865722656,
-      "stop": 328.92,
-      "atr_pct": 3.3881147076257103,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 2620974694400,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 23,
-        "rs_score_0_10": 3.4,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 15529553938.0,
-        "entry_price": 352.8299865722656,
-        "stop_price": 342.22
-      },
-      "divergence_gap": -8
+      "divergence_gap": 41
     },
     {
       "symbol": "VST",
       "name": "Vistra Corp.",
-      "score": 31,
+      "score": 42,
       "grade": "D",
       "action": "Avoid",
       "price": 167.77000427246094,
@@ -757,12 +840,16 @@
       "warnings": [
         "波動偏高 ATR 4.3%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "KKR & Co. Inc. (KKR): A High-Growth Large-Cap Stock to Invest In Pursuing AI Opportunities",
+        "Can Vistra Unlock More Value for Investors Through Share Buybacks?",
+        "Does Constellation Energy Stock's Surge Broaden Your Portfolio Or Just Amplify It?"
+      ],
       "sub": {
         "T": 14,
         "F": 9,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 5,
+        "N": 9,
         "M": 6,
         "R": -1
       },
@@ -779,12 +866,361 @@
         "entry_price": 167.77000427246094,
         "stop_price": 153.21
       },
-      "divergence_gap": 7
+      "divergence_gap": -4
+    },
+    {
+      "symbol": "NU",
+      "name": "Nu Holdings Ltd.",
+      "score": 42,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 12.460000038146973,
+      "entry": 12.460000038146973,
+      "stop": 11.59,
+      "atr_pct": 3.4940387537508286,
+      "themes": [
+        "emerging_market",
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.5%"
+      ],
+      "matched_headlines": [
+        "UiPath vs. Nu Holdings: Which Disruptive Growth Stock is a Buy?",
+        "Will Nu’s US$1 Billion Buyback Amid Rising Credit Stress Change Nu Holdings' (NU) Narrative?",
+        "Nu Holdings (NU) Launches $1 Billion Buyback As CFO Handover Takes Shape"
+      ],
+      "sub": {
+        "T": 4,
+        "F": 10,
+        "Fl": 8,
+        "N": 15,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Financial Services",
+      "market_cap": 60577292288,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 25,
+        "rs_score_0_10": 0.0,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 684890161.0,
+        "entry_price": 12.460000038146973,
+        "stop_price": 11.59
+      },
+      "divergence_gap": -17
+    },
+    {
+      "symbol": "DDOG",
+      "name": "Datadog, Inc.",
+      "score": 41,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 220.94000244140625,
+      "entry": 220.94000244140625,
+      "stop": 198.61,
+      "atr_pct": 5.052819021240911,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.1%"
+      ],
+      "matched_headlines": [
+        "Truist Upgrades Datadog (DDOG) to Buy from Neutral",
+        "The Contracted Revenue Datadog Stock Bears Are Ignoring"
+      ],
+      "sub": {
+        "T": 10,
+        "F": 17,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 78645846016,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 82,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1195712447.0,
+        "entry_price": 220.94000244140625,
+        "stop_price": 209.13
+      },
+      "divergence_gap": 41
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "score": 40,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 352.8299865722656,
+      "entry": 352.8299865722656,
+      "stop": 328.92,
+      "atr_pct": 3.3881147076257103,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.4%"
+      ],
+      "matched_headlines": [
+        "Micron earnings beat fuels hopes for Tech rally rebound",
+        "Qualcomm's massive AI expansion already has 2 Mag 7 giants on board"
+      ],
+      "sub": {
+        "T": 3,
+        "F": 20,
+        "Fl": 6,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 2620974694400,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 23,
+        "rs_score_0_10": 3.4,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 15529553938.0,
+        "entry_price": 352.8299865722656,
+        "stop_price": 342.22
+      },
+      "divergence_gap": -17
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "score": 39,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 378.9100036621094,
+      "entry": 378.9100036621094,
+      "stop": 339.26,
+      "atr_pct": 5.232571251561106,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.2%"
+      ],
+      "matched_headlines": [
+        "Broadcom Built OpenAI’s First Chip in Record Time, but the Money Went Elsewhere",
+        "This Dividend Stock Is Up 75% in 2026 and Yields Almost 2%",
+        "BofA Says Micron Is Trading Under 10x Earnings and Wall Street Is Completely Missing the Story"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 18,
+        "Fl": 6,
+        "N": 12,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 1802694819840,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 75,
+        "rs_score_0_10": 5.87,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 10924698416.0,
+        "entry_price": 378.9100036621094,
+        "stop_price": 362.35
+      },
+      "divergence_gap": 36
+    },
+    {
+      "symbol": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "score": 39,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 123.83999633789062,
+      "entry": 123.83999633789062,
+      "stop": 116.79,
+      "atr_pct": 2.8452367078794736,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "Gilead's Breast Cancer Drug Trodelvy Wins FDA Nod for Expanded Use",
+        "Gilead Wins EC Approval to Expand Trodelvy's Label in Metastatic TNBC",
+        "Could This FDA Milestone Unlock Gilead’s (GILD) Next Big Growth Driver?"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 18,
+        "Fl": 6,
+        "N": 9,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Healthcare",
+      "market_cap": 153756008448,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 50,
+        "rs_score_0_10": 1.26,
+        "minervini_pass": 3,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 934665031.0,
+        "entry_price": 123.83999633789062,
+        "stop_price": 118.19
+      },
+      "divergence_gap": 11
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies Inc.",
+      "score": 38,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 107.2699966430664,
+      "entry": 107.2699966430664,
+      "stop": 95.09,
+      "atr_pct": 5.674933505570898,
+      "themes": [
+        "ai_infra",
+        "defense"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.7%"
+      ],
+      "matched_headlines": [
+        "Stock Market Today, June 25: Micron Surges, Apple Falls, and Inflation Data Weighs on Stocks",
+        "Palantir Partnership Gets Positive Needham View"
+      ],
+      "sub": {
+        "T": 3,
+        "F": 20,
+        "Fl": 6,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 257159643136,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 18,
+        "rs_score_0_10": 1.21,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 5861855032.0,
+        "entry_price": 107.2699966430664,
+        "stop_price": 104.25
+      },
+      "divergence_gap": -20
+    },
+    {
+      "symbol": "NET",
+      "name": "Cloudflare, Inc.",
+      "score": 36,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 226.64999389648438,
+      "entry": 226.64999389648438,
+      "stop": 200.74,
+      "atr_pct": 5.7164918935535,
+      "themes": [
+        "cloud_saas",
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.7%"
+      ],
+      "matched_headlines": [
+        "Cloudflare (NET) Launches Browser Push To Sort Human And AI Traffic"
+      ],
+      "sub": {
+        "T": 10,
+        "F": 12,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 80447045632,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 60,
+        "rs_score_0_10": 5.85,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 931214186.0,
+        "entry_price": 226.64999389648438,
+        "stop_price": 208.07
+      },
+      "divergence_gap": 24
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "score": 33,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 542.8699951171875,
+      "entry": 542.8699951171875,
+      "stop": 501.89,
+      "atr_pct": 3.774671861460705,
+      "themes": [
+        "ai_infra",
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.8%"
+      ],
+      "matched_headlines": [
+        "Qualcomm's massive AI expansion already has 2 Mag 7 giants on board"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 20,
+        "Fl": 5,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 1378033860608,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 28,
+        "rs_score_0_10": 1.68,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 10227891917.0,
+        "entry_price": 542.8699951171875,
+        "stop_price": 529.4
+      },
+      "divergence_gap": -5
     },
     {
       "symbol": "AAPL",
       "name": "Apple Inc.",
-      "score": 30,
+      "score": 31,
       "grade": "D",
       "action": "Avoid",
       "price": 275.1499938964844,
@@ -797,11 +1233,14 @@
       "warnings": [
         "波動偏高 ATR 3.3%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Stock market today: Dow rises, S&P 500 and Nasdaq slip as Micron soars, Apple drags Big Tech lower",
+        "Big Tech stocks tumble while Micron continues to gain on Q3 earnings"
+      ],
       "sub": {
         "T": 6,
         "F": 16,
-        "Fl": 3,
+        "Fl": 4,
         "N": 0,
         "M": 6,
         "R": -1
@@ -819,301 +1258,56 @@
         "entry_price": 275.1499938964844,
         "stop_price": 268.27
       },
-      "divergence_gap": 35
+      "divergence_gap": 34
     },
     {
-      "symbol": "PLTR",
-      "name": "Palantir Technologies Inc.",
-      "score": 29,
+      "symbol": "APP",
+      "name": "Applovin Corporation",
+      "score": 31,
       "grade": "D",
       "action": "Avoid",
-      "price": 107.2699966430664,
-      "entry": 107.2699966430664,
-      "stop": 95.09,
-      "atr_pct": 5.674933505570898,
+      "price": 445.92999267578125,
+      "entry": 445.92999267578125,
+      "stop": 381.93,
+      "atr_pct": 7.1762381733396445,
       "themes": [
-        "ai_infra",
-        "defense"
+        "ai_infra"
       ],
       "warnings": [
-        "波動過大 ATR 5.7%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 257159643136,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 18,
-        "rs_score_0_10": 1.21,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 5861855032.0,
-        "entry_price": 107.2699966430664,
-        "stop_price": 104.25
-      },
-      "divergence_gap": -11
-    },
-    {
-      "symbol": "MRNA",
-      "name": "Moderna, Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 59.75,
-      "entry": 59.75,
-      "stop": 50.73,
-      "atr_pct": 7.551524087617444,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.6%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 2,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Healthcare",
-      "market_cap": 23707979776,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 84,
-        "rs_score_0_10": 3.77,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 390121246.0,
-        "entry_price": 59.75,
-        "stop_price": 50.73
-      },
-      "divergence_gap": 55
-    },
-    {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 195.74000549316406,
-      "entry": 195.74000549316406,
-      "stop": 180.88,
-      "atr_pct": 3.795122259125698,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.8%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 4741018419200,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 67,
-        "rs_score_0_10": 5.56,
-        "minervini_pass": 6,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 34151606628.0,
-        "entry_price": 195.74000549316406,
-        "stop_price": 188.29
-      },
-      "divergence_gap": 39
-    },
-    {
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 542.8699951171875,
-      "entry": 542.8699951171875,
-      "stop": 501.89,
-      "atr_pct": 3.774671861460705,
-      "themes": [
-        "ai_infra",
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.8%"
+        "波動過大 ATR 7.2%"
       ],
       "matched_headlines": [
-        "Meta Platforms Just Took a 20% Stake in Cred. What That Means for META Stock."
+        "Citi Has a New Warning for AppLovin Stock Investors",
+        "AppLovin (APP) To Launch Axon And E Commerce Platforms By End Of June",
+        "Does Advertising Business Growth Assert AppLovin Corporation (APP) as a High-Growth Large-Cap Stock to Buy?"
       ],
       "sub": {
         "T": 0,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
+        "F": 16,
+        "Fl": 9,
+        "N": 3,
         "M": 6,
-        "R": -1
+        "R": -3
       },
       "sector": "Communication Services",
-      "market_cap": 1378033860608,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 28,
-        "rs_score_0_10": 1.68,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 10227891917.0,
-        "entry_price": 542.8699951171875,
-        "stop_price": 529.4
-      },
-      "divergence_gap": 0
-    },
-    {
-      "symbol": "NET",
-      "name": "Cloudflare, Inc.",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 226.64999389648438,
-      "entry": 226.64999389648438,
-      "stop": 200.74,
-      "atr_pct": 5.7164918935535,
-      "themes": [
-        "cloud_saas",
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.7%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 10,
-        "F": 12,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 80447045632,
+      "market_cap": 149805514752,
       "risk_penalty": 3,
       "strategy": {
-        "rs_rating": 60,
-        "rs_score_0_10": 5.85,
-        "minervini_pass": 5,
+        "rs_rating": 43,
+        "rs_score_0_10": 7.74,
+        "minervini_pass": 2,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 931214186.0,
-        "entry_price": 226.64999389648438,
-        "stop_price": 208.07
+        "dollar_vol_50d": 2483138779.0,
+        "entry_price": 445.92999267578125,
+        "stop_price": 410.18
       },
-      "divergence_gap": 32
-    },
-    {
-      "symbol": "NU",
-      "name": "Nu Holdings Ltd.",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 12.460000038146973,
-      "entry": 12.460000038146973,
-      "stop": 11.59,
-      "atr_pct": 3.4940387537508286,
-      "themes": [
-        "emerging_market",
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.5%"
-      ],
-      "matched_headlines": [
-        "GRNY: Highly Successful Theme-Rotation Strategy With Factor, Performance Nuances, A Hold",
-        "Jack Henry & Associates (JKHY) Continues To Struggle Amid Short-Term Challenges",
-        "Infosys (INFY) Continues To Win Major AI Contracts As Stock Trades Near 52-Week Lows"
-      ],
-      "sub": {
-        "T": 4,
-        "F": 10,
-        "Fl": 3,
-        "N": 6,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Financial Services",
-      "market_cap": 60577292288,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 25,
-        "rs_score_0_10": 0.0,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 684890161.0,
-        "entry_price": 12.460000038146973,
-        "stop_price": 11.59
-      },
-      "divergence_gap": -3
-    },
-    {
-      "symbol": "GILD",
-      "name": "Gilead Sciences, Inc.",
-      "score": 27,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 123.83999633789062,
-      "entry": 123.83999633789062,
-      "stop": 116.79,
-      "atr_pct": 2.8452367078794736,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Healthcare",
-      "market_cap": 153756008448,
-      "risk_penalty": 0,
-      "strategy": {
-        "rs_rating": 50,
-        "rs_score_0_10": 1.26,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 934665031.0,
-        "entry_price": 123.83999633789062,
-        "stop_price": 118.19
-      },
-      "divergence_gap": 23
+      "divergence_gap": 12
     },
     {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
-      "score": 26,
+      "score": 29,
       "grade": "D",
       "action": "Avoid",
       "price": 343.7099914550781,
@@ -1127,11 +1321,14 @@
       "warnings": [
         "波動偏高 ATR 3.5%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Micron earnings beat fuels hopes for Tech rally rebound",
+        "OpenAI Mulls Delaying IPO Until 2027: Report"
+      ],
       "sub": {
         "T": 0,
         "F": 18,
-        "Fl": 3,
+        "Fl": 6,
         "N": 0,
         "M": 6,
         "R": -1
@@ -1149,94 +1346,56 @@
         "entry_price": 343.7099914550781,
         "stop_price": 329.12
       },
-      "divergence_gap": 53
+      "divergence_gap": 50
     },
     {
-      "symbol": "AXON",
-      "name": "Axon Enterprise, Inc.",
-      "score": 25,
+      "symbol": "SMCI",
+      "name": "Super Micro Computer, Inc.",
+      "score": 29,
       "grade": "D",
       "action": "Avoid",
-      "price": 444.7300109863281,
-      "entry": 444.7300109863281,
-      "stop": 390.38,
-      "atr_pct": 6.110769637183334,
+      "price": 31.68000030517578,
+      "entry": 31.68000030517578,
+      "stop": 23.73,
+      "atr_pct": 12.542973830344437,
       "themes": [
-        "defense",
-        "cybersecurity"
+        "ai_infra"
       ],
       "warnings": [
-        "波動過大 ATR 6.1%"
+        "波動過大 ATR 12.5%"
       ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 6,
-        "F": 13,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Industrials",
-      "market_cap": 35846164480,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 13,
-        "rs_score_0_10": 4.95,
-        "minervini_pass": 2,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 481358863.0,
-        "entry_price": 444.7300109863281,
-        "stop_price": 390.38
-      },
-      "divergence_gap": -12
-    },
-    {
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
-      "score": 24,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 378.9100036621094,
-      "entry": 378.9100036621094,
-      "stop": 339.26,
-      "atr_pct": 5.232571251561106,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
+      "matched_headlines": [
+        "Supermicro Stock Jumps on Wall Street Upgrade. The Real Test Is Still Ahead.",
+        "GF Securities Upgrades Super Micro Computer (SMCI) Stock to Buy",
+        "Super Micro's AI Growth Story Gets a Major Boost From New Deal"
       ],
-      "warnings": [
-        "波動過大 ATR 5.2%"
-      ],
-      "matched_headlines": [],
       "sub": {
         "T": 0,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
+        "F": 8,
+        "Fl": 9,
+        "N": 9,
         "M": 6,
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 1802694819840,
+      "market_cap": 20492937216,
       "risk_penalty": 3,
       "strategy": {
-        "rs_rating": 75,
-        "rs_score_0_10": 5.87,
-        "minervini_pass": 7,
-        "phase2": true,
+        "rs_rating": 33,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 1,
+        "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 10924698416.0,
-        "entry_price": 378.9100036621094,
-        "stop_price": 362.35
+        "dollar_vol_50d": 1781415687.0,
+        "entry_price": 31.68000030517578,
+        "stop_price": 27.16
       },
-      "divergence_gap": 51
+      "divergence_gap": 4
     },
     {
       "symbol": "AMZN",
       "name": "Amazon.com, Inc.",
-      "score": 23,
+      "score": 27,
       "grade": "D",
       "action": "Avoid",
       "price": 227.00999450683594,
@@ -1249,11 +1408,13 @@
       "warnings": [
         "波動偏高 ATR 3.7%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Investor Anthony Scaramucci Says When People Start Missing Mortgage Payments, Immigrants Become A Threat. 'That's Not Racism. That's Economics'"
+      ],
       "sub": {
         "T": 3,
         "F": 12,
-        "Fl": 3,
+        "Fl": 7,
         "N": 0,
         "M": 6,
         "R": -1
@@ -1271,55 +1432,12 @@
         "entry_price": 227.00999450683594,
         "stop_price": 221.04
       },
-      "divergence_gap": 32
-    },
-    {
-      "symbol": "APP",
-      "name": "Applovin Corporation",
-      "score": 22,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 445.92999267578125,
-      "entry": 445.92999267578125,
-      "stop": 381.93,
-      "atr_pct": 7.1762381733396445,
-      "themes": [
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.2%"
-      ],
-      "matched_headlines": [
-        "Apple’s MacBooks and iPads are getting more expensive as the memory crunch deepens",
-        "How Applied Materials Could Become the Next $1 Trillion Chip Stock"
-      ],
-      "sub": {
-        "T": 0,
-        "F": 16,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Communication Services",
-      "market_cap": 149805514752,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 43,
-        "rs_score_0_10": 7.74,
-        "minervini_pass": 2,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 2483138779.0,
-        "entry_price": 445.92999267578125,
-        "stop_price": 410.18
-      },
-      "divergence_gap": 21
+      "divergence_gap": 28
     },
     {
       "symbol": "SNOW",
       "name": "Snowflake Inc.",
-      "score": 22,
+      "score": 27,
       "grade": "D",
       "action": "Avoid",
       "price": 227.05999755859375,
@@ -1332,12 +1450,14 @@
       "warnings": [
         "波動過大 ATR 5.8%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Oracle's Contract Backlog Swells: Is Long-Term Revenue Growth Secured?"
+      ],
       "sub": {
         "T": 4,
         "F": 12,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 5,
+        "N": 3,
         "M": 6,
         "R": -3
       },
@@ -1354,12 +1474,55 @@
         "entry_price": 227.05999755859375,
         "stop_price": 213.13
       },
-      "divergence_gap": 8
+      "divergence_gap": 3
+    },
+    {
+      "symbol": "MELI",
+      "name": "MercadoLibre, Inc.",
+      "score": 26,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1619.25,
+      "entry": 1619.25,
+      "stop": 1494.64,
+      "atr_pct": 3.8477244213384174,
+      "themes": [
+        "emerging_market",
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.8%"
+      ],
+      "matched_headlines": [
+        "A Once-in-a-Decade Opportunity: 5 Growth Stocks Down 28% to 54% to Buy on the Dip"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 10,
+        "Fl": 8,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 82091417600,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 16,
+        "rs_score_0_10": 1.01,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 955023168.0,
+        "entry_price": 1619.25,
+        "stop_price": 1515.08
+      },
+      "divergence_gap": -10
     },
     {
       "symbol": "SE",
       "name": "Sea Limited",
-      "score": 21,
+      "score": 26,
       "grade": "D",
       "action": "Avoid",
       "price": 89.01000213623047,
@@ -1372,15 +1535,11 @@
       "warnings": [
         "波動過大 ATR 5.1%"
       ],
-      "matched_headlines": [
-        "The S&P 500 is at a critical crossroads. A break lower could signal more losses ahead.",
-        "After losing my son, would it be a mistake to sell my recently purchased house and move to my hometown?",
-        "Japanese stocks are on fire. Here’s what’s driving the hot streak."
-      ],
+      "matched_headlines": [],
       "sub": {
         "T": 0,
         "F": 15,
-        "Fl": 3,
+        "Fl": 8,
         "N": 0,
         "M": 6,
         "R": -3
@@ -1398,12 +1557,183 @@
         "entry_price": 89.01000213623047,
         "stop_price": 80.01
       },
-      "divergence_gap": -10
+      "divergence_gap": -15
+    },
+    {
+      "symbol": "NOC",
+      "name": "Northrop Grumman Corporation",
+      "score": 24,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 499.3299865722656,
+      "entry": 499.3299865722656,
+      "stop": 469.35,
+      "atr_pct": 3.0023822991389086,
+      "themes": [
+        "defense"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.0%"
+      ],
+      "matched_headlines": [
+        "Boeing, Lockheed Land Big Contracts; Senate Passes War Powers Resolution",
+        "How Could Boeing's MUOS Contract Boost Its Space Business?"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 7,
+        "Fl": 6,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Industrials",
+      "market_cap": 70921568256,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 35,
+        "rs_score_0_10": 0.0,
+        "minervini_pass": 1,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 519381432.0,
+        "entry_price": 499.3299865722656,
+        "stop_price": 488.83
+      },
+      "divergence_gap": 11
+    },
+    {
+      "symbol": "ZS",
+      "name": "Zscaler, Inc.",
+      "score": 23,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 123.80000305175781,
+      "entry": 123.80000305175781,
+      "stop": 110.6,
+      "atr_pct": 5.330603067791262,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.3%"
+      ],
+      "matched_headlines": [
+        "Will the Momentum in Z-Flex Booking Fuel More Growth for Zscaler?"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 11,
+        "Fl": 6,
+        "N": 3,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 20019638272,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 6,
+        "rs_score_0_10": 2.79,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 693556430.0,
+        "entry_price": 123.80000305175781,
+        "stop_price": 117.11
+      },
+      "divergence_gap": -17
+    },
+    {
+      "symbol": "MSTR",
+      "name": "Strategy Inc",
+      "score": 21,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 85.33000183105469,
+      "entry": 85.33000183105469,
+      "stop": 65.04,
+      "atr_pct": 11.89164773229916,
+      "themes": [
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動過大 ATR 11.9%"
+      ],
+      "matched_headlines": [
+        "Bitcoin, Ethereum, XRP, Dogecoin Slump As Fed's Favourite Inflation Barometer Hits 3-Year High: Analyst Weighs If July Will Bring Relief To BTC Investors",
+        "Strategy Has Enough Cash To Fund Its Dividend For 10 Months",
+        "Rosen Law Firm Launches Probe Into MicroStrategy"
+      ],
+      "sub": {
+        "T": 3,
+        "F": 6,
+        "Fl": 6,
+        "N": 3,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 30528387072,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 3,
+        "rs_score_0_10": 0.22,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 2933765900.0,
+        "entry_price": 85.33000183105469,
+        "stop_price": 83.3
+      },
+      "divergence_gap": -18
+    },
+    {
+      "symbol": "LMT",
+      "name": "Lockheed Martin Corporation",
+      "score": 21,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 505.0199890136719,
+      "entry": 505.0199890136719,
+      "stop": 475.07,
+      "atr_pct": 2.9655117968647384,
+      "themes": [
+        "defense"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "Micron’s Blowout Sparked a Chip Rally, but the Smart Money Is Already Rotating Into Defense and Space",
+        "1 Rare Dividend Stock Built to Survive Any Recession",
+        "Lockheed Martin Inks $35 Billion Deal To Replenish Missile Stockpiles"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 7,
+        "Fl": 5,
+        "N": 3,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Industrials",
+      "market_cap": 116439236608,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 45,
+        "rs_score_0_10": 0.32,
+        "minervini_pass": 2,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 750007739.0,
+        "entry_price": 505.0199890136719,
+        "stop_price": 480.25
+      },
+      "divergence_gap": 24
     },
     {
       "symbol": "MDB",
       "name": "MongoDB, Inc.",
-      "score": 19,
+      "score": 21,
       "grade": "D",
       "action": "Avoid",
       "price": 294.1000061035156,
@@ -1420,7 +1750,7 @@
       "sub": {
         "T": 0,
         "F": 13,
-        "Fl": 3,
+        "Fl": 5,
         "N": 0,
         "M": 6,
         "R": -3
@@ -1438,93 +1768,12 @@
         "entry_price": 294.1000061035156,
         "stop_price": 284.76
       },
-      "divergence_gap": 29
-    },
-    {
-      "symbol": "MELI",
-      "name": "MercadoLibre, Inc.",
-      "score": 18,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1619.25,
-      "entry": 1619.25,
-      "stop": 1494.64,
-      "atr_pct": 3.8477244213384174,
-      "themes": [
-        "emerging_market",
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.8%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 10,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 82091417600,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 16,
-        "rs_score_0_10": 1.01,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 955023168.0,
-        "entry_price": 1619.25,
-        "stop_price": 1515.08
-      },
-      "divergence_gap": -2
-    },
-    {
-      "symbol": "ZS",
-      "name": "Zscaler, Inc.",
-      "score": 17,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 123.80000305175781,
-      "entry": 123.80000305175781,
-      "stop": 110.6,
-      "atr_pct": 5.330603067791262,
-      "themes": [
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.3%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 11,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 20019638272,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 6,
-        "rs_score_0_10": 2.79,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 693556430.0,
-        "entry_price": 123.80000305175781,
-        "stop_price": 117.11
-      },
-      "divergence_gap": -11
+      "divergence_gap": 27
     },
     {
       "symbol": "COIN",
       "name": "Coinbase Global, Inc.",
-      "score": 16,
+      "score": 19,
       "grade": "D",
       "action": "Avoid",
       "price": 142.52000427246094,
@@ -1538,14 +1787,13 @@
         "波動過大 ATR 7.8%"
       ],
       "matched_headlines": [
-        "Toncoin (TON) Price Prediction 2025, 2026, 2027-2030",
-        "Filecoin (FIL) Price Prediction: 2025, 2025, 2030"
+        "The Latest Crypto Tumble Has Bitcoin Under $60,000—And It's Pressuring Strategy Stock"
       ],
       "sub": {
         "T": 0,
         "F": 10,
         "Fl": 3,
-        "N": 0,
+        "N": 3,
         "M": 6,
         "R": -3
       },
@@ -1562,132 +1810,12 @@
         "entry_price": 142.52000427246094,
         "stop_price": 138.65
       },
-      "divergence_gap": -8
-    },
-    {
-      "symbol": "LMT",
-      "name": "Lockheed Martin Corporation",
-      "score": 16,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 505.0199890136719,
-      "entry": 505.0199890136719,
-      "stop": 475.07,
-      "atr_pct": 2.9655117968647384,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 7,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Industrials",
-      "market_cap": 116439236608,
-      "risk_penalty": 0,
-      "strategy": {
-        "rs_rating": 45,
-        "rs_score_0_10": 0.32,
-        "minervini_pass": 2,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 750007739.0,
-        "entry_price": 505.0199890136719,
-        "stop_price": 480.25
-      },
-      "divergence_gap": 29
-    },
-    {
-      "symbol": "MSTR",
-      "name": "Strategy Inc",
-      "score": 15,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 85.33000183105469,
-      "entry": 85.33000183105469,
-      "stop": 65.04,
-      "atr_pct": 11.89164773229916,
-      "themes": [
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動過大 ATR 11.9%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 3,
-        "F": 6,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 30528387072,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 3,
-        "rs_score_0_10": 0.22,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 2933765900.0,
-        "entry_price": 85.33000183105469,
-        "stop_price": 83.3
-      },
-      "divergence_gap": -12
-    },
-    {
-      "symbol": "NOC",
-      "name": "Northrop Grumman Corporation",
-      "score": 15,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 499.3299865722656,
-      "entry": 499.3299865722656,
-      "stop": 469.35,
-      "atr_pct": 3.0023822991389086,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.0%"
-      ],
-      "matched_headlines": [
-        "Stocks Rally as Falling Crude Prices Knock Bond Yields Lower"
-      ],
-      "sub": {
-        "T": 0,
-        "F": 7,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Industrials",
-      "market_cap": 70921568256,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 35,
-        "rs_score_0_10": 0.0,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 519381432.0,
-        "entry_price": 499.3299865722656,
-        "stop_price": 488.83
-      },
-      "divergence_gap": 20
+      "divergence_gap": -11
     },
     {
       "symbol": "TSLA",
       "name": "Tesla, Inc.",
-      "score": 14,
+      "score": 15,
       "grade": "D",
       "action": "Avoid",
       "price": 375.1199951171875,
@@ -1701,11 +1829,14 @@
       "warnings": [
         "波動過大 ATR 5.1%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "I'd Buy More of This Growth Stock Before the Market Figures Out What It's Missing",
+        "Tesla faces lawsuit from family of victim killed in Texas home crash"
+      ],
       "sub": {
         "T": 0,
         "F": 8,
-        "Fl": 3,
+        "Fl": 4,
         "N": 0,
         "M": 6,
         "R": -3
@@ -1723,56 +1854,16 @@
         "entry_price": 375.1199951171875,
         "stop_price": 363.8
       },
-      "divergence_gap": 26
-    },
-    {
-      "symbol": "SMCI",
-      "name": "Super Micro Computer, Inc.",
-      "score": 14,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 31.68000030517578,
-      "entry": 31.68000030517578,
-      "stop": 23.73,
-      "atr_pct": 12.542973830344437,
-      "themes": [
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動過大 ATR 12.5%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 0,
-        "F": 8,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 20492937216,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 33,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1781415687.0,
-        "entry_price": 31.68000030517578,
-        "stop_price": 27.16
-      },
-      "divergence_gap": 19
+      "divergence_gap": 25
     }
   ],
   "top10": [
     {
       "symbol": "ABBV",
       "name": "AbbVie Inc.",
-      "score": 54,
-      "grade": "C",
-      "action": "Avoid",
+      "score": 69,
+      "grade": "B",
+      "action": "Monitor",
       "price": 243.13999938964844,
       "entry": 243.13999938964844,
       "stop": 230.48,
@@ -1781,12 +1872,16 @@
         "glp1_biotech"
       ],
       "warnings": [],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Will AbbVie's (ABBV) Pediatric Expansions Reveal a Deeper Shift in Its Growth Mix?",
+        "Canaccord Says AbbVie’s (ABBV) Apogee Deal Strengthens Long-Term Growth Outlook",
+        "Why I Can’t Stop Buying This Unstoppable Dividend Juggernaut"
+      ],
       "sub": {
         "T": 27,
         "F": 18,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 6,
+        "N": 12,
         "M": 6,
         "R": 0
       },
@@ -1803,14 +1898,14 @@
         "entry_price": 243.13999938964844,
         "stop_price": 230.48
       },
-      "divergence_gap": -2
+      "divergence_gap": -17
     },
     {
       "symbol": "PANW",
       "name": "Palo Alto Networks, Inc.",
-      "score": 49,
-      "grade": "D",
-      "action": "Avoid",
+      "score": 66,
+      "grade": "B",
+      "action": "Monitor",
       "price": 293.0899963378906,
       "entry": 293.0899963378906,
       "stop": 270.49,
@@ -1821,12 +1916,16 @@
       "warnings": [
         "波動偏高 ATR 3.9%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Stock Market Today, June 25: BlackBerry Surges After Earnings Beat and Revenue Tops Estimates",
+        "Can Palo Alto Networks' XSIAM Sustain Its Strong Growth Momentum?",
+        "Growth Through the Microsoft Alliance: Pax8’s Kristen Fehrenbach and New Charter’s Michelle Curtis, Live from Pax8 Beyond 2026"
+      ],
       "sub": {
         "T": 24,
         "F": 17,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 5,
+        "N": 15,
         "M": 6,
         "R": -1
       },
@@ -1843,14 +1942,14 @@
         "entry_price": 293.0899963378906,
         "stop_price": 270.49
       },
-      "divergence_gap": 23
+      "divergence_gap": 6
     },
     {
       "symbol": "CRDO",
       "name": "Credo Technology Group Holding ",
-      "score": 47,
-      "grade": "D",
-      "action": "Avoid",
+      "score": 65,
+      "grade": "B",
+      "action": "Monitor",
       "price": 268.0299987792969,
       "entry": 268.0299987792969,
       "stop": 209.45,
@@ -1862,12 +1961,16 @@
       "warnings": [
         "波動過大 ATR 10.9%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "How Credo Technology Group’s (CRDO) 1.6T Connectivity Ramp Is Feeding Its AI Data-Center Growth",
+        "Credo Stock Has Surged: Why Wall Street Thinks $350 Could Be the Next Stop",
+        "The Brown Capital Management Small Company Fund Picked Credo Technology (CRDO) Amid Multiple Durable Growth Drivers"
+      ],
       "sub": {
         "T": 21,
         "F": 20,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 9,
+        "N": 12,
         "M": 6,
         "R": -3
       },
@@ -1884,97 +1987,55 @@
         "entry_price": 268.0299987792969,
         "stop_price": 209.45
       },
-      "divergence_gap": 47
+      "divergence_gap": 29
     },
     {
-      "symbol": "LLY",
-      "name": "Eli Lilly and Company",
-      "score": 46,
-      "grade": "D",
+      "symbol": "RTX",
+      "name": "RTX Corporation",
+      "score": 57,
+      "grade": "C",
       "action": "Avoid",
-      "price": 1127.68994140625,
-      "entry": 1127.68994140625,
-      "stop": 1058.21,
-      "atr_pct": 3.080632383024147,
+      "price": 186.58999633789062,
+      "entry": 186.58999633789062,
+      "stop": 176.32,
+      "atr_pct": 2.753172735411567,
       "themes": [
-        "glp1_biotech"
+        "defense"
       ],
-      "warnings": [
-        "波動偏高 ATR 3.1%"
-      ],
+      "warnings": [],
       "matched_headlines": [
-        "Can Qualcomm actually compete with Nvidia? Inside its bold data-center gamble.",
-        "Stocks Rally as Falling Crude Prices Knock Bond Yields Lower"
+        "RTX vs. General Dynamics: Which Defense Contractor Offers More Upside?",
+        "This High-Yield Aerospace Stock Just Hiked Its Dividend by More Than 8%",
+        "Trump Calls Stock Buybacks Fake: MicroStrategy Bitcoin Model Shows Another Way to Boost Valuations"
       ],
       "sub": {
-        "T": 20,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
+        "T": 21,
+        "F": 10,
+        "Fl": 5,
+        "N": 15,
         "M": 6,
-        "R": -1
+        "R": 0
       },
-      "sector": "Healthcare",
-      "market_cap": 1005607780352,
-      "risk_penalty": 1,
+      "sector": "Industrials",
+      "market_cap": 251277656064,
+      "risk_penalty": 0,
       "strategy": {
-        "rs_rating": 62,
-        "rs_score_0_10": 7.39,
-        "minervini_pass": 7,
-        "phase2": true,
+        "rs_rating": 57,
+        "rs_score_0_10": 1.69,
+        "minervini_pass": 5,
+        "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3375974709.0,
-        "entry_price": 1127.68994140625,
-        "stop_price": 1058.21
+        "dollar_vol_50d": 1039706067.0,
+        "entry_price": 186.58999633789062,
+        "stop_price": 176.32
       },
-      "divergence_gap": 16
-    },
-    {
-      "symbol": "TSM",
-      "name": "Taiwan Semiconductor Manufactur",
-      "score": 44,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 434.989990234375,
-      "entry": 434.989990234375,
-      "stop": 393.32,
-      "atr_pct": 4.789288908569402,
-      "themes": [
-        "semiconductor",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.8%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 17,
-        "F": 19,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 2256064217088,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 87,
-        "rs_score_0_10": 7.54,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 5749737256.0,
-        "entry_price": 434.989990234375,
-        "stop_price": 396.47
-      },
-      "divergence_gap": 43
+      "divergence_gap": 0
     },
     {
       "symbol": "AMD",
       "name": "Advanced Micro Devices, Inc.",
-      "score": 42,
-      "grade": "D",
+      "score": 56,
+      "grade": "C",
       "action": "Avoid",
       "price": 532.5700073242188,
       "entry": 532.5700073242188,
@@ -1987,12 +2048,16 @@
       "warnings": [
         "波動過大 ATR 7.2%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "Sandisk, Western Digital, and others soar as Micron results  'justify elevated valuations'",
+        "Qualcomm CFO talks Modular acquisition's significance for AI data centers",
+        "Broadcom Built OpenAI’s First Chip in Record Time, but the Money Went Elsewhere"
+      ],
       "sub": {
         "T": 21,
         "F": 15,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 5,
+        "N": 12,
         "M": 6,
         "R": -3
       },
@@ -2009,12 +2074,144 @@
         "entry_price": 532.5700073242188,
         "stop_price": 456.23
       },
-      "divergence_gap": 57
+      "divergence_gap": 43
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova Inc.",
+      "score": 54,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 1085.469970703125,
+      "entry": 1085.469970703125,
+      "stop": 979.03,
+      "atr_pct": 4.90316671657737,
+      "themes": [
+        "energy_power",
+        "defense"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Energy Transition Today - Romania's Wind Energy Milestone Secures Major Investment",
+        "GE Vernova (GEV) Stock After 103% One-Year Rally Is There Upside Left",
+        "Has Chevron Found a New Growth Platform?"
+      ],
+      "sub": {
+        "T": 21,
+        "F": 8,
+        "Fl": 8,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Industrials",
+      "market_cap": 291687497728,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 89,
+        "rs_score_0_10": 3.86,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 2888100415.0,
+        "entry_price": 1085.469970703125,
+        "stop_price": 979.03
+      },
+      "divergence_gap": 35
+    },
+    {
+      "symbol": "LLY",
+      "name": "Eli Lilly and Company",
+      "score": 54,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 1127.68994140625,
+      "entry": 1127.68994140625,
+      "stop": 1058.21,
+      "atr_pct": 3.080632383024147,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.1%"
+      ],
+      "matched_headlines": [
+        "Eli Lilly and Company (LLY) – Among the 10 Reliable Dividend Stocks to Buy for Long-Term Investors",
+        "A $30 Billion Cancer Breakthrough Is Under Threat From Global Conflicts"
+      ],
+      "sub": {
+        "T": 20,
+        "F": 18,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 1005607780352,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 62,
+        "rs_score_0_10": 7.39,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3375974709.0,
+        "entry_price": 1127.68994140625,
+        "stop_price": 1058.21
+      },
+      "divergence_gap": 8
+    },
+    {
+      "symbol": "ARM",
+      "name": "Arm Holdings plc",
+      "score": 51,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 347.7099914550781,
+      "entry": 347.7099914550781,
+      "stop": 265.61,
+      "atr_pct": 11.805136161799428,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 11.8%"
+      ],
+      "matched_headlines": [
+        "Micron and Qualcomm forecasts ignite $400 billion AI chip stock rally",
+        "Qualcomm forecasts $15 billion data center chip sales by 2029, shares soar"
+      ],
+      "sub": {
+        "T": 14,
+        "F": 19,
+        "Fl": 6,
+        "N": 9,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 371381665792,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 97,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3588911370.0,
+        "entry_price": 347.7099914550781,
+        "stop_price": 292.41
+      },
+      "divergence_gap": 46
     },
     {
       "symbol": "ASML",
       "name": "ASML Holding N.V. - New York Re",
-      "score": 42,
+      "score": 49,
       "grade": "D",
       "action": "Avoid",
       "price": 1841.1800537109375,
@@ -2027,12 +2224,16 @@
       "warnings": [
         "波動過大 ATR 5.7%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "European shares hit record close with healthcare stocks leading broader rally",
+        "Micron and Qualcomm forecasts ignite $400 billion AI chip stock rally",
+        "ASML Holding (ASML): The Best All-Time High Stock with Legs to Rally Further"
+      ],
       "sub": {
         "T": 21,
         "F": 15,
-        "Fl": 3,
-        "N": 0,
+        "Fl": 1,
+        "N": 9,
         "M": 6,
         "R": -3
       },
@@ -2049,12 +2250,12 @@
         "entry_price": 1841.1800537109375,
         "stop_price": 1632.83
       },
-      "divergence_gap": 50
+      "divergence_gap": 43
     },
     {
       "symbol": "ANET",
       "name": "Arista Networks, Inc.",
-      "score": 41,
+      "score": 46,
       "grade": "D",
       "action": "Avoid",
       "price": 165.4499969482422,
@@ -2072,7 +2273,7 @@
       "sub": {
         "T": 17,
         "F": 18,
-        "Fl": 3,
+        "Fl": 8,
         "N": 0,
         "M": 6,
         "R": -3
@@ -2090,88 +2291,7 @@
         "entry_price": 165.4499969482422,
         "stop_price": 148.37
       },
-      "divergence_gap": 36
-    },
-    {
-      "symbol": "RTX",
-      "name": "RTX Corporation",
-      "score": 40,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 186.58999633789062,
-      "entry": 186.58999633789062,
-      "stop": 176.32,
-      "atr_pct": 2.753172735411567,
-      "themes": [
-        "defense"
-      ],
-      "warnings": [],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 10,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Industrials",
-      "market_cap": 251277656064,
-      "risk_penalty": 0,
-      "strategy": {
-        "rs_rating": 57,
-        "rs_score_0_10": 1.69,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1039706067.0,
-        "entry_price": 186.58999633789062,
-        "stop_price": 176.32
-      },
-      "divergence_gap": 17
-    },
-    {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 39,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 347.7099914550781,
-      "entry": 347.7099914550781,
-      "stop": 265.61,
-      "atr_pct": 11.805136161799428,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 11.8%"
-      ],
-      "matched_headlines": [
-        "Alnylam Pharmaceuticals, Inc. (ALNY) Discusses ALN-6400 RNAi Therapy Targeting Plasminogen for Rare Bleeding Disorders Transcript"
-      ],
-      "sub": {
-        "T": 14,
-        "F": 19,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 371381665792,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 97,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3588911370.0,
-        "entry_price": 347.7099914550781,
-        "stop_price": 292.41
-      },
-      "divergence_gap": 58
+      "divergence_gap": 31
     }
   ],
   "themes": [
@@ -2182,23 +2302,23 @@
       "symbols": [
         {
           "symbol": "CRDO",
-          "score": 47
-        },
-        {
-          "symbol": "TSM",
-          "score": 44
+          "score": 65
         },
         {
           "symbol": "AMD",
-          "score": 42
-        },
-        {
-          "symbol": "ANET",
-          "score": 41
+          "score": 56
         },
         {
           "symbol": "ARM",
-          "score": 39
+          "score": 51
+        },
+        {
+          "symbol": "ANET",
+          "score": 46
+        },
+        {
+          "symbol": "NVDA",
+          "score": 45
         }
       ],
       "prev_avg": 15.0,
@@ -2214,23 +2334,23 @@
       "symbols": [
         {
           "symbol": "ANET",
-          "score": 41
+          "score": 46
         },
         {
           "symbol": "DDOG",
-          "score": 33
+          "score": 41
         },
         {
           "symbol": "MSFT",
-          "score": 31
-        },
-        {
-          "symbol": "META",
-          "score": 28
+          "score": 40
         },
         {
           "symbol": "NET",
-          "score": 28
+          "score": 36
+        },
+        {
+          "symbol": "META",
+          "score": 33
         }
       ],
       "prev_avg": 9.0,
@@ -2246,23 +2366,23 @@
       "symbols": [
         {
           "symbol": "CRDO",
-          "score": 47
-        },
-        {
-          "symbol": "TSM",
-          "score": 44
+          "score": 65
         },
         {
           "symbol": "AMD",
-          "score": 42
-        },
-        {
-          "symbol": "ASML",
-          "score": 42
+          "score": 56
         },
         {
           "symbol": "ARM",
-          "score": 39
+          "score": 51
+        },
+        {
+          "symbol": "ASML",
+          "score": 49
+        },
+        {
+          "symbol": "NVDA",
+          "score": 45
         }
       ],
       "prev_avg": 7.0,
@@ -2278,23 +2398,23 @@
       "symbols": [
         {
           "symbol": "RTX",
-          "score": 40
+          "score": 57
         },
         {
           "symbol": "GEV",
-          "score": 37
-        },
-        {
-          "symbol": "PLTR",
-          "score": 29
+          "score": 54
         },
         {
           "symbol": "AXON",
-          "score": 25
+          "score": 45
         },
         {
-          "symbol": "LMT",
-          "score": 16
+          "symbol": "PLTR",
+          "score": 38
+        },
+        {
+          "symbol": "NOC",
+          "score": 24
         }
       ],
       "prev_avg": 6.0,
@@ -2310,23 +2430,23 @@
       "symbols": [
         {
           "symbol": "ABBV",
-          "score": 54
+          "score": 69
         },
         {
           "symbol": "LLY",
-          "score": 46
+          "score": 54
         },
         {
           "symbol": "NVO",
-          "score": 36
+          "score": 45
         },
         {
           "symbol": "MRNA",
-          "score": 29
+          "score": 43
         },
         {
           "symbol": "GILD",
-          "score": 27
+          "score": 39
         }
       ],
       "prev_avg": 5.0,
@@ -2342,23 +2462,23 @@
       "symbols": [
         {
           "symbol": "PANW",
-          "score": 49
-        },
-        {
-          "symbol": "CRWD",
-          "score": 34
-        },
-        {
-          "symbol": "NET",
-          "score": 28
+          "score": 66
         },
         {
           "symbol": "AXON",
-          "score": 25
+          "score": 45
+        },
+        {
+          "symbol": "CRWD",
+          "score": 45
+        },
+        {
+          "symbol": "NET",
+          "score": 36
         },
         {
           "symbol": "ZS",
-          "score": 17
+          "score": 23
         }
       ],
       "prev_avg": 5.0,
@@ -2374,19 +2494,19 @@
       "symbols": [
         {
           "symbol": "NU",
-          "score": 28
+          "score": 42
         },
         {
           "symbol": "MELI",
-          "score": 18
-        },
-        {
-          "symbol": "COIN",
-          "score": 16
+          "score": 26
         },
         {
           "symbol": "MSTR",
-          "score": 15
+          "score": 21
+        },
+        {
+          "symbol": "COIN",
+          "score": 19
         }
       ],
       "prev_avg": 4.0,
@@ -2402,15 +2522,15 @@
       "symbols": [
         {
           "symbol": "GEV",
-          "score": 37
+          "score": 54
         },
         {
           "symbol": "VST",
-          "score": 31
+          "score": 42
         },
         {
           "symbol": "TSLA",
-          "score": 14
+          "score": 15
         }
       ],
       "prev_avg": 3.0,
@@ -2426,15 +2546,15 @@
       "symbols": [
         {
           "symbol": "NU",
-          "score": 28
-        },
-        {
-          "symbol": "SE",
-          "score": 21
+          "score": 42
         },
         {
           "symbol": "MELI",
-          "score": 18
+          "score": 26
+        },
+        {
+          "symbol": "SE",
+          "score": 26
         }
       ],
       "prev_avg": 3.0,
@@ -2447,155 +2567,168 @@
   "theme_alerts": [],
   "risk_alerts": [
     {
-      "symbol": "PANW",
-      "name": "Palo Alto Networks, Inc.",
+      "symbol": "ASML",
+      "name": "ASML Holding N.V. - New York Re",
       "score": 49,
       "grade": "D",
       "action": "Avoid",
-      "price": 293.0899963378906,
-      "entry": 293.0899963378906,
-      "stop": 270.49,
-      "atr_pct": 3.854620523045142,
+      "price": 1841.1800537109375,
+      "entry": 1841.1800537109375,
+      "stop": 1632.83,
+      "atr_pct": 5.658134031385624,
       "themes": [
-        "cybersecurity"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.9%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 24,
-        "F": 17,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 238868348928,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "CRDO",
-      "name": "Credo Technology Group Holding ",
-      "score": 47,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 268.0299987792969,
-      "entry": 268.0299987792969,
-      "stop": 209.45,
-      "atr_pct": 10.927828735652021,
-      "themes": [
-        "ai_infra",
         "semiconductor"
       ],
       "warnings": [
-        "波動過大 ATR 10.9%"
+        "波動過大 ATR 5.7%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "European shares hit record close with healthcare stocks leading broader rally",
+        "Micron and Qualcomm forecasts ignite $400 billion AI chip stock rally",
+        "ASML Holding (ASML): The Best All-Time High Stock with Legs to Rally Further"
+      ],
       "sub": {
         "T": 21,
-        "F": 20,
-        "Fl": 3,
-        "N": 0,
+        "F": 15,
+        "Fl": 1,
+        "N": 9,
         "M": 6,
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 49981673472,
+      "market_cap": 709623283712,
       "risk_penalty": 3
     },
     {
-      "symbol": "LLY",
-      "name": "Eli Lilly and Company",
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
       "score": 46,
       "grade": "D",
       "action": "Avoid",
-      "price": 1127.68994140625,
-      "entry": 1127.68994140625,
-      "stop": 1058.21,
-      "atr_pct": 3.080632383024147,
+      "price": 165.4499969482422,
+      "entry": 165.4499969482422,
+      "stop": 148.37,
+      "atr_pct": 5.160246141669891,
       "themes": [
-        "glp1_biotech"
+        "ai_infra",
+        "cloud_saas"
       ],
       "warnings": [
-        "波動偏高 ATR 3.1%"
-      ],
-      "matched_headlines": [
-        "Can Qualcomm actually compete with Nvidia? Inside its bold data-center gamble.",
-        "Stocks Rally as Falling Crude Prices Knock Bond Yields Lower"
-      ],
-      "sub": {
-        "T": 20,
-        "F": 18,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 1005607780352,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "TSM",
-      "name": "Taiwan Semiconductor Manufactur",
-      "score": 44,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 434.989990234375,
-      "entry": 434.989990234375,
-      "stop": 393.32,
-      "atr_pct": 4.789288908569402,
-      "themes": [
-        "semiconductor",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.8%"
+        "波動過大 ATR 5.2%"
       ],
       "matched_headlines": [],
       "sub": {
         "T": 17,
-        "F": 19,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 2256064217088,
-      "risk_penalty": 1
-    },
-    {
-      "symbol": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
-      "score": 42,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 532.5700073242188,
-      "entry": 532.5700073242188,
-      "stop": 456.23,
-      "atr_pct": 7.167535680489534,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.2%"
-      ],
-      "matched_headlines": [],
-      "sub": {
-        "T": 21,
-        "F": 15,
-        "Fl": 3,
+        "F": 18,
+        "Fl": 8,
         "N": 0,
         "M": 6,
         "R": -3
       },
       "sector": "Technology",
-      "market_cap": 868408950784,
+      "market_cap": 208329572352,
       "risk_penalty": 3
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 195.74000549316406,
+      "entry": 195.74000549316406,
+      "stop": 180.88,
+      "atr_pct": 3.795122259125698,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.8%"
+      ],
+      "matched_headlines": [
+        "Sandisk, Western Digital, and others soar as Micron results  'justify elevated valuations'",
+        "Qualcomm CFO talks Modular acquisition's significance for AI data centers",
+        "JPMorgan Chase Pairs a 10% Dividend Hike With a New $50 Billion Buyback After Clearing the Fed's Stress Test"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 20,
+        "Fl": 8,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 4741018419200,
+      "risk_penalty": 1
+    },
+    {
+      "symbol": "AXON",
+      "name": "Axon Enterprise, Inc.",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 444.7300109863281,
+      "entry": 444.7300109863281,
+      "stop": 390.38,
+      "atr_pct": 6.110769637183334,
+      "themes": [
+        "defense",
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.1%"
+      ],
+      "matched_headlines": [
+        "AXON's Dedrone Expands in CUAS Capability: Can It Deliver Growth?",
+        "US Stock Market Today: S&P 500 Futures Slide As Rate Hike And Growth Worries Build",
+        "Does Axon’s Upgraded Outlook and AI Push Reshape The Bull Case For Axon Enterprise (AXON)?"
+      ],
+      "sub": {
+        "T": 6,
+        "F": 13,
+        "Fl": 8,
+        "N": 15,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Industrials",
+      "market_cap": 35846164480,
+      "risk_penalty": 3
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike Holdings, Inc.",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 678.6500244140625,
+      "entry": 678.6500244140625,
+      "stop": 612.8,
+      "atr_pct": 4.851816479829498,
+      "themes": [
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Stock Market Today, June 25: BlackBerry Surges After Earnings Beat and Revenue Tops Estimates",
+        "Can AI Detection and Response Become CrowdStrike's Next Growth Driver?",
+        "Growth Through the Microsoft Alliance: Pax8’s Kristen Fehrenbach and New Charter’s Michelle Curtis, Live from Pax8 Beyond 2026"
+      ],
+      "sub": {
+        "T": 13,
+        "F": 13,
+        "Fl": 5,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 172760416256,
+      "risk_penalty": 1
     }
   ],
   "open_signals": [],
@@ -2619,13 +2752,13 @@
       "reason": "AI unavailable"
     },
     {
-      "symbol": "LLY",
+      "symbol": "RTX",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
     },
     {
-      "symbol": "TSM",
+      "symbol": "AMD",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
