@@ -28,7 +28,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 0.7,
+    "elapsed_min": 0.5,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -44,7 +44,7 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 22.7,
+      "avg_gap": 22.8,
       "missed_strong": [
         {
           "symbol": "AMD",
@@ -162,7 +162,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1345930569.0,
         "entry_price": 243.13999938964844,
-        "stop_price": 230.48
+        "stop_price": 230.48,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 67)，回測支撐再進",
+          "chase_risk": true
+        },
+        "failure_risks": []
       },
       "divergence_gap": -17
     },
@@ -206,7 +212,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1955444429.0,
         "entry_price": 293.0899963378906,
-        "stop_price": 270.49
+        "stop_price": 270.49,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 59 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 6
     },
@@ -251,7 +263,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1732052083.0,
         "entry_price": 268.0299987792969,
-        "stop_price": 209.45
+        "stop_price": 209.45,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 62，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 10.9%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 29
     },
@@ -293,7 +316,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1039706067.0,
         "entry_price": 186.58999633789062,
-        "stop_price": 176.32
+        "stop_price": 176.32,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 58 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 0
     },
@@ -338,7 +367,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 16068770113.0,
         "entry_price": 532.5700073242188,
-        "stop_price": 456.23
+        "stop_price": 456.23,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 51 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.2%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 43
     },
@@ -383,7 +423,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 2888100415.0,
         "entry_price": 1085.469970703125,
-        "stop_price": 979.03
+        "stop_price": 979.03,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 62，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "題材失靈風險",
+            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          }
+        ]
       },
       "divergence_gap": 35
     },
@@ -426,7 +477,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 3375974709.0,
         "entry_price": 1127.68994140625,
-        "stop_price": 1058.21
+        "stop_price": 1058.21,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 51 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 8
     },
@@ -470,7 +527,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 3588911370.0,
         "entry_price": 347.7099914550781,
-        "stop_price": 292.41
+        "stop_price": 292.41,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 43 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 11.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 46
     },
@@ -514,7 +582,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 3100956479.0,
         "entry_price": 1841.1800537109375,
-        "stop_price": 1632.83
+        "stop_price": 1632.83,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 54 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.7%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 43
     },
@@ -555,7 +634,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1560018977.0,
         "entry_price": 165.4499969482422,
-        "stop_price": 148.37
+        "stop_price": 148.37,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 50 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.2%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 31
     },
@@ -600,7 +690,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 34151606628.0,
         "entry_price": 195.74000549316406,
-        "stop_price": 188.29
+        "stop_price": 188.29,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 22
     },
@@ -645,7 +741,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 481358863.0,
         "entry_price": 444.7300109863281,
-        "stop_price": 390.38
+        "stop_price": 390.38,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 29，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 6.1%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": -32
     },
@@ -689,7 +796,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1946382632.0,
         "entry_price": 678.6500244140625,
-        "stop_price": 612.8
+        "stop_price": 612.8,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 39，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 25
     },
@@ -733,7 +846,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 663709331.0,
         "entry_price": 47.63999938964844,
-        "stop_price": 44.74
+        "stop_price": 44.74,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 68，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": -24
     },
@@ -776,7 +895,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 5749737256.0,
         "entry_price": 434.989990234375,
-        "stop_price": 396.47
+        "stop_price": 396.47,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 48 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 43
     },
@@ -820,7 +945,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 390121246.0,
         "entry_price": 59.75,
-        "stop_price": 50.73
+        "stop_price": 50.73,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 63，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.6%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 41
     },
@@ -864,7 +1000,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 745710742.0,
         "entry_price": 167.77000427246094,
-        "stop_price": 153.21
+        "stop_price": 153.21,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 63，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "題材失靈風險",
+            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          }
+        ]
       },
       "divergence_gap": -4
     },
@@ -909,7 +1056,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 684890161.0,
         "entry_price": 12.460000038146973,
-        "stop_price": 11.59
+        "stop_price": 11.59,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": -17
     },
@@ -952,98 +1105,20 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1195712447.0,
         "entry_price": 220.94000244140625,
-        "stop_price": 209.13
+        "stop_price": 209.13,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 26，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.1%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 41
-    },
-    {
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "score": 40,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 352.8299865722656,
-      "entry": 352.8299865722656,
-      "stop": 328.92,
-      "atr_pct": 3.3881147076257103,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [
-        "Micron earnings beat fuels hopes for Tech rally rebound",
-        "Qualcomm's massive AI expansion already has 2 Mag 7 giants on board"
-      ],
-      "sub": {
-        "T": 3,
-        "F": 20,
-        "Fl": 6,
-        "N": 6,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 2620974694400,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 23,
-        "rs_score_0_10": 3.4,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 15529553938.0,
-        "entry_price": 352.8299865722656,
-        "stop_price": 342.22
-      },
-      "divergence_gap": -17
-    },
-    {
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
-      "score": 39,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 378.9100036621094,
-      "entry": 378.9100036621094,
-      "stop": 339.26,
-      "atr_pct": 5.232571251561106,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.2%"
-      ],
-      "matched_headlines": [
-        "Broadcom Built OpenAI’s First Chip in Record Time, but the Money Went Elsewhere",
-        "This Dividend Stock Is Up 75% in 2026 and Yields Almost 2%",
-        "BofA Says Micron Is Trading Under 10x Earnings and Wall Street Is Completely Missing the Story"
-      ],
-      "sub": {
-        "T": 0,
-        "F": 18,
-        "Fl": 6,
-        "N": 12,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 1802694819840,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 75,
-        "rs_score_0_10": 5.87,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 10924698416.0,
-        "entry_price": 378.9100036621094,
-        "stop_price": 362.35
-      },
-      "divergence_gap": 36
     },
     {
       "symbol": "GILD",
@@ -1083,7 +1158,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 934665031.0,
         "entry_price": 123.83999633789062,
-        "stop_price": 118.19
+        "stop_price": 118.19,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 11
     },
@@ -1127,9 +1208,71 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 5861855032.0,
         "entry_price": 107.2699966430664,
-        "stop_price": 104.25
+        "stop_price": 104.25,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.7%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": -20
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "score": 37,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 352.8299865722656,
+      "entry": 352.8299865722656,
+      "stop": 328.92,
+      "atr_pct": 3.3881147076257103,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.4%"
+      ],
+      "matched_headlines": [
+        "Micron earnings beat fuels hopes for Tech rally rebound",
+        "Dow Jones Futures Fall, Techs Tumble After Mixed Market Signals; What To Do Now",
+        "Qualcomm's massive AI expansion already has 2 Mag 7 giants on board"
+      ],
+      "sub": {
+        "T": 3,
+        "F": 20,
+        "Fl": 6,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 2620974694400,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 23,
+        "rs_score_0_10": 3.4,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 15529553938.0,
+        "entry_price": 352.8299865722656,
+        "stop_price": 342.22,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
+      },
+      "divergence_gap": -14
     },
     {
       "symbol": "NET",
@@ -1170,7 +1313,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 931214186.0,
         "entry_price": 226.64999389648438,
-        "stop_price": 208.07
+        "stop_price": 208.07,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 28，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.7%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 24
     },
@@ -1213,9 +1367,71 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 10227891917.0,
         "entry_price": 542.8699951171875,
-        "stop_price": 529.4
+        "stop_price": 529.4,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": -5
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "score": 33,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 378.9100036621094,
+      "entry": 378.9100036621094,
+      "stop": 339.26,
+      "atr_pct": 5.232571251561106,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 5.2%"
+      ],
+      "matched_headlines": [
+        "Broadcom Built OpenAI’s First Chip in Record Time, but the Money Went Elsewhere",
+        "This Dividend Stock Is Up 75% in 2026 and Yields Almost 2%",
+        "BofA Says Micron Is Trading Under 10x Earnings and Wall Street Is Completely Missing the Story"
+      ],
+      "sub": {
+        "T": 0,
+        "F": 18,
+        "Fl": 6,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 1802694819840,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 75,
+        "rs_score_0_10": 5.87,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 10924698416.0,
+        "entry_price": 378.9100036621094,
+        "stop_price": 362.35,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.2%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
+      },
+      "divergence_gap": 42
     },
     {
       "symbol": "AAPL",
@@ -1235,7 +1451,8 @@
       ],
       "matched_headlines": [
         "Stock market today: Dow rises, S&P 500 and Nasdaq slip as Micron soars, Apple drags Big Tech lower",
-        "Big Tech stocks tumble while Micron continues to gain on Q3 earnings"
+        "Big Tech stocks tumble while Micron continues to gain on Q3 earnings",
+        "Dow Jones Futures Fall, Techs Tumble After Mixed Market Signals; What To Do Now"
       ],
       "sub": {
         "T": 6,
@@ -1256,7 +1473,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 14807204223.0,
         "entry_price": 275.1499938964844,
-        "stop_price": 268.27
+        "stop_price": 268.27,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 34
     },
@@ -1300,7 +1523,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 2483138779.0,
         "entry_price": 445.92999267578125,
-        "stop_price": 410.18
+        "stop_price": 410.18,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.2%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 12
     },
@@ -1344,7 +1578,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 11440002883.0,
         "entry_price": 343.7099914550781,
-        "stop_price": 329.12
+        "stop_price": 329.12,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 50
     },
@@ -1388,7 +1628,22 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1781415687.0,
         "entry_price": 31.68000030517578,
-        "stop_price": 27.16
+        "stop_price": 27.16,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "題材失靈風險",
+            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          },
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 12.5%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 4
     },
@@ -1430,7 +1685,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 11835937977.0,
         "entry_price": 227.00999450683594,
-        "stop_price": 221.04
+        "stop_price": 221.04,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 28
     },
@@ -1472,7 +1733,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1681532515.0,
         "entry_price": 227.05999755859375,
-        "stop_price": 213.13
+        "stop_price": 213.13,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 32，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 3
     },
@@ -1515,7 +1787,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 955023168.0,
         "entry_price": 1619.25,
-        "stop_price": 1515.08
+        "stop_price": 1515.08,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": -10
     },
@@ -1555,7 +1833,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 367944609.0,
         "entry_price": 89.01000213623047,
-        "stop_price": 80.01
+        "stop_price": 80.01,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 46 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.1%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": -15
     },
@@ -1598,7 +1887,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 519381432.0,
         "entry_price": 499.3299865722656,
-        "stop_price": 488.83
+        "stop_price": 488.83,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 11
     },
@@ -1640,7 +1935,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 693556430.0,
         "entry_price": 123.80000305175781,
-        "stop_price": 117.11
+        "stop_price": 117.11,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.3%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": -17
     },
@@ -1684,7 +1990,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 2933765900.0,
         "entry_price": 85.33000183105469,
-        "stop_price": 83.3
+        "stop_price": 83.3,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 11.9%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": -18
     },
@@ -1726,7 +2043,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 750007739.0,
         "entry_price": 505.0199890136719,
-        "stop_price": 480.25
+        "stop_price": 480.25,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 24
     },
@@ -1766,7 +2089,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 681673286.0,
         "entry_price": 294.1000061035156,
-        "stop_price": 284.76
+        "stop_price": 284.76,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.3%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 27
     },
@@ -1808,7 +2142,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1766590918.0,
         "entry_price": 142.52000427246094,
-        "stop_price": 138.65
+        "stop_price": 138.65,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": -11
     },
@@ -1852,7 +2197,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 21937315828.0,
         "entry_price": 375.1199951171875,
-        "stop_price": 363.8
+        "stop_price": 363.8,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.1%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 25
     }
@@ -1896,7 +2252,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1345930569.0,
         "entry_price": 243.13999938964844,
-        "stop_price": 230.48
+        "stop_price": 230.48,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 67)，回測支撐再進",
+          "chase_risk": true
+        },
+        "failure_risks": []
       },
       "divergence_gap": -17
     },
@@ -1940,7 +2302,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1955444429.0,
         "entry_price": 293.0899963378906,
-        "stop_price": 270.49
+        "stop_price": 270.49,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 59 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 6
     },
@@ -1985,7 +2353,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1732052083.0,
         "entry_price": 268.0299987792969,
-        "stop_price": 209.45
+        "stop_price": 209.45,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 62，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 10.9%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 29
     },
@@ -2027,7 +2406,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1039706067.0,
         "entry_price": 186.58999633789062,
-        "stop_price": 176.32
+        "stop_price": 176.32,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 58 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 0
     },
@@ -2072,7 +2457,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 16068770113.0,
         "entry_price": 532.5700073242188,
-        "stop_price": 456.23
+        "stop_price": 456.23,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 51 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.2%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 43
     },
@@ -2117,7 +2513,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 2888100415.0,
         "entry_price": 1085.469970703125,
-        "stop_price": 979.03
+        "stop_price": 979.03,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 62，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "題材失靈風險",
+            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          }
+        ]
       },
       "divergence_gap": 35
     },
@@ -2160,7 +2567,13 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 3375974709.0,
         "entry_price": 1127.68994140625,
-        "stop_price": 1058.21
+        "stop_price": 1058.21,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 51 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": []
       },
       "divergence_gap": 8
     },
@@ -2204,7 +2617,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 3588911370.0,
         "entry_price": 347.7099914550781,
-        "stop_price": 292.41
+        "stop_price": 292.41,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 43 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 11.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 46
     },
@@ -2248,7 +2672,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 3100956479.0,
         "entry_price": 1841.1800537109375,
-        "stop_price": 1632.83
+        "stop_price": 1632.83,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 54 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.7%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 43
     },
@@ -2289,7 +2724,18 @@
         "liquidity_ok": true,
         "dollar_vol_50d": 1560018977.0,
         "entry_price": 165.4499969482422,
-        "stop_price": 148.37
+        "stop_price": 148.37,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 50 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.2%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ]
       },
       "divergence_gap": 31
     }
@@ -2342,7 +2788,7 @@
         },
         {
           "symbol": "MSFT",
-          "score": 40
+          "score": 37
         },
         {
           "symbol": "NET",
