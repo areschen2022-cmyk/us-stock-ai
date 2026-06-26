@@ -13,7 +13,7 @@ from src.data_provider.yfinance_client import (
     fetch_market_indices,
 )
 from src.data_provider.sec_client import search_company_cik, get_company_facts, extract_revenue_yoy
-from src.news.rss_fetcher import fetch_news
+from src.news.rss_fetcher import fetch_news, fetch_symbol_news
 from src.scoring.score_engine import StockScore, compute_score
 from src.storage.sqlite_store import SQLiteStore
 from src.ai.model_council import ModelCouncil
@@ -158,6 +158,7 @@ def run_daily_update() -> None:
         try:
             info = fetch_info(symbol)
             rev_yoy = _get_revenue_yoy(symbol)
+            sym_news = fetch_symbol_news(symbol)
             score = compute_score(
                 symbol=symbol,
                 ohlcv=ohlcv,
@@ -167,6 +168,7 @@ def run_daily_update() -> None:
                 spy_ohlcv=spy_ohlcv,
                 revenue_yoy=rev_yoy,
                 today=today,
+                symbol_news=sym_news,
             )
             scores.append(score)
             store.upsert_score(today, score)
