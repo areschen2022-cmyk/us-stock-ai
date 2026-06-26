@@ -59,6 +59,66 @@ def fetch_news(max_per_feed: int = 20, cache_hours: int = 2) -> list[dict]:
     return all_items
 
 
+_POS_KW = [
+    "beat", "record", "growth", "partnership", "contract", "upgrade", "buyback",
+    "dividend", "breakthrough", "expansion", "acquisition", "raised guidance",
+    "new product", "soar", "surge", "rally", "outperform", "wins", "approval",
+    "launch", "milestone", "all-time high",
+]
+_NEG_KW = [
+    "miss", "downgrade", "recall", "investigation", "lawsuit", "layoff", "fraud",
+    "cut guidance", "warning", "probe", "plunge", "slump", "halt", "delay",
+    "tumble", "slash", "weak", "disappoint",
+]
+
+
+def fetch_symbol_news(symbol: str, max_items: int = 10) -> list[dict]:
+    """Per-ticker news via yfinance (far more relevant than general RSS).
+    Returns [{title, summary, published}]. Empty list on any failure."""
+    try:
+        import yfinance as yf
+        raw = yf.Ticker(symbol).news or []
+    except Exception as e:
+        logger.warning("yfinance news failed for %s: %s", symbol, e)
+        return []
+    out: list[dict] = []
+    for entry in raw[:max_items]:
+        c = entry.get("content", entry) if isinstance(entry, dict) else {}
+        title = (c.get("title") or "").strip()
+        if not title:
+            continue
+        out.append({
+            "title": title,
+            "summary": (c.get("summary") or c.get("description") or "")[:300],
+            "published": c.get("pubDate") or c.get("displayTime") or "",
+        })
+    return out
+
+
+def score_symbol_news(news_list: list[dict]) -> tuple[int, list[str]]:
+    """Keyword catalyst score on already-symbol-specific news (no matching
+    needed). Returns (score 0-15, matched headlines)."""
+    score = 0
+    matched: list[str] = []
+    for item in news_list:
+        title = (item.get("title") or "").lower()
+        hit = False
+        for kw in _POS_KW:
+            if kw in title:
+                score += 3
+                hit = True
+                break
+        if not hit:
+            for kw in _NEG_KW:
+                if kw in title:
+                    score -= 3
+                    hit = True
+                    break
+        if hit:
+            matched.append(item["title"])
+    return max(0, min(score, 15)), matched[:5]
+
+
 def score_news_catalyst(symbol: str, company_name: str, news_items: list[dict]) -> tuple[int, list[str]]:
     """
     Simple keyword-based catalyst scoring. Returns (score 0-15, matched headlines).
