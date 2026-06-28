@@ -315,11 +315,19 @@ function renderStrategyBadges(st) {
   const eqBadge = eq.label ? `<span class="strat-badge" style="color:${eqColor};border:1px solid ${eqColor}" title="${eq.reason||''}">進場：${eq.label}</span>` : '';
   const risks = st.failure_risks || [];
   const riskBadges = risks.map(r => `<span class="strat-badge" style="color:var(--red)" title="${r.detail||''}">⚠️${r.mode}</span>`).join('');
+  // 社群情緒（StockTwits）
+  const soc = st.social || {};
+  let socBadge = '';
+  if (soc.label && soc.label !== '資料不足') {
+    const socColor = {'強烈看多':'var(--green)','偏多':'var(--green)','中性':'var(--muted)','偏空':'var(--red)','強烈看空':'var(--red)'}[soc.label] || 'var(--muted)';
+    const wl = soc.watchlist_count ? `，${(soc.watchlist_count/1000).toFixed(0)}k 追蹤` : '';
+    socBadge = `<span class="strat-badge" style="color:${socColor}" title="StockTwits 看多${soc.bullish}/看空${soc.bearish}${wl}">💬${soc.label}</span>`;
+  }
   return `<div class="strat-badges" title="影子策略指標（尚未計入評分）">
     <span class="strat-badge" style="color:${rsColor}">RS ${rs != null ? rs : '—'}</span>
     <span class="strat-badge" style="color:${mtColor}">趨勢 ${mt != null ? mt + '/8' : '—'}${st.phase2 ? ' ✓' : ''}</span>
     <span class="strat-badge" style="color:${liq ? 'var(--green)' : 'var(--red)'}">${liq ? '流動性✓' : '流動性✕'}</span>
-    ${eqBadge}${riskBadges}
+    ${eqBadge}${socBadge}${riskBadges}
   </div>`;
 }
 
