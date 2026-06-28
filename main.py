@@ -14,6 +14,7 @@ from src.data_provider.yfinance_client import (
 )
 from src.data_provider.sec_client import search_company_cik, get_company_facts, extract_revenue_yoy
 from src.news.rss_fetcher import fetch_news, fetch_symbol_news
+from src.data_provider.social_sentiment import fetch_stocktwits_sentiment
 from src.scoring.score_engine import StockScore, compute_score
 from src.storage.sqlite_store import SQLiteStore
 from src.ai.model_council import ModelCouncil
@@ -75,6 +76,7 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
             "stop_price": stop.get("stop"),
             "entry_quality": (raw.get("tw") or {}).get("entry_quality"),
             "failure_risks": (raw.get("tw") or {}).get("failure_risks", []),
+            "social": raw.get("social"),
         }
 
     breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
@@ -192,7 +194,8 @@ def run_daily_update() -> None:
                 rs = us_market.rs_rating_63d(ohlcv["Close"], spy_close) if spy_close is not None else {}
                 liq = us_market.liquidity_gate(ohlcv, score.price)
                 tw = tw_lessons.entry_quality_from_ohlcv_and_score(ohlcv, score)
-                strategy_raw[symbol] = {"ohlcv": ohlcv, "rs": rs, "liquidity": liq, "tw": tw}
+                social = fetch_stocktwits_sentiment(symbol)
+                strategy_raw[symbol] = {"ohlcv": ohlcv, "rs": rs, "liquidity": liq, "tw": tw, "social": social}
             except Exception as sx:
                 print(f"[Main] shadow-strategy error {symbol}: {sx}")
         except Exception as exc:
