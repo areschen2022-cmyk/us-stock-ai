@@ -53,18 +53,11 @@ jobs:
       - name: Post-update health check
         run: python scripts/post_update_check.py
 
-      - name: Weekly knowledge hub export (Fridays only)
-        if: github.event.schedule == '30 21 * * 1-5'
-        run: |
-          DOW=$(date +%u)
-          if [ "$DOW" = "5" ]; then
-            echo "Friday — running knowledge export"
-            python scripts/export_learning_to_knowledge_hub.py
-          else
-            echo "Not Friday — skipping knowledge export"
-          fi
+      - name: Knowledge hub export
+        continue-on-error: true
+        run: python scripts/export_learning_to_knowledge_hub.py
 
-      - name: Commit dashboard JSON
+      - name: Commit dashboard & knowledge exports
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
