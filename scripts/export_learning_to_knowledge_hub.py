@@ -57,6 +57,7 @@ def export_weekly() -> int:
         return 0
 
     exported = 0
+    skipped = 0
     for row in rows:
         claim = _build_claim(row)
         topic = f"US Stock Signal: {row['symbol']} {row['signal_date']}"
@@ -66,7 +67,11 @@ def export_weekly() -> int:
             "domain": "us_stock",
             "tags": [row["symbol"], row.get("grade", ""), "signal_outcome"],
         })
-        hub_id = result.get("id", "") if result else ""
+        if result is None:
+            print(f"[KnowledgeHub] Skipped {row['symbol']} {row['signal_date']} (MCP unavailable)")
+            skipped += 1
+            continue
+        hub_id = result.get("id", "")
         store.save_knowledge_export(
             topic=topic,
             claim=claim,
@@ -76,7 +81,7 @@ def export_weekly() -> int:
         print(f"[KnowledgeHub] Exported {row['symbol']} {row['signal_date']} → {hub_id or 'no id'}")
         exported += 1
 
-    print(f"[KnowledgeHub] Done. Exported {exported} outcomes.")
+    print(f"[KnowledgeHub] Done. Exported {exported}, skipped {skipped} (MCP unavailable).")
     return exported
 
 
