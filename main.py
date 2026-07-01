@@ -108,12 +108,17 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
     - 'social_bullish': StockTwits strongly-bullish with enough tagged volume
                         (tests whether retail crowd sentiment has any predictive
                         value, independent of RS/Minervini/current grade)
-    INSERT OR IGNORE makes this idempotent per (date, symbol, group).
+    Not-yet-backfilled rows for today are cleared per group before re-logging,
+    so a same-day rerun (e.g. after a filter fix) can't leave stale symbols
+    behind — INSERT OR IGNORE alone only adds/skips, it never removes.
 
     spy_price is stamped as spy_entry_price so forward_tracker can later compute
     alpha (stock return minus SPY return) without an extra fetch — isolates
     stock-picking skill from market beta in the shadow-vs-live comparison."""
     by_symbol = {s.symbol: s for s in scores}
+
+    for grp in ("shadow", "live_top", "social_bullish"):
+        store.reset_shadow_signals_for_date(today, grp)
 
     shadow_n = 0
     for sym, sig in per_symbol.items():
