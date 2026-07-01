@@ -102,12 +102,16 @@ _SOCIAL_MIN_RATIO = 0.4     # matches social_sentiment._label's "強烈看多" c
 
 
 def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: float | None = None) -> None:
-    """Record three comparable signal sets for forward-return validation:
+    """Record four comparable signal sets for forward-return validation:
     - 'shadow'        : RS>=80 AND Minervini phase2 (what the US strategy would pick)
     - 'live_top'      : top 10 by the current engine's score (what we pick today)
     - 'social_bullish': StockTwits strongly-bullish with enough tagged volume
                         (tests whether retail crowd sentiment has any predictive
                         value, independent of RS/Minervini/current grade)
+    - 'confluence'    : in >=2 of the above three groups (tests whether signal
+                        agreement across independent methods beats any single
+                        signal alone — the basis for a future promote-to-grade
+                        decision)
     Not-yet-backfilled rows for today are cleared per group before re-logging,
     so a same-day rerun (e.g. after a filter fix) can't leave stale symbols
     behind — INSERT OR IGNORE alone only adds/skips, it never removes.
@@ -117,8 +121,10 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
     stock-picking skill from market beta in the shadow-vs-live comparison."""
     by_symbol = {s.symbol: s for s in scores}
 
-    for grp in ("shadow", "live_top", "social_bullish"):
+    for grp in ("shadow", "live_top", "social_bullish", "confluence"):
         store.reset_shadow_signals_for_date(today, grp)
+
+    membership: dict[str, set[str]] = {}
 
     shadow_n = 0
     for sym, sig in per_symbol.items():
@@ -136,6 +142,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "spy_entry_price": spy_price,
             })
             shadow_n += 1
+            membership.setdefault(sym, set()).add("shadow")
 
     live_top = sorted(scores, key=lambda s: s.total_score, reverse=True)[:10]
     for sc in live_top:
@@ -151,6 +158,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
             "stop_price": sig.get("stop_price"),
             "spy_entry_price": spy_price,
         })
+        membership.setdefault(sc.symbol, set()).add("live_top")
 
     social_n = 0
     for sym, sig in per_symbol.items():
@@ -173,8 +181,27 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "spy_entry_price": spy_price,
             })
             social_n += 1
+            membership.setdefault(sym, set()).add("social_bullish")
 
-    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish signals")
+    confluence_n = 0
+    for sym, grps in membership.items():
+        if len(grps) >= 2:
+            sig = per_symbol.get(sym, {})
+            sc = by_symbol.get(sym)
+            store.upsert_shadow_signal(today, "confluence", {
+                "symbol": sym,
+                "rs_rating": sig.get("rs_rating"),
+                "minervini_pass": sig.get("minervini_pass"),
+                "phase2": sig.get("phase2"),
+                "live_grade": sc.grade if sc else None,
+                "live_score": sc.total_score if sc else None,
+                "entry_price": sig.get("entry_price") or (sc.price if sc else None),
+                "stop_price": sig.get("stop_price"),
+                "spy_entry_price": spy_price,
+            })
+            confluence_n += 1
+
+    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish + {confluence_n} confluence signals")
 
 
 def run_daily_update() -> None:
