@@ -3,7 +3,7 @@
   "market": {
     "SPY": 746.77001953125,
     "QQQ": 736.4000244140625,
-    "VIX": 16.84000015258789,
+    "VIX": 16.809999465942383,
     "TLT": 86.41999816894531,
     "HYG": 79.97000122070312,
     "IWM": 300.45001220703125,
@@ -28,7 +28,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 0.8,
+    "elapsed_min": 0.6,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -44,7 +44,7 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 21.3,
+      "avg_gap": 21.4,
       "missed_strong": [
         {
           "symbol": "AMD",
@@ -118,15 +118,19 @@
     "validation": {
       "shadow": {
         "tracked": 42,
-        "completed": 0,
-        "win_rate": null,
+        "completed": 14,
+        "completed_10d": 0,
+        "win_rate": 92.9,
+        "win_rate_10d": null,
         "avg_return_5d": 8.26,
         "avg_return_10d": null
       },
       "live_top": {
         "tracked": 61,
-        "completed": 0,
-        "win_rate": null,
+        "completed": 21,
+        "completed_10d": 0,
+        "win_rate": 95.2,
+        "win_rate_10d": null,
         "avg_return_5d": 6.4,
         "avg_return_10d": null
       }
@@ -249,11 +253,11 @@
         "social": {
           "messages": 30,
           "bullish": 10,
-          "bearish": 2,
-          "sentiment_ratio": 0.67,
+          "bearish": 3,
+          "sentiment_ratio": 0.54,
           "watchlist_count": 560355,
           "label": "強烈看多",
-          "score_0_10": 8.3
+          "score_0_10": 7.7
         }
       },
       "divergence_gap": 37
@@ -846,7 +850,7 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 13,
+          "bullish": 14,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 38551,
@@ -1144,12 +1148,12 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 8,
           "bearish": 3,
-          "sentiment_ratio": 0.4,
+          "sentiment_ratio": 0.45,
           "watchlist_count": 31319,
           "label": "強烈看多",
-          "score_0_10": 7.0
+          "score_0_10": 7.2
         }
       },
       "divergence_gap": -24
@@ -1262,7 +1266,7 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 13,
+          "bullish": 12,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 28213,
@@ -1271,6 +1275,71 @@
         }
       },
       "divergence_gap": -33
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla, Inc.",
+      "score": 40,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 420.6000061035156,
+      "entry": 420.6000061035156,
+      "stop": 385.65,
+      "atr_pct": 4.15511766935097,
+      "themes": [
+        "ai_infra",
+        "energy_power"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.2%"
+      ],
+      "matched_headlines": [
+        "Wedbush Initiates SpaceX Coverage With 'Outperform' Rating, $190 Price Target",
+        "Tesla Deliveries Should Show a Second Straight Quarter of Growth",
+        "Nasdaq, S&P 500, Dow Futures Slip After Historic First-Half Rally As Investors Await Labor Data, Fed Signals: Why NKE, TSLA, NIO, MU, LUNR, CVKD Are In Focus"
+      ],
+      "sub": {
+        "T": 14,
+        "F": 8,
+        "Fl": 4,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 1579657461760,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 35,
+        "rs_score_0_10": 5.06,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 21077807404.0,
+        "entry_price": 420.6000061035156,
+        "stop_price": 385.65,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 58 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "題材失靈風險",
+            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 7,
+          "bearish": 7,
+          "sentiment_ratio": 0.0,
+          "watchlist_count": 1055204,
+          "label": "中性",
+          "score_0_10": 5.0
+        }
+      },
+      "divergence_gap": -5
     },
     {
       "symbol": "AXON",
@@ -1325,12 +1394,12 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 9,
           "bearish": 1,
-          "sentiment_ratio": 0.78,
+          "sentiment_ratio": 0.8,
           "watchlist_count": 14959,
           "label": "強烈看多",
-          "score_0_10": 8.9
+          "score_0_10": 9.0
         }
       },
       "divergence_gap": -24
@@ -1353,8 +1422,8 @@
         "波動偏高 ATR 3.2%"
       ],
       "matched_headlines": [
-        "The 3 Best Dividend Aristocrats for 2026: The Halftime Scorecard",
-        "Is Solana Poised for a Massive Breakout Rally?"
+        "Wedbush Initiates SpaceX Coverage With 'Outperform' Rating, $190 Price Target",
+        "The 3 Best Dividend Aristocrats for 2026: The Halftime Scorecard"
       ],
       "sub": {
         "T": 0,
@@ -1385,14 +1454,72 @@
         "social": {
           "messages": 30,
           "bullish": 6,
-          "bearish": 6,
-          "sentiment_ratio": 0.0,
+          "bearish": 3,
+          "sentiment_ratio": 0.33,
           "watchlist_count": 651372,
-          "label": "中性",
-          "score_0_10": 5.0
+          "label": "偏多",
+          "score_0_10": 6.7
         }
       },
       "divergence_gap": 23
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "score": 39,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 357.3699951171875,
+      "entry": 357.3699951171875,
+      "stop": 331.64,
+      "atr_pct": 3.600309739533329,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.6%"
+      ],
+      "matched_headlines": [
+        "Wedbush Initiates SpaceX Coverage With 'Outperform' Rating, $190 Price Target"
+      ],
+      "sub": {
+        "T": 5,
+        "F": 18,
+        "Fl": 8,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 4360833335296,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 77,
+        "rs_score_0_10": 5.51,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 12239969016.0,
+        "entry_price": 357.3699951171875,
+        "stop_price": 331.64,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 9,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 218846,
+          "label": "強烈看多",
+          "score_0_10": 10.0
+        }
+      },
+      "divergence_gap": 38
     },
     {
       "symbol": "CRWD",
@@ -1441,7 +1568,7 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 13,
+          "bullish": 14,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 61265,
@@ -1504,7 +1631,7 @@
           "bullish": 16,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 69677,
+          "watchlist_count": 69680,
           "label": "強烈看多",
           "score_0_10": 10.0
         }
@@ -1565,12 +1692,12 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 16,
-          "bearish": 5,
-          "sentiment_ratio": 0.52,
+          "bullish": 17,
+          "bearish": 4,
+          "sentiment_ratio": 0.62,
           "watchlist_count": 321831,
           "label": "強烈看多",
-          "score_0_10": 7.6
+          "score_0_10": 8.1
         }
       },
       "divergence_gap": -10
@@ -1699,123 +1826,6 @@
       "divergence_gap": 32
     },
     {
-      "symbol": "TSLA",
-      "name": "Tesla, Inc.",
-      "score": 37,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 420.6000061035156,
-      "entry": 420.6000061035156,
-      "stop": 385.65,
-      "atr_pct": 4.15511766935097,
-      "themes": [
-        "ai_infra",
-        "energy_power"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.2%"
-      ],
-      "matched_headlines": [
-        "Tesla Deliveries Should Show a Second Straight Quarter of Growth",
-        "Nasdaq, S&P 500, Dow Futures Slip After Historic First-Half Rally As Investors Await Labor Data, Fed Signals: Why NKE, TSLA, NIO, MU, LUNR, CVKD Are In Focus"
-      ],
-      "sub": {
-        "T": 14,
-        "F": 8,
-        "Fl": 4,
-        "N": 6,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 1579657461760,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 35,
-        "rs_score_0_10": 5.06,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 21077807404.0,
-        "entry_price": 420.6000061035156,
-        "stop_price": 385.65,
-        "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 58 健康未過熱（進場保護區）",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 7,
-          "sentiment_ratio": 0.07,
-          "watchlist_count": 1055204,
-          "label": "中性",
-          "score_0_10": 5.4
-        }
-      },
-      "divergence_gap": -2
-    },
-    {
-      "symbol": "GOOGL",
-      "name": "Alphabet Inc.",
-      "score": 36,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 357.3699951171875,
-      "entry": 357.3699951171875,
-      "stop": 331.64,
-      "atr_pct": 3.600309739533329,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.6%"
-      ],
-      "matched_headlines": [
-        "Update: Alphabet's Google Faces South Korean Antitrust Probe"
-      ],
-      "sub": {
-        "T": 5,
-        "F": 18,
-        "Fl": 8,
-        "N": 0,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 4360833335296,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 77,
-        "rs_score_0_10": 5.51,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 12239969016.0,
-        "entry_price": 357.3699951171875,
-        "stop_price": 331.64,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 9,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 218846,
-          "label": "強烈看多",
-          "score_0_10": 10.0
-        }
-      },
-      "divergence_gap": 41
-    },
-    {
       "symbol": "APP",
       "name": "Applovin Corporation",
       "score": 36,
@@ -1865,7 +1875,7 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 11,
+          "bullish": 10,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 21460,
@@ -1924,12 +1934,12 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 9,
           "bearish": 2,
-          "sentiment_ratio": 0.6,
+          "sentiment_ratio": 0.64,
           "watchlist_count": 538126,
           "label": "強烈看多",
-          "score_0_10": 8.0
+          "score_0_10": 8.2
         }
       },
       "divergence_gap": -12
@@ -2215,11 +2225,11 @@
         "social": {
           "messages": 30,
           "bullish": 8,
-          "bearish": 2,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 598781,
+          "bearish": 1,
+          "sentiment_ratio": 0.78,
+          "watchlist_count": 598794,
           "label": "強烈看多",
-          "score_0_10": 8.0
+          "score_0_10": 8.9
         }
       },
       "divergence_gap": -7
@@ -2270,11 +2280,11 @@
         "social": {
           "messages": 30,
           "bullish": 5,
-          "bearish": 5,
-          "sentiment_ratio": 0.0,
-          "watchlist_count": 13342,
+          "bearish": 6,
+          "sentiment_ratio": -0.09,
+          "watchlist_count": 13341,
           "label": "中性",
-          "score_0_10": 5.0
+          "score_0_10": 4.5
         }
       },
       "divergence_gap": 1
@@ -2337,7 +2347,7 @@
     {
       "symbol": "SMCI",
       "name": "Super Micro Computer, Inc.",
-      "score": 23,
+      "score": 20,
       "grade": "D",
       "action": "Avoid",
       "price": 29.329999923706055,
@@ -2351,14 +2361,13 @@
         "波動過大 ATR 11.3%"
       ],
       "matched_headlines": [
-        "Super Micro, Dell Gain 4% a Day After Super Micro’s Taiwan-Probe Plunge",
-        "Update: Market Chatter: Super Micro Computer Raided in Taiwan Nvidia Chip Smuggling Investigation"
+        "Super Micro, Dell Gain 4% a Day After Super Micro’s Taiwan-Probe Plunge"
       ],
       "sub": {
         "T": 0,
         "F": 8,
         "Fl": 9,
-        "N": 3,
+        "N": 0,
         "M": 6,
         "R": -3
       },
@@ -2387,15 +2396,15 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 3,
-          "bearish": 5,
-          "sentiment_ratio": -0.25,
-          "watchlist_count": 89593,
-          "label": "偏空",
-          "score_0_10": 3.8
+          "bullish": 4,
+          "bearish": 3,
+          "sentiment_ratio": 0.14,
+          "watchlist_count": 89594,
+          "label": "中性",
+          "score_0_10": 5.7
         }
       },
-      "divergence_gap": 15
+      "divergence_gap": 18
     },
     {
       "symbol": "COIN",
@@ -2511,11 +2520,11 @@
         "social": {
           "messages": 30,
           "bullish": 5,
-          "bearish": 8,
-          "sentiment_ratio": -0.23,
+          "bearish": 9,
+          "sentiment_ratio": -0.29,
           "watchlist_count": 81092,
           "label": "偏空",
-          "score_0_10": 3.9
+          "score_0_10": 3.5
         }
       },
       "divergence_gap": -12
@@ -2638,11 +2647,11 @@
         "social": {
           "messages": 30,
           "bullish": 10,
-          "bearish": 2,
-          "sentiment_ratio": 0.67,
+          "bearish": 3,
+          "sentiment_ratio": 0.54,
           "watchlist_count": 560355,
           "label": "強烈看多",
-          "score_0_10": 8.3
+          "score_0_10": 7.7
         }
       },
       "divergence_gap": 37
@@ -3174,11 +3183,11 @@
           "score": 41
         },
         {
-          "symbol": "DDOG",
-          "score": 38
+          "symbol": "GOOGL",
+          "score": 39
         },
         {
-          "symbol": "MDB",
+          "symbol": "DDOG",
           "score": 38
         }
       ],
@@ -3355,7 +3364,7 @@
         },
         {
           "symbol": "TSLA",
-          "score": 37
+          "score": 40
         },
         {
           "symbol": "VST",
