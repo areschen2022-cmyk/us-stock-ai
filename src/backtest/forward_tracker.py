@@ -135,24 +135,32 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
 
             for h in _HORIZONS:
                 col = f"return_{h}d"
-                if sig.get(col) is not None:
-                    continue
+                stock_ret = sig.get(col)  # may already be filled from a prior run
                 target = signal_date + timedelta(days=h)
-                if target > today:
+                need_return = stock_ret is None and target <= today
+                need_alpha = (
+                    h in _ALPHA_HORIZONS and spy_entry
+                    and sig.get(f"alpha_{h}d") is None
+                    and (stock_ret is not None or target <= today)
+                )
+                if not need_return and not need_alpha:
                     continue
-                price = _fetch_price(symbol, target)
-                if price:
-                    updates[col] = round((price - entry_price) / entry_price * 100, 2)
 
-                if h in _ALPHA_HORIZONS and spy_entry:
-                    spy_col = f"spy_return_{h}d"
-                    alpha_col = f"alpha_{h}d"
-                    if sig.get(alpha_col) is None and price:
-                        spy_price = spy_at(target)
-                        if spy_price:
-                            spy_ret = round((spy_price - spy_entry) / spy_entry * 100, 2)
-                            updates[spy_col] = spy_ret
-                            updates[alpha_col] = round(updates[col] - spy_ret, 2)
+                if need_return:
+                    price = _fetch_price(symbol, target)
+                    if price:
+                        stock_ret = round((price - entry_price) / entry_price * 100, 2)
+                        updates[col] = stock_ret
+
+                # Decoupled from need_return: computes alpha for signals whose
+                # return_Xd was already filled by an earlier run (the bug this
+                # replaces would `continue` past alpha whenever return_Xd existed).
+                if need_alpha and stock_ret is not None and target <= today:
+                    spy_price = spy_at(target)
+                    if spy_price:
+                        spy_ret = round((spy_price - spy_entry) / spy_entry * 100, 2)
+                        updates[f"spy_return_{h}d"] = spy_ret
+                        updates[f"alpha_{h}d"] = round(stock_ret - spy_ret, 2)
 
             if not updates:
                 continue
