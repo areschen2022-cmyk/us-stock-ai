@@ -312,24 +312,27 @@ class SQLiteStore:
 
     def get_shadow_performance(self) -> dict:
         """Aggregate win-rate / avg forward return per group ('shadow' vs
-        'live_top') over signals that have completed (10d return filled)."""
+        'live_top'). Primary horizon is 5d (fills first) so the comparison is
+        legible days before the 10d window closes; 10d reported when available."""
         out: dict[str, dict] = {}
         with self._connect() as conn:
             conn.row_factory = sqlite3.Row
             for grp in ("shadow", "live_top"):
                 rows = conn.execute(
-                    "SELECT return_5d, return_10d, outcome FROM shadow_signals WHERE grp=?",
+                    "SELECT return_5d, return_10d FROM shadow_signals WHERE grp=?",
                     (grp,),
                 ).fetchall()
                 total = len(rows)
-                done = [r for r in rows if r["return_10d"] is not None]
                 r5 = [r["return_5d"] for r in rows if r["return_5d"] is not None]
-                r10 = [r["return_10d"] for r in done]
-                wins = sum(1 for r in done if r["outcome"] == "win")
+                r10 = [r["return_10d"] for r in rows if r["return_10d"] is not None]
+                win5 = sum(1 for v in r5 if v > 0)
+                win10 = sum(1 for v in r10 if v >= 10)  # 10%+ = win (matches outcome)
                 out[grp] = {
                     "tracked": total,
-                    "completed": len(done),
-                    "win_rate": round(wins / len(done) * 100, 1) if done else None,
+                    "completed": len(r5),           # 5d = primary completion
+                    "completed_10d": len(r10),
+                    "win_rate": round(win5 / len(r5) * 100, 1) if r5 else None,
+                    "win_rate_10d": round(win10 / len(r10) * 100, 1) if r10 else None,
                     "avg_return_5d": round(sum(r5) / len(r5), 2) if r5 else None,
                     "avg_return_10d": round(sum(r10) / len(r10), 2) if r10 else None,
                 }
