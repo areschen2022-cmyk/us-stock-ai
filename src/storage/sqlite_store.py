@@ -338,14 +338,17 @@ class SQLiteStore:
             conn.row_factory = sqlite3.Row
             for grp in ("shadow", "live_top"):
                 rows = conn.execute(
-                    "SELECT return_5d, return_10d FROM shadow_signals WHERE grp=?",
+                    "SELECT return_5d, return_10d, alpha_5d, alpha_10d FROM shadow_signals WHERE grp=?",
                     (grp,),
                 ).fetchall()
                 total = len(rows)
                 r5 = [r["return_5d"] for r in rows if r["return_5d"] is not None]
                 r10 = [r["return_10d"] for r in rows if r["return_10d"] is not None]
+                a5 = [r["alpha_5d"] for r in rows if r["alpha_5d"] is not None]
+                a10 = [r["alpha_10d"] for r in rows if r["alpha_10d"] is not None]
                 win5 = sum(1 for v in r5 if v > 0)
                 win10 = sum(1 for v in r10 if v >= 10)  # 10%+ = win (matches outcome)
+                alpha_win5 = sum(1 for v in a5 if v > 0)  # beat SPY
                 out[grp] = {
                     "tracked": total,
                     "completed": len(r5),           # 5d = primary completion
@@ -354,6 +357,10 @@ class SQLiteStore:
                     "win_rate_10d": round(win10 / len(r10) * 100, 1) if r10 else None,
                     "avg_return_5d": round(sum(r5) / len(r5), 2) if r5 else None,
                     "avg_return_10d": round(sum(r10) / len(r10), 2) if r10 else None,
+                    # 超額報酬 vs SPY — isolates stock-picking skill from market beta
+                    "avg_alpha_5d": round(sum(a5) / len(a5), 2) if a5 else None,
+                    "avg_alpha_10d": round(sum(a10) / len(a10), 2) if a10 else None,
+                    "alpha_win_rate_5d": round(alpha_win5 / len(a5) * 100, 1) if a5 else None,
                 }
         return out
 
