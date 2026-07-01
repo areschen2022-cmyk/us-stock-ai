@@ -164,6 +164,19 @@ class SQLiteStore:
                 );
                 """
             )
+            self._migrate_shadow_signals(conn)
+
+    def _migrate_shadow_signals(self, conn: sqlite3.Connection) -> None:
+        """Add SPY-alpha columns to shadow_signals if the table pre-dates them
+        (CREATE TABLE IF NOT EXISTS doesn't alter existing tables)."""
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(shadow_signals)")}
+        new_cols = {
+            "spy_entry_price": "REAL", "spy_return_5d": "REAL", "spy_return_10d": "REAL",
+            "alpha_5d": "REAL", "alpha_10d": "REAL",
+        }
+        for col, coltype in new_cols.items():
+            if col not in cols:
+                conn.execute(f"ALTER TABLE shadow_signals ADD COLUMN {col} {coltype}")
 
     # ── daily scores ──────────────────────────────────────────────────────────
 
