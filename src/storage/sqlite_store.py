@@ -329,14 +329,18 @@ class SQLiteStore:
             ).fetchall()
             return [dict(r) for r in rows]
 
+    SHADOW_GROUPS = ("shadow", "live_top", "social_bullish")
+
     def get_shadow_performance(self) -> dict:
-        """Aggregate win-rate / avg forward return per group ('shadow' vs
-        'live_top'). Primary horizon is 5d (fills first) so the comparison is
-        legible days before the 10d window closes; 10d reported when available."""
+        """Aggregate win-rate / avg forward return per group ('shadow',
+        'live_top', 'social_bullish'). Primary horizon is 5d (fills first) so
+        the comparison is legible days before the 10d window closes; 10d
+        reported when available. Groups with zero tracked signals are omitted
+        so the dashboard can distinguish "not started" from "0%"."""
         out: dict[str, dict] = {}
         with self._connect() as conn:
             conn.row_factory = sqlite3.Row
-            for grp in ("shadow", "live_top"):
+            for grp in self.SHADOW_GROUPS:
                 rows = conn.execute(
                     "SELECT return_5d, return_10d, alpha_5d, alpha_10d FROM shadow_signals WHERE grp=?",
                     (grp,),
