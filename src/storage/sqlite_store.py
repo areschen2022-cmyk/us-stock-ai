@@ -304,6 +304,18 @@ class SQLiteStore:
 
     # ── shadow validation signals ────────────────────────────────────────────
 
+    def reset_shadow_signals_for_date(self, signal_date: date, grp: str) -> None:
+        """Clear not-yet-backfilled rows for (date, grp) before re-logging today's
+        signals. Without this, INSERT OR IGNORE never removes a symbol that
+        qualified on an earlier same-day run but no longer does after a filter
+        fix (e.g. the 2026-07-01 StockTwits tagged-vs-messages bug) — a rerun
+        would silently keep stale rows forever since they never get deleted."""
+        with self._connect() as conn:
+            conn.execute(
+                "DELETE FROM shadow_signals WHERE signal_date=? AND grp=? AND return_5d IS NULL",
+                (str(signal_date), grp),
+            )
+
     def upsert_shadow_signal(self, signal_date: date, grp: str, data: dict) -> None:
         with self._connect() as conn:
             conn.execute(
