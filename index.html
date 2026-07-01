@@ -411,8 +411,8 @@ function render(data) {
 
   // 前瞻驗證：影子 vs 現行 vs 社群情緒 績效對比
   const val = strat.validation || {};
-  const sh = val.shadow, lt = val.live_top, sb = val.social_bullish;
-  if (sh || lt || sb) {
+  const sh = val.shadow, lt = val.live_top, sb = val.social_bullish, cf = val.confluence;
+  if (sh || lt || sb || cf) {
     const fmtPct = v => v == null ? '—' : (v > 0 ? '+' : '') + v + '%';
     const fmtWin = v => v == null ? '—' : v + '%';
     const row = (label, g, color) => g ? `
@@ -427,12 +427,13 @@ function render(data) {
           （跑贏大盤 ${fmtWin(g.alpha_win_rate_5d)}）${g.avg_alpha_10d!=null?` · 10日 <b style="color:${g.avg_alpha_10d>=0?'var(--green)':'var(--red)'}">${fmtPct(g.avg_alpha_10d)}</b>`:''}
         </div>` : ''}
       </div>` : '';
-    const anyDone = (sh && sh.completed) || (lt && lt.completed) || (sb && sb.completed);
+    const anyDone = (sh && sh.completed) || (lt && lt.completed) || (sb && sb.completed) || (cf && cf.completed);
     document.getElementById('validation-block').innerHTML =
-      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分 vs 社群情緒，含超額報酬 alpha）</div>' +
+      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分 vs 社群情緒 vs 多重共振，含超額報酬 alpha）</div>' +
       row('影子 RS≥80', sh, 'var(--green)') +
       row('現行 Top10', lt, 'var(--blue)') +
       row('💬社群強烈看多', sb, 'var(--yellow)') +
+      row('🔗多重訊號共振', cf, 'var(--red)') +
       (anyDone ? '' : '<div class="updated" style="margin-top:4px">⏳ 訊號已記錄，需 5-10 個交易日結算後才有勝率對比</div>');
   }
 
