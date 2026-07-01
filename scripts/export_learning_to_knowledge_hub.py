@@ -7,6 +7,13 @@ import sys
 from datetime import date
 from pathlib import Path
 
+# Running this file directly (`python scripts/export_learning_to_knowledge_hub.py`)
+# only puts scripts/ on sys.path, not the repo root — so `from src...` below
+# raised ModuleNotFoundError on every CI run (masked by continue-on-error).
+_REPO_ROOT = Path(__file__).parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
 _MCP_SERVER = Path("C:/Users/User/trading_knowledge_hub/mcp_server.py")
 _STORE_PATH = Path(__file__).parent.parent / "data" / "us_stock_ai.sqlite3"
 
