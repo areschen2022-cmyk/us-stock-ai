@@ -1,29 +1,48 @@
 """Forward-return tracker: fills 3/5/10/20d returns for open watch_signals."""
 from __future__ import annotations
 
+import logging
 import sqlite3
 from datetime import date, timedelta
 from pathlib import Path
 
+import pandas as pd
 import yfinance as yf
 
 from src.storage.sqlite_store import SQLiteStore
+
+logger = logging.getLogger(__name__)
 
 _HORIZONS = [3, 5, 10, 20]
 
 
 def _fetch_price(symbol: str, target_date: date) -> float | None:
-    start = target_date - timedelta(days=3)
-    end = target_date + timedelta(days=3)
+    """Close on/near target_date. Handles yfinance's MultiIndex columns
+    (('Close','AMD')) — the old code did float(df.loc[d,'Close']) on a Series and
+    silently returned None for EVERY fill, so no forward returns ever populated."""
+    start = target_date - timedelta(days=5)
+    end = target_date + timedelta(days=5)
     try:
-        df = yf.download(symbol, start=str(start), end=str(end), progress=False, auto_adjust=True)
-        if df.empty:
+        df = yf.download(symbol, start=str(start), end=str(end),
+                         progress=False, auto_adjust=True)
+        if df is None or df.empty:
             return None
-        df.index = df.index.date
-        if target_date in df.index:
-            return float(df.loc[target_date, "Close"])
-        return float(df["Close"].iloc[-1])
-    except Exception:
+        # Flatten MultiIndex columns from newer yfinance
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
+        close = df["Close"].dropna()
+        if close.empty:
+            return None
+        close.index = [i.date() if hasattr(i, "date") else i for i in close.index]
+        if target_date in close.index:
+            return float(close.loc[target_date])
+        # nearest prior trading day (weekend/holiday target)
+        prior = [d for d in close.index if d <= target_date]
+        if prior:
+            return float(close.loc[max(prior)])
+        return float(close.iloc[-1])
+    except Exception as e:
+        logger.warning("price fetch failed %s @ %s: %s", symbol, target_date, e)
         return None
 
 
