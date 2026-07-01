@@ -346,6 +346,8 @@ class SQLiteStore:
                     (grp,),
                 ).fetchall()
                 total = len(rows)
+                if total == 0:
+                    continue
                 r5 = [r["return_5d"] for r in rows if r["return_5d"] is not None]
                 r10 = [r["return_10d"] for r in rows if r["return_10d"] is not None]
                 a5 = [r["alpha_5d"] for r in rows if r["alpha_5d"] is not None]
