@@ -94,11 +94,15 @@ def _entry_quality_map(dash_data: dict) -> dict[str, str]:
     return out
 
 
-def _log_validation_signals(store, today, scores, per_symbol: dict) -> None:
+def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: float | None = None) -> None:
     """Record two comparable signal sets for forward-return validation:
     - 'shadow'   : RS>=80 AND Minervini phase2 (what the US strategy would pick)
     - 'live_top' : top 10 by the current engine's score (what we pick today)
-    INSERT OR IGNORE makes this idempotent per (date, symbol, group)."""
+    INSERT OR IGNORE makes this idempotent per (date, symbol, group).
+
+    spy_price is stamped as spy_entry_price so forward_tracker can later compute
+    alpha (stock return minus SPY return) without an extra fetch — isolates
+    stock-picking skill from market beta in the shadow-vs-live comparison."""
     by_symbol = {s.symbol: s for s in scores}
 
     shadow_n = 0
@@ -114,6 +118,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict) -> None:
                 "live_score": sc.total_score if sc else None,
                 "entry_price": sig.get("entry_price"),
                 "stop_price": sig.get("stop_price"),
+                "spy_entry_price": spy_price,
             })
             shadow_n += 1
 
@@ -129,6 +134,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict) -> None:
             "live_score": sc.total_score,
             "entry_price": sc.price,
             "stop_price": sig.get("stop_price"),
+            "spy_entry_price": spy_price,
         })
     print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top signals")
 
@@ -208,7 +214,8 @@ def run_daily_update() -> None:
     strategy_signals = _build_shadow_signals(strategy_raw, spy_ohlcv)
 
     # 5c. VALIDATION: log shadow picks vs live top picks for forward comparison
-    _log_validation_signals(store, today, scores, strategy_signals["per_symbol"])
+    spy_price_today = float(spy_close.iloc[-1]) if spy_close is not None and not spy_close.empty else None
+    _log_validation_signals(store, today, scores, strategy_signals["per_symbol"], spy_price_today)
 
     # 6. Forward return fill-back (live watch signals + shadow validation)
     fill_open_signals(store)
