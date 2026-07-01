@@ -139,10 +139,15 @@ class SQLiteStore:
                     live_score INTEGER,
                     entry_price REAL,
                     stop_price REAL,
+                    spy_entry_price REAL,
                     return_3d REAL,
                     return_5d REAL,
                     return_10d REAL,
                     return_20d REAL,
+                    spy_return_5d REAL,
+                    spy_return_10d REAL,
+                    alpha_5d REAL,
+                    alpha_10d REAL,
                     outcome TEXT,
                     PRIMARY KEY (signal_date, symbol, grp)
                 );
