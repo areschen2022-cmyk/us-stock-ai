@@ -94,7 +94,10 @@ def _entry_quality_map(dash_data: dict) -> dict[str, str]:
     return out
 
 
-_SOCIAL_MIN_MESSAGES = 15   # need enough tagged volume to trust the ratio
+_SOCIAL_MIN_TAGGED = 5      # need enough sentiment-TAGGED posts (bull+bear) to
+                             # trust the ratio — NOT total stream messages,
+                             # which StockTwits returns as ~30 regardless of
+                             # how many are actually tagged
 _SOCIAL_MIN_RATIO = 0.4     # matches social_sentiment._label's "強烈看多" cutoff
 
 
@@ -148,8 +151,10 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
     for sym, sig in per_symbol.items():
         social = sig.get("social") or {}
         ratio = social.get("sentiment_ratio")
-        msgs = social.get("messages") or 0
-        if ratio is not None and ratio >= _SOCIAL_MIN_RATIO and msgs >= _SOCIAL_MIN_MESSAGES and sig.get("liquidity_ok"):
+        tagged = social.get("tagged")
+        if tagged is None:  # older cached payloads without the field
+            tagged = (social.get("bullish") or 0) + (social.get("bearish") or 0)
+        if ratio is not None and ratio >= _SOCIAL_MIN_RATIO and tagged >= _SOCIAL_MIN_TAGGED and sig.get("liquidity_ok"):
             sc = by_symbol.get(sym)
             store.upsert_shadow_signal(today, "social_bullish", {
                 "symbol": sym,

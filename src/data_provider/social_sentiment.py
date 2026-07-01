@@ -19,8 +19,12 @@ _BASE = "https://api.stocktwits.com/api/2/streams/symbol/{}.json"
 _UA = "Mozilla/5.0 (compatible; us-stock-ai/1.0)"
 
 
-def _label(ratio: float | None, msgs: int) -> str:
-    if ratio is None or msgs < 3:
+def _label(ratio: float | None, tagged: int) -> str:
+    """tagged = bullish+bearish count (NOT total stream messages). StockTwits
+    streams return ~30 messages regardless of how many are sentiment-tagged —
+    using total message count here let a single tagged post (e.g. bull=1,
+    bear=0 → ratio=1.0) masquerade as '強烈看多' for a whole 30-message stream."""
+    if ratio is None or tagged < 5:
         return "資料不足"
     if ratio >= 0.4:
         return "強烈看多"
@@ -37,8 +41,10 @@ def fetch_stocktwits_sentiment(symbol: str, timeout: int = 12) -> dict[str, Any]
     """Return retail-sentiment snapshot for one ticker. Empty/safe dict on any
     failure (rate-limit, network, delisted) so the pipeline never breaks.
 
-    Fields: messages, bullish, bearish, sentiment_ratio (-1..1), watchlist_count,
-    label, score_0_10 (advisory bullishness)."""
+    Fields: messages (total stream size, ~30, NOT a confidence signal), bullish,
+    bearish, tagged (bullish+bearish — the real confidence denominator),
+    sentiment_ratio (-1..1), watchlist_count, label, score_0_10 (advisory
+    bullishness)."""
     out: dict[str, Any] = {
         "messages": 0, "bullish": 0, "bearish": 0, "sentiment_ratio": None,
         "watchlist_count": None, "label": "資料不足", "score_0_10": None,
@@ -69,7 +75,8 @@ def fetch_stocktwits_sentiment(symbol: str, timeout: int = 12) -> dict[str, Any]
         "bearish": bear,
         "sentiment_ratio": ratio,
         "watchlist_count": (data.get("symbol") or {}).get("watchlist_count"),
-        "label": _label(ratio, len(msgs)),
+        "tagged": tagged,
+        "label": _label(ratio, tagged),
     })
     # advisory 0-10 bullishness: map ratio [-1,1] → [0,10], None when no tags
     if ratio is not None:
