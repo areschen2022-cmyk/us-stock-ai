@@ -416,14 +416,20 @@ function render(data) {
     const fmtPct = v => v == null ? '—' : (v > 0 ? '+' : '') + v + '%';
     const fmtWin = v => v == null ? '—' : v + '%';
     const row = (label, g, color) => g ? `
-      <div class="div-row" style="background:rgba(255,255,255,.02);border:1px solid var(--border)">
-        <span class="div-sym" style="color:${color}">${label}</span>
-        <span style="font-size:.78rem">追蹤 ${g.tracked} · 已結算 ${g.completed}</span>
-        <span class="div-detail">5日勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b> · 5日均 ${fmtPct(g.avg_return_5d)} · 10日均 ${fmtPct(g.avg_return_10d)}</span>
+      <div class="div-row" style="background:rgba(255,255,255,.02);border:1px solid var(--border);flex-direction:column;align-items:flex-start;gap:2px">
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <span class="div-sym" style="color:${color}">${label}</span>
+          <span style="font-size:.78rem">追蹤 ${g.tracked} · 已結算 ${g.completed}</span>
+          <span class="div-detail">5日勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b> · 5日均 ${fmtPct(g.avg_return_5d)} · 10日均 ${fmtPct(g.avg_return_10d)}</span>
+        </div>
+        ${g.avg_alpha_5d != null ? `<div style="font-size:.76rem;color:var(--muted);padding-left:2px">
+          超額報酬(vs SPY)：5日 <b style="color:${g.avg_alpha_5d>=0?'var(--green)':'var(--red)'}">${fmtPct(g.avg_alpha_5d)}</b>
+          （跑贏大盤 ${fmtWin(g.alpha_win_rate_5d)}）${g.avg_alpha_10d!=null?` · 10日 <b style="color:${g.avg_alpha_10d>=0?'var(--green)':'var(--red)'}">${fmtPct(g.avg_alpha_10d)}</b>`:''}
+        </div>` : ''}
       </div>` : '';
     const anyDone = (sh && sh.completed) || (lt && lt.completed);
     document.getElementById('validation-block').innerHTML =
-      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分，5/10 日報酬）</div>' +
+      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分，含超額報酬 alpha）</div>' +
       row('影子 RS≥80', sh, 'var(--green)') +
       row('現行 Top10', lt, 'var(--blue)') +
       (anyDone ? '' : '<div class="updated" style="margin-top:4px">⏳ 訊號已記錄，需 5-10 個交易日結算後才有勝率對比</div>');
