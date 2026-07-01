@@ -419,7 +419,7 @@ function render(data) {
       <div class="div-row" style="background:rgba(255,255,255,.02);border:1px solid var(--border)">
         <span class="div-sym" style="color:${color}">${label}</span>
         <span style="font-size:.78rem">追蹤 ${g.tracked} · 已結算 ${g.completed}</span>
-        <span class="div-detail">勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b> · 5日 ${fmtPct(g.avg_return_5d)} · 10日 ${fmtPct(g.avg_return_10d)}</span>
+        <span class="div-detail">5日勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b> · 5日均 ${fmtPct(g.avg_return_5d)} · 10日均 ${fmtPct(g.avg_return_10d)}</span>
       </div>` : '';
     const anyDone = (sh && sh.completed) || (lt && lt.completed);
     document.getElementById('validation-block').innerHTML =
