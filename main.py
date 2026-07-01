@@ -94,10 +94,17 @@ def _entry_quality_map(dash_data: dict) -> dict[str, str]:
     return out
 
 
+_SOCIAL_MIN_MESSAGES = 15   # need enough tagged volume to trust the ratio
+_SOCIAL_MIN_RATIO = 0.4     # matches social_sentiment._label's "強烈看多" cutoff
+
+
 def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: float | None = None) -> None:
-    """Record two comparable signal sets for forward-return validation:
-    - 'shadow'   : RS>=80 AND Minervini phase2 (what the US strategy would pick)
-    - 'live_top' : top 10 by the current engine's score (what we pick today)
+    """Record three comparable signal sets for forward-return validation:
+    - 'shadow'        : RS>=80 AND Minervini phase2 (what the US strategy would pick)
+    - 'live_top'      : top 10 by the current engine's score (what we pick today)
+    - 'social_bullish': StockTwits strongly-bullish with enough tagged volume
+                        (tests whether retail crowd sentiment has any predictive
+                        value, independent of RS/Minervini/current grade)
     INSERT OR IGNORE makes this idempotent per (date, symbol, group).
 
     spy_price is stamped as spy_entry_price so forward_tracker can later compute
@@ -136,7 +143,28 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
             "stop_price": sig.get("stop_price"),
             "spy_entry_price": spy_price,
         })
-    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top signals")
+
+    social_n = 0
+    for sym, sig in per_symbol.items():
+        social = sig.get("social") or {}
+        ratio = social.get("sentiment_ratio")
+        msgs = social.get("messages") or 0
+        if ratio is not None and ratio >= _SOCIAL_MIN_RATIO and msgs >= _SOCIAL_MIN_MESSAGES and sig.get("liquidity_ok"):
+            sc = by_symbol.get(sym)
+            store.upsert_shadow_signal(today, "social_bullish", {
+                "symbol": sym,
+                "rs_rating": sig.get("rs_rating"),
+                "minervini_pass": sig.get("minervini_pass"),
+                "phase2": sig.get("phase2"),
+                "live_grade": sc.grade if sc else None,
+                "live_score": sc.total_score if sc else None,
+                "entry_price": sig.get("entry_price") or (sc.price if sc else None),
+                "stop_price": sig.get("stop_price"),
+                "spy_entry_price": spy_price,
+            })
+            social_n += 1
+
+    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish signals")
 
 
 def run_daily_update() -> None:

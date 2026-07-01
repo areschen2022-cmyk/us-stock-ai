@@ -409,10 +409,10 @@ function render(data) {
     banner.innerHTML = `📐 市場狀態：<b>${reg.regime}</b> · ${spy200}${breadth ? ' · ' + breadth : ''} · ${allow}<span class="shadow-tag">影子模式</span>`;
   }
 
-  // 前瞻驗證：影子 vs 現行 績效對比
+  // 前瞻驗證：影子 vs 現行 vs 社群情緒 績效對比
   const val = strat.validation || {};
-  const sh = val.shadow, lt = val.live_top;
-  if (sh || lt) {
+  const sh = val.shadow, lt = val.live_top, sb = val.social_bullish;
+  if (sh || lt || sb) {
     const fmtPct = v => v == null ? '—' : (v > 0 ? '+' : '') + v + '%';
     const fmtWin = v => v == null ? '—' : v + '%';
     const row = (label, g, color) => g ? `
@@ -427,11 +427,12 @@ function render(data) {
           （跑贏大盤 ${fmtWin(g.alpha_win_rate_5d)}）${g.avg_alpha_10d!=null?` · 10日 <b style="color:${g.avg_alpha_10d>=0?'var(--green)':'var(--red)'}">${fmtPct(g.avg_alpha_10d)}</b>`:''}
         </div>` : ''}
       </div>` : '';
-    const anyDone = (sh && sh.completed) || (lt && lt.completed);
+    const anyDone = (sh && sh.completed) || (lt && lt.completed) || (sb && sb.completed);
     document.getElementById('validation-block').innerHTML =
-      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分，含超額報酬 alpha）</div>' +
+      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分 vs 社群情緒，含超額報酬 alpha）</div>' +
       row('影子 RS≥80', sh, 'var(--green)') +
       row('現行 Top10', lt, 'var(--blue)') +
+      row('💬社群強烈看多', sb, 'var(--yellow)') +
       (anyDone ? '' : '<div class="updated" style="margin-top:4px">⏳ 訊號已記錄，需 5-10 個交易日結算後才有勝率對比</div>');
   }
 
