@@ -98,12 +98,25 @@ def fill_open_signals(store: SQLiteStore) -> int:
     return updated
 
 
+_ALPHA_HORIZONS = [5, 10]  # only these need SPY comparison (matches dashboard use)
+
+
 def fill_shadow_signals(store: SQLiteStore) -> int:
     """Mirror of fill_open_signals for the shadow validation table (both groups:
-    'shadow' and 'live_top'). Lets us compare forward returns apples-to-apples."""
+    'shadow' and 'live_top'). Also computes alpha_5d/alpha_10d = stock forward
+    return minus SPY forward return over the same window, so the comparison
+    isolates stock-picking skill from market beta (a strong bull week inflates
+    both groups' raw win-rate/return without telling us which picks better)."""
     today = date.today()
     open_sigs = store.get_open_shadow_signals()
     updated = 0
+    spy_cache: dict[date, float | None] = {}
+
+    def spy_at(d: date) -> float | None:
+        if d not in spy_cache:
+            spy_cache[d] = _fetch_price("SPY", d)
+        return spy_cache[d]
+
     with store._connect() as conn:
         for sig in open_sigs:
             symbol = sig["symbol"]
@@ -111,7 +124,15 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
             entry_price = sig.get("entry_price")
             if not entry_price:
                 continue
+
+            spy_entry = sig.get("spy_entry_price")
+            if spy_entry is None:
+                spy_entry = spy_at(signal_date)
+
             updates: dict[str, object] = {}
+            if sig.get("spy_entry_price") is None and spy_entry is not None:
+                updates["spy_entry_price"] = spy_entry
+
             for h in _HORIZONS:
                 col = f"return_{h}d"
                 if sig.get(col) is not None:
@@ -122,6 +143,17 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
                 price = _fetch_price(symbol, target)
                 if price:
                     updates[col] = round((price - entry_price) / entry_price * 100, 2)
+
+                if h in _ALPHA_HORIZONS and spy_entry:
+                    spy_col = f"spy_return_{h}d"
+                    alpha_col = f"alpha_{h}d"
+                    if sig.get(alpha_col) is None and price:
+                        spy_price = spy_at(target)
+                        if spy_price:
+                            spy_ret = round((spy_price - spy_entry) / spy_entry * 100, 2)
+                            updates[spy_col] = spy_ret
+                            updates[alpha_col] = round(updates[col] - spy_ret, 2)
+
             if not updates:
                 continue
             ret10 = updates.get("return_10d") or sig.get("return_10d")
