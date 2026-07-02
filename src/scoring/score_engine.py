@@ -129,6 +129,12 @@ def compute_score(
         },
         warnings=r_warnings,
         matched_headlines=matched_headlines,
+        catalyst_confidence={
+            "grade": cc.grade,
+            "label": cc.label,
+            "reason": cc.reason,
+            "evidence_count": cc.evidence_count,
+        },
         atr_pct=atr_pct,
         sector=info.get("sector", ""),
         industry=info.get("industry", ""),
