@@ -12,11 +12,10 @@ def market_sentiment_score(index_prices: dict[str, float]) -> tuple[int, list[st
     score = 0
     reasons: list[str] = []
 
-    spy = index_prices.get("SPY", 0)
-    qqq = index_prices.get("QQQ", 0)
     vix = index_prices.get("^VIX", 20)
     tlt = index_prices.get("TLT", 0)
     hyg = index_prices.get("HYG", 0)
+    spy_chg = index_prices.get("SPY_chg_pct")
 
     # VIX fear gauge
     if vix < 15:
@@ -29,11 +28,15 @@ def market_sentiment_score(index_prices: dict[str, float]) -> tuple[int, list[st
         score -= 2
         reasons.append(f"High VIX ({vix:.1f}) — risk-off")
 
-    # SPY positive for the day (simple proxy)
-    # In practice we'd compare to prior close; here we check if we have an entry
-    if spy > 0:
-        score += 2
-        reasons.append("SPY data available")
+    # SPY 1-day trend (was previously "spy > 0", which is true whenever a
+    # price exists — a constant +2 to every stock every day, not an actual
+    # trend signal. Now compares to the prior close.)
+    if spy_chg is not None:
+        if spy_chg > 0.3:
+            score += 2
+            reasons.append(f"SPY +{spy_chg:.1f}% today — risk-on")
+        elif spy_chg < -0.3:
+            reasons.append(f"SPY {spy_chg:.1f}% today — risk-off")
 
     # Credit spread proxy (HYG high = tight spreads = risk-on)
     if hyg > 0:
@@ -45,9 +48,16 @@ def market_sentiment_score(index_prices: dict[str, float]) -> tuple[int, list[st
             score -= 1
             reasons.append(f"HYG {hyg:.1f} — spread widening")
 
-    # Rate signal: TLT falling = rising rates (headwind for growth)
-    if tlt > 0 and tlt < 85:
-        reasons.append(f"TLT {tlt:.1f} — rate pressure")
+    # Rate signal: TLT high = falling rates = growth-friendly; TLT low = rate
+    # pressure headwind. Previously only appended a reason string with no
+    # score impact, silently capping the achievable max at 8/10.
+    if tlt > 0:
+        if tlt >= 85:
+            score += 2
+            reasons.append(f"TLT {tlt:.1f} — rates easing, growth-friendly")
+        elif tlt < 80:
+            score -= 1
+            reasons.append(f"TLT {tlt:.1f} — rate pressure headwind")
 
     return max(0, min(score, 10)), reasons
 
