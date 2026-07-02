@@ -38,6 +38,7 @@ class StockScore:
     reasons: dict[str, list[str]] = field(default_factory=dict)
     warnings: list[str] = field(default_factory=list)
     matched_headlines: list[str] = field(default_factory=list)
+    catalyst_confidence: dict[str, Any] = field(default_factory=dict)
     atr_pct: float = 0.0
     sector: str = ""
     industry: str = ""
