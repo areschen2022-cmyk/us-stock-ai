@@ -183,6 +183,13 @@
     <div id="divergence-overrated"></div>
   </div>
 
+  <!-- 潛力雷達（早期觀察，非今日進場清單，台股 tw-stock-ai 設計移植） -->
+  <div class="section-block" id="potential-radar-block" style="display:none">
+    <div class="section-title">🔭 潛力雷達（早期觀察，非今日進場清單）</div>
+    <div class="updated" style="margin-bottom:6px">⚠️ 尚未達 Minervini 完整進場條件，僅供提前追蹤，不構成今日操作建議</div>
+    <div id="potential-radar-list"></div>
+  </div>
+
   <!-- 題材升溫提醒 -->
   <div class="section-block" id="theme-alert-block" style="display:none">
     <div class="section-title">🚨 題材升溫提醒</div>
@@ -420,8 +427,8 @@ function render(data) {
 
   // 前瞻驗證：影子 vs 現行 vs 社群情緒 績效對比
   const val = strat.validation || {};
-  const sh = val.shadow, lt = val.live_top, sb = val.social_bullish, cf = val.confluence;
-  if (sh || lt || sb || cf) {
+  const sh = val.shadow, lt = val.live_top, sb = val.social_bullish, cf = val.confluence, pr = val.potential_radar;
+  if (sh || lt || sb || cf || pr) {
     const fmtPct = v => v == null ? '—' : (v > 0 ? '+' : '') + v + '%';
     const fmtWin = v => v == null ? '—' : v + '%';
     const row = (label, g, color) => g ? `
@@ -436,14 +443,32 @@ function render(data) {
           （跑贏大盤 ${fmtWin(g.alpha_win_rate_5d)}）${g.avg_alpha_10d!=null?` · 10日 <b style="color:${g.avg_alpha_10d>=0?'var(--green)':'var(--red)'}">${fmtPct(g.avg_alpha_10d)}</b>`:''}
         </div>` : ''}
       </div>` : '';
-    const anyDone = (sh && sh.completed) || (lt && lt.completed) || (sb && sb.completed) || (cf && cf.completed);
+    const anyDone = (sh && sh.completed) || (lt && lt.completed) || (sb && sb.completed) || (cf && cf.completed) || (pr && pr.completed);
     document.getElementById('validation-block').innerHTML =
-      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分 vs 社群情緒 vs 多重共振，含超額報酬 alpha）</div>' +
+      '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分 vs 社群情緒 vs 多重共振 vs 潛力雷達，含超額報酬 alpha）</div>' +
       row('影子 RS≥80', sh, 'var(--green)') +
       row('現行 Top10', lt, 'var(--blue)') +
       row('💬社群強烈看多', sb, 'var(--yellow)') +
       row('🔗多重訊號共振', cf, 'var(--red)') +
+      row('🔭潛力雷達(早期)', pr, 'var(--purple, #a855f7)') +
       (anyDone ? '' : '<div class="updated" style="margin-top:4px">⏳ 訊號已記錄，需 5-10 個交易日結算後才有勝率對比</div>');
+  }
+
+  // 潛力雷達清單（早期觀察，與今日候選股分開）
+  const radar = data.potential_radar || [];
+  const radarBlock = document.getElementById('potential-radar-block');
+  if (radar.length) {
+    radarBlock.style.display = '';
+    const stageColor = {'early_strength':'var(--green)','low_base':'var(--yellow)','weakening':'var(--muted)'};
+    document.getElementById('potential-radar-list').innerHTML = radar.map(r => `
+      <div class="div-row" style="background:rgba(255,255,255,.02);border:1px solid var(--border)">
+        <span class="div-sym" style="color:${stageColor[r.stage]||'var(--muted)'}">${r.symbol}</span>
+        <span style="font-size:.78rem;color:var(--muted)">${r.name||''}</span>
+        <span class="strat-badge" style="color:${stageColor[r.stage]||'var(--muted)'}">${r.label}</span>
+        <span class="div-detail">${r.reason||''}${r.contraction_quality!=null?` · 收縮品質 ${r.contraction_quality}`:''}${r.dist_from_50sma_pct!=null?` · 距50MA ${r.dist_from_50sma_pct}%`:''}</span>
+      </div>`).join('');
+  } else {
+    radarBlock.style.display = 'none';
   }
 
   // 策略背離度
