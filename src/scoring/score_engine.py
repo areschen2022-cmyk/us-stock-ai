@@ -84,6 +84,11 @@ def compute_score(
     n_score = min(raw_news_score + theme_bonus, 15)
     n_reasons = matched_headlines[:3]
 
+    # Evidence-quality grade (A confirmed / B credible report / C rumor /
+    # D speculative) — display-only per tw-stock-ai's design, does not
+    # affect n_score/total_score.
+    cc = classify_catalyst_confidence(matched_headlines)
+
     # Risk (penalty)
     atr_pct = calc_atr_pct(ohlcv)
     r_penalty, r_warnings = risk_score(atr_pct, earnings_cal or {}, info, today)
