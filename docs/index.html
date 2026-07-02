@@ -296,9 +296,18 @@ function renderCard(s) {
       <span class="sub" style="color:var(--red)" title="風險扣分">-${Math.abs(sub.R||0)}</span>
     </div>
     <div class="themes">${themes}</div>
+    ${renderCatalystConfidence(s.catalyst_confidence)}
     <div class="action-text">${zhAction(s.action)}</div>
     ${renderStrategyBadges(s.strategy)}
   </div>`;
+}
+
+// 新聞催化劑信心分級（台股移植）：A已確認/B高可信報導/C市場傳聞/D概念延伸，
+// 純顯示用途，不影響 total_score。
+function renderCatalystConfidence(cc) {
+  if (!cc || !cc.grade || !cc.evidence_count) return '';
+  const color = {'A':'var(--green)','B':'var(--blue)','C':'var(--yellow)','D':'var(--muted)'}[cc.grade] || 'var(--muted)';
+  return `<div style="margin:2px 0"><span class="strat-badge" style="color:${color};border:1px solid ${color}" title="${cc.reason||''}">📰${cc.grade}級 ${cc.label}</span></div>`;
 }
 
 // SHADOW: US-strategy badges (RS rating / Minervini / liquidity). Display-only.

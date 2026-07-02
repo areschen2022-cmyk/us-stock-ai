@@ -194,6 +194,7 @@ def _score_to_card(s: StockScore) -> dict[str, Any]:
         "themes": s.themes,
         "warnings": s.warnings,
         "matched_headlines": s.matched_headlines[:3],
+        "catalyst_confidence": s.catalyst_confidence,
         "sub": {
             "T": s.technical_score,
             "F": s.fundamental_score,
