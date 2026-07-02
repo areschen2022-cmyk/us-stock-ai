@@ -14,6 +14,7 @@ from src.indicators.risk import risk_score
 from src.indicators.flow import flow_score
 from src.news.rss_fetcher import score_news_catalyst, score_symbol_news
 from src.news.theme_detector import get_symbol_themes, theme_catalyst_score
+from src.news.catalyst_confidence import classify_catalyst_confidence
 from src.scoring.grade import grade_label, action_from_grade
 
 
