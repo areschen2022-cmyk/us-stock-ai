@@ -109,7 +109,9 @@ def fetch_batch_ohlcv(symbols: list[str], period: str = "2y") -> dict[str, pd.Da
 
 
 def fetch_market_indices() -> dict[str, float]:
-    """Return latest close prices for major indices/ETFs."""
+    """Return latest close prices for major indices/ETFs, plus SPY's 1-day %
+    change (SPY_chg_pct) so market_sentiment_score can test actual trend
+    direction instead of just checking that a price exists."""
     symbols = ["SPY", "QQQ", "IWM", "SMH", "XLF", "XLK", "XLE", "XLV", "TLT", "HYG", "^VIX"]
     result: dict[str, float] = {}
     for sym in symbols:
@@ -117,6 +119,10 @@ def fetch_market_indices() -> dict[str, float]:
             df = fetch_ohlcv(sym, period="5d")
             if not df.empty:
                 result[sym] = float(df["Close"].iloc[-1])
+                if sym == "SPY" and len(df) >= 2:
+                    prev = float(df["Close"].iloc[-2])
+                    if prev > 0:
+                        result["SPY_chg_pct"] = (result[sym] - prev) / prev * 100
         except Exception:
             pass
     return result
