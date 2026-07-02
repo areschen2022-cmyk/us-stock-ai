@@ -77,6 +77,7 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
             "entry_quality": (raw.get("tw") or {}).get("entry_quality"),
             "failure_risks": (raw.get("tw") or {}).get("failure_risks", []),
             "social": raw.get("social"),
+            "potential": us_market.potential_radar_stage(ohlcv, price, mt.get("phase2", False)),
         }
 
     breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
@@ -112,6 +113,11 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                         agreement across independent methods beats any single
                         signal alone — the basis for a future promote-to-grade
                         decision)
+    - 'potential_radar': pre-breakout early-stage candidates (low_base/
+                        early_strength) NOT yet in a confirmed phase-2
+                        uptrend — tests whether the VCP-style volatility-
+                        contraction signal actually precedes good entries
+                        over a longer (10-20d) horizon than the other groups
     Not-yet-backfilled rows for today are cleared per group before re-logging,
     so a same-day rerun (e.g. after a filter fix) can't leave stale symbols
     behind — INSERT OR IGNORE alone only adds/skips, it never removes.
@@ -121,7 +127,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
     stock-picking skill from market beta in the shadow-vs-live comparison."""
     by_symbol = {s.symbol: s for s in scores}
 
-    for grp in ("shadow", "live_top", "social_bullish", "confluence"):
+    for grp in ("shadow", "live_top", "social_bullish", "confluence", "potential_radar"):
         store.reset_shadow_signals_for_date(today, grp)
 
     membership: dict[str, set[str]] = {}
@@ -201,7 +207,25 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
             })
             confluence_n += 1
 
-    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish + {confluence_n} confluence signals")
+    potential_n = 0
+    for sym, sig in per_symbol.items():
+        pot = sig.get("potential") or {}
+        if pot.get("stage") in ("low_base", "early_strength") and sig.get("liquidity_ok"):
+            sc = by_symbol.get(sym)
+            store.upsert_shadow_signal(today, "potential_radar", {
+                "symbol": sym,
+                "rs_rating": sig.get("rs_rating"),
+                "minervini_pass": sig.get("minervini_pass"),
+                "phase2": sig.get("phase2"),
+                "live_grade": sc.grade if sc else None,
+                "live_score": sc.total_score if sc else None,
+                "entry_price": sig.get("entry_price") or (sc.price if sc else None),
+                "stop_price": sig.get("stop_price"),
+                "spy_entry_price": spy_price,
+            })
+            potential_n += 1
+
+    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish + {confluence_n} confluence + {potential_n} potential_radar signals")
 
 
 def run_daily_update() -> None:

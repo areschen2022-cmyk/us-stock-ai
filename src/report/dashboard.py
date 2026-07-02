@@ -162,6 +162,34 @@ def _theme_heating(
     return alerts
 
 
+def _potential_radar(cards: list[dict]) -> list[dict]:
+    """潛力雷達：早期觀察名單，跟今日 Top10 可交易清單分開（台股 tw-stock-ai 設計）。
+    只收錄非今日 shadow/live_top 名單、且 potential.stage 有值的股票，
+    low_base 依收縮品質排序、early_strength 依貼近50MA程度排序。"""
+    out = []
+    for c in cards:
+        pot = (c.get("strategy") or {}).get("potential") or {}
+        if not pot.get("stage"):
+            continue
+        if not (c.get("strategy") or {}).get("liquidity_ok"):
+            continue
+        out.append({
+            "symbol": c["symbol"],
+            "name": c.get("name"),
+            "price": c.get("price"),
+            "score": c.get("score"),
+            "stage": pot["stage"],
+            "label": pot["label"],
+            "reason": pot.get("reason"),
+            "contraction_quality": pot.get("contraction_quality"),
+            "dist_from_50sma_pct": pot.get("dist_from_50sma_pct"),
+            "themes": c.get("themes", []),
+        })
+    stage_rank = {"early_strength": 0, "low_base": 1, "weakening": 2}
+    out.sort(key=lambda x: (stage_rank.get(x["stage"], 9), -(x.get("contraction_quality") or 0)))
+    return out
+
+
 def _highlights(sorted_scores: list[StockScore], ai_reviews: dict[str, dict]) -> list[dict]:
     top = [s for s in sorted_scores if s.grade in ("S", "A")][:5]
     result = []
@@ -233,6 +261,7 @@ def build_dashboard_json(
                 c["divergence_gap"] = sig["rs_rating"] - c["score"]
 
     divergence = _divergence(cards)
+    potential_radar = _potential_radar(cards)
 
     vix = market_prices.get("^VIX") or 20.0
 
@@ -297,6 +326,7 @@ def build_dashboard_json(
         },
         "watchlist": cards,
         "top10": cards[:10],
+        "potential_radar": potential_radar,
         "themes": themes_list,
         "theme_alerts": theme_alerts,
         "risk_alerts": risk_alerts,

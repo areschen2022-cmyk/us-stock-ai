@@ -248,6 +248,88 @@ def reward_risk_ok(entry: float, stop: float, target: float, cfg: dict | None = 
     return rr >= c["min_reward_risk"]
 
 
+# ── Potential radar (pre-breakout early-stage watchlist) ────────────────────
+# Design ported from tw-stock-ai's potential_radar.py concept (separate
+# "today's actionable list" from "early-stage research watchlist") combined
+# with the volatility-contraction + 4-stage phase model from the open-source
+# RyanJHamby/stock-screener (MIT license) — its phase_indicators.py detects
+# Phase-1 "base building" via SMA slope flattening + volatility contraction,
+# which the existing Minervini template here has no equivalent for (it only
+# recognizes confirmed Phase-2 breakouts, 7/8 criteria already passing).
+
+def _slope_pct_per_day(series: pd.Series, periods: int = 20) -> float:
+    """Linear-regression slope of a series, expressed as %/day of its mean."""
+    if len(series) < periods:
+        return 0.0
+    recent = series.tail(periods).dropna()
+    if len(recent) < 2:
+        return 0.0
+    x = np.arange(len(recent))
+    y = recent.values
+    if np.std(x) == 0:
+        return 0.0
+    slope = float(np.polyfit(x, y, 1)[0])
+    avg = float(np.mean(y))
+    return (slope / avg * 100) if avg else 0.0
+
+
+def potential_radar_stage(df: pd.DataFrame, price: float | None, phase2: bool) -> dict[str, Any]:
+    """Classify pre-breakout potential for stocks NOT already in a confirmed
+    Minervini phase-2 uptrend (those are already on today's actionable
+    shadow/live_top lists). Returns stage=None when not applicable (already
+    phase2, insufficient data, or genuinely no signal) so callers can filter.
+
+    Stages:
+    - low_base   (低基期盤整): volatility contracting, price near 50MA — a
+      tightening range that historically precedes breakouts (VCP concept)
+    - early_strength (早期強勢): price just reclaimed 50MA with 50MA turning
+      up, but not yet 7/8 Minervini criteria — a possible early Stage-2 entry
+    - weakening  (轉弱觀察): price below both 50/200MA — likely Phase 3/4,
+      worth flagging as "no longer a base, don't chase"
+    """
+    if phase2:
+        return {"stage": None, "label": None}
+    if df is None or df.empty or len(df) < 60 or not price:
+        return {"stage": None, "label": None}
+
+    close = df["Close"].astype(float)
+    sma50 = _sma(close, 50)
+    sma200 = _sma(close, min(200, len(close)))
+    if not sma50 or not sma200:
+        return {"stage": None, "label": None}
+
+    if len(close) >= 40:
+        vol_now = float(close.tail(20).std())
+        vol_prior = float(close.iloc[-40:-20].std())
+        contraction_ratio = round(vol_now / vol_prior, 2) if vol_prior > 0 else 1.0
+    else:
+        contraction_ratio = 1.0
+    is_contracting = contraction_ratio < 0.7
+    contraction_quality = round(max(0.0, min(100.0, (1 - contraction_ratio) * 100)), 1)
+
+    slope50 = _slope_pct_per_day(close.rolling(50).mean().dropna(), 20)
+    dist_from_50 = round((price - sma50) / sma50 * 100, 1) if sma50 else 0.0
+
+    if price < sma50 and price < sma200:
+        stage, label, reason = "weakening", "轉弱觀察", "跌破50/200MA，非築底階段"
+    elif price > sma50 > sma200 and slope50 > 0:
+        stage, label, reason = "early_strength", "早期強勢", "站上50MA且轉強，未達完整Minervini條件"
+    elif is_contracting and abs(dist_from_50) < 10:
+        stage, label, reason = "low_base", "低基期盤整", f"波動收縮中(比值{contraction_ratio})，貼近50MA"
+    else:
+        return {"stage": None, "label": None}
+
+    return {
+        "stage": stage,
+        "label": label,
+        "reason": reason,
+        "contraction_ratio": contraction_ratio,
+        "contraction_quality": contraction_quality,
+        "is_contracting": is_contracting,
+        "dist_from_50sma_pct": dist_from_50,
+    }
+
+
 def position_size(equity: float, risk_pct: float, entry: float, stop: float) -> dict[str, Any]:
     """1-2% rule: shares = (equity * risk_pct%) / (entry - stop)."""
     if not (equity and entry and stop) or entry <= stop:
