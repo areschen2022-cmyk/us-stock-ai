@@ -27,6 +27,7 @@ from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals
 from src.strategy import us_market, tw_lessons
 from src.strategy.research_rank import build_research_rank
 from src.indicators.technical import calc_atr_pct
+from src.indicators import sector
 
 
 def _get_revenue_yoy(symbol: str) -> float | None:
@@ -80,6 +81,7 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
             "failure_risks": (raw.get("tw") or {}).get("failure_risks", []),
             "social": raw.get("social"),
             "potential": us_market.potential_radar_stage(ohlcv, price, mt.get("phase2", False)),
+            "sector": raw.get("sector"),
         }
 
     breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
@@ -269,11 +271,17 @@ def run_daily_update() -> None:
     symbols: list[str] = cfg.get("symbols", [])
     print(f"[Main] Scoring {len(symbols)} symbols")
 
-    # 3. Fetch OHLCV batch (include SPY for relative-strength / regime — it is
-    #    not in the scored `symbols` list, so must be requested explicitly)
-    fetch_list = symbols + (["SPY"] if "SPY" not in symbols else [])
+    # 3. Fetch OHLCV batch (include SPY for relative-strength / regime, and
+    #    sector ETFs for sector-strength scoring — neither is in the scored
+    #    `symbols` list, so must be requested explicitly)
+    fetch_extra = [s for s in (["SPY"] + list(sector.SECTOR_ETFS)) if s not in symbols]
+    fetch_list = symbols + fetch_extra
     ohlcv_map = fetch_batch_ohlcv(fetch_list)
     spy_ohlcv = ohlcv_map.get("SPY")
+    spy_close_for_sectors = spy_ohlcv["Close"] if (spy_ohlcv is not None and not spy_ohlcv.empty) else None
+    sector_scores = sector.build_sector_scores(
+        {etf: ohlcv_map.get(etf) for etf in sector.SECTOR_ETFS}, spy_close_for_sectors
+    )
 
     # 4. Fetch news once (shared)
     news_items = fetch_news()
@@ -319,7 +327,12 @@ def run_daily_update() -> None:
                 liq = us_market.liquidity_gate(ohlcv, score.price)
                 tw = tw_lessons.entry_quality_from_ohlcv_and_score(ohlcv, score)
                 social = fetch_stocktwits_sentiment(symbol)
-                strategy_raw[symbol] = {"ohlcv": ohlcv, "rs": rs, "liquidity": liq, "tw": tw, "social": social}
+                sector_etf = sector.map_stock_to_sector_etf(score.sector)
+                sector_info = {**sector_scores.get(sector_etf, {}), "sector_etf": sector_etf} if sector_etf else None
+                strategy_raw[symbol] = {
+                    "ohlcv": ohlcv, "rs": rs, "liquidity": liq, "tw": tw, "social": social,
+                    "sector": sector_info,
+                }
             except Exception as sx:
                 print(f"[Main] shadow-strategy error {symbol}: {sx}")
         except Exception as exc:
@@ -330,6 +343,7 @@ def run_daily_update() -> None:
 
     # 5b. SHADOW: cross-sectional RS percentile + Minervini + market regime
     strategy_signals = _build_shadow_signals(strategy_raw, spy_ohlcv)
+    strategy_signals["sectors"] = sector_scores
 
     # 5b2. RESEARCH RANK: Gate+Percentile grade (Codex architecture review,
     # 2026-07-02) — parallel to the official grade, not replacing it yet

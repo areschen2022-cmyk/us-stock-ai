@@ -330,6 +330,7 @@ def build_dashboard_json(
         "strategy": {  # SHADOW: US-market strategy overlay (display-only)
             "regime": strategy_signals.get("regime", {}),
             "divergence": divergence,
+            "sectors": strategy_signals.get("sectors", {}),
             "mode": "shadow",
         },
         "watchlist": cards,
