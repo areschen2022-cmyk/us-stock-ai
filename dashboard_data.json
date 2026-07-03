@@ -15,8 +15,8 @@
     "grade_S": 0,
     "grade_A": 0,
     "grade_B": 0,
-    "grade_C": 9,
-    "grade_D": 31,
+    "grade_C": 8,
+    "grade_D": 32,
     "research_grade_S": 1,
     "research_grade_A": 2,
     "research_grade_B": 3,
@@ -32,7 +32,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 1.8,
+    "elapsed_min": 1.9,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -48,25 +48,25 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 23.6,
+      "avg_gap": 23.4,
       "missed_strong": [
         {
           "symbol": "AMD",
           "grade": "D",
-          "score": 40,
+          "score": 46,
           "rs_rating": 99,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 59
+          "gap": 53
         },
         {
           "symbol": "ARM",
           "grade": "D",
-          "score": 41,
+          "score": 44,
           "rs_rating": 97,
           "minervini_pass": 7,
           "phase2": true,
-          "gap": 56
+          "gap": 53
         },
         {
           "symbol": "CRDO",
@@ -98,11 +98,11 @@
         {
           "symbol": "TSM",
           "grade": "C",
-          "score": 51,
+          "score": 54,
           "rs_rating": 84,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 33
+          "gap": 30
         },
         {
           "symbol": "GEV",
@@ -265,7 +265,7 @@
         "alpha_win_rate_5d": 76.2
       },
       "social_bullish": {
-        "tracked": 95,
+        "tracked": 94,
         "completed": 0,
         "completed_10d": 0,
         "win_rate": null,
@@ -400,7 +400,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 63.07,
+          "composite": 67.34,
           "percentile": null,
           "research_grade": "D"
         }
@@ -488,9 +488,9 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 72.6,
-          "percentile": 47.1,
-          "research_grade": "C"
+          "composite": 75.38,
+          "percentile": 76.5,
+          "research_grade": "B"
         }
       },
       "divergence_gap": -2
@@ -582,9 +582,9 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 88.47,
-          "percentile": 100.0,
-          "research_grade": "S"
+          "composite": 78.77,
+          "percentile": 88.2,
+          "research_grade": "A"
         }
       },
       "divergence_gap": 37
@@ -675,8 +675,8 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 74.22,
-          "percentile": 64.7,
+          "composite": 66.52,
+          "percentile": 52.9,
           "research_grade": "C"
         }
       },
@@ -769,7 +769,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 32.85,
+          "composite": 41.58,
           "percentile": 11.8,
           "research_grade": "C"
         }
@@ -857,7 +857,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 62.27,
+          "composite": 67.37,
           "percentile": null,
           "research_grade": "D"
         }
@@ -865,97 +865,9 @@
       "divergence_gap": -7
     },
     {
-      "symbol": "GOOGL",
-      "name": "Alphabet Inc.",
-      "score": 52,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 359.9100036621094,
-      "entry": 359.9100036621094,
-      "stop": 335.39,
-      "atr_pct": 3.4068035143285638,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [
-        "Cloud AI Today - AI Orchestration Platforms Set For Massive Market Expansion",
-        "The Contracted Revenue Backlog Microsoft Stock Bears Keep Missing"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
-      },
-      "sub": {
-        "T": 15,
-        "F": 18,
-        "Fl": 5,
-        "N": 9,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 4391827931136,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 77,
-        "rs_score_0_10": 5.08,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 12340147368.0,
-        "entry_price": 359.9100036621094,
-        "stop_price": 335.39,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 2,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 218920,
-          "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 10
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.96,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(109.6>109.6)",
-            "20日落後SPY -1.0%"
-          ],
-          "sector_etf": "XLC"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "composite": 72.82,
-          "percentile": 52.9,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 25
-    },
-    {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
-      "score": 51,
+      "score": 54,
       "grade": "C",
       "action": "Avoid",
       "price": 434.1600036621094,
@@ -971,21 +883,21 @@
         "波動過大 ATR 5.1%"
       ],
       "matched_headlines": [
+        "3 iShares ETFs to Buy Now as South Korea and Taiwan Soar Past 100% Gains in 2026",
         "Does Intel pay dividends? History & future prospects explained",
-        "Anthropic explores Samsung 2nm chip partnership - The Information",
-        "How Taiwan Semiconductor's Global N3 Expansion Plan Is Taking Shape"
+        "Anthropic explores Samsung 2nm chip partnership - The Information"
       ],
       "catalyst_confidence": {
         "grade": "B",
         "label": "高可信報導",
         "reason": "可信媒體或多源報導，仍需追蹤正式文件",
-        "evidence_count": 3
+        "evidence_count": 4
       },
       "sub": {
         "T": 15,
         "F": 19,
         "Fl": 5,
-        "N": 12,
+        "N": 15,
         "M": 6,
         "R": -6
       },
@@ -1014,13 +926,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 6,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 67852,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 7
+          "tagged": 6
         },
         "potential": {
           "stage": null,
@@ -1042,12 +954,12 @@
           "gate_reasons": [
             "風險扣分過高(6)"
           ],
-          "composite": 84.47,
+          "composite": 75.27,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": 33
+      "divergence_gap": 30
     },
     {
       "symbol": "DDOG",
@@ -1134,12 +1046,99 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 75.22,
-          "percentile": 70.6,
-          "research_grade": "B"
+          "composite": 67.02,
+          "percentile": 58.8,
+          "research_grade": "C"
         }
       },
       "divergence_gap": 38
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "score": 49,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 359.9100036621094,
+      "entry": 359.9100036621094,
+      "stop": 335.39,
+      "atr_pct": 3.4068035143285638,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.4%"
+      ],
+      "matched_headlines": [
+        "Cloud AI Today - AI Orchestration Platforms Set For Massive Market Expansion"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 15,
+        "F": 18,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 4391827931136,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 77,
+        "rs_score_0_10": 5.08,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 12340147368.0,
+        "entry_price": 359.9100036621094,
+        "stop_price": 335.39,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 2,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 218920,
+          "label": "強烈看多",
+          "score_0_10": 8.0,
+          "tagged": 10
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.96,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(109.6>109.6)",
+            "20日落後SPY -1.0%"
+          ],
+          "sector_etf": "XLC"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "composite": 69.59,
+          "percentile": 64.7,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 28
     },
     {
       "symbol": "SNOW",
@@ -1224,7 +1223,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 57.17,
+          "composite": 51.54,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1282,13 +1281,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 8,
           "bearish": 2,
-          "sentiment_ratio": 0.56,
+          "sentiment_ratio": 0.6,
           "watchlist_count": 982057,
           "label": "強烈看多",
-          "score_0_10": 7.8,
-          "tagged": 9
+          "score_0_10": 8.0,
+          "tagged": 10
         },
         "potential": {
           "stage": null,
@@ -1308,7 +1307,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 64.3,
+          "composite": 56.92,
           "percentile": 35.3,
           "research_grade": "C"
         }
@@ -1404,7 +1403,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 38.7,
+          "composite": 45.92,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1502,9 +1501,9 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 81.35,
-          "percentile": 88.2,
-          "research_grade": "A"
+          "composite": 82.25,
+          "percentile": 100.0,
+          "research_grade": "S"
         }
       },
       "divergence_gap": 35
@@ -1591,12 +1590,106 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 28.77,
+          "composite": 37.12,
           "percentile": null,
           "research_grade": "D"
         }
       },
       "divergence_gap": -39
+    },
+    {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "score": 46,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 517.8200073242188,
+      "entry": 517.8200073242188,
+      "stop": 443.89,
+      "atr_pct": 7.13816762284324,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 7.1%"
+      ],
+      "matched_headlines": [
+        "Arm Holdings' Robust Licensing Business Drives AI-Fueled Growth",
+        "Micron Trades at a Discount Despite 243% YTD Rally: Buy More MU Shares?",
+        "Can MRVL's AI Infrastructure Growth Outpace Its Margin Pressure?"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 17,
+        "F": 15,
+        "Fl": 2,
+        "N": 9,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 844357632000,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 99,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 16808121888.0,
+        "entry_price": 517.8200073242188,
+        "stop_price": 443.89,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 55 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 7.1%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 12,
+          "bearish": 6,
+          "sentiment_ratio": 0.33,
+          "watchlist_count": 560435,
+          "label": "偏多",
+          "score_0_10": 6.7,
+          "tagged": 18
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 0,
+          "above_ema20": false,
+          "rs_vs_spy_20d": -6.86,
+          "status": "偏弱",
+          "reasons": [
+            "跌破20日均線(180.6<184.6)",
+            "20日落後SPY -6.9%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "composite": 76.62,
+          "percentile": 82.4,
+          "research_grade": "B"
+        }
+      },
+      "divergence_gap": 53
     },
     {
       "symbol": "MSFT",
@@ -1653,13 +1746,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 10,
+          "bullish": 9,
           "bearish": 2,
-          "sentiment_ratio": 0.67,
+          "sentiment_ratio": 0.64,
           "watchlist_count": 538370,
           "label": "強烈看多",
-          "score_0_10": 8.3,
-          "tagged": 12
+          "score_0_10": 8.2,
+          "tagged": 11
         },
         "potential": {
           "stage": "weakening",
@@ -1686,7 +1779,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 32.27,
+          "composite": 31.17,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1784,7 +1877,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 50.4,
+          "composite": 51.52,
           "percentile": 17.6,
           "research_grade": "C"
         }
@@ -1849,7 +1942,7 @@
           "bullish": 10,
           "bearish": 1,
           "sentiment_ratio": 0.82,
-          "watchlist_count": 61339,
+          "watchlist_count": 61340,
           "label": "強烈看多",
           "score_0_10": 9.1,
           "tagged": 11
@@ -1877,7 +1970,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 70.97,
+          "composite": 63.47,
           "percentile": 41.2,
           "research_grade": "C"
         }
@@ -1965,7 +2058,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 61.92,
+          "composite": 65.42,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2062,12 +2155,106 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 79.12,
-          "percentile": 76.5,
-          "research_grade": "B"
+          "composite": 79.52,
+          "percentile": 94.1,
+          "research_grade": "A"
         }
       },
       "divergence_gap": 47
+    },
+    {
+      "symbol": "ARM",
+      "name": "Arm Holdings plc",
+      "score": 44,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 315.2799987792969,
+      "entry": 315.2799987792969,
+      "stop": 241.17,
+      "atr_pct": 11.753543895533685,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 11.8%"
+      ],
+      "matched_headlines": [
+        "Arm Holdings' Robust Licensing Business Drives AI-Fueled Growth",
+        "ARM Stock Soars 118% in a Year: Is the Buying Opportunity Gone?",
+        "Nvidia, AMD, Intel Lead AI Chip Stock Rally as Wall Street Rebounds"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 8,
+        "F": 19,
+        "Fl": 2,
+        "N": 12,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 336743890944,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 97,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3725598919.0,
+        "entry_price": 315.2799987792969,
+        "stop_price": 292.41,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 45 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 11.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 4,
+          "bearish": 5,
+          "sentiment_ratio": -0.11,
+          "watchlist_count": 32885,
+          "label": "中性",
+          "score_0_10": 4.5,
+          "tagged": 9
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 0,
+          "above_ema20": false,
+          "rs_vs_spy_20d": -6.86,
+          "status": "偏弱",
+          "reasons": [
+            "跌破20日均線(180.6<184.6)",
+            "20日落後SPY -6.9%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "composite": 74.84,
+          "percentile": 70.6,
+          "research_grade": "B"
+        }
+      },
+      "divergence_gap": 53
     },
     {
       "symbol": "ANET",
@@ -2161,8 +2348,8 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 73.57,
-          "percentile": 58.8,
+          "composite": 66.22,
+          "percentile": 47.1,
           "research_grade": "C"
         }
       },
@@ -2254,7 +2441,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 60.32,
+          "composite": 53.84,
           "percentile": 23.5,
           "research_grade": "C"
         }
@@ -2323,12 +2510,12 @@
         "social": {
           "messages": 30,
           "bullish": 14,
-          "bearish": 2,
-          "sentiment_ratio": 0.75,
+          "bearish": 1,
+          "sentiment_ratio": 0.87,
           "watchlist_count": 322034,
           "label": "強烈看多",
-          "score_0_10": 8.8,
-          "tagged": 16
+          "score_0_10": 9.4,
+          "tagged": 15
         },
         "potential": {
           "stage": "weakening",
@@ -2355,199 +2542,12 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 37.48,
+          "composite": 36.53,
           "percentile": null,
           "research_grade": "D"
         }
       },
       "divergence_gap": -17
-    },
-    {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 41,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 315.2799987792969,
-      "entry": 315.2799987792969,
-      "stop": 241.17,
-      "atr_pct": 11.753543895533685,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 11.8%"
-      ],
-      "matched_headlines": [
-        "ARM Stock Soars 118% in a Year: Is the Buying Opportunity Gone?",
-        "Nvidia, AMD, Intel Lead AI Chip Stock Rally as Wall Street Rebounds"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
-      },
-      "sub": {
-        "T": 8,
-        "F": 19,
-        "Fl": 2,
-        "N": 9,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 336743890944,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 97,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3725598919.0,
-        "entry_price": 315.2799987792969,
-        "stop_price": 292.41,
-        "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 45 健康未過熱（進場保護區）",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 11.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 4,
-          "bearish": 5,
-          "sentiment_ratio": -0.11,
-          "watchlist_count": 32885,
-          "label": "中性",
-          "score_0_10": 4.5,
-          "tagged": 9
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 0,
-          "above_ema20": false,
-          "rs_vs_spy_20d": -6.86,
-          "status": "偏弱",
-          "reasons": [
-            "跌破20日均線(180.6<184.6)",
-            "20日落後SPY -6.9%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "composite": 79.57,
-          "percentile": 82.4,
-          "research_grade": "B"
-        }
-      },
-      "divergence_gap": 56
-    },
-    {
-      "symbol": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
-      "score": 40,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 517.8200073242188,
-      "entry": 517.8200073242188,
-      "stop": 443.89,
-      "atr_pct": 7.13816762284324,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動過大 ATR 7.1%"
-      ],
-      "matched_headlines": [
-        "Micron Trades at a Discount Despite 243% YTD Rally: Buy More MU Shares?",
-        "Can MRVL's AI Infrastructure Growth Outpace Its Margin Pressure?",
-        "1 Major Warning Flag AMD and Intel Investors Can't Afford to Ignore"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 3
-      },
-      "sub": {
-        "T": 17,
-        "F": 15,
-        "Fl": 2,
-        "N": 3,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 844357632000,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 99,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 16808121888.0,
-        "entry_price": 517.8200073242188,
-        "stop_price": 443.89,
-        "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 55 健康未過熱（進場保護區）",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 7.1%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 12,
-          "bearish": 6,
-          "sentiment_ratio": 0.33,
-          "watchlist_count": 560435,
-          "label": "偏多",
-          "score_0_10": 6.7,
-          "tagged": 18
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 0,
-          "above_ema20": false,
-          "rs_vs_spy_20d": -6.86,
-          "status": "偏弱",
-          "reasons": [
-            "跌破20日均線(180.6<184.6)",
-            "20日落後SPY -6.9%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "composite": 86.57,
-          "percentile": 94.1,
-          "research_grade": "A"
-        }
-      },
-      "divergence_gap": 59
     },
     {
       "symbol": "NVDA",
@@ -2605,13 +2605,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 11,
-          "bearish": 4,
-          "sentiment_ratio": 0.47,
+          "bullish": 9,
+          "bearish": 5,
+          "sentiment_ratio": 0.29,
           "watchlist_count": 651511,
-          "label": "強烈看多",
-          "score_0_10": 7.3,
-          "tagged": 15
+          "label": "偏多",
+          "score_0_10": 6.5,
+          "tagged": 14
         },
         "potential": {
           "stage": null,
@@ -2633,7 +2633,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 61.82,
+          "composite": 55.29,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2724,7 +2724,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 25.32,
+          "composite": 33.54,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2812,7 +2812,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 36.75,
+          "composite": 44.07,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2908,7 +2908,7 @@
           "gate_reasons": [
             "風險扣分過高(6)"
           ],
-          "composite": 80.28,
+          "composite": 70.93,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2997,7 +2997,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 49.75,
+          "composite": 54.38,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3091,7 +3091,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 59.92,
+          "composite": 53.54,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3152,13 +3152,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 8,
-          "bearish": 7,
-          "sentiment_ratio": 0.07,
+          "bullish": 4,
+          "bearish": 5,
+          "sentiment_ratio": -0.11,
           "watchlist_count": 599253,
           "label": "中性",
-          "score_0_10": 5.4,
-          "tagged": 15
+          "score_0_10": 4.5,
+          "tagged": 9
         },
         "potential": {
           "stage": "weakening",
@@ -3185,7 +3185,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 33.3,
+          "composite": 36.45,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3277,7 +3277,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 22.7,
+          "composite": 21.78,
           "percentile": 5.9,
           "research_grade": "C"
         }
@@ -3365,7 +3365,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 63.35,
+          "composite": 56.73,
           "percentile": 29.4,
           "research_grade": "C"
         }
@@ -3451,7 +3451,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 48.35,
+          "composite": 53.08,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3519,13 +3519,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 9,
           "bearish": 3,
-          "sentiment_ratio": 0.45,
+          "sentiment_ratio": 0.5,
           "watchlist_count": 1055362,
           "label": "強烈看多",
-          "score_0_10": 7.2,
-          "tagged": 11
+          "score_0_10": 7.5,
+          "tagged": 12
         },
         "potential": {
           "stage": "weakening",
@@ -3552,7 +3552,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 38.53,
+          "composite": 44.91,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3639,7 +3639,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 37.02,
+          "composite": 44.12,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3738,7 +3738,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 21.45,
+          "composite": 30.9,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3803,13 +3803,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 10,
           "bearish": 2,
-          "sentiment_ratio": 0.6,
+          "sentiment_ratio": 0.67,
           "watchlist_count": 89610,
           "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 10
+          "score_0_10": 8.3,
+          "tagged": 12
         },
         "potential": {
           "stage": "weakening",
@@ -3836,7 +3836,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 34.58,
+          "composite": 32.36,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3907,12 +3907,12 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 12,
-          "bearish": 5,
-          "sentiment_ratio": 0.41,
+          "bullish": 13,
+          "bearish": 4,
+          "sentiment_ratio": 0.53,
           "watchlist_count": 81154,
           "label": "強烈看多",
-          "score_0_10": 7.0,
+          "score_0_10": 7.7,
           "tagged": 17
         },
         "potential": {
@@ -3940,7 +3940,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 19.35,
+          "composite": 19.55,
           "percentile": null,
           "research_grade": "D"
         }
@@ -4031,7 +4031,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 21.72,
+          "composite": 30.22,
           "percentile": null,
           "research_grade": "D"
         }
@@ -4121,7 +4121,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 63.07,
+          "composite": 67.34,
           "percentile": null,
           "research_grade": "D"
         }
@@ -4209,9 +4209,9 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 72.6,
-          "percentile": 47.1,
-          "research_grade": "C"
+          "composite": 75.38,
+          "percentile": 76.5,
+          "research_grade": "B"
         }
       },
       "divergence_gap": -2
@@ -4303,9 +4303,9 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 88.47,
-          "percentile": 100.0,
-          "research_grade": "S"
+          "composite": 78.77,
+          "percentile": 88.2,
+          "research_grade": "A"
         }
       },
       "divergence_gap": 37
@@ -4396,8 +4396,8 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 74.22,
-          "percentile": 64.7,
+          "composite": 66.52,
+          "percentile": 52.9,
           "research_grade": "C"
         }
       },
@@ -4490,7 +4490,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 32.85,
+          "composite": 41.58,
           "percentile": 11.8,
           "research_grade": "C"
         }
@@ -4578,7 +4578,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 62.27,
+          "composite": 67.37,
           "percentile": null,
           "research_grade": "D"
         }
@@ -4586,97 +4586,9 @@
       "divergence_gap": -7
     },
     {
-      "symbol": "GOOGL",
-      "name": "Alphabet Inc.",
-      "score": 52,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 359.9100036621094,
-      "entry": 359.9100036621094,
-      "stop": 335.39,
-      "atr_pct": 3.4068035143285638,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.4%"
-      ],
-      "matched_headlines": [
-        "Cloud AI Today - AI Orchestration Platforms Set For Massive Market Expansion",
-        "The Contracted Revenue Backlog Microsoft Stock Bears Keep Missing"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
-      },
-      "sub": {
-        "T": 15,
-        "F": 18,
-        "Fl": 5,
-        "N": 9,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 4391827931136,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 77,
-        "rs_score_0_10": 5.08,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 12340147368.0,
-        "entry_price": 359.9100036621094,
-        "stop_price": 335.39,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 2,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 218920,
-          "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 10
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.96,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(109.6>109.6)",
-            "20日落後SPY -1.0%"
-          ],
-          "sector_etf": "XLC"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "composite": 72.82,
-          "percentile": 52.9,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 25
-    },
-    {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
-      "score": 51,
+      "score": 54,
       "grade": "C",
       "action": "Avoid",
       "price": 434.1600036621094,
@@ -4692,21 +4604,21 @@
         "波動過大 ATR 5.1%"
       ],
       "matched_headlines": [
+        "3 iShares ETFs to Buy Now as South Korea and Taiwan Soar Past 100% Gains in 2026",
         "Does Intel pay dividends? History & future prospects explained",
-        "Anthropic explores Samsung 2nm chip partnership - The Information",
-        "How Taiwan Semiconductor's Global N3 Expansion Plan Is Taking Shape"
+        "Anthropic explores Samsung 2nm chip partnership - The Information"
       ],
       "catalyst_confidence": {
         "grade": "B",
         "label": "高可信報導",
         "reason": "可信媒體或多源報導，仍需追蹤正式文件",
-        "evidence_count": 3
+        "evidence_count": 4
       },
       "sub": {
         "T": 15,
         "F": 19,
         "Fl": 5,
-        "N": 12,
+        "N": 15,
         "M": 6,
         "R": -6
       },
@@ -4735,13 +4647,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 6,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 67852,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 7
+          "tagged": 6
         },
         "potential": {
           "stage": null,
@@ -4763,12 +4675,12 @@
           "gate_reasons": [
             "風險扣分過高(6)"
           ],
-          "composite": 84.47,
+          "composite": 75.27,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": 33
+      "divergence_gap": 30
     },
     {
       "symbol": "DDOG",
@@ -4855,12 +4767,99 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 75.22,
-          "percentile": 70.6,
-          "research_grade": "B"
+          "composite": 67.02,
+          "percentile": 58.8,
+          "research_grade": "C"
         }
       },
       "divergence_gap": 38
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "score": 49,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 359.9100036621094,
+      "entry": 359.9100036621094,
+      "stop": 335.39,
+      "atr_pct": 3.4068035143285638,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.4%"
+      ],
+      "matched_headlines": [
+        "Cloud AI Today - AI Orchestration Platforms Set For Massive Market Expansion"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 15,
+        "F": 18,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 4391827931136,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 77,
+        "rs_score_0_10": 5.08,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 12340147368.0,
+        "entry_price": 359.9100036621094,
+        "stop_price": 335.39,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 2,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 218920,
+          "label": "強烈看多",
+          "score_0_10": 8.0,
+          "tagged": 10
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.96,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(109.6>109.6)",
+            "20日落後SPY -1.0%"
+          ],
+          "sector_etf": "XLC"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "composite": 69.59,
+          "percentile": 64.7,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 28
     },
     {
       "symbol": "SNOW",
@@ -4945,7 +4944,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 57.17,
+          "composite": 51.54,
           "percentile": null,
           "research_grade": "D"
         }
@@ -5197,19 +5196,19 @@
           "score": 57
         },
         {
-          "symbol": "GOOGL",
-          "score": 52
+          "symbol": "TSM",
+          "score": 54
         },
         {
-          "symbol": "TSM",
-          "score": 51
+          "symbol": "GOOGL",
+          "score": 49
         },
         {
           "symbol": "AAPL",
           "score": 48
         },
         {
-          "symbol": "MSFT",
+          "symbol": "AMD",
           "score": 46
         }
       ],
@@ -5225,12 +5224,12 @@
       "count": 9,
       "symbols": [
         {
-          "symbol": "GOOGL",
-          "score": 52
-        },
-        {
           "symbol": "DDOG",
           "score": 51
+        },
+        {
+          "symbol": "GOOGL",
+          "score": 49
         },
         {
           "symbol": "SNOW",
@@ -5262,15 +5261,15 @@
         },
         {
           "symbol": "TSM",
-          "score": 51
-        },
-        {
-          "symbol": "ARM",
-          "score": 41
+          "score": 54
         },
         {
           "symbol": "AMD",
-          "score": 40
+          "score": 46
+        },
+        {
+          "symbol": "ARM",
+          "score": 44
         },
         {
           "symbol": "NVDA",
@@ -5461,7 +5460,7 @@
     {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
-      "score": 51,
+      "score": 54,
       "grade": "C",
       "action": "Avoid",
       "price": 434.1600036621094,
@@ -5477,27 +5476,65 @@
         "波動過大 ATR 5.1%"
       ],
       "matched_headlines": [
+        "3 iShares ETFs to Buy Now as South Korea and Taiwan Soar Past 100% Gains in 2026",
         "Does Intel pay dividends? History & future prospects explained",
-        "Anthropic explores Samsung 2nm chip partnership - The Information",
-        "How Taiwan Semiconductor's Global N3 Expansion Plan Is Taking Shape"
+        "Anthropic explores Samsung 2nm chip partnership - The Information"
       ],
       "catalyst_confidence": {
         "grade": "B",
         "label": "高可信報導",
         "reason": "可信媒體或多源報導，仍需追蹤正式文件",
-        "evidence_count": 3
+        "evidence_count": 4
       },
       "sub": {
         "T": 15,
         "F": 19,
         "Fl": 5,
-        "N": 12,
+        "N": 15,
         "M": 6,
         "R": -6
       },
       "sector": "Technology",
       "market_cap": 2251759550464,
       "risk_penalty": 6
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "score": 49,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 359.9100036621094,
+      "entry": 359.9100036621094,
+      "stop": 335.39,
+      "atr_pct": 3.4068035143285638,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.4%"
+      ],
+      "matched_headlines": [
+        "Cloud AI Today - AI Orchestration Platforms Set For Massive Market Expansion"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 15,
+        "F": 18,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Communication Services",
+      "market_cap": 4391827931136,
+      "risk_penalty": 1
     },
     {
       "symbol": "SNOW",
@@ -5611,46 +5648,6 @@
       },
       "sector": "Industrials",
       "market_cap": 48122662912,
-      "risk_penalty": 3
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova Inc.",
-      "score": 47,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1113.1099853515625,
-      "entry": 1113.1099853515625,
-      "stop": 999.49,
-      "atr_pct": 5.103501878846694,
-      "themes": [
-        "energy_power",
-        "defense"
-      ],
-      "warnings": [
-        "波動過大 ATR 5.1%"
-      ],
-      "matched_headlines": [
-        "Oklo Advances Groves Isotope Test Reactor With Key DOE Safety Approval",
-        "Will GE Vernova (GEV) Beat Estimates Again in Its Next Earnings Report?",
-        "Here's Why GE Vernova Stock Soared Last Month"
-      ],
-      "catalyst_confidence": {
-        "grade": "A",
-        "label": "已確認",
-        "reason": "公告/財報/正式事件佐證",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 21,
-        "F": 8,
-        "Fl": 3,
-        "N": 12,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Industrials",
-      "market_cap": 299114921984,
       "risk_penalty": 3
     }
   ],
