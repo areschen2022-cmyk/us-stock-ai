@@ -167,6 +167,7 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
             symbol = sig["symbol"]
             signal_date = date.fromisoformat(sig["signal_date"])
             entry_price = sig.get("entry_price")
+            stop_price = sig.get("stop_price")
             if not entry_price:
                 continue
 
@@ -178,10 +179,12 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
             if sig.get("spy_entry_price") is None and spy_entry is not None:
                 updates["spy_entry_price"] = spy_entry
 
+            max_target = signal_date
             for h in _HORIZONS:
                 col = f"return_{h}d"
                 stock_ret = sig.get(col)  # may already be filled from a prior run
-                target = signal_date + timedelta(days=h)
+                target = _trading_days_later(signal_date, h)
+                max_target = max(max_target, target)
                 need_return = stock_ret is None and target <= today
                 need_alpha = (
                     h in _ALPHA_HORIZONS and spy_entry
