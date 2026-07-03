@@ -210,6 +210,11 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
                         updates[f"spy_return_{h}d"] = spy_ret
                         updates[f"alpha_{h}d"] = round(stock_ret - spy_ret, 2)
 
+            if sig.get("stop_hit") is None and stop_price:
+                low = _fetch_period_low(symbol, signal_date, min(max_target, today))
+                if low is not None:
+                    updates["stop_hit"] = 1 if low <= stop_price else 0
+
             if not updates:
                 continue
             ret10 = updates.get("return_10d") or sig.get("return_10d")
