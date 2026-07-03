@@ -27,6 +27,37 @@ def _wilson_ci(wins: int, n: int, z: float = 1.96) -> list[float] | None:
     return [round(max(0.0, (center - margin) * 100), 1), round(min(100.0, (center + margin) * 100), 1)]
 
 
+def _load_backtest_baseline() -> dict | None:
+    """10-year walk-forward backtest summary (scripts/backtest_shadow_strategy.py),
+    used as a realistic prior against the live groups' small-sample win rates —
+    e.g. a live 'shadow' group showing 92% win rate on 14 samples reads very
+    differently next to the 10y baseline of ~55%. Static file, re-generated
+    manually when the backtest is re-run; missing file is not an error (older
+    checkouts / first run before any backtest exists)."""
+    for name in ("backtest_shadow_10y_regime.json", "backtest_shadow_10y.json"):
+        path = Path(__file__).parent.parent.parent / "data" / name
+        if path.exists():
+            try:
+                raw = json.loads(path.read_text(encoding="utf-8"))
+                return {
+                    "generated_at": raw.get("generated_at"),
+                    "years": raw.get("years"),
+                    "summary": {
+                        grp: {
+                            "n": s.get("n"),
+                            "win_rate_5d": s.get("win_rate_5d"),
+                            "alpha_win_rate_5d": s.get("alpha_win_rate_5d"),
+                            "win_rate_20d": s.get("win_rate_20d"),
+                            "alpha_win_rate_20d": s.get("alpha_win_rate_20d"),
+                        }
+                        for grp, s in raw.get("summary", {}).items()
+                    },
+                }
+            except Exception:
+                return None
+    return None
+
+
 class SQLiteStore:
     def __init__(self, path: Path = _DEFAULT_DB) -> None:
         self.path = path
