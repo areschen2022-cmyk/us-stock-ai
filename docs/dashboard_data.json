@@ -3,7 +3,7 @@
   "market": {
     "SPY": 744.780029296875,
     "QQQ": 712.5999755859375,
-    "VIX": 15.9399995803833,
+    "VIX": 15.949999809265137,
     "TLT": 85.51000213623047,
     "HYG": 79.70999908447266,
     "IWM": 297.5799865722656,
@@ -32,7 +32,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 2.1,
+    "elapsed_min": 1.0,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -48,7 +48,7 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 23.0,
+      "avg_gap": 23.1,
       "missed_strong": [
         {
           "symbol": "AMD",
@@ -153,7 +153,7 @@
         "alpha_win_rate_5d": 76.2
       },
       "social_bullish": {
-        "tracked": 94,
+        "tracked": 93,
         "completed": 0,
         "completed_10d": 0,
         "win_rate": null,
@@ -180,6 +180,19 @@
       },
       "potential_radar": {
         "tracked": 16,
+        "completed": 0,
+        "completed_10d": 0,
+        "win_rate": null,
+        "win_rate_ci95": null,
+        "win_rate_10d": null,
+        "avg_return_5d": null,
+        "avg_return_10d": null,
+        "avg_alpha_5d": null,
+        "avg_alpha_10d": null,
+        "alpha_win_rate_5d": null
+      },
+      "research_rank": {
+        "tracked": 6,
         "completed": 0,
         "completed_10d": 0,
         "win_rate": null,
@@ -961,13 +974,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 8,
           "bearish": 3,
-          "sentiment_ratio": 0.4,
+          "sentiment_ratio": 0.45,
           "watchlist_count": 982054,
           "label": "強烈看多",
-          "score_0_10": 7.0,
-          "tagged": 10
+          "score_0_10": 7.2,
+          "tagged": 11
         },
         "potential": {
           "stage": null,
@@ -976,7 +989,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 65.63,
+          "composite": 65.73,
           "percentile": 35.3,
           "research_grade": "C"
         }
@@ -1133,7 +1146,7 @@
           "bullish": 9,
           "bearish": 2,
           "sentiment_ratio": 0.64,
-          "watchlist_count": 14991,
+          "watchlist_count": 14992,
           "label": "強烈看多",
           "score_0_10": 8.2,
           "tagged": 11
@@ -1222,7 +1235,7 @@
           "bullish": 8,
           "bearish": 1,
           "sentiment_ratio": 0.78,
-          "watchlist_count": 9375,
+          "watchlist_count": 9376,
           "label": "強烈看多",
           "score_0_10": 8.9,
           "tagged": 9
@@ -1375,13 +1388,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 9,
+          "bullish": 10,
           "bearish": 3,
-          "sentiment_ratio": 0.5,
-          "watchlist_count": 538365,
+          "sentiment_ratio": 0.54,
+          "watchlist_count": 538366,
           "label": "強烈看多",
-          "score_0_10": 7.5,
-          "tagged": 12
+          "score_0_10": 7.7,
+          "tagged": 13
         },
         "potential": {
           "stage": "weakening",
@@ -1397,7 +1410,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 37.34,
+          "composite": 37.44,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1549,7 +1562,7 @@
           "bullish": 10,
           "bearish": 1,
           "sentiment_ratio": 0.82,
-          "watchlist_count": 61338,
+          "watchlist_count": 61339,
           "label": "強烈看多",
           "score_0_10": 9.1,
           "tagged": 11
@@ -1572,86 +1585,6 @@
         }
       },
       "divergence_gap": 26
-    },
-    {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "score": 48,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 194.8300018310547,
-      "entry": 194.8300018310547,
-      "stop": 182.15,
-      "atr_pct": 3.254485721551431,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.3%"
-      ],
-      "matched_headlines": [
-        "Palantir stock jumps on analyst upgrade 'as profits have soared'",
-        "Palantir upgraded to Buy, Rivian lifts delivery outlook, Robinhood's new product",
-        "Here's Why Viking Therapeutics Stock Surged Higher in June"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 0,
-        "F": 20,
-        "Fl": 8,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 4718977351680,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 60,
-        "rs_score_0_10": 4.47,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 34435486673.0,
-        "entry_price": 194.8300018310547,
-        "stop_price": 186.0,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 10,
-          "bearish": 7,
-          "sentiment_ratio": 0.18,
-          "watchlist_count": 651509,
-          "label": "偏多",
-          "score_0_10": 5.9,
-          "tagged": 17
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "composite": 66.59,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": 12
     },
     {
       "symbol": "PLTR",
@@ -1714,13 +1647,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 13,
+          "bullish": 14,
           "bearish": 2,
-          "sentiment_ratio": 0.73,
+          "sentiment_ratio": 0.75,
           "watchlist_count": 322032,
           "label": "強烈看多",
-          "score_0_10": 8.7,
-          "tagged": 15
+          "score_0_10": 8.8,
+          "tagged": 16
         },
         "potential": {
           "stage": "weakening",
@@ -1736,7 +1669,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 39.28,
+          "composite": 39.33,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2242,65 +2175,68 @@
       "divergence_gap": 56
     },
     {
-      "symbol": "NVO",
-      "name": "Novo Nordisk A/S",
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
       "score": 42,
       "grade": "D",
       "action": "Avoid",
-      "price": 50.43000030517578,
-      "entry": 50.43000030517578,
-      "stop": 47.74,
-      "atr_pct": 2.6713124976942266,
+      "price": 194.8300018310547,
+      "entry": 194.8300018310547,
+      "stop": 182.15,
+      "atr_pct": 3.254485721551431,
       "themes": [
-        "glp1_biotech"
+        "ai_infra",
+        "semiconductor"
       ],
-      "warnings": [],
+      "warnings": [
+        "波動偏高 ATR 3.3%"
+      ],
       "matched_headlines": [
-        "Microsoft Launches AI Adoption Firm",
-        "Here's Why Viking Therapeutics Stock Surged Higher in June",
-        "Microsoft launches Microsoft Frontier Company with $2.5bn investment"
+        "Palantir stock jumps on analyst upgrade 'as profits have soared'",
+        "Palantir upgraded to Buy, Rivian lifts delivery outlook, Robinhood's new product",
+        "Here's Why Viking Therapeutics Stock Surged Higher in June"
       ],
       "catalyst_confidence": {
         "grade": "B",
         "label": "多源升溫",
         "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
+        "evidence_count": 3
       },
       "sub": {
-        "T": 10,
-        "F": 14,
-        "Fl": 0,
-        "N": 12,
+        "T": 0,
+        "F": 20,
+        "Fl": 8,
+        "N": 9,
         "M": 6,
-        "R": 0
+        "R": -1
       },
-      "sector": "Healthcare",
-      "market_cap": 223193366528,
-      "risk_penalty": 0,
+      "sector": "Technology",
+      "market_cap": 4718977351680,
+      "risk_penalty": 1,
       "strategy": {
-        "rs_rating": 16,
-        "rs_score_0_10": 6.92,
-        "minervini_pass": 3,
+        "rs_rating": 60,
+        "rs_score_0_10": 4.47,
+        "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 658351874.0,
-        "entry_price": 50.43000030517578,
-        "stop_price": 47.74,
+        "dollar_vol_50d": 34435486673.0,
+        "entry_price": 194.8300018310547,
+        "stop_price": 186.0,
         "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 86)，回測支撐再進",
-          "chase_risk": true
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
         },
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 10,
-          "bearish": 1,
-          "sentiment_ratio": 0.82,
-          "watchlist_count": 31326,
-          "label": "強烈看多",
-          "score_0_10": 9.1,
-          "tagged": 11
+          "bullish": 8,
+          "bearish": 7,
+          "sentiment_ratio": 0.07,
+          "watchlist_count": 651509,
+          "label": "中性",
+          "score_0_10": 5.4,
+          "tagged": 15
         },
         "potential": {
           "stage": null,
@@ -2311,12 +2247,12 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 36.75,
+          "composite": 66.34,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": -26
+      "divergence_gap": 18
     },
     {
       "symbol": "AMZN",
@@ -2560,6 +2496,83 @@
       "divergence_gap": -16
     },
     {
+      "symbol": "NVO",
+      "name": "Novo Nordisk A/S",
+      "score": 39,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 50.43000030517578,
+      "entry": 50.43000030517578,
+      "stop": 47.74,
+      "atr_pct": 2.6713124976942266,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "Microsoft Launches AI Adoption Firm",
+        "Here's Why Viking Therapeutics Stock Surged Higher in June",
+        "Microsoft launches Microsoft Frontier Company with $2.5bn investment"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 10,
+        "F": 14,
+        "Fl": 0,
+        "N": 9,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Healthcare",
+      "market_cap": 223193366528,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 16,
+        "rs_score_0_10": 6.92,
+        "minervini_pass": 3,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 658351874.0,
+        "entry_price": 50.43000030517578,
+        "stop_price": 47.74,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 86)，回測支撐再進",
+          "chase_risk": true
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 10,
+          "bearish": 1,
+          "sentiment_ratio": 0.82,
+          "watchlist_count": 31326,
+          "label": "強烈看多",
+          "score_0_10": 9.1,
+          "tagged": 11
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "composite": 36.75,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -23
+    },
+    {
       "symbol": "ASML",
       "name": "ASML Holding N.V. - New York Re",
       "score": 38,
@@ -2701,7 +2714,7 @@
           "bullish": 20,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 23175,
+          "watchlist_count": 23176,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 20
@@ -2779,13 +2792,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 11,
+          "bullish": 9,
           "bearish": 7,
-          "sentiment_ratio": 0.22,
+          "sentiment_ratio": 0.12,
           "watchlist_count": 599251,
-          "label": "偏多",
-          "score_0_10": 6.1,
-          "tagged": 18
+          "label": "中性",
+          "score_0_10": 5.6,
+          "tagged": 16
         },
         "potential": {
           "stage": "weakening",
@@ -2801,7 +2814,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 34.38,
+          "composite": 34.13,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2869,13 +2882,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 14,
-          "bearish": 4,
-          "sentiment_ratio": 0.56,
+          "bullish": 11,
+          "bearish": 5,
+          "sentiment_ratio": 0.38,
           "watchlist_count": 1055359,
-          "label": "強烈看多",
-          "score_0_10": 7.8,
-          "tagged": 18
+          "label": "偏多",
+          "score_0_10": 6.9,
+          "tagged": 16
         },
         "potential": {
           "stage": "weakening",
@@ -2891,7 +2904,7 @@
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
-          "composite": 40.32,
+          "composite": 39.87,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3105,7 +3118,7 @@
           "bullish": 9,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 11216,
+          "watchlist_count": 11217,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 9
@@ -3143,13 +3156,14 @@
         "波動過大 ATR 6.6%"
       ],
       "matched_headlines": [
-        "What a weak jobs report means for crypto"
+        "What a weak jobs report means for crypto",
+        "Open USD Stablecoin Hype Backfires as Samsung Denies Partnership Claims"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "一般新聞",
         "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "evidence_count": 2
       },
       "sub": {
         "T": 6,
@@ -3187,7 +3201,7 @@
           "bullish": 10,
           "bearish": 1,
           "sentiment_ratio": 0.82,
-          "watchlist_count": 137660,
+          "watchlist_count": 137661,
           "label": "強烈看多",
           "score_0_10": 9.1,
           "tagged": 11
@@ -4242,13 +4256,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 8,
           "bearish": 3,
-          "sentiment_ratio": 0.4,
+          "sentiment_ratio": 0.45,
           "watchlist_count": 982054,
           "label": "強烈看多",
-          "score_0_10": 7.0,
-          "tagged": 10
+          "score_0_10": 7.2,
+          "tagged": 11
         },
         "potential": {
           "stage": null,
@@ -4257,7 +4271,7 @@
         "research_rank": {
           "gate_passed": true,
           "gate_reasons": [],
-          "composite": 65.63,
+          "composite": 65.73,
           "percentile": 35.3,
           "research_grade": "C"
         }
@@ -4577,16 +4591,16 @@
           "score": 50
         },
         {
-          "symbol": "NVDA",
-          "score": 48
-        },
-        {
           "symbol": "ARM",
           "score": 44
         },
         {
           "symbol": "AMD",
           "score": 43
+        },
+        {
+          "symbol": "NVDA",
+          "score": 42
         }
       ],
       "prev_avg": 7.0,
@@ -4650,7 +4664,7 @@
         },
         {
           "symbol": "NVO",
-          "score": 42
+          "score": 39
         }
       ],
       "prev_avg": 5.0,
@@ -4930,44 +4944,44 @@
       "risk_penalty": 1
     },
     {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
+      "symbol": "PLTR",
+      "name": "Palantir Technologies Inc.",
       "score": 48,
       "grade": "D",
       "action": "Avoid",
-      "price": 194.8300018310547,
-      "entry": 194.8300018310547,
-      "stop": 182.15,
-      "atr_pct": 3.254485721551431,
+      "price": 129.3000030517578,
+      "entry": 129.3000030517578,
+      "stop": 116.12,
+      "atr_pct": 5.096122276659827,
       "themes": [
         "ai_infra",
-        "semiconductor"
+        "defense"
       ],
       "warnings": [
-        "波動偏高 ATR 3.3%"
+        "波動過大 ATR 5.1%"
       ],
       "matched_headlines": [
         "Palantir stock jumps on analyst upgrade 'as profits have soared'",
         "Palantir upgraded to Buy, Rivian lifts delivery outlook, Robinhood's new product",
-        "Here's Why Viking Therapeutics Stock Surged Higher in June"
+        "Is NVIDIA Corporation (NVDA) Stock Positioned for AI Growth Through New NVIDIA Blackwell Infrastructure Deal?"
       ],
       "catalyst_confidence": {
         "grade": "B",
         "label": "多源升溫",
         "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 5
+        "evidence_count": 4
       },
       "sub": {
-        "T": 0,
+        "T": 3,
         "F": 20,
-        "Fl": 8,
+        "Fl": 7,
         "N": 15,
         "M": 6,
-        "R": -1
+        "R": -3
       },
       "sector": "Technology",
-      "market_cap": 4718977351680,
-      "risk_penalty": 1
+      "market_cap": 309972434944,
+      "risk_penalty": 3
     }
   ],
   "open_signals": [],
