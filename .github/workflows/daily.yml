@@ -64,7 +64,11 @@ jobs:
           git add docs/dashboard_data.json docs/performance_data.json docs/divergence_history.json
           git add -f data/us_stock_ai.sqlite3 || true
           git diff --staged --quiet || git commit -m "chore: update dashboard $(date -u +%Y-%m-%d)"
-          git push || true
+          for i in 1 2 3; do
+            git pull --rebase && git push && break
+            echo "push attempt $i failed, retrying after rebase..."
+            sleep 5
+          done
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
