@@ -339,11 +339,20 @@ function renderStrategyBadges(st) {
     const wl = soc.watchlist_count ? `，${(soc.watchlist_count/1000).toFixed(0)}k 追蹤` : '';
     socBadge = `<span class="strat-badge" style="color:${socColor}" title="StockTwits 看多${soc.bullish}/看空${soc.bearish}${wl}">💬${soc.label}</span>`;
   }
+  // Gate+Percentile 研究評級（Codex架構檢討 2026-07-02，與正式評分平行、尚未取代）
+  const rr = st.research_rank || {};
+  let rrBadge = '';
+  if (rr.gate_passed) {
+    const rrColor = {'S':'var(--green)','A':'var(--green)','B':'var(--blue)','C':'var(--muted)'}[rr.research_grade] || 'var(--muted)';
+    rrBadge = `<span class="strat-badge" style="color:${rrColor};border:1px solid ${rrColor}" title="Gate通過，同期百分位${rr.percentile}%">研究級 ${rr.research_grade}</span>`;
+  } else if (rr.gate_reasons && rr.gate_reasons.length) {
+    rrBadge = `<span class="strat-badge" style="color:var(--muted)" title="${rr.gate_reasons.join('、')}">研究：未過濾網</span>`;
+  }
   return `<div class="strat-badges" title="影子策略指標（尚未計入評分）">
     <span class="strat-badge" style="color:${rsColor}">RS ${rs != null ? rs : '—'}</span>
     <span class="strat-badge" style="color:${mtColor}">趨勢 ${mt != null ? mt + '/8' : '—'}${st.phase2 ? ' ✓' : ''}</span>
     <span class="strat-badge" style="color:${liq ? 'var(--green)' : 'var(--red)'}">${liq ? '流動性✓' : '流動性✕'}</span>
-    ${eqBadge}${socBadge}${riskBadges}
+    ${eqBadge}${rrBadge}${socBadge}${riskBadges}
   </div>`;
 }
 
@@ -436,7 +445,7 @@ function render(data) {
         <div style="display:flex;align-items:center;gap:10px;width:100%">
           <span class="div-sym" style="color:${color}">${label}</span>
           <span style="font-size:.78rem">追蹤 ${g.tracked} · 已結算 ${g.completed}</span>
-          <span class="div-detail">5日勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b> · 5日均 ${fmtPct(g.avg_return_5d)} · 10日均 ${fmtPct(g.avg_return_10d)}</span>
+          <span class="div-detail">5日勝率 <b style="color:${color}">${fmtWin(g.win_rate)}</b>${g.win_rate_ci95?` <span style="color:var(--muted);font-size:.7rem">(95%CI ${g.win_rate_ci95[0]}-${g.win_rate_ci95[1]}%)</span>`:''} · 5日均 ${fmtPct(g.avg_return_5d)} · 10日均 ${fmtPct(g.avg_return_10d)}</span>
         </div>
         ${g.avg_alpha_5d != null ? `<div style="font-size:.76rem;color:var(--muted);padding-left:2px">
           超額報酬(vs SPY)：5日 <b style="color:${g.avg_alpha_5d>=0?'var(--green)':'var(--red)'}">${fmtPct(g.avg_alpha_5d)}</b>

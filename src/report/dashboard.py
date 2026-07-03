@@ -312,6 +312,14 @@ def build_dashboard_json(
             "grade_B": sum(1 for c in cards if c["grade"] == "B"),
             "grade_C": sum(1 for c in cards if c["grade"] == "C"),
             "grade_D": sum(1 for c in cards if c["grade"] == "D"),
+            # SHADOW: Gate+Percentile research grade (2026-07-02) — separate
+            # from the official grade above so an empty A/S band doesn't read
+            # as "system broken"; this always has S/A/B by construction
+            # (percentile-based) as long as any symbol passes the gate.
+            "research_grade_S": sum(1 for c in cards if ((c.get("strategy") or {}).get("research_rank") or {}).get("research_grade") == "S"),
+            "research_grade_A": sum(1 for c in cards if ((c.get("strategy") or {}).get("research_rank") or {}).get("research_grade") == "A"),
+            "research_grade_B": sum(1 for c in cards if ((c.get("strategy") or {}).get("research_rank") or {}).get("research_grade") == "B"),
+            "research_grade_gated_out": sum(1 for c in cards if not ((c.get("strategy") or {}).get("research_rank") or {}).get("gate_passed", True)),
         },
         "highlights": _highlights(sorted_scores, ai_reviews),
         "ai_stats": _ai_stats(

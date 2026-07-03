@@ -11,6 +11,7 @@ from src.data_provider.yfinance_client import (
     fetch_batch_ohlcv,
     fetch_info,
     fetch_market_indices,
+    fetch_earnings_calendar,
 )
 from src.data_provider.sec_client import search_company_cik, get_company_facts, extract_revenue_yoy
 from src.news.rss_fetcher import fetch_news, fetch_symbol_news
@@ -24,6 +25,7 @@ from src.report.history import update_divergence_history
 from src.notifier.telegram import TelegramNotifier
 from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals
 from src.strategy import us_market, tw_lessons
+from src.strategy.research_rank import build_research_rank
 from src.indicators.technical import calc_atr_pct
 
 
@@ -268,6 +270,7 @@ def run_daily_update() -> None:
             info = fetch_info(symbol)
             rev_yoy = _get_revenue_yoy(symbol)
             sym_news = fetch_symbol_news(symbol)
+            earnings_cal = fetch_earnings_calendar(symbol)
             score = compute_score(
                 symbol=symbol,
                 ohlcv=ohlcv,
@@ -276,6 +279,8 @@ def run_daily_update() -> None:
                 news_items=news_items,
                 spy_ohlcv=spy_ohlcv,
                 revenue_yoy=rev_yoy,
+                insider_data=None,  # Form 4 fetch not implemented — see flow.py cap note
+                earnings_cal=earnings_cal,
                 today=today,
                 symbol_news=sym_news,
             )
@@ -301,6 +306,16 @@ def run_daily_update() -> None:
 
     # 5b. SHADOW: cross-sectional RS percentile + Minervini + market regime
     strategy_signals = _build_shadow_signals(strategy_raw, spy_ohlcv)
+
+    # 5b2. RESEARCH RANK: Gate+Percentile grade (Codex architecture review,
+    # 2026-07-02) — parallel to the official grade, not replacing it yet
+    scores_by_symbol = {s.symbol: s for s in scores}
+    research_rank = build_research_rank(
+        strategy_signals["per_symbol"], scores_by_symbol, strategy_signals.get("regime", {})
+    )
+    for sym, rr in research_rank.items():
+        if sym in strategy_signals["per_symbol"]:
+            strategy_signals["per_symbol"][sym]["research_rank"] = rr
 
     # 5c. VALIDATION: log shadow picks vs live top picks for forward comparison
     spy_price_today = float(spy_close.iloc[-1]) if spy_close is not None and not spy_close.empty else None
