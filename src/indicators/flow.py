@@ -9,15 +9,15 @@ logger = logging.getLogger(__name__)
 
 def flow_score(info: dict[str, Any], insider_data: dict | None = None) -> tuple[int, list[str]]:
     """
-    Returns (score 0-11, reasons list).
+    Returns (score 0-15, reasons list).
     Uses institution % held, insider buy/sell, institutional % change.
 
-    The Form-4 insider-buy pathway below (+4pts) only fires when insider_data
-    is supplied. No caller currently fetches real SEC Form-4 data (main.py
-    passes insider_data=None), so the practical ceiling is 11, not 15. Capped
-    honestly at 11 rather than claiming an unreachable 15 — see
-    us_stock/flow_score_dead_insider_pathway in the knowledge hub. Wire up a
-    real SEC EDGAR Form-4 fetch and raise this back to 15 if that's built.
+    insider_data now comes from a real SEC Form-4 fetch (edgartools, MIT
+    license — see src/data_provider/sec_client.py::fetch_insider_transactions,
+    wired in main.py) counting last-30-day buy/sell transaction counts. This
+    was previously always None (dead pathway, capped honestly at 11 instead
+    of 15 — see us_stock/flow_score_dead_insider_pathway in the knowledge
+    hub); restored to the full 15-point ceiling now that it's live.
     """
     score = 0
     reasons: list[str] = []
