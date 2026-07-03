@@ -402,6 +402,7 @@ class SQLiteStore:
                     "avg_alpha_10d": round(sum(a10) / len(a10), 2) if a10 else None,
                     "alpha_win_rate_5d": round(alpha_win5 / len(a5) * 100, 1) if a5 else None,
                 }
+        out["_baseline_10y"] = _load_backtest_baseline()
         return out
 
     # ── AI council ────────────────────────────────────────────────────────────
