@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sqlite3
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -10,6 +11,20 @@ from typing import Any
 from src.scoring.score_engine import StockScore
 
 _DEFAULT_DB = Path(__file__).parent.parent.parent / "data" / "us_stock_ai.sqlite3"
+
+
+def _wilson_ci(wins: int, n: int, z: float = 1.96) -> list[float] | None:
+    """95% Wilson score confidence interval for a win rate, as [low, high]
+    percentages. More honest than a normal-approximation interval for the
+    small-n, near-100%-or-near-0% samples these validation groups produce
+    early on (normal approximation can go outside [0,100] there)."""
+    if n == 0:
+        return None
+    p = wins / n
+    denom = 1 + z ** 2 / n
+    center = (p + z ** 2 / (2 * n)) / denom
+    margin = (z * math.sqrt(p * (1 - p) / n + z ** 2 / (4 * n ** 2))) / denom
+    return [round(max(0.0, (center - margin) * 100), 1), round(min(100.0, (center + margin) * 100), 1)]
 
 
 class SQLiteStore:
