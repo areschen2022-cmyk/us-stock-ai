@@ -214,6 +214,26 @@ def _summarize(records: list[dict]) -> dict:
             if len(v):
                 by_year[str(yr)] = {"n": len(v), "win_rate": round((v > 0).sum() / len(v) * 100, 1), "avg_return": round(v.mean(), 2)}
         out["by_year"] = by_year
+    if "regime" in df.columns:
+        by_regime = {}
+        for rg, g in df.groupby("regime"):
+            v5 = g["return_5d"].dropna()
+            v20 = g["return_20d"].dropna() if "return_20d" in g.columns else pd.Series(dtype=float)
+            a5 = g["alpha_5d"].dropna() if "alpha_5d" in g.columns else pd.Series(dtype=float)
+            if len(v5):
+                entry = {
+                    "n": len(v5),
+                    "win_rate_5d": round((v5 > 0).sum() / len(v5) * 100, 1),
+                    "avg_return_5d": round(v5.mean(), 2),
+                }
+                if len(a5):
+                    entry["avg_alpha_5d"] = round(a5.mean(), 2)
+                    entry["alpha_win_rate_5d"] = round((a5 > 0).sum() / len(a5) * 100, 1)
+                if len(v20):
+                    entry["win_rate_20d"] = round((v20 > 0).sum() / len(v20) * 100, 1)
+                    entry["avg_return_20d"] = round(v20.mean(), 2)
+                by_regime[rg] = entry
+        out["by_regime"] = by_regime
     return out
 
 
