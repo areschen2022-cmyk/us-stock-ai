@@ -105,7 +105,7 @@ _SOCIAL_MIN_RATIO = 0.4     # matches social_sentiment._label's "強烈看多" c
 
 
 def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: float | None = None) -> None:
-    """Record four comparable signal sets for forward-return validation:
+    """Record six comparable signal sets for forward-return validation:
     - 'shadow'        : RS>=80 AND Minervini phase2 (what the US strategy would pick)
     - 'live_top'      : top 10 by the current engine's score (what we pick today)
     - 'social_bullish': StockTwits strongly-bullish with enough tagged volume
@@ -120,6 +120,11 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                         uptrend — tests whether the VCP-style volatility-
                         contraction signal actually precedes good entries
                         over a longer (10-20d) horizon than the other groups
+    - 'research_rank' : Gate+Percentile research grade S/A/B (Codex
+                        architecture review, 2026-07-02) — tests whether the
+                        RS-heavy percentile ranking actually outperforms
+                        before it's ever considered for promotion to the
+                        official grade
     Not-yet-backfilled rows for today are cleared per group before re-logging,
     so a same-day rerun (e.g. after a filter fix) can't leave stale symbols
     behind — INSERT OR IGNORE alone only adds/skips, it never removes.
@@ -129,7 +134,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
     stock-picking skill from market beta in the shadow-vs-live comparison."""
     by_symbol = {s.symbol: s for s in scores}
 
-    for grp in ("shadow", "live_top", "social_bullish", "confluence", "potential_radar"):
+    for grp in ("shadow", "live_top", "social_bullish", "confluence", "potential_radar", "research_rank"):
         store.reset_shadow_signals_for_date(today, grp)
 
     membership: dict[str, set[str]] = {}
@@ -227,7 +232,25 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
             })
             potential_n += 1
 
-    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish + {confluence_n} confluence + {potential_n} potential_radar signals")
+    research_n = 0
+    for sym, sig in per_symbol.items():
+        rr = sig.get("research_rank") or {}
+        if rr.get("gate_passed") and rr.get("research_grade") in ("S", "A", "B"):
+            sc = by_symbol.get(sym)
+            store.upsert_shadow_signal(today, "research_rank", {
+                "symbol": sym,
+                "rs_rating": sig.get("rs_rating"),
+                "minervini_pass": sig.get("minervini_pass"),
+                "phase2": sig.get("phase2"),
+                "live_grade": sc.grade if sc else None,
+                "live_score": sc.total_score if sc else None,
+                "entry_price": sig.get("entry_price") or (sc.price if sc else None),
+                "stop_price": sig.get("stop_price"),
+                "spy_entry_price": spy_price,
+            })
+            research_n += 1
+
+    print(f"[Validation] logged {shadow_n} shadow + {len(live_top)} live_top + {social_n} social_bullish + {confluence_n} confluence + {potential_n} potential_radar + {research_n} research_rank signals")
 
 
 def run_daily_update() -> None:
