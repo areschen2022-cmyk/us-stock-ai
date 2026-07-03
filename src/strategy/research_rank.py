@@ -35,8 +35,14 @@ def _gate(sig: dict[str, Any], regime: dict[str, Any], risk_penalty: int) -> tup
         reasons.append("流動性不足")
     if risk_penalty >= 6:
         reasons.append(f"風險扣分過高({risk_penalty})")
-    if regime and regime.get("regime") == "防禦（SPY 跌破 200MA）":
-        reasons.append("市場防禦模式")
+    # 2026-07-04: no longer a hard gate-fail — the regime-tagged 10y backtest
+    # showed individually-strong stocks (RS>=80 + phase2) hold up fine even
+    # when SPY is below its 200MA (55.9% alpha win rate, n=1561, the best of
+    # the three regimes — see _regime_momentum_multiplier's docstring).
+    # Blocking every candidate outright during index weakness was punishing
+    # the exact "relative strength survives a weak tape" case this project's
+    # own data says is real. Still surfaced as an informational reason (not
+    # a pass/fail one) so the UI/knowledge hub can see the regime context.
     has_trend_evidence = bool(
         sig.get("phase2")
         or (sig.get("rs_rating") or 0) >= 70
@@ -47,7 +53,32 @@ def _gate(sig: dict[str, Any], regime: dict[str, Any], risk_penalty: int) -> tup
     return (len(reasons) == 0, reasons)
 
 
-def _composite(sig: dict[str, Any], score_obj: Any) -> float:
+def _regime_momentum_multiplier(regime: dict[str, Any] | None) -> float:
+    """Throttle for the RS/trend (momentum) portion of the composite only.
+
+    2026-07-04: scripts/backtest_shadow_strategy.py was extended to tag each
+    historical signal with the ACTUAL regime label at signal time (not just
+    calendar year — a 2022-labeled signal could have fired in a brief 2022
+    rally). Result contradicted the initial calendar-year-proxy assumption:
+    for 'shadow' (RS>=80 + Minervini phase2, i.e. an individually-strong
+    stock), alpha win rate in '防禦（SPY 跌破 200MA）' was 55.9% (n=1,561) —
+    the BEST of the three regimes, not the worst. A stock that already
+    cleared RS>=80 + phase2 is by construction a relative winner, so it
+    tends to hold up even while the index is weak. '謹慎（廣度不足）' showed
+    69.5% (n=59, too small to trust) for shadow but only 49.3% (n=144) for
+    potential_radar's earlier-stage picks — the one regime effect that IS
+    directionally consistent and large enough to act on is potential_radar
+    weakening when breadth deteriorates, not shadow/RS-driven signals. So
+    this multiplier is now a no-op for the RS component; the real modulation
+    belongs in _gate (see 2026-07-04 note there) and in the caller's per-group
+    interpretation of potential_radar vs shadow, not a blanket rs/trend
+    throttle. Kept as an explicit no-op (not deleted) since the pattern
+    (extend backtest -> compute real numbers -> revise, not guess) is the
+    point of this exercise and next regime findings should slot in here."""
+    return 1.0
+
+
+def _composite(sig: dict[str, Any], score_obj: Any, regime: dict[str, Any] | None = None) -> float:
     """Weighted 0-100 composite for ranking purposes only. Weights: RS 40% /
     trend quality 15% / catalyst 15% / fundamental 10% / flow+social 10% /
     sector strength 10%. Sector strength was added 2026-07-04 (previously
@@ -56,11 +87,12 @@ def _composite(sig: dict[str, Any], score_obj: Any) -> float:
     in isolation). RS weight trimmed 45%->40% and trend 20%->15% to make
     room without diluting the RS/momentum-dominant design (this project's
     own forward-validation data shows RS/Minervini picks outperforming)."""
+    mult = _regime_momentum_multiplier(regime)
     rs = sig.get("rs_rating")
-    rs_component = rs if rs is not None else 0
+    rs_component = (rs if rs is not None else 0) * mult
 
     mt = sig.get("minervini_pass") or 0
-    trend_component = mt / 8 * 100
+    trend_component = mt / 8 * 100 * mult
 
     cc_grade = None
     # catalyst confidence is on the StockScore, not the strategy per_symbol dict
@@ -114,10 +146,11 @@ def build_research_rank(
         score_obj = scores_by_symbol.get(sym)
         risk_penalty = getattr(score_obj, "risk_penalty", 0) if score_obj else 0
         passed, reasons = _gate(sig, regime, risk_penalty)
-        composite = _composite(sig, score_obj)
+        composite = _composite(sig, score_obj, regime)
         result[sym] = {
             "gate_passed": passed,
             "gate_reasons": reasons,
+            "regime_at_signal": (regime or {}).get("regime"),
             "composite": composite,
             "percentile": None,
             "research_grade": "D",
