@@ -13,7 +13,7 @@ from src.data_provider.yfinance_client import (
     fetch_market_indices,
     fetch_earnings_calendar,
 )
-from src.data_provider.sec_client import search_company_cik, get_company_facts, extract_revenue_yoy
+from src.data_provider.sec_client import search_company_cik, get_company_facts, extract_revenue_yoy, fetch_insider_transactions
 from src.news.rss_fetcher import fetch_news, fetch_symbol_news
 from src.data_provider.social_sentiment import fetch_stocktwits_sentiment
 from src.scoring.score_engine import StockScore, compute_score
@@ -294,6 +294,7 @@ def run_daily_update() -> None:
             rev_yoy = _get_revenue_yoy(symbol)
             sym_news = fetch_symbol_news(symbol)
             earnings_cal = fetch_earnings_calendar(symbol)
+            insider_data = fetch_insider_transactions(symbol)
             score = compute_score(
                 symbol=symbol,
                 ohlcv=ohlcv,
@@ -302,7 +303,7 @@ def run_daily_update() -> None:
                 news_items=news_items,
                 spy_ohlcv=spy_ohlcv,
                 revenue_yoy=rev_yoy,
-                insider_data=None,  # Form 4 fetch not implemented — see flow.py cap note
+                insider_data=insider_data,
                 earnings_cal=earnings_cal,
                 today=today,
                 symbol_news=sym_news,

@@ -69,7 +69,7 @@ def _composite(sig: dict[str, Any], score_obj: Any) -> float:
     flow_social_component = 0.0
     if score_obj is not None:
         fundamental_component = (getattr(score_obj, "fundamental_score", 0) or 0) / 20 * 100
-        flow_component = (getattr(score_obj, "flow_score", 0) or 0) / 11 * 100
+        flow_component = (getattr(score_obj, "flow_score", 0) or 0) / 15 * 100
         social = sig.get("social") or {}
         social_score = social.get("score_0_10")
         social_component = (social_score * 10) if social_score is not None else 50.0
