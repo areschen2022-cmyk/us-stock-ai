@@ -348,7 +348,13 @@ class SQLiteStore:
         'live_top', 'social_bullish'). Primary horizon is 5d (fills first) so
         the comparison is legible days before the 10d window closes; 10d
         reported when available. Groups with zero tracked signals are omitted
-        so the dashboard can distinguish "not started" from "0%"."""
+        so the dashboard can distinguish "not started" from "0%".
+
+        win_rate_ci95 is a Wilson-score 95% confidence interval on the 5d win
+        rate — with the small sample sizes these groups have early on (single
+        or low double digits), a "92.9% win rate" reads as far more certain
+        than it is; the interval makes that honest (e.g. 14 samples at 92.9%
+        has a 95% CI roughly 68-99%, not a tight band around 93%)."""
         out: dict[str, dict] = {}
         with self._connect() as conn:
             conn.row_factory = sqlite3.Row
@@ -372,6 +378,7 @@ class SQLiteStore:
                     "completed": len(r5),           # 5d = primary completion
                     "completed_10d": len(r10),
                     "win_rate": round(win5 / len(r5) * 100, 1) if r5 else None,
+                    "win_rate_ci95": _wilson_ci(win5, len(r5)) if r5 else None,
                     "win_rate_10d": round(win10 / len(r10) * 100, 1) if r10 else None,
                     "avg_return_5d": round(sum(r5) / len(r5), 2) if r5 else None,
                     "avg_return_10d": round(sum(r10) / len(r10), 2) if r10 else None,
