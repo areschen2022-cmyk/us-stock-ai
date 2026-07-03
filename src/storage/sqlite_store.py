@@ -172,7 +172,7 @@ class SQLiteStore:
         cols = {r[1] for r in conn.execute("PRAGMA table_info(shadow_signals)")}
         new_cols = {
             "spy_entry_price": "REAL", "spy_return_5d": "REAL", "spy_return_10d": "REAL",
-            "alpha_5d": "REAL", "alpha_10d": "REAL",
+            "alpha_5d": "REAL", "alpha_10d": "REAL", "stop_hit": "INTEGER",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
