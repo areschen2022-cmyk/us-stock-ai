@@ -164,6 +164,7 @@ def run_backtest(years: int = 10) -> dict:
                 "symbol": sym,
                 "date": str(window.index[-1].date()) if hasattr(window.index[-1], "date") else str(window.index[-1]),
                 "rs_rating": rating,
+                "regime": regime_label,
             }
             for h in _HORIZONS:
                 record[f"return_{h}d"] = _fwd_return(h)
