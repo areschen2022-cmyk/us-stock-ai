@@ -50,26 +50,53 @@ def _group_stats(groups: dict[str, list[dict[str, Any]]], labels: dict[str, str]
 
 
 def build_performance_payload(store: SQLiteStore, as_of: date | None = None) -> dict[str, Any]:
+    """watch_signals only gets a row when a stock hits S/A grade (>=65),
+    which — per the scoring-ceiling audit — has never actually happened in
+    this market; the table stays permanently empty and this payload used to
+    silently report all-zero stats forever (looked like "no signals yet"
+    rather than "the feeding table is structurally unreachable").
+
+    Primary source is now shadow_signals grp='live_top' (today's actual
+    top-10 picks, populated every run) with 'shadow' (RS/Minervini picks) as
+    a secondary comparison group. watch_signals is kept as a third group in
+    case S/A grades start appearing after a scoring recalibration."""
     as_of = as_of or date.today()
     with store._connect() as conn:
         conn.row_factory = __import__("sqlite3").Row
-        rows = [dict(row) for row in conn.execute("SELECT * FROM watch_signals").fetchall()]
+        watch_rows = [dict(row) for row in conn.execute("SELECT * FROM watch_signals").fetchall()]
+        live_top_rows = [dict(row) for row in conn.execute(
+            "SELECT * FROM shadow_signals WHERE grp='live_top'").fetchall()]
+        shadow_rows = [dict(row) for row in conn.execute(
+            "SELECT * FROM shadow_signals WHERE grp='shadow'").fetchall()]
 
     theme_groups: dict[str, list[dict[str, Any]]] = {}
     action_groups: dict[str, list[dict[str, Any]]] = {}
-
-    for row in rows:
+    for row in watch_rows:
         action = str(row.get("action") or "未分類")
         action_groups.setdefault(action, []).append(row)
         themes = _load_themes(row.get("themes_json")) or ["未分類"]
         for theme in themes:
             theme_groups.setdefault(theme, []).append(row)
 
+    # shadow_signals rows use live_grade instead of watch_signals' action —
+    # group by grade tier so there's still a meaningful breakdown even when
+    # watch_signals (and therefore action_stats) is empty.
+    grade_groups: dict[str, list[dict[str, Any]]] = {}
+    for row in live_top_rows:
+        grade = str(row.get("live_grade") or "未分級")
+        grade_groups.setdefault(grade, []).append(row)
+
+    primary_rows = live_top_rows or watch_rows
     return {
         "as_of": as_of.isoformat(),
-        "stats": _row_stats(rows),
+        "primary_source": "live_top" if live_top_rows else "watch_signals",
+        "stats": _row_stats(primary_rows),
+        "live_top_stats": _row_stats(live_top_rows) if live_top_rows else None,
+        "shadow_stats": _row_stats(shadow_rows) if shadow_rows else None,
+        "watch_signals_stats": _row_stats(watch_rows) if watch_rows else None,
         "theme_stats": _group_stats(theme_groups, THEME_ZH),
         "action_stats": _group_stats(action_groups, ACTION_ZH),
+        "grade_stats": _group_stats(grade_groups, {}),
     }
 
 
