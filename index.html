@@ -478,6 +478,8 @@ function render(data) {
         </div>` : ''}
       </div>` : '';
     const anyDone = (sh && sh.completed) || (lt && lt.completed) || (sb && sb.completed) || (cf && cf.completed) || (pr && pr.completed) || (rr && rr.completed);
+    const bl = val._baseline_10y;
+    const blLine = bl ? `<div class="updated" style="margin-top:4px">📏 10年歷史回測基準（${bl.years}年，${bl.summary.shadow?bl.summary.shadow.n:'—'}筆樣本）：影子策略5日勝率 ${bl.summary.shadow?bl.summary.shadow.win_rate_5d:'—'}% · 跑贏大盤 ${bl.summary.shadow?bl.summary.shadow.alpha_win_rate_5d:'—'}%——小樣本(如上方)勝率明顯高於此基準時，代表樣本數還不足以下結論，應以此基準為準</div>` : '';
     document.getElementById('validation-block').innerHTML =
       '<div class="div-head">🎯 前瞻驗證（影子策略 vs 現行評分 vs 社群情緒 vs 多重共振 vs 潛力雷達 vs 研究評級，含超額報酬 alpha）</div>' +
       row('影子 RS≥80', sh, 'var(--green)') +
@@ -486,6 +488,7 @@ function render(data) {
       row('🔗多重訊號共振', cf, 'var(--red)') +
       row('🔭潛力雷達(早期)', pr, 'var(--purple, #a855f7)') +
       row('📊研究評級S/A/B', rr, 'var(--cyan, #22d3ee)') +
+      blLine +
       (anyDone ? '' : '<div class="updated" style="margin-top:4px">⏳ 訊號已記錄，需 5-10 個交易日結算後才有勝率對比</div>');
   }
 
