@@ -66,4 +66,4 @@ def flow_score(info: dict[str, Any], insider_data: dict | None = None) -> tuple[
             score -= 3
             reasons.append(f"內部人大量賣出（{sells} 筆）")
 
-    return max(0, min(score, 15)), reasons
+    return max(0, min(score, 11)), reasons
