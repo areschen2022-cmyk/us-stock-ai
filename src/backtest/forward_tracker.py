@@ -6,6 +6,7 @@ import sqlite3
 from datetime import date, timedelta
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import yfinance as yf
 
@@ -14,6 +15,39 @@ from src.storage.sqlite_store import SQLiteStore
 logger = logging.getLogger(__name__)
 
 _HORIZONS = [3, 5, 10, 20]
+
+
+def _trading_days_later(d: date, n: int) -> date:
+    """Advance n *trading* (weekday) days from d. Was previously n *calendar*
+    days, which understates elapsed trading time whenever the window crosses
+    a weekend — e.g. a Friday signal's "3-day" target landed on Monday (only
+    1 trading day elapsed), silently mixing horizons. Uses numpy's Mon-Fri
+    business-day calendar (ignores market holidays — an approximation, but a
+    large improvement over pure calendar days)."""
+    return np.busday_offset(d.isoformat(), n, roll="forward").astype("datetime64[D]").astype(date)
+
+
+def _fetch_period_low(symbol: str, start_date: date, end_date: date) -> float | None:
+    """Lowest intraday Low between start_date (exclusive) and end_date
+    (inclusive) — used to detect whether a stop would actually have been hit
+    during the holding period, not just whether the close on the settlement
+    date happened to be below it."""
+    try:
+        df = yf.download(symbol, start=str(start_date), end=str(end_date + timedelta(days=1)),
+                         progress=False, auto_adjust=True)
+        if df is None or df.empty:
+            return None
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
+        low = df["Low"].dropna()
+        low.index = [i.date() if hasattr(i, "date") else i for i in low.index]
+        window = low[(low.index > start_date) & (low.index <= end_date)]
+        if window.empty:
+            return None
+        return float(window.min())
+    except Exception as e:
+        logger.warning("period-low fetch failed %s @ %s-%s: %s", symbol, start_date, end_date, e)
+        return None
 
 
 def _fetch_price(symbol: str, target_date: date) -> float | None:
