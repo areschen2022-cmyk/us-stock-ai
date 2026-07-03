@@ -161,6 +161,9 @@
   <!-- 市場 regime（影子策略） -->
   <div id="regime-banner" style="display:none"></div>
 
+  <!-- 產業強弱（掃描器規格書移植 2026-07-03，影子模式） -->
+  <div id="sector-strip" style="display:none;font-size:.75rem;margin-bottom:10px;flex-wrap:wrap;gap:6px"></div>
+
   <!-- AI 複核統計 -->
   <div class="ai-stats-bar" id="ai-stats-bar"></div>
 
@@ -348,11 +351,18 @@ function renderStrategyBadges(st) {
   } else if (rr.gate_reasons && rr.gate_reasons.length) {
     rrBadge = `<span class="strat-badge" style="color:var(--muted)" title="${rr.gate_reasons.join('、')}">研究：未過濾網</span>`;
   }
+  // 產業強弱（掃描器規格書移植 2026-07-03）：個股對應的產業ETF是否強勢
+  const sec = st.sector || {};
+  let secBadge = '';
+  if (sec.sector_etf) {
+    const secColor = {'強勢':'var(--green)','普通':'var(--yellow)','偏弱':'var(--red)'}[sec.status] || 'var(--muted)';
+    secBadge = `<span class="strat-badge" style="color:${secColor}" title="${(sec.reasons||[]).join('、')}">產業${sec.sector_etf} ${sec.status||'—'}</span>`;
+  }
   return `<div class="strat-badges" title="影子策略指標（尚未計入評分）">
     <span class="strat-badge" style="color:${rsColor}">RS ${rs != null ? rs : '—'}</span>
     <span class="strat-badge" style="color:${mtColor}">趨勢 ${mt != null ? mt + '/8' : '—'}${st.phase2 ? ' ✓' : ''}</span>
     <span class="strat-badge" style="color:${liq ? 'var(--green)' : 'var(--red)'}">${liq ? '流動性✓' : '流動性✕'}</span>
-    ${eqBadge}${rrBadge}${socBadge}${riskBadges}
+    ${secBadge}${eqBadge}${rrBadge}${socBadge}${riskBadges}
   </div>`;
 }
 
@@ -432,6 +442,21 @@ function render(data) {
     const breadth = reg.breadth_phase2_pct != null ? `廣度 ${reg.breadth_phase2_pct}% 多頭` : '';
     const allow = reg.allow_new_entries ? '✅ 允許新進場' : '⛔ 優先持盈/觀望';
     banner.innerHTML = `📐 市場狀態：<b>${reg.regime}</b> · ${spy200}${breadth ? ' · ' + breadth : ''} · ${allow}<span class="shadow-tag">影子模式</span>`;
+  }
+
+  // 產業強弱（掃描器規格書移植 2026-07-03，影子模式）
+  const sectors = strat.sectors || {};
+  const sectorEntries = Object.entries(sectors).filter(([,v]) => v && v.status && v.status !== '未知');
+  const sectorStrip = document.getElementById('sector-strip');
+  if (sectorEntries.length) {
+    sectorStrip.style.display = 'flex';
+    const secColor = {'強勢':'var(--green)','普通':'var(--yellow)','偏弱':'var(--red)'};
+    sectorStrip.innerHTML = sectorEntries
+      .sort((a,b) => (b[1].score||0) - (a[1].score||0))
+      .map(([etf,v]) => `<span class="strat-badge" style="color:${secColor[v.status]||'var(--muted)'};border:1px solid ${secColor[v.status]||'var(--muted)'}" title="${(v.reasons||[]).join('、')}">${etf} ${v.status}(${v.score}/20)</span>`)
+      .join('');
+  } else {
+    sectorStrip.style.display = 'none';
   }
 
   // 前瞻驗證：影子 vs 現行 vs 社群情緒 績效對比
