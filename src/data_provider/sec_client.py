@@ -150,3 +150,54 @@ def extract_revenue_yoy(facts: dict) -> float | None:
         return (latest - prior) / abs(prior)
     except Exception:
         return None
+
+
+# ── Form 4 insider transactions (via edgartools, MIT license) ───────────────
+# https://github.com/dgunning/edgartools — restores flow_score's Form-4
+# pathway that was previously always-None (insider_data was never fetched
+# anywhere in the pipeline; see us_stock/flow_score_dead_insider_pathway).
+
+_EDGAR_IDENTITY_SET = False
+
+
+def _ensure_edgar_identity() -> None:
+    """SEC requires a contact identity in the User-Agent for EDGAR API
+    access; edgartools raises if set_identity() hasn't been called."""
+    global _EDGAR_IDENTITY_SET
+    if _EDGAR_IDENTITY_SET:
+        return
+    from edgar import set_identity
+    set_identity("us-stock-ai research contact@example.com")
+    _EDGAR_IDENTITY_SET = True
+
+
+def fetch_insider_transactions(symbol: str, lookback_days: int = 30, max_filings: int = 8) -> dict[str, int]:
+    """Count Form 4 buy/sell transactions in the last `lookback_days`.
+    Returns {"buys": n, "sells": n}, or {} on any failure (rate limit,
+    delisted, no filings) so the pipeline never breaks. max_filings caps the
+    number of individual filings parsed per symbol to bound per-symbol
+    latency (~0.2-0.5s/filing) across a 40-symbol daily run."""
+    try:
+        _ensure_edgar_identity()
+        from edgar import Company
+        from datetime import timedelta
+
+        start = (date.today() - timedelta(days=lookback_days)).isoformat()
+        end = date.today().isoformat()
+        company = Company(symbol)
+        filings = company.get_filings(form="4", filing_date=f"{start}:{end}")
+        buys = sells = 0
+        for f in list(filings)[:max_filings]:
+            try:
+                obj = f.obj()
+                if obj.common_stock_purchases is not None and not obj.common_stock_purchases.empty:
+                    buys += len(obj.common_stock_purchases)
+                if obj.common_stock_sales is not None and not obj.common_stock_sales.empty:
+                    sells += len(obj.common_stock_sales)
+            except Exception as e:
+                logger.warning("Form 4 parse failed %s: %s", symbol, e)
+                continue
+        return {"buys": buys, "sells": sells}
+    except Exception as e:
+        logger.warning("Form 4 fetch failed for %s: %s", symbol, e)
+        return {}
