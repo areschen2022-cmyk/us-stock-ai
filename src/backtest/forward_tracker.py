@@ -91,21 +91,32 @@ def fill_open_signals(store: SQLiteStore) -> int:
             symbol = sig["symbol"]
             signal_date = date.fromisoformat(sig["signal_date"])
             entry_price = sig.get("entry_price")
+            stop_price = sig.get("stop_price")
             if not entry_price:
                 continue
 
             updates: dict[str, object] = {}
+            max_target = signal_date
             for h in _HORIZONS:
                 col = f"return_{h}d"
+                target = _trading_days_later(signal_date, h)
+                max_target = max(max_target, target)
                 if sig.get(col) is not None:
                     continue
-                target = signal_date + timedelta(days=h)
                 if target > today:
                     continue
                 price = _fetch_price(symbol, target)
                 if price:
                     ret = round((price - entry_price) / entry_price * 100, 2)
                     updates[col] = ret
+
+            # stop_hit: did the LOW during the holding period ever touch the
+            # stop, not just the close on a settlement date (a close-only
+            # check misses intraday stop triggers entirely)
+            if sig.get("stop_hit") is None and stop_price:
+                low = _fetch_period_low(symbol, signal_date, min(max_target, today))
+                if low is not None:
+                    updates["stop_hit"] = 1 if low <= stop_price else 0
 
             if not updates:
                 continue
