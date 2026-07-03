@@ -125,9 +125,20 @@ def run_backtest(years: int = 10) -> dict:
 
         # Pass 2: Minervini + liquidity + potential-radar per symbol
         spy_window = spy_close.iloc[: day_i + 1]
+        spy_above_200 = len(spy_window) >= 200 and float(spy_window.iloc[-1]) > float(spy_window.tail(200).mean())
+        mt_by_sym: dict[str, dict] = {}
+        for sym, window in windows.items():
+            mt_by_sym[sym] = us_market.minervini_trend_template(window, rs_rating=rs_pct.get(sym))
+        breadth_phase2_pct = (
+            round(sum(1 for m in mt_by_sym.values() if m.get("phase2")) / len(mt_by_sym) * 100, 1)
+            if mt_by_sym else None
+        )
+        regime_info = us_market.market_regime(spy_window.to_frame("Close"), breadth_phase2_pct)
+        regime_label = regime_info["regime"]
+
         for sym, window in windows.items():
             rating = rs_pct.get(sym)
-            mt = us_market.minervini_trend_template(window, rs_rating=rating)
+            mt = mt_by_sym[sym]
             price = float(window["Close"].iloc[-1])
             liq = us_market.liquidity_gate(window, price)
             if not liq.get("passed"):
