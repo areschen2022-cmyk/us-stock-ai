@@ -48,9 +48,14 @@ def _gate(sig: dict[str, Any], regime: dict[str, Any], risk_penalty: int) -> tup
 
 
 def _composite(sig: dict[str, Any], score_obj: Any) -> float:
-    """Weighted 0-100 composite for ranking purposes only (RS/momentum-heavy,
-    per Codex's suggested weighting: RS 45% / trend quality 20% / catalyst
-    15% / fundamental 10% / flow+social 10%)."""
+    """Weighted 0-100 composite for ranking purposes only. Weights: RS 40% /
+    trend quality 15% / catalyst 15% / fundamental 10% / flow+social 10% /
+    sector strength 10%. Sector strength was added 2026-07-04 (previously
+    this module predated src/indicators/sector.py and ran independently of
+    it — two shadow signals that should reinforce each other were computed
+    in isolation). RS weight trimmed 45%->40% and trend 20%->15% to make
+    room without diluting the RS/momentum-dominant design (this project's
+    own forward-validation data shows RS/Minervini picks outperforming)."""
     rs = sig.get("rs_rating")
     rs_component = rs if rs is not None else 0
 
@@ -75,12 +80,20 @@ def _composite(sig: dict[str, Any], score_obj: Any) -> float:
         social_component = (social_score * 10) if social_score is not None else 50.0
         flow_social_component = (flow_component + social_component) / 2
 
+    sector = sig.get("sector") or {}
+    sector_score = sector.get("score")
+    # 0-20 scale from sector.py -> 0-100; unmapped/unscored sector defaults
+    # to neutral (50) rather than 0, so a stock isn't penalized just because
+    # its sector ETF failed to fetch that day
+    sector_component = (sector_score / 20 * 100) if sector_score is not None else 50.0
+
     return round(
-        rs_component * 0.45
-        + trend_component * 0.20
+        rs_component * 0.40
+        + trend_component * 0.15
         + catalyst_component * 0.15
         + fundamental_component * 0.10
-        + flow_social_component * 0.10,
+        + flow_social_component * 0.10
+        + sector_component * 0.10,
         2,
     )
 
