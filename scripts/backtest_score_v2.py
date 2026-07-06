@@ -320,6 +320,21 @@ def summarize(records: list[dict]) -> dict:
                                  "score_range": f"{int(g['v2'].min())}-{int(g['v2'].max())}"}
     out["v2_deciles_20d_alpha"] = deciles
 
+    # 5b) Top-grade time robustness: does S/A edge rely on 1-2 exceptional years?
+    top_by_year: dict = {}
+    for yr, g in df.groupby("year"):
+        row: dict = {}
+        for grade in ("S", "A"):
+            a = g.loc[g["v2_grade"] == grade, "alpha_20d"].dropna()
+            if len(a) >= 10:
+                row[grade] = {"n": len(a), "avg_alpha_20d": round(float(a.mean()), 2),
+                              "alpha_win_20d": round(float((a > 0).mean() * 100), 1)}
+        rest = g.loc[~g["v2_grade"].isin(["S", "A"]), "alpha_20d"].dropna()
+        if len(rest):
+            row["rest_avg_alpha_20d"] = round(float(rest.mean()), 2)
+        top_by_year[str(yr)] = row
+    out["v2_top_grades_by_year"] = top_by_year
+
     # 6) v2 grade distribution (does the ceiling open up?)
     out["v2_grade_distribution_pct"] = {
         g: round(c / len(df) * 100, 1) for g, c in df["v2_grade"].value_counts().items()
