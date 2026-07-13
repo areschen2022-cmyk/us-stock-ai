@@ -80,6 +80,22 @@ def _fetch_price(symbol: str, target_date: date) -> float | None:
         return None
 
 
+def _classify_failure(ret3: float | None, ret10: float, stop_hit: int | None) -> str:
+    """US port of tw-stock-ai's three-way failure attribution
+    (kp_tw_failure_pattern_summary). Applied only to outcome='loss' signals:
+    - stop_hit        停損觸發: the holding-period low touched the stop
+    - momentum_fade   動能失靈: positive 3d start that reversed to a 10d loss
+                      (US analog of tw's 題材失靈 — the move didn't carry)
+    - weak_after_entry 進場後轉弱: never got going (3d already flat/negative)
+    Priority mirrors tw's data: stop-hit dominates (their stop-hit bucket had
+    100% stop_hit_rate), then the 3d sign splits the rest."""
+    if stop_hit == 1:
+        return "stop_hit"
+    if ret3 is not None and ret3 > 0:
+        return "momentum_fade"
+    return "weak_after_entry"
+
+
 def fill_open_signals(store: SQLiteStore) -> int:
     """Update returns for open signals where enough calendar days have passed."""
     today = date.today()
