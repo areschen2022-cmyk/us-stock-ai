@@ -10,6 +10,8 @@ from src.storage.sqlite_store import SQLiteStore
 
 _SCORE_THRESHOLD = 75
 _TOP_N_FALLBACK = 5
+_MAX_REVIEWS = 8          # per-run cap: ~175 tokens/review keeps a Monday run
+_SCAN_REVIEW_CAP = 5      # (8+5 reviews ≈ 2.3k) inside the 4k daily budget
 
 
 def _build_summary(score: StockScore) -> str:
