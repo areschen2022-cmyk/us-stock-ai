@@ -1,4 +1,11 @@
-"""OpenRouter / DeepSeek API client with token budget tracking."""
+"""OpenRouter / DeepSeek API client with token budget tracking.
+
+Provider resolution (2026-07-13): DeepSeek's native API (api.deepseek.com,
+OpenAI-compatible) is preferred when DEEPSEEK_API_KEY is set — the OpenRouter
+path had been silently dead because OPENROUTER_API_KEY was never configured
+in CI, so the AI council produced zero real reviews. OpenRouter remains as
+the fallback provider for multi-model experiments.
+"""
 from __future__ import annotations
 
 import json
@@ -9,17 +16,41 @@ import httpx
 
 from src.config_loader import env
 
-_BASE_URL = "https://openrouter.ai/api/v1"
-_DEFAULT_MODEL = "deepseek/deepseek-chat"
+_PROVIDERS = {
+    "deepseek": {
+        "base_url": "https://api.deepseek.com/v1",
+        "default_model": "deepseek-chat",
+    },
+    "openrouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "default_model": "deepseek/deepseek-chat",
+    },
+}
 _TOKEN_BUDGET_DEFAULT = 4000
 
 
 class OpenRouterClient:
     def __init__(self) -> None:
-        self.api_key = env("OPENROUTER_API_KEY", "")
-        self.model = env("AI_MODEL", _DEFAULT_MODEL)
+        deepseek_key = env("DEEPSEEK_API_KEY", "")
+        openrouter_key = env("OPENROUTER_API_KEY", "")
+        if deepseek_key:
+            self.provider = "deepseek"
+            self.api_key = deepseek_key
+        else:
+            self.provider = "openrouter"
+            self.api_key = openrouter_key
+        cfg = _PROVIDERS[self.provider]
+        self.base_url = cfg["base_url"]
+        model = env("AI_MODEL", cfg["default_model"])
+        # AI_MODEL may carry an OpenRouter-style "vendor/model" id; the native
+        # DeepSeek endpoint wants the bare model name
+        if self.provider == "deepseek" and "/" in model:
+            model = model.split("/", 1)[1]
+        self.model = model
         self.token_budget = int(env("AI_TOKEN_BUDGET", str(_TOKEN_BUDGET_DEFAULT)))
         self._tokens_used: int = 0
+        if self.api_key:
+            print(f"[AI] provider={self.provider} model={self.model}")
 
     @property
     def tokens_used(self) -> int:
