@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-07-14",
+  "rule": "weekly top-15 v2 S-grade across current S&P 500, equal weight",
+  "known_bias": "current constituents (not point-in-time); no costs (weekly research list, not an execution sim)",
+  "summary": {
+    "n_weeks": 443,
+    "avg_picks_per_week": 14.6,
+    "avg_s_grade_pool": 51.8,
+    "basket_5d": {
+      "avg_ret": 0.39,
+      "avg_alpha": 0.08,
+      "alpha_win_rate": 55.1,
+      "t_stat_alpha": 0.74
+    },
+    "basket_20d": {
+      "avg_ret": 1.79,
+      "avg_alpha": 0.56,
+      "alpha_win_rate": 55.1,
+      "t_stat_alpha": 2.51
+    },
+    "alpha20_by_year": {
+      "2017": {
+        "n_weeks": 19,
+        "avg_alpha20": 0.96,
+        "win": 63.2
+      },
+      "2018": {
+        "n_weeks": 50,
+        "avg_alpha20": 0.77,
+        "win": 68.0
+      },
+      "2019": {
+        "n_weeks": 50,
+        "avg_alpha20": 0.19,
+        "win": 50.0
+      },
+      "2020": {
+        "n_weeks": 51,
+        "avg_alpha20": 1.46,
+        "win": 58.8
+      },
+      "2021": {
+        "n_weeks": 50,
+        "avg_alpha20": -1.57,
+        "win": 40.0
+      },
+      "2022": {
+        "n_weeks": 50,
+        "avg_alpha20": 0.61,
+        "win": 56.0
+      },
+      "2023": {
+        "n_weeks": 50,
+        "avg_alpha20": -0.21,
+        "win": 50.0
+      },
+      "2024": {
+        "n_weeks": 51,
+        "avg_alpha20": 1.24,
+        "win": 56.9
+      },
+      "2025": {
+        "n_weeks": 50,
+        "avg_alpha20": 0.45,
+        "win": 54.0
+      },
+      "2026": {
+        "n_weeks": 22,
+        "avg_alpha20": 3.58,
+        "win": 63.6
+      }
+    }
+  }
+}
