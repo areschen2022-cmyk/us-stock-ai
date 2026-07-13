@@ -405,10 +405,25 @@ def run_daily_update() -> None:
     fill_open_signals(store)
     fill_shadow_signals(store)
 
-    # 7. AI council (token-gated)
+    # 7. AI council (token-gated) — coverage driven by the validated v2 S/A +
+    # weekly-up research tier (the live >=75 threshold is unreachable under
+    # the C-grade ceiling), plus fresh full-market scan candidates on Mondays
     council = ModelCouncil(store=store)
-    candidates = council.select_candidates(scores)
+    v2_priority = {sym for sym, sig in strategy_signals["per_symbol"].items()
+                   if sig.get("v2_grade") in ("S", "A") and sig.get("weekly_up")}
+    candidates = council.select_candidates(scores, priority_symbols=v2_priority)
     ai_reviews = council.review(candidates, today)
+
+    scan_snapshot = None
+    try:
+        scan_path = Path(__file__).parent / "data" / "market_scan.json"
+        if scan_path.exists():
+            scan_snapshot = json.loads(scan_path.read_text(encoding="utf-8"))
+    except Exception as _scan_e:
+        print(f"[Main] scan snapshot read failed (non-fatal): {_scan_e}")
+    scan_reviews = council.review_scan_candidates(scan_snapshot, today)
+    ai_reviews.update(scan_reviews)
+    ai_candidates_count = len(candidates) + len(scan_reviews)
     ai_summaries = council.get_ai_summaries(ai_reviews)
 
     # 8. Dashboard
@@ -440,7 +455,7 @@ def run_daily_update() -> None:
     dash_data = build_dashboard_json(
         scores, market_prices, open_signals, ai_reviews, today,
         theme_history=theme_history, data_health=data_health,
-        strategy_signals=strategy_signals,
+        strategy_signals=strategy_signals, ai_candidates=ai_candidates_count,
     )
     # Validation: shadow vs live_top forward-return comparison
     dash_data["strategy"]["validation"] = store.get_shadow_performance()
@@ -481,12 +496,8 @@ def run_daily_update() -> None:
 
     # Weekly full-market scan snapshot (watchlist candidates) — refreshed by
     # the Monday CI step, served from whatever the latest snapshot is
-    try:
-        scan_path = Path(__file__).parent / "data" / "market_scan.json"
-        if scan_path.exists():
-            dash_data["market_scan"] = json.loads(scan_path.read_text(encoding="utf-8"))
-    except Exception as _scan_e:
-        print(f"[Main] market scan readback failed (non-fatal): {_scan_e}")
+    if scan_snapshot:
+        dash_data["market_scan"] = scan_snapshot
 
     write_dashboard_json(dash_data)
 

@@ -246,6 +246,7 @@ def build_dashboard_json(
     theme_history: dict[str, dict[str, int]] | None = None,
     data_health: dict[str, Any] | None = None,
     strategy_signals: dict[str, Any] | None = None,
+    ai_candidates: int | None = None,
 ) -> dict[str, Any]:
     today = today or date.today()
     strategy_signals = strategy_signals or {}
@@ -324,7 +325,14 @@ def build_dashboard_json(
         "highlights": _highlights(sorted_scores, ai_reviews),
         "ai_stats": _ai_stats(
             ai_reviews,
-            candidates=sum(1 for c in cards if c["grade"] in ("S", "A")),
+            # true count passed from main (selected + scan reviews); the old
+            # fallback counted live S/A grades, which the C-grade ceiling
+            # keeps at zero forever -> coverage was always None. Fallback now
+            # uses the v2 research tier.
+            candidates=ai_candidates if ai_candidates is not None else sum(
+                1 for c in cards
+                if ((c.get("strategy") or {}).get("v2_grade")) in ("S", "A")
+            ),
         ),
         "data_health": data_health or {},
         "strategy": {  # SHADOW: US-market strategy overlay (display-only)
