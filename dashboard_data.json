@@ -32,7 +32,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 1.8,
+    "elapsed_min": 1.5,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -48,7 +48,7 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 23.0,
+      "avg_gap": 23.8,
       "missed_strong": [
         {
           "symbol": "AMD",
@@ -530,8 +530,8 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 73.89,
-          "percentile": 68.4,
-          "research_grade": "C"
+          "percentile": 73.7,
+          "research_grade": "B"
         }
       },
       "divergence_gap": 1
@@ -623,7 +623,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 64.04,
-          "percentile": 36.8,
+          "percentile": 42.1,
           "research_grade": "C"
         }
       },
@@ -873,13 +873,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 9,
           "bearish": 5,
-          "sentiment_ratio": 0.23,
+          "sentiment_ratio": 0.29,
           "watchlist_count": 560746,
           "label": "偏多",
-          "score_0_10": 6.2,
-          "tagged": 13
+          "score_0_10": 6.5,
+          "tagged": 14
         },
         "potential": {
           "stage": null,
@@ -900,7 +900,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 86.37,
+          "composite": 86.52,
           "percentile": 94.7,
           "research_grade": "A"
         }
@@ -1094,7 +1094,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 68.92,
-          "percentile": 47.4,
+          "percentile": 52.6,
           "research_grade": "C"
         }
       },
@@ -1280,7 +1280,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 63.79,
-          "percentile": 31.6,
+          "percentile": 36.8,
           "research_grade": "C"
         }
       },
@@ -1341,13 +1341,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 6,
+          "bullish": 7,
           "bearish": 5,
-          "sentiment_ratio": 0.09,
+          "sentiment_ratio": 0.17,
           "watchlist_count": 599960,
-          "label": "中性",
-          "score_0_10": 5.5,
-          "tagged": 11
+          "label": "偏多",
+          "score_0_10": 5.8,
+          "tagged": 12
         },
         "potential": {
           "stage": null,
@@ -1370,7 +1370,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 43.04,
+          "composite": 43.19,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1737,7 +1737,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 72.97,
-          "percentile": 63.2,
+          "percentile": 68.4,
           "research_grade": "C"
         }
       },
@@ -1922,98 +1922,6 @@
       "divergence_gap": 3
     },
     {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "score": 44,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 257.5400085449219,
-      "entry": 257.5400085449219,
-      "stop": 231.84,
-      "atr_pct": 4.989821831607498,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 5.0%"
-      ],
-      "matched_headlines": [
-        "Did Datadog’s (DDOG) AI-Fueled Q1 2026 Surge Just Shift Its Investment Narrative?"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 17,
-        "F": 17,
-        "Fl": 2,
-        "N": 3,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 91673993216,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 92,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 6,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1345487008.0,
-        "entry_price": 257.5400085449219,
-        "stop_price": 231.84,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 71，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 4,
-          "bearish": 1,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 25456,
-          "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 5
-        },
-        "potential": {
-          "stage": "early_strength",
-          "label": "早期強勢",
-          "reason": "站上50MA且轉強，未達完整Minervini條件",
-          "contraction_ratio": 0.85,
-          "contraction_quality": 15.0,
-          "is_contracting": false,
-          "dist_from_50sma_pct": 16.6
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 77.22,
-          "percentile": 73.7,
-          "research_grade": "B"
-        }
-      },
-      "divergence_gap": 48
-    },
-    {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
       "score": 41,
@@ -2068,13 +1976,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 3,
+          "bullish": 4,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 68047,
           "label": "資料不足",
           "score_0_10": 10.0,
-          "tagged": 3
+          "tagged": 4
         },
         "potential": {
           "stage": null,
@@ -2397,7 +2305,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 63.57,
-          "percentile": 26.3,
+          "percentile": 31.6,
           "research_grade": "C"
         }
       },
@@ -2941,7 +2849,7 @@
           "bullish": 10,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 70240,
+          "watchlist_count": 70239,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 10
@@ -2966,7 +2874,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 67.29,
-          "percentile": 42.1,
+          "percentile": 47.4,
           "research_grade": "C"
         }
       },
@@ -3249,7 +3157,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 72.82,
-          "percentile": 57.9,
+          "percentile": 63.2,
           "research_grade": "C"
         }
       },
@@ -3339,7 +3247,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 69.47,
-          "percentile": 52.6,
+          "percentile": 57.9,
           "research_grade": "C"
         }
       },
@@ -3400,13 +3308,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 5,
+          "bullish": 6,
           "bearish": 9,
-          "sentiment_ratio": -0.29,
+          "sentiment_ratio": -0.2,
           "watchlist_count": 1055666,
           "label": "偏空",
-          "score_0_10": 3.5,
-          "tagged": 14
+          "score_0_10": 4.0,
+          "tagged": 15
         },
         "potential": {
           "stage": "weakening",
@@ -3434,7 +3342,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 41.71,
+          "composite": 41.96,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3737,6 +3645,88 @@
       "divergence_gap": 63
     },
     {
+      "symbol": "DDOG",
+      "name": "DDOG",
+      "score": 25,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 257.5400085449219,
+      "entry": 257.5400085449219,
+      "stop": 231.84,
+      "atr_pct": 4.989821831607498,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 5.0%"
+      ],
+      "matched_headlines": [
+        "Did Datadog’s (DDOG) AI-Fueled Q1 2026 Surge Just Shift Its Investment Narrative?"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 17,
+        "F": 0,
+        "Fl": 0,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "",
+      "market_cap": 0,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 92,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1345487008.0,
+        "entry_price": 257.5400085449219,
+        "stop_price": 231.84,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 71，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 4,
+          "bearish": 1,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 25456,
+          "label": "強烈看多",
+          "score_0_10": 8.0,
+          "tagged": 5
+        },
+        "potential": {
+          "stage": "early_strength",
+          "label": "早期強勢",
+          "reason": "站上50MA且轉強，未達完整Minervini條件",
+          "contraction_ratio": 0.85,
+          "contraction_quality": 15.0,
+          "is_contracting": false,
+          "dist_from_50sma_pct": 16.6
+        },
+        "sector": null,
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 63.05,
+          "percentile": 26.3,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 67
+    },
+    {
       "symbol": "SMCI",
       "name": "Super Micro Computer, Inc.",
       "score": 24,
@@ -3843,6 +3833,106 @@
       "divergence_gap": -3
     },
     {
+      "symbol": "COIN",
+      "name": "Coinbase Global, Inc.",
+      "score": 19,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 159.07000732421875,
+      "entry": 159.07000732421875,
+      "stop": 138.31,
+      "atr_pct": 6.524080653513395,
+      "themes": [
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.5%"
+      ],
+      "matched_headlines": [
+        "Kraken To Relaunch Mobile App With Agentic Trading",
+        "Circle Stock Rallies On National Bank Approval. ARK Buys More Shares."
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 2
+      },
+      "sub": {
+        "T": 0,
+        "F": 10,
+        "Fl": 0,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Financial Services",
+      "market_cap": 41908707328,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 8,
+        "rs_score_0_10": 0.0,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1582803285.0,
+        "entry_price": 159.07000732421875,
+        "stop_price": 138.31,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 6.5%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 3,
+          "sentiment_ratio": 0.45,
+          "watchlist_count": 137678,
+          "label": "強烈看多",
+          "score_0_10": 7.2,
+          "tagged": 11
+        },
+        "potential": {
+          "stage": "weakening",
+          "label": "轉弱觀察",
+          "reason": "跌破50/200MA，非築底階段",
+          "contraction_ratio": 0.46,
+          "contraction_quality": 54.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": -9.2
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 2.7,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(55.7>54.3)",
+            "20日跑贏SPY +2.7%"
+          ],
+          "sector_etf": "XLF"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 27.8,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -11
+    },
+    {
       "symbol": "LMT",
       "name": "Lockheed Martin Corporation",
       "score": 19,
@@ -3896,7 +3986,7 @@
           "bullish": 13,
           "bearish": 2,
           "sentiment_ratio": 0.73,
-          "watchlist_count": 36849,
+          "watchlist_count": 36850,
           "label": "強烈看多",
           "score_0_10": 8.7,
           "tagged": 15
@@ -4025,96 +4115,6 @@
         }
       },
       "divergence_gap": -12
-    },
-    {
-      "symbol": "COIN",
-      "name": "COIN",
-      "score": 9,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 159.07000732421875,
-      "entry": 159.07000732421875,
-      "stop": 138.31,
-      "atr_pct": 6.524080653513395,
-      "themes": [
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動過大 ATR 6.5%"
-      ],
-      "matched_headlines": [
-        "Kraken To Relaunch Mobile App With Agentic Trading",
-        "Circle Stock Rallies On National Bank Approval. ARK Buys More Shares."
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
-      },
-      "sub": {
-        "T": 0,
-        "F": 0,
-        "Fl": 0,
-        "N": 6,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "",
-      "market_cap": 0,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 8,
-        "rs_score_0_10": 0.0,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1582803285.0,
-        "entry_price": 159.07000732421875,
-        "stop_price": 138.31,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 6.5%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 3,
-          "sentiment_ratio": 0.45,
-          "watchlist_count": 137678,
-          "label": "強烈看多",
-          "score_0_10": 7.2,
-          "tagged": 11
-        },
-        "potential": {
-          "stage": "weakening",
-          "label": "轉弱觀察",
-          "reason": "跌破50/200MA，非築底階段",
-          "contraction_ratio": 0.46,
-          "contraction_quality": 54.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": -9.2
-        },
-        "sector": null,
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 17.8,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -1
     }
   ],
   "top10": [
@@ -4297,8 +4297,8 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 73.89,
-          "percentile": 68.4,
-          "research_grade": "C"
+          "percentile": 73.7,
+          "research_grade": "B"
         }
       },
       "divergence_gap": 1
@@ -4390,7 +4390,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 64.04,
-          "percentile": 36.8,
+          "percentile": 42.1,
           "research_grade": "C"
         }
       },
@@ -4640,13 +4640,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 9,
           "bearish": 5,
-          "sentiment_ratio": 0.23,
+          "sentiment_ratio": 0.29,
           "watchlist_count": 560746,
           "label": "偏多",
-          "score_0_10": 6.2,
-          "tagged": 13
+          "score_0_10": 6.5,
+          "tagged": 14
         },
         "potential": {
           "stage": null,
@@ -4667,7 +4667,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 86.37,
+          "composite": 86.52,
           "percentile": 94.7,
           "research_grade": "A"
         }
@@ -4861,7 +4861,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 68.92,
-          "percentile": 47.4,
+          "percentile": 52.6,
           "research_grade": "C"
         }
       },
@@ -5047,7 +5047,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 63.79,
-          "percentile": 31.6,
+          "percentile": 36.8,
           "research_grade": "C"
         }
       },
@@ -5100,9 +5100,9 @@
     },
     {
       "symbol": "DDOG",
-      "name": "Datadog, Inc.",
+      "name": "DDOG",
       "price": 257.5400085449219,
-      "score": 44,
+      "score": 25,
       "stage": "early_strength",
       "label": "早期強勢",
       "reason": "站上50MA且轉強，未達完整Minervini條件",
@@ -5198,9 +5198,9 @@
     },
     {
       "symbol": "COIN",
-      "name": "COIN",
+      "name": "Coinbase Global, Inc.",
       "price": 159.07000732421875,
-      "score": 9,
+      "score": 19,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5367,8 +5367,8 @@
           "score": 47
         },
         {
-          "symbol": "DDOG",
-          "score": 44
+          "symbol": "MSFT",
+          "score": 38
         }
       ],
       "prev_avg": 9.0,
@@ -5519,12 +5519,12 @@
           "score": 46
         },
         {
-          "symbol": "MSTR",
-          "score": 15
+          "symbol": "COIN",
+          "score": 19
         },
         {
-          "symbol": "COIN",
-          "score": 9
+          "symbol": "MSTR",
+          "score": 15
         }
       ],
       "prev_avg": 4.0,
@@ -5813,5 +5813,60 @@
       "confidence": 0.0,
       "reason": "AI unavailable"
     }
-  ]
+  ],
+  "market_timing": {
+    "distribution": {
+      "SPY": {
+        "count": 7,
+        "dates": [
+          "2026-06-05",
+          "2026-06-09",
+          "2026-06-16",
+          "2026-06-17",
+          "2026-06-23",
+          "2026-06-26",
+          "2026-07-08"
+        ]
+      },
+      "QQQ": {
+        "count": 5,
+        "dates": [
+          "2026-06-04",
+          "2026-06-17",
+          "2026-06-23",
+          "2026-07-02",
+          "2026-07-07"
+        ]
+      }
+    },
+    "ftd": {
+      "state": "WINDOW_PASSED",
+      "label": "反彈第20天，FTD 窗口已過未確認（保守）",
+      "swing_low_date": "2026-06-10",
+      "decline_pct": 4.5,
+      "rally_day": 20
+    },
+    "risk": {
+      "zone": "SEVERE",
+      "label": "嚴重",
+      "worst_count": 7
+    },
+    "vcp_candidates": [
+      {
+        "symbol": "DDOG",
+        "label": "早期強勢",
+        "contraction_ratio": 0.85
+      },
+      {
+        "symbol": "CRWD",
+        "label": "早期強勢",
+        "contraction_ratio": 0.78
+      },
+      {
+        "symbol": "PANW",
+        "label": "早期強勢",
+        "contraction_ratio": 1.46
+      }
+    ]
+  }
 }
