@@ -219,7 +219,7 @@ class SQLiteStore:
         new_cols = {
             "spy_entry_price": "REAL", "spy_return_5d": "REAL", "spy_return_10d": "REAL",
             "alpha_5d": "REAL", "alpha_10d": "REAL", "stop_hit": "INTEGER",
-            "failure_reason": "TEXT",
+            "failure_reason": "TEXT", "entry_quality": "TEXT",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
