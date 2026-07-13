@@ -240,6 +240,10 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
             ret10 = updates.get("return_10d") or sig.get("return_10d")
             if ret10 is not None:
                 updates["outcome"] = "win" if ret10 >= 10 else "loss" if ret10 <= -5 else "neutral"
+                if updates["outcome"] == "loss" and sig.get("failure_reason") is None:
+                    ret3 = updates.get("return_3d") or sig.get("return_3d")
+                    sh = updates.get("stop_hit", sig.get("stop_hit"))
+                    updates["failure_reason"] = _classify_failure(ret3, ret10, sh)
             set_clause = ", ".join(f"{k}=?" for k in updates)
             vals = list(updates.values()) + [sig["signal_date"], symbol, sig["grp"]]
             conn.execute(
