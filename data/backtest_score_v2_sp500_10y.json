@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-07-13",
+  "years": 10,
+  "step_days": 5,
+  "universe": "current S&P 500 + watchlist (residual bias: not point-in-time constituents)",
+  "summary": {
+    "n_obs": 106004,
+    "n_dates": 443,
+    "sampling_note": "non-S/A grades subsampled 1-in-3; bucket stats unaffected (within-bucket means)",
+    "by_grade": {
+      "A": {
+        "n": 27512,
+        "win_5d": 55.2,
+        "avg_alpha_5d": 0.08,
+        "win_20d": 56.9,
+        "avg_ret_20d": 1.21,
+        "avg_alpha_20d": 0.18
+      },
+      "B": {
+        "n": 9603,
+        "win_5d": 55.2,
+        "avg_alpha_5d": 0.05,
+        "win_20d": 57.1,
+        "avg_ret_20d": 1.12,
+        "avg_alpha_20d": 0.06
+      },
+      "C": {
+        "n": 13344,
+        "win_5d": 54.4,
+        "avg_alpha_5d": -0.01,
+        "win_20d": 57.7,
+        "avg_ret_20d": 1.31,
+        "avg_alpha_20d": 0.03
+      },
+      "D": {
+        "n": 32437,
+        "win_5d": 54.6,
+        "avg_alpha_5d": -0.01,
+        "win_20d": 57.0,
+        "avg_ret_20d": 1.44,
+        "avg_alpha_20d": 0.04
+      },
+      "S": {
+        "n": 23108,
+        "win_5d": 54.7,
+        "avg_alpha_5d": 0.11,
+        "win_20d": 57.3,
+        "avg_ret_20d": 1.58,
+        "avg_alpha_20d": 0.63
+      }
+    },
+    "S_weekly_up": {
+      "n": 22459,
+      "win_5d": 54.7,
+      "avg_alpha_5d": 0.11,
+      "win_20d": 57.2,
+      "avg_ret_20d": 1.57,
+      "avg_alpha_20d": 0.64
+    },
+    "SA_weekly_up": {
+      "n": 43991,
+      "win_5d": 55.0,
+      "avg_alpha_5d": 0.1,
+      "win_20d": 57.0,
+      "avg_ret_20d": 1.33,
+      "avg_alpha_20d": 0.4
+    },
+    "watchlist_only_S": {
+      "n": 2621,
+      "win_5d": 56.2,
+      "avg_alpha_5d": 0.59,
+      "win_20d": 59.3,
+      "avg_ret_20d": 3.58,
+      "avg_alpha_20d": 2.39
+    },
+    "non_watchlist_S": {
+      "n": 20487,
+      "win_5d": 54.5,
+      "avg_alpha_5d": 0.05,
+      "win_20d": 57.0,
+      "avg_ret_20d": 1.32,
+      "avg_alpha_20d": 0.4
+    },
+    "S_by_year": {
+      "2017": {
+        "S_n": 1335,
+        "S_alpha20": 0.66,
+        "rest_alpha20": 0.01
+      },
+      "2018": {
+        "S_n": 2644,
+        "S_alpha20": 0.48,
+        "rest_alpha20": 0.11
+      },
+      "2019": {
+        "S_n": 3242,
+        "S_alpha20": 0.07,
+        "rest_alpha20": 0.15
+      },
+      "2020": {
+        "S_n": 2476,
+        "S_alpha20": 1.27,
+        "rest_alpha20": 0.21
+      },
+      "2021": {
+        "S_n": 2573,
+        "S_alpha20": -0.87,
+        "rest_alpha20": 0.5
+      },
+      "2022": {
+        "S_n": 1518,
+        "S_alpha20": 0.92,
+        "rest_alpha20": 0.58
+      },
+      "2023": {
+        "S_n": 2366,
+        "S_alpha20": -0.21,
+        "rest_alpha20": -0.38
+      },
+      "2024": {
+        "S_n": 3315,
+        "S_alpha20": 1.16,
+        "rest_alpha20": -0.46
+      },
+      "2025": {
+        "S_n": 2422,
+        "S_alpha20": 0.62,
+        "rest_alpha20": -0.08
+      },
+      "2026": {
+        "S_n": 1217,
+        "S_alpha20": 4.02,
+        "rest_alpha20": -0.73
+      }
+    }
+  }
+}
