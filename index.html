@@ -161,6 +161,18 @@
   <!-- 市場 regime（影子策略） -->
   <div id="regime-banner" style="display:none"></div>
 
+  <!-- 市場時機（IBD 分配日 / FTD / VCP，晚間排程計算） -->
+  <div class="section-block" id="market-timing-block" style="display:none">
+    <div class="section-title">🧭 市場時機</div>
+    <div id="market-timing-body" style="font-size:.85rem;line-height:1.7"></div>
+  </div>
+
+  <!-- 知識庫要點（Trading Knowledge Hub 讀回，高信心 adopted/backtest_supported） -->
+  <div class="section-block" id="hub-context-block" style="display:none">
+    <div class="section-title">📚 知識庫要點</div>
+    <div id="hub-context-list" style="font-size:.8rem;line-height:1.6"></div>
+  </div>
+
   <!-- 產業強弱（掃描器規格書移植 2026-07-03，影子模式） -->
   <div id="sector-strip" style="display:none;font-size:.75rem;margin-bottom:10px;flex-wrap:wrap;gap:6px"></div>
 
@@ -316,7 +328,7 @@ function renderCard(s) {
     </div>
     <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${s.name || ''}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
     <div class="score-bar"><div class="score-fill" style="width:${fill}%"></div></div>
-    <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}</div>
+    <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}${(s.strategy||{}).ma20_exit != null ? `<span style="color:var(--muted)" title="10年出場掃描最優有保護出場（跌破20日均線出場，PF 1.72 vs 緊停損 1.58）">｜MA20出場 ${fmtPrice(s.strategy.ma20_exit)}</span>` : ''}</div>
     <div class="sub-scores">
       <span class="sub" title="技術">技${sub.T||0}</span>
       <span class="sub" title="基本面">基${sub.F||0}</span>
@@ -378,7 +390,14 @@ function renderStrategyBadges(st) {
     const secColor = {'強勢':'var(--green)','普通':'var(--yellow)','偏弱':'var(--red)'}[sec.status] || 'var(--muted)';
     secBadge = `<span class="strat-badge" style="color:${secColor}" title="${(sec.reasons||[]).join('、')}">產業${sec.sector_etf} ${sec.status||'—'}</span>`;
   }
+  const v2Badge = st.score_v2 != null
+    ? `<span class="strat-badge" style="color:${['S','A'].includes(st.v2_grade) ? 'var(--green)' : st.v2_grade === 'B' ? 'var(--blue)' : 'var(--muted)'}" title="研究評級v2（10年回測驗證：多頭下S/A頂部有效，未計入正式評分）">v2 ${st.score_v2}分${st.v2_grade}</span>`
+    : '';
+  const wkBadge = st.weekly_up != null
+    ? `<span class="strat-badge" style="color:${st.weekly_up ? 'var(--green)' : 'var(--muted)'}" title="週線方向過濾（價>50MA且50MA上升）">週線${st.weekly_up ? '↑' : '—'}</span>`
+    : '';
   return `<div class="strat-badges" title="影子策略指標（尚未計入評分）">
+    ${v2Badge}${wkBadge}
     <span class="strat-badge" style="color:${rsColor}">RS ${rs != null ? rs : '—'}</span>
     <span class="strat-badge" style="color:${mtColor}">趨勢 ${mt != null ? mt + '/8' : '—'}${st.phase2 ? ' ✓' : ''}</span>
     <span class="strat-badge" style="color:${liq ? 'var(--green)' : 'var(--red)'}">${liq ? '流動性✓' : '流動性✕'}</span>
@@ -637,6 +656,33 @@ function render(data) {
     const cnt = g === 'ALL' ? (data.top10||[]).length : (gradeCounts[g]||0);
     return `<button class="filter-btn${g==='ALL'?' on':''}" data-g="${g}" onclick="applyGradeFilter('${g}')">${g} (${cnt})</button>`;
   }).join('');
+
+  // 市場時機（IBD 分配日 / FTD / VCP 候選）
+  const mt = data.market_timing;
+  if (mt) {
+    const dist = mt.distribution || {};
+    const risk = mt.risk || {};
+    const ftd = mt.ftd || {};
+    const riskColor = {SEVERE:'var(--red)', HIGH:'var(--red)', CAUTION:'var(--yellow)', NORMAL:'var(--green)'}[risk.zone] || 'var(--muted)';
+    const ddStr = ['SPY','QQQ'].map(k => (dist[k]||{}).count != null ? `${k} ${dist[k].count} 天` : null).filter(Boolean).join('、');
+    const vcp = (mt.vcp_candidates || []).map(c => `<span class="theme-tag">${c.symbol}${c.label ? ' ' + c.label : ''}</span>`).join('');
+    document.getElementById('market-timing-body').innerHTML =
+      (ddStr ? `▸ 分配日（25 日）：${ddStr}｜風險：<b style="color:${riskColor}">${risk.label || '—'}</b><br>` : '') +
+      (ftd.label ? `▸ FTD 底部確認：${ftd.label}<br>` : '') +
+      (vcp ? `▸ VCP 觀察：${vcp}` : '');
+    document.getElementById('market-timing-block').style.display = '';
+  }
+
+  // 知識庫要點（hub 讀回）
+  const hub = data.hub_context;
+  if (hub && (hub.points || []).length) {
+    document.getElementById('hub-context-list').innerHTML =
+      hub.points.map(p => `<div style="margin-bottom:4px">▸ <b>${p.topic}</b>` +
+        `<span class="strat-badge" style="margin-left:6px;color:${p.status === 'backtest_supported' ? 'var(--blue)' : 'var(--green)'}">${p.status === 'backtest_supported' ? '回測支持' : '已採納'}</span>` +
+        `<br><span style="color:var(--muted)">${p.claim}</span></div>`).join('') +
+      `<div class="updated" style="margin-top:4px">快照時間：${(hub.generated_at || '').slice(0, 16).replace('T', ' ')}</div>`;
+    document.getElementById('hub-context-block').style.display = '';
+  }
 
   // Top10 cards
   document.getElementById('top10-grid').innerHTML =
