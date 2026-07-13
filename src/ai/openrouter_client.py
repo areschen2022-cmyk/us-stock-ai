@@ -74,8 +74,9 @@ class OpenRouterClient:
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/us-stock-ai",
         }
+        if self.provider == "openrouter":
+            headers["HTTP-Referer"] = "https://github.com/us-stock-ai"
         payload = {
             "model": self.model,
             "messages": messages,
@@ -84,7 +85,7 @@ class OpenRouterClient:
         }
         try:
             resp = httpx.post(
-                f"{_BASE_URL}/chat/completions",
+                f"{self.base_url}/chat/completions",
                 headers=headers,
                 json=payload,
                 timeout=30,
