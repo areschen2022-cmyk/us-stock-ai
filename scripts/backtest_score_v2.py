@@ -87,63 +87,10 @@ def _composite_return(close: pd.Series) -> float | None:
     return sum(parts) / len(parts) if parts else None
 
 
-def score_v2(window: pd.DataFrame, rs_rating: int | None) -> tuple[int, dict[str, int]]:
-    """Composite 0-100 from point-in-time price/volume only."""
-    close = window["Close"].astype(float)
-    high = window["High"].astype(float)
-    volume = window["Volume"].astype(float)
-    price = float(close.iloc[-1])
-    parts: dict[str, int] = {}
-
-    # 1) RS rating percentile -> 40
-    parts["rs"] = int(round((rs_rating or 0) * 0.40))
-
-    # 2) Minervini trend template -> 30
-    mt = us_market.minervini_trend_template(window, rs_rating=rs_rating)
-    parts["trend"] = int(round(mt["pass_count"] / 8 * 30))
-
-    # 3) 52w-high proximity -> 15
-    hi_52w = float(high.tail(252).max()) if len(high) >= 252 else float(high.max())
-    pct_from_high = (price - hi_52w) / hi_52w * 100 if hi_52w > 0 else -99
-    if pct_from_high >= -5:
-        parts["high52"] = 15
-    elif pct_from_high >= -15:
-        parts["high52"] = 10
-    elif pct_from_high >= -25:
-        parts["high52"] = 5
-    else:
-        parts["high52"] = 0
-
-    # 4) Volume accumulation -> 15
-    #    a) 50d up-day vs down-day volume ratio (institutional accumulation)
-    acc = 0
-    chg = close.diff()
-    v50 = volume.tail(50)
-    c50 = chg.tail(50)
-    up_vol = float(v50[c50 > 0].sum())
-    dn_vol = float(v50[c50 < 0].sum())
-    if dn_vol > 0:
-        ratio = up_vol / dn_vol
-        if ratio >= 1.5:
-            acc += 8
-        elif ratio >= 1.2:
-            acc += 5
-        elif ratio >= 1.0:
-            acc += 2
-    #    b) volatility contraction while holding near highs (VCP-flavored)
-    if len(close) >= 40 and pct_from_high >= -15:
-        vol_now = float(close.tail(20).std())
-        vol_prior = float(close.iloc[-40:-20].std())
-        if vol_prior > 0:
-            cr = vol_now / vol_prior
-            if cr < 0.8:
-                acc += 7
-            elif cr < 1.0:
-                acc += 3
-    parts["volume"] = min(acc, 15)
-
-    total = parts["rs"] + parts["trend"] + parts["high52"] + parts["volume"]
-    return min(total, 100), parts
+# Canonical implementation promoted to src/strategy/us_market.py (2026-07-13)
+# when the validated score went live as a parallel research grade — one source
+# of truth so the backtest and production can't drift apart.
+score_v2 = us_market.score_v2
 
 
 def run(years: int, step: int) -> dict:
