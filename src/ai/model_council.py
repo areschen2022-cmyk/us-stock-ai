@@ -29,12 +29,52 @@ class ModelCouncil:
         self.client = OpenRouterClient()
         self.store = store
 
-    def select_candidates(self, scores: list[StockScore]) -> list[StockScore]:
-        """Return stocks eligible for AI review: score≥75 or top-5."""
-        above_threshold = [s for s in scores if s.total_score >= _SCORE_THRESHOLD]
-        if above_threshold:
-            return above_threshold
-        return sorted(scores, key=lambda s: s.total_score, reverse=True)[:_TOP_N_FALLBACK]
+    def select_candidates(
+        self,
+        scores: list[StockScore],
+        priority_symbols: set[str] | None = None,
+    ) -> list[StockScore]:
+        """Return stocks eligible for AI review.
+
+        Eligibility: live score>=75 (structurally unreachable under the C-grade
+        ceiling, kept for after a recalibration) OR membership in
+        priority_symbols — main passes the v2 S/A + weekly-up set, so the
+        validated research tier drives coverage instead of the dead threshold.
+        Falls back to top-5 by live score; capped at _MAX_REVIEWS."""
+        pri = priority_symbols or set()
+        eligible = [s for s in scores
+                    if s.total_score >= _SCORE_THRESHOLD or s.symbol in pri]
+        if not eligible:
+            eligible = sorted(scores, key=lambda s: s.total_score, reverse=True)[:_TOP_N_FALLBACK]
+        eligible.sort(key=lambda s: (s.symbol in pri, s.total_score), reverse=True)
+        return eligible[:_MAX_REVIEWS]
+
+    def review_scan_candidates(self, scan: dict | None, today: date | None = None) -> dict[str, dict[str, Any]]:
+        """AI second opinion on full-market scan candidates — non-watchlist
+        names with no StockScore, where an independent read adds the most
+        value. Only runs when the scan snapshot is from today (Mondays),
+        so stale candidates don't burn budget every day."""
+        today = today or date.today()
+        if not scan or scan.get("generated_at") != str(today):
+            return {}
+        results: dict[str, dict[str, Any]] = {}
+        for row in (scan.get("candidates") or [])[:_SCAN_REVIEW_CAP]:
+            summary = (
+                f"Full-market v2 research scan hit: score_v2={row.get('score_v2')}/100 (S) "
+                f"RS_rating={row.get('rs_rating')} weekly_trend_up={row.get('weekly_up')} "
+                f"price=${row.get('price')} components={row.get('parts')}. "
+                f"NOT in the current watchlist — assess as a potential watchlist addition."
+            )
+            review = self.client.single_review(row["symbol"], summary)
+            review["score"] = row.get("score_v2")
+            review["grade"] = "S(v2)"
+            review["tokens_used"] = self.client.tokens_used
+            results[row["symbol"]] = review
+            if self.store:
+                self.store.save_ai_review(today, row["symbol"], review)
+        if results:
+            print(f"[AI Council] Scan-candidate reviews: {len(results)}")
+        return results
 
     def review(
         self,
