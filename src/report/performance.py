@@ -117,6 +117,7 @@ def build_performance_payload(store: SQLiteStore, as_of: date | None = None) -> 
         "theme_stats": _group_stats(theme_groups, THEME_ZH),
         "action_stats": _group_stats(action_groups, ACTION_ZH),
         "grade_stats": _group_stats(grade_groups, {}),
+        "entry_quality_stats": _group_stats(eq_groups, {}),
     }
 
 
