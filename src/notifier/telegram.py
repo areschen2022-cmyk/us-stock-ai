@@ -150,6 +150,26 @@ def _build_morning_report(
             body = ""
         body += segment
 
+    # === 市場時機（IBD 分配日 / FTD / VCP 候選，由晚間排程算好快取） ===
+    mt = overview.get("market_timing") or {}
+    if mt:
+        dist = mt.get("distribution", {}) or {}
+        risk = mt.get("risk") or {}
+        ftd = mt.get("ftd") or {}
+        spy_dd = (dist.get("SPY") or {}).get("count")
+        qqq_dd = (dist.get("QQQ") or {}).get("count")
+        dd_str = "、".join(f"{k} {v}天" for k, v in (("SPY", spy_dd), ("QQQ", qqq_dd)) if v is not None)
+        lines = "市場時機\n"
+        if dd_str:
+            lines += f"▸ 分配日(25日)：{dd_str}｜風險：{risk.get('label', '—')}\n"
+        if ftd.get("label"):
+            lines += f"▸ FTD：{ftd['label']}\n"
+        vcp = mt.get("vcp_candidates") or []
+        if vcp:
+            vcp_str = "、".join(f"{c['symbol']}({c.get('label') or ''})" for c in vcp[:6])
+            lines += f"▸ VCP 觀察：{vcp_str}\n"
+        _flush(lines + "\n")
+
     # === 今日重點 ===
     highlights = [s for s in top_scores if s.grade in ("S", "A")][:5]
     if not highlights:

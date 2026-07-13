@@ -27,7 +27,7 @@ from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals
 from src.strategy import us_market, tw_lessons
 from src.strategy.research_rank import build_research_rank
 from src.indicators.technical import calc_atr_pct
-from src.indicators import sector
+from src.indicators import sector, market_timing
 
 
 def _get_revenue_yoy(symbol: str) -> float | None:
@@ -155,6 +155,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "entry_price": sig.get("entry_price"),
                 "stop_price": sig.get("stop_price"),
                 "spy_entry_price": spy_price,
+                "entry_quality": (sig.get("entry_quality") or {}).get("label"),
             })
             shadow_n += 1
             membership.setdefault(sym, set()).add("shadow")
@@ -172,6 +173,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
             "entry_price": sc.price,
             "stop_price": sig.get("stop_price"),
             "spy_entry_price": spy_price,
+            "entry_quality": (sig.get("entry_quality") or {}).get("label"),
         })
         membership.setdefault(sc.symbol, set()).add("live_top")
 
@@ -194,6 +196,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "entry_price": sig.get("entry_price") or (sc.price if sc else None),
                 "stop_price": sig.get("stop_price"),
                 "spy_entry_price": spy_price,
+                "entry_quality": (sig.get("entry_quality") or {}).get("label"),
             })
             social_n += 1
             membership.setdefault(sym, set()).add("social_bullish")
@@ -213,6 +216,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "entry_price": sig.get("entry_price") or (sc.price if sc else None),
                 "stop_price": sig.get("stop_price"),
                 "spy_entry_price": spy_price,
+                "entry_quality": (sig.get("entry_quality") or {}).get("label"),
             })
             confluence_n += 1
 
@@ -231,6 +235,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "entry_price": sig.get("entry_price") or (sc.price if sc else None),
                 "stop_price": sig.get("stop_price"),
                 "spy_entry_price": spy_price,
+                "entry_quality": (sig.get("entry_quality") or {}).get("label"),
             })
             potential_n += 1
 
@@ -249,6 +254,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "entry_price": sig.get("entry_price") or (sc.price if sc else None),
                 "stop_price": sig.get("stop_price"),
                 "spy_entry_price": spy_price,
+                "entry_quality": (sig.get("entry_quality") or {}).get("label"),
             })
             research_n += 1
 
@@ -402,6 +408,23 @@ def run_daily_update() -> None:
     )
     # Validation: shadow vs live_top forward-return comparison
     dash_data["strategy"]["validation"] = store.get_shadow_performance()
+
+    # Market timing block (IBD distribution days + FTD + VCP-tightness picks),
+    # persisted here so the pre-open --telegram-only run can reuse it from the
+    # cached dashboard_data.json without refetching anything
+    try:
+        mt = market_timing.market_timing_summary(spy_df=spy_ohlcv)
+        mt["vcp_candidates"] = [
+            {"symbol": sym, "label": (sig.get("potential") or {}).get("label"),
+             "contraction_ratio": (sig.get("potential") or {}).get("contraction_ratio")}
+            for sym, sig in strategy_signals["per_symbol"].items()
+            if (sig.get("potential") or {}).get("stage") in ("low_base", "early_strength")
+            and (sig.get("rs_rating") or 0) >= 70
+        ]
+        dash_data["market_timing"] = mt
+    except Exception as _mt_e:
+        print(f"[Main] market timing failed (non-fatal): {_mt_e}")
+
     write_dashboard_json(dash_data)
 
     perf_data = build_performance_payload(store, today)
@@ -499,6 +522,7 @@ def run_morning_telegram() -> None:
     # entry-quality persisted by the evening daily-update run.
     strategy_block = dash_data["strategy"]
     eq_map: dict[str, str] = {}
+    mt_block = None
     try:
         from pathlib import Path as _Path
         cached = _Path(__file__).parent / "docs" / "dashboard_data.json"
@@ -508,6 +532,7 @@ def run_morning_telegram() -> None:
             if persisted and (persisted.get("divergence", {}) or {}).get("n_compared"):
                 strategy_block = persisted
             eq_map = _entry_quality_map(persisted_full)
+            mt_block = persisted_full.get("market_timing")
     except Exception as _e:
         print(f"[Main] could not load persisted dashboard: {_e}")
 
@@ -524,6 +549,7 @@ def run_morning_telegram() -> None:
         "data_health": {"source_status": "讀取快取", "quality": "高"},
         "strategy": strategy_block,
         "entry_quality_map": eq_map or _entry_quality_map(dash_data),
+        "market_timing": mt_block,
     }
     overview["data_date"] = str(data_date)
     notifier = TelegramNotifier()

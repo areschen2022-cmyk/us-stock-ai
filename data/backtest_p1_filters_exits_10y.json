@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-07-13",
+  "years": 10,
+  "step_days": 5,
+  "known_bias": "curated watchlist universe; relative comparisons valid",
+  "part_a_filters": {
+    "baseline_SA": {
+      "n": 3040,
+      "avg_alpha_5d": 0.56,
+      "win_5d": 55.5,
+      "avg_alpha_10d": 1.18,
+      "win_10d": 56.9,
+      "avg_alpha_20d": 2.37,
+      "win_20d": 58.4
+    },
+    "weekly_up_only": {
+      "n": 2755,
+      "avg_alpha_5d": 0.6,
+      "win_5d": 55.5,
+      "avg_alpha_10d": 1.3,
+      "win_10d": 57.0,
+      "avg_alpha_20d": 2.61,
+      "win_20d": 58.6
+    },
+    "weekly_down_excluded_pct": 9.4,
+    "not_extended_only": {
+      "n": 2347,
+      "avg_alpha_5d": 0.39,
+      "win_5d": 54.6,
+      "avg_alpha_10d": 0.72,
+      "win_10d": 55.6,
+      "avg_alpha_20d": 1.46,
+      "win_20d": 58.2
+    },
+    "extended_excluded_pct": 22.8,
+    "extended_only(the_chase_bucket)": {
+      "n": 693,
+      "avg_alpha_5d": 1.15,
+      "win_5d": 58.4,
+      "avg_alpha_10d": 2.73,
+      "win_10d": 61.5,
+      "avg_alpha_20d": 5.44,
+      "win_20d": 58.7
+    },
+    "weekly_up_and_not_extended": {
+      "n": 2096,
+      "avg_alpha_5d": 0.4,
+      "win_5d": 54.5,
+      "avg_alpha_10d": 0.8,
+      "win_10d": 55.4,
+      "avg_alpha_20d": 1.66,
+      "win_20d": 58.5
+    },
+    "by_year": {
+      "2017": {
+        "base_n": 120,
+        "base_alpha20": -0.55,
+        "filt_n": 97,
+        "filt_alpha20": 0.31
+      },
+      "2018": {
+        "base_n": 260,
+        "base_alpha20": 1.64,
+        "filt_n": 211,
+        "filt_alpha20": 1.5
+      },
+      "2019": {
+        "base_n": 298,
+        "base_alpha20": 2.17,
+        "filt_n": 243,
+        "filt_alpha20": 2.08
+      },
+      "2020": {
+        "base_n": 354,
+        "base_alpha20": 6.31,
+        "filt_n": 213,
+        "filt_alpha20": 4.32
+      },
+      "2021": {
+        "base_n": 335,
+        "base_alpha20": 1.1,
+        "filt_n": 240,
+        "filt_alpha20": 0.75
+      },
+      "2022": {
+        "base_n": 223,
+        "base_alpha20": 0.38,
+        "filt_n": 150,
+        "filt_alpha20": 0.5
+      },
+      "2023": {
+        "base_n": 405,
+        "base_alpha20": 1.58,
+        "filt_n": 272,
+        "filt_alpha20": 2.13
+      },
+      "2024": {
+        "base_n": 456,
+        "base_alpha20": 5.91,
+        "filt_n": 276,
+        "filt_alpha20": 3.16
+      },
+      "2025": {
+        "base_n": 416,
+        "base_alpha20": -0.28,
+        "filt_n": 283,
+        "filt_alpha20": 0.05
+      },
+      "2026": {
+        "base_n": 173,
+        "base_alpha20": 1.63,
+        "filt_n": 111,
+        "filt_alpha20": -0.2
+      }
+    }
+  },
+  "part_b_exits": {
+    "E0_hold20": {
+      "n": 1313,
+      "avg_ret_pct": 3.88,
+      "win_rate": 57.8,
+      "profit_factor": 2.05,
+      "avg_bars_held": 20.0,
+      "exit_kinds": {
+        "time": 1313
+      }
+    },
+    "E1_stop": {
+      "n": 1313,
+      "avg_ret_pct": 2.26,
+      "win_rate": 41.3,
+      "profit_factor": 1.58,
+      "avg_bars_held": 13.2,
+      "exit_kinds": {
+        "stop": 704,
+        "time": 609
+      }
+    },
+    "E2_stop_t3": {
+      "n": 1313,
+      "avg_ret_pct": 1.39,
+      "win_rate": 47.3,
+      "profit_factor": 1.39,
+      "avg_bars_held": 9.5,
+      "exit_kinds": {
+        "stop": 640,
+        "target": 490,
+        "time": 183
+      }
+    },
+    "E3_stop_t5": {
+      "n": 1313,
+      "avg_ret_pct": 1.76,
+      "win_rate": 43.0,
+      "profit_factor": 1.46,
+      "avg_bars_held": 11.6,
+      "exit_kinds": {
+        "stop": 687,
+        "time": 374,
+        "target": 252
+      }
+    },
+    "E4_stop_ma20": {
+      "n": 1313,
+      "avg_ret_pct": 2.02,
+      "win_rate": 34.6,
+      "profit_factor": 1.72,
+      "avg_bars_held": 10.4,
+      "exit_kinds": {
+        "ma_trail": 982,
+        "stop": 296,
+        "cap": 35
+      }
+    },
+    "E5_stop_time10": {
+      "n": 1313,
+      "avg_ret_pct": 1.38,
+      "win_rate": 49.8,
+      "profit_factor": 1.46,
+      "avg_bars_held": 7.9,
+      "exit_kinds": {
+        "time": 803,
+        "stop": 510
+      }
+    }
+  }
+}
