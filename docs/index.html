@@ -285,16 +285,36 @@ function zhAction(a) { return ACTION_ZH[a] || a || '—'; }
 function thZh(t) { return THEME_ZH[t] || t; }
 function fmtPrice(v) { return v != null ? '$' + Number(v).toFixed(2) : '—'; }
 
+// 股票中文名稱（顯示於英文名下方；未列入者只顯示英文）
+const NAME_ZH = {
+  NVDA:'輝達', AMD:'超微', MSFT:'微軟', AAPL:'蘋果', GOOGL:'字母（谷歌）',
+  META:'Meta 平台', AMZN:'亞馬遜', TSLA:'特斯拉', AVGO:'博通', TSM:'台積電 ADR',
+  ASML:'艾司摩爾', SMCI:'美超微', ARM:'安謀', PLTR:'帕蘭泰爾', MSTR:'微策略',
+  COIN:'Coinbase', APP:'AppLovin', AXON:'Axon 執法科技', LMT:'洛克希德馬丁',
+  RTX:'雷神技術', NOC:'諾斯洛普格魯曼', GEV:'GE 維諾瓦', VST:'Vistra 能源',
+  CRDO:'Credo 科技', ANET:'Arista 網路', SNOW:'Snowflake 雪花', NET:'Cloudflare',
+  DDOG:'Datadog', MDB:'MongoDB', CRWD:'CrowdStrike', PANW:'Palo Alto 資安',
+  ZS:'Zscaler', MELI:'美客多', NU:'努控股', SE:'冬海集團', LLY:'禮來',
+  NVO:'諾和諾德', ABBV:'艾伯維', GILD:'吉利德', MRNA:'莫德納',
+};
+function nameZh(sym) { return NAME_ZH[sym] || ''; }
+// 代碼超連結 → 玩股網個股走勢頁
+function symLink(sym, inner) {
+  return `<a href="https://www.wantgoo.com/global/${String(sym).toLowerCase()}" target="_blank" rel="noopener" `
+    + `style="color:inherit;text-decoration:underline dotted;text-underline-offset:3px" `
+    + `title="開啟玩股網 ${sym} 走勢頁">${inner}</a>`;
+}
+
 function renderCard(s) {
   const fill = Math.min(100, s.score);
   const sub = s.sub || {};
   const themes = (s.themes || []).map(t => `<span class="theme-tag">${thZh(t)}</span>`).join('');
   return `<div class="card" data-grade="${s.grade}">
     <div class="card-header">
-      <span class="symbol">${s.symbol}</span>
+      <span class="symbol">${symLink(s.symbol, s.symbol)}</span>
       <span class="${gradeClass(s.grade)}">${s.grade} ${s.score}分</span>
     </div>
-    <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${s.name || ''}</div>
+    <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${s.name || ''}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
     <div class="score-bar"><div class="score-fill" style="width:${fill}%"></div></div>
     <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}</div>
     <div class="sub-scores">
@@ -369,7 +389,7 @@ function renderStrategyBadges(st) {
 function renderWatchlistRow(s) {
   const themes = (s.themes || []).map(thZh).join('、');
   return `<tr>
-    <td><b>${s.symbol}</b><br><small style="color:var(--muted)">${s.name||''}</small></td>
+    <td>${symLink(s.symbol, `<b>${s.symbol}</b>`)}<br><small style="color:var(--muted)">${s.name||''}</small>${nameZh(s.symbol) ? `<br><small style="color:var(--blue)">${nameZh(s.symbol)}</small>` : ''}</td>
     <td><b>${s.score}</b></td>
     <td><span class="${gradeClass(s.grade)}">${s.grade}</span></td>
     <td>${fmtPrice(s.price)}</td>
@@ -388,7 +408,7 @@ function renderSignalRow(s) {
     ? `<span class="pill ${OUTCOME_CLASS[s.outcome]||''}">${OUTCOME_ZH[s.outcome]||s.outcome}</span>` : '—';
   return `<tr>
     <td>${s.signal_date}</td>
-    <td><b>${s.symbol}</b></td>
+    <td>${symLink(s.symbol, `<b>${s.symbol}</b>`)}</td>
     <td>${s.score}</td>
     <td><span class="${gradeClass(s.grade)}">${s.grade}</span></td>
     <td>${fmtPrice(s.entry_price)}</td>
