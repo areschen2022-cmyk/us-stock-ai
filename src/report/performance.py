@@ -33,12 +33,24 @@ def _row_stats(rows: list[dict[str, Any]]) -> dict[str, float | int]:
     stop_hits = [row for row in completed if int(row.get("stop_hit") or 0) == 1]
     returns = [float(row.get("return_5d") or 0) for row in completed]
 
+    # failure attribution buckets (ported from tw-stock-ai's 失敗歸因) —
+    # losses only, keyed by forward_tracker._classify_failure's taxonomy
+    failures: dict[str, list[float]] = {}
+    for row in rows:
+        reason = row.get("failure_reason")
+        if reason and row.get("return_10d") is not None:
+            failures.setdefault(str(reason), []).append(float(row["return_10d"]))
+
     return {
         "signals": len(rows),
         "completed": len(completed),
         "win_rate_5d": _pct(len(wins) / len(completed) * 100) if completed else 0.0,
         "avg_return_5d": _pct(mean(returns)) if returns else 0.0,
         "stop_hit_rate": _pct(len(stop_hits) / len(completed) * 100) if completed else 0.0,
+        "failure_attribution": {
+            reason: {"n": len(rets), "avg_return_10d": _pct(mean(rets))}
+            for reason, rets in sorted(failures.items(), key=lambda kv: -len(kv[1]))
+        },
     }
 
 
