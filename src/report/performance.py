@@ -98,6 +98,14 @@ def build_performance_payload(store: SQLiteStore, as_of: date | None = None) -> 
         grade = str(row.get("live_grade") or "未分級")
         grade_groups.setdefault(grade, []).append(row)
 
+    # entry-quality validation (port of tw's 進場條件保護 measurement): group
+    # forward returns by the entry_quality label stamped at signal time, so we
+    # can verify on US data whether 可進場 really beats 等拉回/避免追高
+    eq_groups: dict[str, list[dict[str, Any]]] = {}
+    for row in live_top_rows + shadow_rows:
+        label = str(row.get("entry_quality") or "未標記")
+        eq_groups.setdefault(label, []).append(row)
+
     primary_rows = live_top_rows or watch_rows
     return {
         "as_of": as_of.isoformat(),
