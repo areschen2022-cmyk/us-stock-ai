@@ -84,10 +84,6 @@ def _simulate_exit(full: pd.DataFrame, entry_pos: int, entry: float, stop: float
                 return {"ret_pct": (float(close.iloc[i]) / entry - 1) * 100, "bars": bars, "kind": "ma_trail"}
         if time_stop is not None and bars >= time_stop:
             return {"ret_pct": (float(close.iloc[i]) / entry - 1) * 100, "bars": bars, "kind": "time"}
-        if bars >= 20 and not ma_trail and target is None and time_stop is None:
-            return {"ret_pct": (float(close.iloc[i]) / entry - 1) * 100, "bars": bars, "kind": "hold20"}
-        if bars >= 20 and (target is not None or ma_trail is False) and time_stop is None and target is None:
-            pass  # unreachable; kept for clarity
     # cap reached without trigger → exit at last close
     return {"ret_pct": (float(close.iloc[last]) / entry - 1) * 100, "bars": last - entry_pos, "kind": "cap"}
 
