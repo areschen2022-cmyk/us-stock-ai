@@ -32,7 +32,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 1.5,
+    "elapsed_min": 2.2,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -48,7 +48,7 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 23.8,
+      "avg_gap": 23.7,
       "missed_strong": [
         {
           "symbol": "AMD",
@@ -281,7 +281,7 @@
         "alpha_win_rate_5d": 40.2
       },
       "confluence": {
-        "tracked": 100,
+        "tracked": 99,
         "completed": 45,
         "completed_10d": 0,
         "win_rate": 46.7,
@@ -464,7 +464,7 @@
         "波動偏高 ATR 3.2%"
       ],
       "matched_headlines": [
-        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations",
+        "TSMC posts record revenue in second quarter on AI demand",
         "Zapata Quantum Bets Software, AI Partnerships Will Unlock Quantum Computing Value",
         "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?"
       ],
@@ -501,14 +501,13 @@
         },
         "failure_risks": [],
         "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 3,
-          "sentiment_ratio": 0.45,
-          "watchlist_count": 652281,
-          "label": "強烈看多",
-          "score_0_10": 7.2,
-          "tagged": 11
+          "messages": 0,
+          "bullish": 0,
+          "bearish": 0,
+          "sentiment_ratio": null,
+          "watchlist_count": null,
+          "label": "資料不足",
+          "score_0_10": null
         },
         "potential": {
           "stage": null,
@@ -529,9 +528,9 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 73.89,
-          "percentile": 73.7,
-          "research_grade": "B"
+          "composite": 72.79,
+          "percentile": 63.2,
+          "research_grade": "C"
         }
       },
       "divergence_gap": 1
@@ -872,14 +871,13 @@
           }
         ],
         "social": {
-          "messages": 30,
-          "bullish": 9,
-          "bearish": 5,
-          "sentiment_ratio": 0.29,
-          "watchlist_count": 560746,
-          "label": "偏多",
-          "score_0_10": 6.5,
-          "tagged": 14
+          "messages": 0,
+          "bullish": 0,
+          "bearish": 0,
+          "sentiment_ratio": null,
+          "watchlist_count": null,
+          "label": "資料不足",
+          "score_0_10": null
         },
         "potential": {
           "stage": null,
@@ -900,7 +898,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 86.52,
+          "composite": 85.77,
           "percentile": 94.7,
           "research_grade": "A"
         }
@@ -1342,12 +1340,12 @@
         "social": {
           "messages": 30,
           "bullish": 7,
-          "bearish": 5,
-          "sentiment_ratio": 0.17,
-          "watchlist_count": 599960,
-          "label": "偏多",
-          "score_0_10": 5.8,
-          "tagged": 12
+          "bearish": 6,
+          "sentiment_ratio": 0.08,
+          "watchlist_count": 599963,
+          "label": "中性",
+          "score_0_10": 5.4,
+          "tagged": 13
         },
         "potential": {
           "stage": null,
@@ -1370,7 +1368,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 43.19,
+          "composite": 42.99,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1438,13 +1436,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 4,
+          "bullish": 3,
           "bearish": 4,
-          "sentiment_ratio": 0.0,
+          "sentiment_ratio": -0.14,
           "watchlist_count": 32974,
           "label": "中性",
-          "score_0_10": 5.0,
-          "tagged": 8
+          "score_0_10": 4.3,
+          "tagged": 7
         },
         "potential": {
           "stage": null,
@@ -1465,7 +1463,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 84.89,
+          "composite": 84.54,
           "percentile": 89.5,
           "research_grade": "A"
         }
@@ -1531,7 +1529,7 @@
           "bullish": 11,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 15988,
+          "watchlist_count": 15989,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 11
@@ -1655,93 +1653,6 @@
         }
       },
       "divergence_gap": -28
-    },
-    {
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "score": 45,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 315.32000732421875,
-      "entry": 315.32000732421875,
-      "stop": 297.43,
-      "atr_pct": 2.837255081591976,
-      "themes": [
-        "ai_infra"
-      ],
-      "warnings": [],
-      "matched_headlines": [
-        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations",
-        "‘Not Afraid Of Apple,’ Says OpenAI CEO Sam Altman After Trade Secret Lawsuit",
-        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 20,
-        "F": 16,
-        "Fl": 3,
-        "N": 0,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Technology",
-      "market_cap": 4631217307648,
-      "risk_penalty": 0,
-      "strategy": {
-        "rs_rating": 67,
-        "rs_score_0_10": 6.23,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 16851943666.0,
-        "entry_price": 315.32000732421875,
-        "stop_price": 297.43,
-        "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 62 健康未過熱（進場保護區）",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 5,
-          "bearish": 2,
-          "sentiment_ratio": 0.43,
-          "watchlist_count": 982421,
-          "label": "強烈看多",
-          "score_0_10": 7.1,
-          "tagged": 7
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 72.97,
-          "percentile": 68.4,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 22
     },
     {
       "symbol": "NVO",
@@ -1922,6 +1833,98 @@
       "divergence_gap": 3
     },
     {
+      "symbol": "DDOG",
+      "name": "Datadog, Inc.",
+      "score": 44,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 257.5400085449219,
+      "entry": 257.5400085449219,
+      "stop": 231.84,
+      "atr_pct": 4.989821831607498,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 5.0%"
+      ],
+      "matched_headlines": [
+        "Did Datadog’s (DDOG) AI-Fueled Q1 2026 Surge Just Shift Its Investment Narrative?"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 17,
+        "F": 17,
+        "Fl": 2,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 91673993216,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 92,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1345487008.0,
+        "entry_price": 257.5400085449219,
+        "stop_price": 231.84,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 71，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 4,
+          "bearish": 1,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 25455,
+          "label": "強烈看多",
+          "score_0_10": 8.0,
+          "tagged": 5
+        },
+        "potential": {
+          "stage": "early_strength",
+          "label": "早期強勢",
+          "reason": "站上50MA且轉強，未達完整Minervini條件",
+          "contraction_ratio": 0.85,
+          "contraction_quality": 15.0,
+          "is_contracting": false,
+          "dist_from_50sma_pct": 16.6
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 77.22,
+          "percentile": 73.7,
+          "research_grade": "B"
+        }
+      },
+      "divergence_gap": 48
+    },
+    {
       "symbol": "TSM",
       "name": "Taiwan Semiconductor Manufactur",
       "score": 41,
@@ -1940,7 +1943,7 @@
         "波動偏高 ATR 4.9%"
       ],
       "matched_headlines": [
-        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations"
+        "TSMC posts record revenue in second quarter on AI demand"
       ],
       "catalyst_confidence": {
         "grade": "C",
@@ -1979,7 +1982,7 @@
           "bullish": 4,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 68047,
+          "watchlist_count": 68052,
           "label": "資料不足",
           "score_0_10": 10.0,
           "tagged": 4
@@ -2273,12 +2276,12 @@
         "social": {
           "messages": 30,
           "bullish": 1,
-          "bearish": 14,
-          "sentiment_ratio": -0.87,
+          "bearish": 15,
+          "sentiment_ratio": -0.88,
           "watchlist_count": 61498,
           "label": "強烈看空",
-          "score_0_10": 0.7,
-          "tagged": 15
+          "score_0_10": 0.6,
+          "tagged": 16
         },
         "potential": {
           "stage": "early_strength",
@@ -2304,7 +2307,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 63.57,
+          "composite": 63.52,
           "percentile": 31.6,
           "research_grade": "C"
         }
@@ -2465,14 +2468,13 @@
         },
         "failure_risks": [],
         "social": {
-          "messages": 30,
-          "bullish": 10,
-          "bearish": 6,
-          "sentiment_ratio": 0.25,
-          "watchlist_count": 539049,
-          "label": "偏多",
-          "score_0_10": 6.2,
-          "tagged": 16
+          "messages": 0,
+          "bullish": 0,
+          "bearish": 0,
+          "sentiment_ratio": null,
+          "watchlist_count": null,
+          "label": "資料不足",
+          "score_0_10": null
         },
         "potential": {
           "stage": "weakening",
@@ -2500,7 +2502,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 40.3,
+          "composite": 39.7,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2788,7 +2790,7 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 59.64,
-          "percentile": 21.1,
+          "percentile": 26.3,
           "research_grade": "C"
         }
       },
@@ -2849,7 +2851,7 @@
           "bullish": 10,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 70239,
+          "watchlist_count": 70240,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 10
@@ -3157,11 +3159,106 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 72.82,
-          "percentile": 63.2,
+          "percentile": 68.4,
           "research_grade": "C"
         }
       },
       "divergence_gap": 53
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla, Inc.",
+      "score": 32,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 407.760009765625,
+      "entry": 407.760009765625,
+      "stop": 367.41,
+      "atr_pct": 4.947412262713412,
+      "themes": [
+        "ai_infra",
+        "energy_power"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 12,
+        "F": 8,
+        "Fl": 4,
+        "N": 3,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 1531433975808,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 45,
+        "rs_score_0_10": 4.77,
+        "minervini_pass": 3,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 20170431077.0,
+        "entry_price": 407.760009765625,
+        "stop_price": 367.41,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 7,
+          "bearish": 8,
+          "sentiment_ratio": -0.07,
+          "watchlist_count": 1055668,
+          "label": "中性",
+          "score_0_10": 4.6,
+          "tagged": 15
+        },
+        "potential": {
+          "stage": "weakening",
+          "label": "轉弱觀察",
+          "reason": "跌破50/200MA，非築底階段",
+          "contraction_ratio": 0.82,
+          "contraction_quality": 18.0,
+          "is_contracting": false,
+          "dist_from_50sma_pct": -0.4
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.83,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(117.2>116.6)",
+            "20日落後SPY -0.8%"
+          ],
+          "sector_etf": "XLY"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 42.26,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": 13
     },
     {
       "symbol": "GOOGL",
@@ -3219,13 +3316,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 3,
+          "bullish": 2,
           "bearish": 1,
-          "sentiment_ratio": 0.5,
+          "sentiment_ratio": 0.33,
           "watchlist_count": 219240,
           "label": "資料不足",
-          "score_0_10": 7.5,
-          "tagged": 4
+          "score_0_10": 6.7,
+          "tagged": 3
         },
         "potential": {
           "stage": null,
@@ -3246,108 +3343,12 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 69.47,
+          "composite": 69.08,
           "percentile": 57.9,
           "research_grade": "C"
         }
       },
       "divergence_gap": 50
-    },
-    {
-      "symbol": "TSLA",
-      "name": "Tesla, Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 407.760009765625,
-      "entry": 407.760009765625,
-      "stop": 367.41,
-      "atr_pct": 4.947412262713412,
-      "themes": [
-        "ai_infra",
-        "energy_power"
-      ],
-      "warnings": [
-        "財報將近（9 日）",
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [
-        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 12,
-        "F": 8,
-        "Fl": 4,
-        "N": 3,
-        "M": 6,
-        "R": -4
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 1531433975808,
-      "risk_penalty": 4,
-      "strategy": {
-        "rs_rating": 45,
-        "rs_score_0_10": 4.77,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 20170431077.0,
-        "entry_price": 407.760009765625,
-        "stop_price": 367.41,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 6,
-          "bearish": 9,
-          "sentiment_ratio": -0.2,
-          "watchlist_count": 1055666,
-          "label": "偏空",
-          "score_0_10": 4.0,
-          "tagged": 15
-        },
-        "potential": {
-          "stage": "weakening",
-          "label": "轉弱觀察",
-          "reason": "跌破50/200MA，非築底階段",
-          "contraction_ratio": 0.82,
-          "contraction_quality": 18.0,
-          "is_contracting": false,
-          "dist_from_50sma_pct": -0.4
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.83,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(117.2>116.6)",
-            "20日落後SPY -0.8%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 41.96,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": 16
     },
     {
       "symbol": "PLTR",
@@ -3411,7 +3412,7 @@
           "bullish": 10,
           "bearish": 5,
           "sentiment_ratio": 0.33,
-          "watchlist_count": 322294,
+          "watchlist_count": 322295,
           "label": "偏多",
           "score_0_10": 6.7,
           "tagged": 15
@@ -3550,6 +3551,83 @@
       "divergence_gap": 6
     },
     {
+      "symbol": "AAPL",
+      "name": "AAPL",
+      "score": 26,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 315.32000732421875,
+      "entry": 315.32000732421875,
+      "stop": 297.43,
+      "atr_pct": 2.837255081591976,
+      "themes": [
+        "ai_infra"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "TSMC posts record revenue in second quarter on AI demand",
+        "‘Not Afraid Of Apple,’ Says OpenAI CEO Sam Altman After Trade Secret Lawsuit",
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 20,
+        "F": 0,
+        "Fl": 0,
+        "N": 0,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "",
+      "market_cap": 0,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 67,
+        "rs_score_0_10": 6.23,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 16851943666.0,
+        "entry_price": 315.32000732421875,
+        "stop_price": 297.43,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 62 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 7,
+          "bearish": 3,
+          "sentiment_ratio": 0.4,
+          "watchlist_count": 982423,
+          "label": "強烈看多",
+          "score_0_10": 7.0,
+          "tagged": 10
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": null,
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 58.92,
+          "percentile": 21.1,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 41
+    },
+    {
       "symbol": "ASML",
       "name": "ASML Holding N.V. - New York Re",
       "score": 26,
@@ -3645,88 +3723,6 @@
       "divergence_gap": 63
     },
     {
-      "symbol": "DDOG",
-      "name": "DDOG",
-      "score": 25,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 257.5400085449219,
-      "entry": 257.5400085449219,
-      "stop": 231.84,
-      "atr_pct": 4.989821831607498,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 5.0%"
-      ],
-      "matched_headlines": [
-        "Did Datadog’s (DDOG) AI-Fueled Q1 2026 Surge Just Shift Its Investment Narrative?"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 17,
-        "F": 0,
-        "Fl": 0,
-        "N": 3,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "",
-      "market_cap": 0,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 92,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 6,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1345487008.0,
-        "entry_price": 257.5400085449219,
-        "stop_price": 231.84,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 71，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 4,
-          "bearish": 1,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 25456,
-          "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 5
-        },
-        "potential": {
-          "stage": "early_strength",
-          "label": "早期強勢",
-          "reason": "站上50MA且轉強，未達完整Minervini條件",
-          "contraction_ratio": 0.85,
-          "contraction_quality": 15.0,
-          "is_contracting": false,
-          "dist_from_50sma_pct": 16.6
-        },
-        "sector": null,
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 63.05,
-          "percentile": 26.3,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 67
-    },
-    {
       "symbol": "SMCI",
       "name": "Super Micro Computer, Inc.",
       "score": 24,
@@ -3791,13 +3787,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 9,
+          "bullish": 10,
           "bearish": 4,
-          "sentiment_ratio": 0.38,
+          "sentiment_ratio": 0.43,
           "watchlist_count": 89640,
-          "label": "偏多",
-          "score_0_10": 6.9,
-          "tagged": 13
+          "label": "強烈看多",
+          "score_0_10": 7.1,
+          "tagged": 14
         },
         "potential": {
           "stage": "weakening",
@@ -3825,7 +3821,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 40.22,
+          "composite": 40.33,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3894,7 +3890,7 @@
           "bullish": 8,
           "bearish": 3,
           "sentiment_ratio": 0.45,
-          "watchlist_count": 137678,
+          "watchlist_count": 137677,
           "label": "強烈看多",
           "score_0_10": 7.2,
           "tagged": 11
@@ -4231,7 +4227,7 @@
         "波動偏高 ATR 3.2%"
       ],
       "matched_headlines": [
-        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations",
+        "TSMC posts record revenue in second quarter on AI demand",
         "Zapata Quantum Bets Software, AI Partnerships Will Unlock Quantum Computing Value",
         "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?"
       ],
@@ -4268,14 +4264,13 @@
         },
         "failure_risks": [],
         "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 3,
-          "sentiment_ratio": 0.45,
-          "watchlist_count": 652281,
-          "label": "強烈看多",
-          "score_0_10": 7.2,
-          "tagged": 11
+          "messages": 0,
+          "bullish": 0,
+          "bearish": 0,
+          "sentiment_ratio": null,
+          "watchlist_count": null,
+          "label": "資料不足",
+          "score_0_10": null
         },
         "potential": {
           "stage": null,
@@ -4296,9 +4291,9 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 73.89,
-          "percentile": 73.7,
-          "research_grade": "B"
+          "composite": 72.79,
+          "percentile": 63.2,
+          "research_grade": "C"
         }
       },
       "divergence_gap": 1
@@ -4639,14 +4634,13 @@
           }
         ],
         "social": {
-          "messages": 30,
-          "bullish": 9,
-          "bearish": 5,
-          "sentiment_ratio": 0.29,
-          "watchlist_count": 560746,
-          "label": "偏多",
-          "score_0_10": 6.5,
-          "tagged": 14
+          "messages": 0,
+          "bullish": 0,
+          "bearish": 0,
+          "sentiment_ratio": null,
+          "watchlist_count": null,
+          "label": "資料不足",
+          "score_0_10": null
         },
         "potential": {
           "stage": null,
@@ -4667,7 +4661,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 86.52,
+          "composite": 85.77,
           "percentile": 94.7,
           "research_grade": "A"
         }
@@ -5100,9 +5094,9 @@
     },
     {
       "symbol": "DDOG",
-      "name": "DDOG",
+      "name": "Datadog, Inc.",
       "price": 257.5400085449219,
-      "score": 25,
+      "score": 44,
       "stage": "early_strength",
       "label": "早期強勢",
       "reason": "站上50MA且轉強，未達完整Minervini條件",
@@ -5271,7 +5265,7 @@
       "symbol": "TSLA",
       "name": "Tesla, Inc.",
       "price": 407.760009765625,
-      "score": 29,
+      "score": 32,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5367,8 +5361,8 @@
           "score": 47
         },
         {
-          "symbol": "MSFT",
-          "score": 38
+          "symbol": "DDOG",
+          "score": 44
         }
       ],
       "prev_avg": 9.0,
@@ -5572,7 +5566,7 @@
         },
         {
           "symbol": "TSLA",
-          "score": 29
+          "score": 32
         }
       ],
       "prev_avg": 3.0,
