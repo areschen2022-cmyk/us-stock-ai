@@ -173,6 +173,13 @@
     <div id="hub-context-list" style="font-size:.8rem;line-height:1.6"></div>
   </div>
 
+  <!-- 觀察名單候補（每週一全市場 v2 S 級掃描） -->
+  <div class="section-block" id="market-scan-block" style="display:none">
+    <div class="section-title">🔎 觀察名單候補（全市場 v2 掃描）</div>
+    <div class="updated" style="margin-bottom:6px">依據全池回測：選池是 alpha 主要來源，此清單把選池系統化。僅供研究，加入觀察名單由人工決定。</div>
+    <div id="market-scan-list" style="font-size:.85rem;line-height:1.8"></div>
+  </div>
+
   <!-- 產業強弱（掃描器規格書移植 2026-07-03，影子模式） -->
   <div id="sector-strip" style="display:none;font-size:.75rem;margin-bottom:10px;flex-wrap:wrap;gap:6px"></div>
 
@@ -682,6 +689,20 @@ function render(data) {
         `<br><span style="color:var(--muted)">${p.claim}</span></div>`).join('') +
       `<div class="updated" style="margin-top:4px">快照時間：${(hub.generated_at || '').slice(0, 16).replace('T', ' ')}</div>`;
     document.getElementById('hub-context-block').style.display = '';
+  }
+
+  // 觀察名單候補（全市場掃描）
+  const scan = data.market_scan;
+  if (scan && (scan.candidates || []).length) {
+    document.getElementById('market-scan-list').innerHTML =
+      scan.candidates.map(c =>
+        `<div>▸ ${symLink(c.symbol, `<b>${c.symbol}</b>`)}${nameZh(c.symbol) ? `（${nameZh(c.symbol)}）` : ''}` +
+        ` <span class="strat-badge" style="color:var(--green)">v2 ${c.score_v2}分S</span>` +
+        ` <span class="strat-badge">RS ${c.rs_rating}</span>` +
+        ` <span class="strat-badge" style="color:${c.weekly_up ? 'var(--green)' : 'var(--muted)'}">週線${c.weekly_up ? '↑' : '—'}</span>` +
+        ` <span style="color:var(--muted)">${fmtPrice(c.price)}</span></div>`).join('') +
+      `<div class="updated" style="margin-top:4px">掃描日：${scan.generated_at}｜全池 S 級 ${scan.s_grade_total} 檔（其中 ${scan.s_grade_in_watchlist} 檔已在觀察名單）</div>`;
+    document.getElementById('market-scan-block').style.display = '';
   }
 
   // Top10 cards
