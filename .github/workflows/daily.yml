@@ -43,6 +43,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Full-market S-grade scan (Mondays; watchlist candidates)
+        continue-on-error: true
+        run: python scripts/scan_market_candidates.py
+
       - name: Run daily scoring pipeline
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
