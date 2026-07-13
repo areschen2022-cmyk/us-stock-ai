@@ -219,10 +219,17 @@ class SQLiteStore:
         new_cols = {
             "spy_entry_price": "REAL", "spy_return_5d": "REAL", "spy_return_10d": "REAL",
             "alpha_5d": "REAL", "alpha_10d": "REAL", "stop_hit": "INTEGER",
+            "failure_reason": "TEXT",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
                 conn.execute(f"ALTER TABLE shadow_signals ADD COLUMN {col} {coltype}")
+        # failure attribution (tw-stock-ai's 失敗歸因 loop, ported): losing
+        # signals get classified so rule adjustments can target the actual
+        # failure mode instead of a lump "loss" bucket
+        watch_cols = {r[1] for r in conn.execute("PRAGMA table_info(watch_signals)")}
+        if "failure_reason" not in watch_cols:
+            conn.execute("ALTER TABLE watch_signals ADD COLUMN failure_reason TEXT")
 
     # ── daily scores ──────────────────────────────────────────────────────────
 
