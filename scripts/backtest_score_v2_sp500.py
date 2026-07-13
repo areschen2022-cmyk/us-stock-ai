@@ -39,7 +39,13 @@ _WARMUP_DAYS = 280
 
 
 def get_sp500_symbols() -> list[str]:
-    tables = pd.read_html("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")
+    import io
+    import requests
+    resp = requests.get(
+        "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
+        headers={"User-Agent": "Mozilla/5.0 (research script)"}, timeout=30)
+    resp.raise_for_status()
+    tables = pd.read_html(io.StringIO(resp.text))
     syms = [str(s).replace(".", "-").strip() for s in tables[0]["Symbol"].tolist()]
     return sorted(set(syms))
 
