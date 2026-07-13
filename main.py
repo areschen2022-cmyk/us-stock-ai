@@ -103,6 +103,43 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
     return {"per_symbol": per_symbol, "regime": regime}
 
 
+def _log_ai_review_signals(store, today, ai_reviews: dict, scores, per_symbol: dict,
+                           scan_snapshot: dict | None, spy_price: float | None) -> None:
+    """Forward-validation for the AI council itself: log every reviewed symbol
+    under ai_buy / ai_hold / ai_avoid so the forward tracker scores DeepSeek's
+    judgment the same way every other signal group is scored. Scan candidates
+    (no StockScore) take their price from the scan snapshot."""
+    by_symbol = {s.symbol: s for s in scores}
+    scan_prices = {c["symbol"]: c.get("price")
+                   for c in (scan_snapshot or {}).get("candidates", [])}
+    for grp in ("ai_buy", "ai_hold", "ai_avoid"):
+        store.reset_shadow_signals_for_date(today, grp)
+    n = 0
+    for sym, r in ai_reviews.items():
+        action = str(r.get("action") or "").lower()
+        if action not in ("buy", "hold", "avoid"):
+            continue
+        sc = by_symbol.get(sym)
+        sig = per_symbol.get(sym, {})
+        price = (sc.price if sc else None) or scan_prices.get(sym)
+        if not price:
+            continue
+        store.upsert_shadow_signal(today, f"ai_{action}", {
+            "symbol": sym,
+            "rs_rating": sig.get("rs_rating"),
+            "minervini_pass": sig.get("minervini_pass"),
+            "phase2": sig.get("phase2"),
+            "live_grade": sc.grade if sc else r.get("grade"),
+            "live_score": sc.total_score if sc else r.get("score"),
+            "entry_price": price,
+            "stop_price": sig.get("stop_price"),
+            "spy_entry_price": spy_price,
+            "entry_quality": (sig.get("entry_quality") or {}).get("label"),
+        })
+        n += 1
+    print(f"[Main] AI-review shadow signals logged: {n}")
+
+
 def _entry_quality_map(dash_data: dict) -> dict[str, str]:
     """{symbol: entry_quality_label} from the dashboard cards, for Telegram."""
     out: dict[str, str] = {}
@@ -425,6 +462,10 @@ def run_daily_update() -> None:
     ai_reviews.update(scan_reviews)
     ai_candidates_count = len(candidates) + len(scan_reviews)
     ai_summaries = council.get_ai_summaries(ai_reviews)
+
+    # 7b. Forward-validate the AI itself (ai_buy/ai_hold/ai_avoid groups)
+    _log_ai_review_signals(store, today, ai_reviews, scores,
+                           strategy_signals["per_symbol"], scan_snapshot, spy_price_today)
 
     # 8. Dashboard
     open_signals = store.get_open_signals()
