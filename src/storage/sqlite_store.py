@@ -396,7 +396,8 @@ class SQLiteStore:
             ).fetchall()
             return [dict(r) for r in rows]
 
-    SHADOW_GROUPS = ("shadow", "live_top", "social_bullish", "confluence", "potential_radar", "research_rank", "score_v2_sa")
+    SHADOW_GROUPS = ("shadow", "live_top", "social_bullish", "confluence", "potential_radar",
+                     "research_rank", "score_v2_sa", "ai_buy", "ai_hold", "ai_avoid")
 
     def get_shadow_performance(self) -> dict:
         """Aggregate win-rate / avg forward return per group ('shadow',
