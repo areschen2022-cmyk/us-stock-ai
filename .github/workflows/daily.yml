@@ -62,10 +62,6 @@ jobs:
         continue-on-error: true
         run: python scripts/export_learning_to_knowledge_hub.py
 
-      - name: Full-market S-grade scan (Mondays; watchlist candidates)
-        continue-on-error: true
-        run: python scripts/scan_market_candidates.py
-
       - name: Commit dashboard & knowledge exports
         run: |
           git config user.name "github-actions[bot]"
