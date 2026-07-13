@@ -479,6 +479,15 @@ def run_daily_update() -> None:
     except Exception as _hub_e:
         print(f"[Main] hub context readback failed (non-fatal): {_hub_e}")
 
+    # Weekly full-market scan snapshot (watchlist candidates) — refreshed by
+    # the Monday CI step, served from whatever the latest snapshot is
+    try:
+        scan_path = Path(__file__).parent / "data" / "market_scan.json"
+        if scan_path.exists():
+            dash_data["market_scan"] = json.loads(scan_path.read_text(encoding="utf-8"))
+    except Exception as _scan_e:
+        print(f"[Main] market scan readback failed (non-fatal): {_scan_e}")
+
     write_dashboard_json(dash_data)
 
     perf_data = build_performance_payload(store, today)
