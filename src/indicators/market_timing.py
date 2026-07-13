@@ -32,6 +32,13 @@ _FTD_DAY_MIN, _FTD_DAY_MAX = 4, 15
 _RISK_ZONES = [(7, "SEVERE", "嚴重"), (5, "HIGH", "高風險"), (3, "CAUTION", "警戒"), (0, "NORMAL", "正常")]
 
 
+def _fmt_date(v) -> str:
+    """Index values may be Timestamps (local yfinance) or plain strings (the
+    CI pipeline's frames) — render either as YYYY-MM-DD."""
+    d = getattr(v, "date", None)
+    return str(d()) if callable(d) else str(v)[:10]
+
+
 def _fetch_daily(symbol: str, period: str = "6mo") -> pd.DataFrame | None:
     try:
         df = yf.download(symbol, period=period, auto_adjust=True, progress=False)
@@ -58,7 +65,7 @@ def distribution_days(df: pd.DataFrame) -> dict[str, Any]:
             dd_close = float(close.iloc[i])
             # 5% rally above the DD close invalidates it
             if float(close.iloc[i:].max()) < dd_close * _DD_INVALIDATE_RALLY:
-                dates.append(str(df.index[i].date()))
+                dates.append(_fmt_date(df.index[i]))
     _ = latest
     return {"count": len(dates), "dates": dates}
 
@@ -99,7 +106,7 @@ def ftd_state(df: pd.DataFrame) -> dict[str, Any]:
         return {"state": "NO_SIGNAL", "label": "低點後尚無上漲日"}
 
     day_count = len(close) - rally_day1_pos
-    swing_low_date = str(idx[trough_pos].date())
+    swing_low_date = _fmt_date(idx[trough_pos])
 
     chg_pct = close.pct_change() * 100
     for i in range(rally_day1_pos, len(close)):
@@ -109,8 +116,8 @@ def ftd_state(df: pd.DataFrame) -> dict[str, Any]:
                 and volume.iloc[i] > volume.iloc[i - 1]):
             return {
                 "state": "FTD_CONFIRMED",
-                "label": f"FTD 已確認（{idx[i].date()}，第{day_n}天，+{chg_pct.iloc[i]:.1f}%）",
-                "ftd_date": str(idx[i].date()),
+                "label": f"FTD 已確認（{_fmt_date(idx[i])}，第{day_n}天，+{chg_pct.iloc[i]:.1f}%）",
+                "ftd_date": _fmt_date(idx[i]),
                 "swing_low_date": swing_low_date,
                 "decline_pct": round(decline_pct, 1),
             }
