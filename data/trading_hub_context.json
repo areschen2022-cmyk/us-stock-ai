@@ -1,0 +1,563 @@
+{
+  "ok": true,
+  "generated_at": "2026-07-13T18:36:08+08:00",
+  "hub_root": "C:\\Users\\User\\trading_knowledge_hub",
+  "domain": "us_stock",
+  "count": 33,
+  "used_count": 33,
+  "rows": [
+    {
+      "id": "kp_risk_stop_loss_rule",
+      "topic": "停損紀律",
+      "claim": "進場前必須先確認停損點，不允許因帳面虧損而移動停損放寬；若市場結構改變，可提前出場。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.92,
+      "evidence": "外匯：可用 ATR × 1.5 作為波動停損；台股：以前低或關鍵支撐作為結構停損，避免用固定點數。",
+      "source_ref": "cross_domain:risk_management",
+      "tags": [
+        "停損",
+        "風險管理",
+        "紀律",
+        "跨域"
+      ]
+    },
+    {
+      "id": "kp_psych_revenge_trade",
+      "topic": "避免報復性交易",
+      "claim": "虧損後的下一筆交易必須嚴格符合規則訊號，不允許因想「回本」而放寬進場條件或放大倉位。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.91,
+      "evidence": "報復性交易是帳戶爆倉的常見原因。外匯連跌後常見過度交易亞洲盤；台股常見追高想回本。",
+      "source_ref": "cross_domain:psychology",
+      "tags": [
+        "心理",
+        "報復交易",
+        "紀律",
+        "跨域"
+      ]
+    },
+    {
+      "id": "kp_b7102098f4624a61",
+      "topic": "us-stock-ai 全 D 級主因：資金流+新聞兩因子死掉（已修）",
+      "claim": "症狀:C 級以上極少(C1 D39)。獨立追子分數發現 5 因子有 2 個死掉把分數壓在~59:(1)資金流全卡 3:flow.py 用錯 yfinance 欄位(institutionPercentHeld 應為 heldPercentInstitutions/heldPercentInsiders),前面分支全 miss 只剩 fallback +3。修:正確欄位名+量能放大 proxy(averageDailyVolume10Day/3Month)。(2)新聞全 0:news_events 0 筆+全市場 RSS 比對需標題含完整全名幾乎不命中。改用 yfinance 個股新聞 ticker.news(entry[content][title]),fetch_symbol_news+score_symbol_news 免比對,compute_score 加 symbol_news 參數。結果:等級 C1 D39→B3 C5 D32,ABBV 54→69(B)/PANW 49→66/CRDO 47→65。不動 grade 門檻:因子修好分數範圍自然恢復,不需 curve-fit 門檻。教訓:子分數逐欄追分布最快抓出死因子;外部 API 欄位名要實際驗證不能憑記憶。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.9,
+      "evidence": "gh-pages dashboard_data.json 6/26 等級分布",
+      "source_ref": "us-stock-ai",
+      "tags": [
+        "us-stock-ai",
+        "bug",
+        "scoring",
+        "flow",
+        "news",
+        "yfinance"
+      ]
+    },
+    {
+      "id": "kp_risk_position_sizing",
+      "topic": "倉位管理基本原則",
+      "claim": "單筆風險不超過帳戶淨值 1-2%；連虧 3 筆後強制暫停交易，避免情緒化操作。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.9,
+      "evidence": "適用外匯(XAUUSD)與台股。外匯波動大需更嚴格；台股隔日跳空需提前估停損金額。",
+      "source_ref": "cross_domain:risk_management",
+      "tags": [
+        "風險管理",
+        "倉位",
+        "跨域",
+        "xauusd",
+        "台股"
+      ]
+    },
+    {
+      "id": "kp_backtest_minimum_sample",
+      "topic": "回測最低樣本數要求",
+      "claim": "單一策略或因子判斷需至少 30 筆已完成樣本才可初步判讀；低於 15 筆僅供觀察，不可作為決策依據。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.88,
+      "evidence": "台股因子歸因（performance_data.json）已依樣本數分級：樣本不足(<15)、可初判(30+)、可校準(100+)。外匯同樣標準。",
+      "source_ref": "cross_domain:backtest_discipline",
+      "tags": [
+        "回測",
+        "樣本數",
+        "統計顯著",
+        "跨域"
+      ]
+    },
+    {
+      "id": "kp_risk_rr_ratio",
+      "topic": "最低風報比要求",
+      "claim": "任何進場必須確認潛在獲利至少是停損的 1.5 倍（RR ≥ 1.5）；優先尋找 RR ≥ 2 的設置。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.88,
+      "evidence": "低 RR 即使勝率高也容易在手續費/滑價後虧損。外匯因槓桿高更需嚴格執行。",
+      "source_ref": "cross_domain:risk_management",
+      "tags": [
+        "風報比",
+        "RR",
+        "風險管理",
+        "跨域"
+      ]
+    },
+    {
+      "id": "kp_backtest_walk_forward",
+      "topic": "Walk-Forward 驗證標準",
+      "claim": "策略需通過 Walk-Forward 測試，至少 4/5 期呈正收益才視為具有跨期穩定性。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.87,
+      "evidence": "XAUUSD time_stop_120 WF=5/5 通過。台股因子若要升級為 backtest_supported 也需要跨時間段驗證。",
+      "source_ref": "cross_domain:backtest_discipline",
+      "tags": [
+        "回測",
+        "walk_forward",
+        "跨域",
+        "過擬合防範"
+      ]
+    },
+    {
+      "id": "ares_kp_3cc4d56a4bd3f5",
+      "topic": "Quant research pipeline tool for XAUUSD and EURUSD",
+      "claim": "ARES must convert notebook-style quant research into an executable pipeline: environment, data/factors, backtest/shadow, performance, and signal review. EURUSD cannot advance beyond shadow mode until at least 30 completed observations are reviewed.",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.86,
+      "evidence": "2026-06-26 added research_pipeline.py, /api/research-pipeline, dashboard 量化研究流程, and post_update_check API validation.",
+      "source_ref": "code:research_pipeline.py+dashboard_server.py+dashboard.html",
+      "tags": [
+        "research_pipeline",
+        "notebook_sop",
+        "xauusd",
+        "eurusd",
+        "shadow_training",
+        "win_rate",
+        "dashboard",
+        "ares",
+        "general"
+      ]
+    },
+    {
+      "id": "kp_gen_db883ebf6492",
+      "topic": "us_stock/dashboard_shows_10y_backtest_baseline_alongside_live_validation",
+      "claim": "get_shadow_performance()新增_baseline_10y欄位，將10年回測基準(shadow 5日勝率54.9%/alpha勝率53.0%)與即時前瞻驗證數據一起回傳，dashboard前瞻驗證區塊顯示對照行，避免使用者被小樣本(如14筆92%勝率)誤導",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.85,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "dashboard",
+        "validation",
+        "baseline",
+        "ux"
+      ]
+    },
+    {
+      "id": "kp_e4d68c1feb33",
+      "topic": "us_stock/social_sentiment_confidence_denominator_bug",
+      "claim": "StockTwits fetch_stocktwits_sentiment()/_label() 曾誤用 messages(串流固定回傳約30則) 當信心分母，正確應為 tagged=bullish+bearish(實際被標記的則數)。導致單一則標記貼文(如 GILD bull=1,bear=0,messages=30) 就被誤判為\"強烈看多\"，使 social_bullish 驗證群組把 37/40 支股票誤納入(遠高於預期的合理選股率)。修復：_label() 改用 tagged 參數、main.py 篩選閾值改 _SOCIAL_MIN_TAGGED=5 (取代 _SOCIAL_MIN_MESSAGES=15)，並新增 tagged 欄位供舊快取回退計算。修復後同一天資料從 37 降至 35，spot-check 確認 GILD 類低標記股票已正確排除，其餘35支皆為 tagged>=6 且比例明確偏多的真實訊號。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.85,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "bug_fix",
+        "social_sentiment",
+        "stocktwits",
+        "validation_framework"
+      ]
+    },
+    {
+      "id": "kp_us_market_snapshot",
+      "topic": "美股市場快照（2026-07-03）",
+      "claim": "【市場環境】SPY=744.8 QQQ=712.6 VIX=15.8（低波動/正常）。評分標的 40 檔，優質（S/A/B）占 0.0%（S:0 A:0 B:0）。",
+      "domain": "us_stock",
+      "status": "backtest_supported",
+      "confidence": 0.85,
+      "evidence": "us-stock-ai dashboard_data as_of=2026-07-03",
+      "source_ref": "us-stock-ai dashboard_data.json (auto-sync)",
+      "tags": [
+        "美股",
+        "auto-sync",
+        "市場快照",
+        "SPY",
+        "VIX"
+      ]
+    },
+    {
+      "id": "ares_kp_11d9956ae8489e",
+      "topic": "Hub multi-domain context for XAUUSD and EURUSD",
+      "claim": "ARES must read Trading Knowledge Hub by domain: XAUUSD signals use xauusd knowledge, EURUSD training uses eurusd knowledge, while system/general risk guardrails remain cross-domain shadow context.",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.84,
+      "evidence": "2026-06-26 updated trading_hub_context domains, sync_trading_hub domain inference, and auto_demo_loop hub_context_shadow(symbol).",
+      "source_ref": "code:trading_hub_context.py+sync_trading_hub.py+auto_demo_loop.hub_context_shadow",
+      "tags": [
+        "knowledge_hub",
+        "multi_domain",
+        "xauusd",
+        "eurusd",
+        "shadow_only",
+        "risk_control",
+        "ares",
+        "general"
+      ]
+    },
+    {
+      "id": "kp_psych_confirmation_bias",
+      "topic": "確認偏誤防範",
+      "claim": "進場前應主動尋找「反對理由」；若找不到任何看空理由，代表分析可能有盲點。",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.84,
+      "evidence": "A/B adversarial review（一方建倉、一方找反駁）可系統性降低確認偏誤，同時也是 AI Alpha Research 中 Team B 的核心職能。",
+      "source_ref": "cross_domain:psychology",
+      "tags": [
+        "心理",
+        "確認偏誤",
+        "adversarial_review",
+        "跨域"
+      ]
+    },
+    {
+      "id": "ares_kp_625697876a6533",
+      "topic": "Dashboard top-level multi-symbol visibility",
+      "claim": "When EURUSD is enabled as a training symbol, the dashboard first viewport must show both XAUUSD main trading and EURUSD shadow-training status so users do not think only gold is being monitored.",
+      "domain": "general",
+      "status": "adopted",
+      "confidence": 0.83,
+      "evidence": "2026-06-26 added EURUSD 訓練 top metric card, MT5 training symbol quotes, and subtitle XAUUSD 主交易 / EURUSD 影子訓練.",
+      "source_ref": "code:dashboard.html+dashboard_server.mt5_snapshot",
+      "tags": [
+        "dashboard",
+        "eurusd",
+        "xauusd",
+        "multi_symbol",
+        "visibility",
+        "ares",
+        "general"
+      ]
+    },
+    {
+      "id": "kp_gen_d2150cc86e1d",
+      "topic": "us_stock/backtest_10y_shadow_strategy_small_sample_illusion",
+      "claim": "新增 scripts/backtest_shadow_strategy.py 做10年純技術面walk-forward回測(逐交易日重算RS百分位+Minervini+VCP，用OHLCV精確trading-day offset算前瞻報酬，刻意不假造基本面/新聞/社群等無法point-in-time還原的因子)。核心發現：線上少量樣本(14-21筆)顯示5日alpha勝率71.4%，但10年大樣本(11,691筆)顯示真實勝率只有53.0%——統計顯著(z≈6.5,p<0.0001)但幅度遠比小樣本暗示的小很多。這證明「小樣本高勝率」很可能是雜訊/幸運時機，而非策略真的那麼強。這是給未來「要不要把某訊號promote成正式評分」決策的重要校準基準：任何只有10-20筆的驗證數字都應該打折看待，不能直接當作策略優劣的定論。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "backtest",
+        "statistical_rigor",
+        "small_sample_bias",
+        "shadow_strategy",
+        "methodology"
+      ]
+    },
+    {
+      "id": "kp_gen_b97c72084ff8",
+      "topic": "us_stock/backtest_regime_dependency_2022_bear_market",
+      "claim": "10年回測按年度分解顯示 shadow策略(RS>=80+Minervini phase2)高度依賴市場環境：2020(COVID反彈)平均報酬+2.73%/勝率60.2%表現最好；2022熊市平均報酬-0.48%/勝率49.5%，幾乎完全失效(接近銅板)；2018/2023/2024/2025溫和正貢獻(55-61%勝率)。結論：這是動能策略的典型特徵——牛市/反彈市場有效，熊市/盤整市場失效，不是萬用策略。未來若真的把RS/Minervini訊號promote進正式評分，應該搭配 us_market.market_regime() 的市場防禦模式判斷，在熊市自動降低該訊號權重，而不是恆定權重套用。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "backtest",
+        "regime_dependency",
+        "momentum_strategy",
+        "risk_management"
+      ]
+    },
+    {
+      "id": "kp_gen_4de8fe064fb7",
+      "topic": "us_stock/backtest_universe_survivorship_bias_acceptance",
+      "claim": "2026-07-03使用者明確被告知回測用「現在的40檔觀察名單」當5-10年歷史回測股票池，存在存活者偏差(PLTR/COIN/ARM等近年才上市，名單本身是「現在看起來強」才選入)，選項包括改用有完整歷史的老牌股子集或歷史真實S&P500成分股，使用者選擇「直接用現在40檔，接受偏差存在」。故10年回測結果(見us_stock/backtest_10y_shadow_strategy_small_sample_illusion)應理解為「樂觀上限」而非嚴謹的無偏估計，日後若要發表更嚴謹的回測結論，建議改用歷史股票池重跑。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "backtest",
+        "survivorship_bias",
+        "methodology",
+        "known_limitation"
+      ]
+    },
+    {
+      "id": "kp_gen_b2b91e7fd940",
+      "topic": "us_stock/catalyst_confidence_grading",
+      "claim": "參考台股 tw-stock-ai 的 src/news/catalyst_confidence.py 設計，移植新聞催化劑證據信心分級到美股系統：A已確認(公告/財報/SEC filing等)、B高可信報導(Reuters/Bloomberg等媒體)、C市場傳聞(reportedly/sources say)、D概念延伸(long-term vision等空泛用詞)。純顯示用途、不影響 total_score/news_catalyst_score(比照台股原設計，證據品質與買賣建議脫鉤)。實作：新增 src/news/catalyst_confidence.py，掛在 score_engine.compute_score() 產出 StockScore.catalyst_confidence 欄位，dashboard.py/index.html 顯示📰徽章。部署驗證：40檔觀察名單 grade分布 A:1/B:15/C:16/D:8，符合預期(多數新聞屬中等可信度報導，少數才有正式公告佐證)。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "feature",
+        "tw_stock_port",
+        "news_scoring",
+        "catalyst_confidence"
+      ]
+    },
+    {
+      "id": "kp_gen_f69c95d00715",
+      "topic": "us_stock/edgartools_form4_integration",
+      "claim": "搜尋開源後選用 dgunning/edgartools(MIT授權，https://github.com/dgunning/edgartools)補上先前排查出的死路徑：flow_score()的insider_data參數從未被抓取傳入，永遠是None，上限誠實調低成11分。新增 src/data_provider/sec_client.py::fetch_insider_transactions(symbol, lookback_days=30, max_filings=8)，用edgartools抓最近30天Form4申報並數買/賣交易則數(共同股票購買/出售DataFrame的列數)，main.py串接後flow_score上限恢復回15分。實測單symbol耗時3-5秒(需SEC identity header)，40檔約增加1-2分鐘pipeline時間(2m22s vs 之前1m17s)。部署驗證：MELI取得Fl=12分(超過修復前的11分上限)，證明Form4真實資料確實在計分。research_rank.py的flow正規化分母同步從/11改回/15。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "open_source_integration",
+        "edgartools",
+        "form4",
+        "insider_trading",
+        "flow_score"
+      ]
+    },
+    {
+      "id": "kp_gen_eccf9673b25b",
+      "topic": "us_stock/forward_validation_statistical_rigor",
+      "claim": "前瞻驗證框架三項修正：(1)horizon計算從calendar day改trading day(numpy busday_offset)，原本週末會讓「3日後」實際只經過1個交易日，混淆不同horizon的可比性；(2)新增stop_hit用區間最低價計算(_fetch_period_low)，而非只看結算日收盤是否低於停損，修正了原本stop_hit永遠算不出真實觸發情況的問題；(3)get_shadow_performance()新增win_rate_ci95(Wilson 95%信賴區間)，讓小樣本的高勝率誠實顯示不確定性(例：14筆92.9%勝率的真實信賴區間是68.5%-98.7%，範圍很寬，不能just看點估計)。尚未做：t-stat/多重比較校正、訊號後隔日開盤進場(目前entry_price仍用訊號當日收盤，存在look-ahead bias)。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "statistical_rigor",
+        "forward_validation",
+        "codex_review",
+        "known_limitation"
+      ]
+    },
+    {
+      "id": "kp_gen_f1b134e1ed28",
+      "topic": "us_stock/no_A_grade_stocks_root_cause_audit",
+      "claim": "2026-07-02 使用者質疑「近期從未出現A級以上」，深入排查5個評分因子(Technical/Fundamental/Flow/News/Market)後確認：(1)並非任一因子計算錯誤，是5因子加總制天生就需要「技術面+基本面+資金流+催化劑+市場情緒」同時都強才能達75分(A級)門檻，目前多頭行情下個股沒有全面共振；(2)但確實抓到2個真的bug，見 [[market_sentiment_ceiling_bug]] 和 [[flow_score_dead_insider_pathway]]。結論：61分(C級)封頂在當前市場結構下大致合理，不建議為了製造A級而放寬門檻(會製造虛假高分)，維持嚴格門檻讓shadow驗證去證明選股方向對不對。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "scoring_audit",
+        "grade_distribution",
+        "root_cause"
+      ]
+    },
+    {
+      "id": "kp_gen_ae804a148ec6",
+      "topic": "us_stock/sector_strength_scoring",
+      "claim": "使用者提供一份美股AI掃描系統規格書(v1.1)，核心是「大盤→產業→個股→財報/消息→風險」5步驟框架。逐項比對後確認：大盤環境/個股評分/財報風險/新聞分級/Telegram通知(僅S/A通知)我們都已有等價實作(公式不同但概念覆蓋)；VWAP/盤前盤中屬於日內交易資料架構，跟現有EOD波段系統不同調性不整合；唯一真正的缺口是「產業強弱判斷」——fetch_market_indices()雖已抓SMH/XLF/XLK/XLE/XLV等產業ETF最新價，卻從未真的拿來跟大盤/個股比較強弱，5步驟中的第2步完全跳過。新增 src/indicators/sector.py：SECTOR_ETF_MAP將yfinance info.sector字串對應到11個GICS產業ETF(含規格書新增的XLC通訊服務，修正META/GOOGL不該對應XLK)，sector_etf_score()做20分制(站上20日均線10分+20日跑贏SPY 10分)。main.py串接：產業ETF加入批次抓取，每檔股票依sector對應到分數，純顯示/影子模式不計入total_score。部署驗證：11個產業ETF全部正確評分，個股卡片正確帶出對應產業分數(如ABBV/LLY對應XLV醫療強勢20分)。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "feature",
+        "sector_strength",
+        "spec_gap_analysis",
+        "shadow_mode"
+      ]
+    },
+    {
+      "id": "kp_edbb5ced1fdb422a",
+      "topic": "台股已驗證 edge 移植到美股（進場品質+失敗模式）",
+      "claim": "調用智慧庫 taiwan_stock backtest_supported 知識,將市場無關行為 edge 編碼為美股版 src/strategy/tw_lessons.py:(1)entry_quality 移植「進場條件保護」(台股驗證 進場未觸發5日+10.3%/勝率76.5% vs 整體0.9%/48%):可進場(站50MA+RSI40-62)/等拉回(乖離大或RSI65+)/避免追高(逼近52週高+RSI>=70)/觀望。(2)failure_mode_risks 移植三大失敗模式:題材失靈風險(新聞分>=9但基本面<10,台股-8.6%)、停損風險(ATR>=5%,台股100%觸損)。影子模式掛 card.strategy.entry_quality/failure_risks,網頁卡片顯示徽章。實測上線:觀望20/等拉回11/可進場9,PANW可進場、CRDO等拉回+停損風險、GEV題材失靈風險。未移植(需美股自身前瞻數據校準後再做):題材優先序權重、依訊號強度分部位—等驗證閉環累積。原理:台股三大失敗模式與進場保護是市場無關的行為 edge,可直接移植;報酬/勝率數字需美股自身重新校準。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "gh-pages 6/26 進場品質分布 + tw_lessons 實測",
+      "source_ref": "us-stock-ai",
+      "tags": [
+        "us-stock-ai",
+        "taiwan-port",
+        "entry-quality",
+        "failure-mode",
+        "knowledge-reuse"
+      ]
+    },
+    {
+      "id": "kp_us_market_timing_automation",
+      "topic": "美股市場時機訊號雲端自動化（分配日/FTD/VCP進早報）",
+      "claim": "us-stock-ai 新增 src/indicators/market_timing.py：IBD 分配日25日計數（跌≥0.2%且量增，5%反彈失效，0-2正常/3-4警戒/5-6高風險/7+嚴重）＋ FTD 狀態機（錨定最近修正段：先取窗口峰值再取其後低點，避免抓到更早的深跌；反彈第4-15天漲≥1.5%且量增為確認日）＋ VCP 候選（沿用 potential_radar low_base/early_strength 且 RS≥70）。晚間 dashboard-update 排程計算後存 dashboard_data.json，早報 --telegram-only 讀快取渲染「市場時機」區塊 — 全程 GitHub Actions 雲端執行（本機不開機也會跑），用 yfinance 不吃 FMP 額度。本機技能版（vcp-screener/ftd-detector/market-top-detector）保留作深度手動分析，兩者互補。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "2026-07-13 上線（commit af88ec1）。首測：SPY 分配日7天/QQQ 5天=嚴重區、FTD反彈20天窗口已過未確認（與技能版獨立判定同向：day9未確認、頂部綜合40/100黃色、Top-VCP=AMD 56 Weak）。與技能版差異：修正段起點演算法不同（本版取窗口峰值後低點），結論方向一致。",
+      "source_ref": "us-stock-ai/src/indicators/market_timing.py + main.py + src/notifier/telegram.py",
+      "tags": [
+        "市場時機",
+        "分配日",
+        "FTD",
+        "自動化",
+        "早報"
+      ]
+    },
+    {
+      "id": "kp_e1aa5e5aef4f4067",
+      "topic": "美股影子前瞻驗證追蹤器上線（決定何時切 active 的閉環）",
+      "claim": "為了用數據決定「該不該把影子 US 策略切 active」,建 shadow_signals 表記兩組可比訊號:'shadow'(RS>=80+phase2+流動性,影子會挑的)與'live_top'(現行分數前10,現在挑的),INSERT OR IGNORE 每日冪等。main._log_validation_signals 每日記錄(entry=收盤,stop=conservative_stop),forward_tracker.fill_shadow_signals 回填 3/5/10/20 日報酬+outcome(>=10%win/<=-5%loss),store.get_shadow_performance 算兩組勝率/平均5/10日報酬,dashboard strategy.validation + index.html 🎯前瞻驗證區塊顯示對比。2026-06-25 上線:首日記 7 shadow + 10 live_top。決策準則:累積 5-10 交易日後,若 shadow 勝率/報酬顯著贏 live_top,即把 RS/趨勢樣板納入 scoring.weights。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "gh run 28172611854 log [Validation] logged 7 shadow + 10 live_top",
+      "source_ref": "us-stock-ai",
+      "tags": [
+        "us-stock-ai",
+        "validation",
+        "shadow",
+        "forward-return",
+        "backtest"
+      ]
+    },
+    {
+      "id": "kp_59896194a5bd4f4d",
+      "topic": "美股策略骨架（影子模式）已上線",
+      "claim": "src/strategy/us_market.py 實作 Minervini 趨勢樣板(8criteria)、63日RS線斜率+跨股RS百分位(1-99)、流動性門檻(日成交額>=M或30萬股+股價>=0)、market_regime(SPY>200MA+廣度>=15%)、保守停損(max(2×ATR,20日擺低×0.98)+2:1風報)、1-2%部位法。影子模式：算出來顯示+累積但不計入評分，main._build_shadow_signals 兩段式串接，dashboard 掛 card.strategy 與頂層 strategy.regime，index.html 顯示 regime banner+每卡 RS/趨勢/流動性徽章。驗證:regime=可進場(多頭),AMD RS99 8/8,CRDO RS94 8/8。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "2026-06 session 實作+部署驗證 gh-pages JSON",
+      "source_ref": "us-stock-ai",
+      "tags": [
+        "us-stock-ai",
+        "strategy",
+        "minervini",
+        "shadow",
+        "momentum"
+      ]
+    },
+    {
+      "id": "kp_c877810c4490432f",
+      "topic": "美股背離度歷史趨勢圖上線",
+      "claim": "src/report/history.py update_divergence_history 每日追加 {date,avg_gap,missed_count,overrated_count,n_compared} 到 docs/divergence_history.json（依日期冪等、保留近90日、n_compared=0 不寫）。main.py 每日呼叫，daily.yml git add 一併提交。index.html 純 SVG 雙軸趨勢圖（藍線平均分差+綠柱看好低評檔數），獨立 fetch、<2點優雅不顯示。起始點 2026-06-23 avg_gap 25.8/missed 8/40檔。用途:累積驗證期觀察背離是收斂還擴大,搭配 watch_signals 前瞻報酬決定 RS/趨勢樣板何時切 active。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "gh-pages divergence_history.json + index.html renderDivergenceTrend 實測",
+      "source_ref": "us-stock-ai",
+      "tags": [
+        "us-stock-ai",
+        "divergence",
+        "trend",
+        "svg-chart"
+      ]
+    },
+    {
+      "id": "kp_fe93c44624e1466e",
+      "topic": "評估 ZhuLinsen/daily_stock_analysis 並整合社群情緒(StockTwits)",
+      "claim": "評估 50.8k star 的 daily_stock_analysis:核心是 LLM 主導打分(不可重現難回測),與我們規則主導(可前瞻驗證)是不同哲學,不宜整體替換(會丟掉影子驗證/台股移植/背離追蹤)。但借入唯一真缺的訊號=社群/散戶情緒。Reddit 公開JSON封鎖機房IP(403)、X已付費,改用 StockTwits 免費公開API(個股專用,用戶標 Bullish/Bearish):src/data_provider/social_sentiment.py fetch_stocktwits_sentiment 回看多/看空數、sentiment_ratio(-1~1)、watchlist人數、強烈看多~強烈看空標籤、0-10分。影子模式掛 card.strategy.social,網頁卡片 💬徽章,不計入評分待驗證。實測 40/40 檔成功(無限流):LLY/ABBV/TSM 強烈看多、MSFT 偏多537k追蹤。原則:借單一缺口訊號而非整個平台;選免費可重現的資料源(StockTwits>Reddit/X)。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.8,
+      "evidence": "gh-pages 6/28 dashboard social 40/40 + StockTwits 實測",
+      "source_ref": "us-stock-ai",
+      "tags": [
+        "us-stock-ai",
+        "social-sentiment",
+        "stocktwits",
+        "external-eval",
+        "integration"
+      ]
+    },
+    {
+      "id": "kp_gen_ae0ccf55c84e",
+      "topic": "us_stock/backtest_regime_tagging_corrects_calendar_year_proxy",
+      "claim": "用真實市場regime狀態(SPY是否站上200MA+市場廣度)標記歷史訊號，比用「年份」當regime代理更準確——2022年被粗略當作「熊市代表年」，但實際regime標記後發現，個股已通過RS>=80+Minervini phase2篩選的訊號，即使在SPY跌破200MA(防禦regime)下，5日alpha勝率仍達55.9%(n=1561)，是三種regime中最高，推翻了「用2022年當熊市失敗證據」的原始結論",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.75,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "backtest",
+        "regime",
+        "methodology",
+        "research_rank"
+      ]
+    },
+    {
+      "id": "kp_us_quant_research_20260713",
+      "topic": "美股量化系統研究與知識庫移植地圖",
+      "claim": "①知識庫回測成果可移植美股：台股「進場條件保護」(未觸發者+10.3%/勝率76.5%→美股應加延伸度檢查不追高)、台股三大失敗歸因迴路(移植機制到forward_tracker)、XAUUSD D1/H4偏向過濾(→美股週線過濾日線訊號)、「先修出場再改進場」(出場RR平台結論)、策略角色路由(regime分派而非指標堆疊)；時段類/M15微結構不可移植。②框架選型：短期自建walk-forward+vectorbt、中期zipline-reloaded Pipeline擴universe消倖存者偏誤、Qlib Alpha158+PIT作因子研究參照；backtrader已停維護勿新投入。③資料源：yfinance需備援，Tiingo($10/mo)/FMP(免費250req/day)/Alpaca(免費+紙上交易)為升級路徑。④技能生態：已裝tradermonty生態大半，缺VCP/CANSLIM/Distribution Day/FTD/Breadth/Theme/Sector/Flow等選股器技能(多需FMP key)。",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.75,
+      "evidence": "知識庫524筆KP掃描(backtest_supported 60筆逐條評估)；web研究2026框架比較/資料源/券商API/開源選股器(RyanJHamby已被us_market.py借鑑/xang1234/starboi-63)/skills倉庫(tradermonty/agiprolabs/JoelLewis)。完整報告與P0-P2導入路線圖見source_ref。",
+      "source_ref": "us-stock-ai/data/us_quant_research_report_20260713.md",
+      "tags": [
+        "美股",
+        "量化系統",
+        "移植",
+        "開源框架",
+        "skills"
+      ]
+    },
+    {
+      "id": "kp_us_p1_filters_exits_backtest",
+      "topic": "美股P1回測：週線過濾/延伸度/出場規則（兩項推翻假設）",
+      "claim": "10年walk-forward對v2 S/A級訊號(n=3040)測三個移植假說：①週線方向過濾(價>50MA且50MA上升)輕度有效：20日alpha 2.37%→2.61%、僅濾掉9.4%樣本，可採用。②台股「避免追高」延伸度過濾在美股動能池**反轉失效**：extended(>8%乖離20MA)組20日alpha +5.44% 遠勝 not-extended +1.46% — 動能股強者恆強(20日窗口)，台股教訓(5日窗口+開盤觸發機制)不可直接搬到20日持有；entry_quality標籤維持advisory-only、用線上迴路驗證。③出場掃描(S級n=1313同進場)：**現行2×ATR停損太緊、54%被觸發**，無停損持有20日avg 3.88%/PF 2.05最高，所有停損/目標變體都更差；MA20追蹤(PF 1.72)為最佳有保護變體。建議：放寬停損或改MA20追蹤，**不可完全移除停損**(部位規模法依賴停損距離、聚合PF掩蓋尾部風險、倖存者偏誤誇大持有優勢)。",
+      "domain": "us_stock",
+      "status": "backtest_supported",
+      "confidence": 0.72,
+      "evidence": "backtest_p1_filters_exits_10y.json：weekly_up n=2755 alpha20=2.61 vs baseline 2.37；extended bucket n=693 alpha20=5.44 vs not_extended n=2347 1.46；exits E0_hold20 3.88%/PF2.05/勝率57.8 vs E1_stop 2.26%/1.58/41.3(stop觸發704/1313) vs E4_stop_ma20 2.02%/1.72。同進場同資料相對比較；curated universe倖存者偏誤已聲明。同bar停損優先(悲觀)、跳空以開盤成交。",
+      "source_ref": "us-stock-ai/scripts/backtest_p1_filters_exits.py + data/backtest_p1_filters_exits_10y.json",
+      "tags": [
+        "出場規則",
+        "停損",
+        "延伸度",
+        "週線過濾",
+        "回測",
+        "假說推翻"
+      ]
+    },
+    {
+      "id": "kp_gen_72a53588a723",
+      "topic": "us_stock/research_rank_gate_removed_hard_regime_block",
+      "claim": "research_rank._gate()原本對「防禦(SPY跌破200MA)」regime直接判定gate失敗，2026-07-04根據regime標記回測數據移除此硬性規則(數據不支持)，改為僅記錄regime_at_signal供參考；仍保留liquidity/risk_penalty/趨勢證據三項真正的gate條件",
+      "domain": "us_stock",
+      "status": "adopted",
+      "confidence": 0.7,
+      "evidence": "",
+      "source_ref": "",
+      "tags": [
+        "research_rank",
+        "gate",
+        "regime"
+      ]
+    },
+    {
+      "id": "kp_us_score_v2_backtest_10y",
+      "topic": "美股評分v2十年回測驗證",
+      "claim": "現行五因子評分的C級天花板為結構性問題(當日爆量6分幾乎不可得、RSI>70歸零懲罰強動能、市場情緒10分全池同值只壓縮不排序、內部人條件大型股不可得)。v2=RS rating 40+Minervini樣板30+52週高距離15+量能累積15、市場情緒改regime閘門。10年walk-forward(443取樣日/14143筆)：多頭regime下評級單調S(+3.03%)>A/B(+1.72%)>C(+1.43%)>D(+1.04%)(20日alpha)；S級10年7正1平2負、優勢集中2020/2024強動能年；防禦regime評分反轉(C級最強+4.8%)=momentum crash、評分僅在regime閘門開啟時可用；中段評級(A/B/C)無統計粒度、只做頂部聚焦(S主要候選/A觀察)。",
+      "domain": "us_stock",
+      "status": "backtest_supported",
+      "confidence": 0.7,
+      "evidence": "IC(20d): v2=0.021(t=1.63) vs v1技術分0.015(t=1.33)，全視窗v2優；S-D分桶價差1.62pp/20d vs v1四分位價差0.44pp；十分位頂部為平台非針尖(d9=2.88%, d8=1.90%)；與獨立shadow回測(RS>=80+phase2, alpha20=+3.12%)收斂。已知偏誤：今日watchlist作歷史universe(倖存者偏誤，兩機制同受影響故相對比較有效)、無交易成本。",
+      "source_ref": "us-stock-ai/data/backtest_score_v2_10y.json + data/score_v2_backtest_report.md + scripts/backtest_score_v2.py",
+      "tags": [
+        "評分機制",
+        "回測",
+        "RS_rating",
+        "Minervini",
+        "regime"
+      ]
+    }
+  ]
+}

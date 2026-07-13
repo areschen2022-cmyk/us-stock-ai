@@ -1,10 +1,12 @@
 """US Stock AI — main orchestrator."""
 from __future__ import annotations
 
+import json
 import sys
 import time
 import traceback
 from datetime import date
+from pathlib import Path
 
 from src.config_loader import get_config
 from src.data_provider.yfinance_client import (
@@ -17,6 +19,7 @@ from src.data_provider.sec_client import search_company_cik, get_company_facts, 
 from src.news.rss_fetcher import fetch_news, fetch_symbol_news
 from src.data_provider.social_sentiment import fetch_stocktwits_sentiment
 from src.scoring.score_engine import StockScore, compute_score
+from src.scoring.grade import grade_label
 from src.storage.sqlite_store import SQLiteStore
 from src.ai.model_council import ModelCouncil
 from src.report.dashboard import build_dashboard_json, write_dashboard_json
@@ -68,7 +71,18 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
             phase2_count += 1
         price = float(ohlcv["Close"].iloc[-1]) if not ohlcv.empty else None
         stop = us_market.conservative_stop(ohlcv, price, calc_atr_pct(ohlcv))
+        v2_total, v2_parts = us_market.score_v2(ohlcv, rating)
+        ma20_exit = (round(float(ohlcv["Close"].astype(float).tail(20).mean()), 2)
+                     if len(ohlcv) >= 20 else None)
         per_symbol[sym] = {
+            "score_v2": v2_total,
+            "v2_grade": grade_label(v2_total),
+            "v2_parts": v2_parts,
+            "weekly_up": us_market.weekly_direction_up(ohlcv),
+            # MA20 trail exit reference — 10y exit sweep's best protected
+            # variant (PF 1.72 vs tight 2ATR stop's 1.58); shown alongside the
+            # conservative stop, not replacing it
+            "ma20_exit": ma20_exit,
             "rs_rating": rating,
             "rs_score_0_10": (raw.get("rs") or {}).get("rs_score_0_10"),
             "minervini_pass": mt["pass_count"],
@@ -136,7 +150,7 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
     stock-picking skill from market beta in the shadow-vs-live comparison."""
     by_symbol = {s.symbol: s for s in scores}
 
-    for grp in ("shadow", "live_top", "social_bullish", "confluence", "potential_radar", "research_rank"):
+    for grp in ("shadow", "live_top", "social_bullish", "confluence", "potential_radar", "research_rank", "score_v2_sa"):
         store.reset_shadow_signals_for_date(today, grp)
 
     membership: dict[str, set[str]] = {}
@@ -238,6 +252,28 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "entry_quality": (sig.get("entry_quality") or {}).get("label"),
             })
             potential_n += 1
+
+    # score_v2 S/A + weekly-direction group: the exact bucket the 10y backtest
+    # validated (bull-regime S alpha20 +3.03%, weekly filter keeps 90.6% of
+    # signals) — forward-tracks it live before any promotion decision
+    v2_n = 0
+    for sym, sig in per_symbol.items():
+        if (sig.get("v2_grade") in ("S", "A") and sig.get("weekly_up")
+                and sig.get("liquidity_ok")):
+            sc = by_symbol.get(sym)
+            store.upsert_shadow_signal(today, "score_v2_sa", {
+                "symbol": sym,
+                "rs_rating": sig.get("rs_rating"),
+                "minervini_pass": sig.get("minervini_pass"),
+                "phase2": sig.get("phase2"),
+                "live_grade": sc.grade if sc else None,
+                "live_score": sig.get("score_v2"),
+                "entry_price": sig.get("entry_price") or (sc.price if sc else None),
+                "stop_price": sig.get("stop_price"),
+                "spy_entry_price": spy_price,
+                "entry_quality": (sig.get("entry_quality") or {}).get("label"),
+            })
+            v2_n += 1
 
     research_n = 0
     for sym, sig in per_symbol.items():
@@ -424,6 +460,24 @@ def run_daily_update() -> None:
         dash_data["market_timing"] = mt
     except Exception as _mt_e:
         print(f"[Main] market timing failed (non-fatal): {_mt_e}")
+
+    # Knowledge-hub readback (closes the 2026-06-23 loop: write-only until now).
+    # data/trading_hub_context.json is refreshed by the local auto_sync run and
+    # committed by the watcher, so CI serves the latest local snapshot.
+    try:
+        hub_path = Path(__file__).parent / "data" / "trading_hub_context.json"
+        if hub_path.exists():
+            hub = json.loads(hub_path.read_text(encoding="utf-8"))
+            rows = [r for r in hub.get("rows", [])
+                    if r.get("status") in ("adopted", "backtest_supported")]
+            rows.sort(key=lambda r: r.get("confidence") or 0, reverse=True)
+            dash_data["hub_context"] = {
+                "generated_at": hub.get("generated_at"),
+                "points": [{"topic": r.get("topic"), "claim": (r.get("claim") or "")[:160],
+                            "status": r.get("status")} for r in rows[:6]],
+            }
+    except Exception as _hub_e:
+        print(f"[Main] hub context readback failed (non-fatal): {_hub_e}")
 
     write_dashboard_json(dash_data)
 

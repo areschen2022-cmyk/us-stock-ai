@@ -150,6 +150,75 @@ def minervini_trend_template(
     return {"pass_count": pass_count, "flags": flags, "phase2": phase2, "evaluable": True}
 
 
+# ── Score v2 (validated composite, 2026-07 10y backtest) ─────────────────────
+# RS rating 40 + trend template 30 + 52w-high proximity 15 + volume
+# accumulation 15. Validated: bull-regime grade monotonic S(+3.03%)>A/B>C>D
+# 20d alpha (kp_us_score_v2_backtest_10y). Top-bucket use only (S/A) with the
+# regime gate open; mid grades carry no statistical granularity.
+
+def score_v2(window: pd.DataFrame, rs_rating: int | None) -> tuple[int, dict[str, int]]:
+    close = window["Close"].astype(float)
+    high = window["High"].astype(float)
+    volume = window["Volume"].astype(float)
+    price = float(close.iloc[-1])
+    parts: dict[str, int] = {}
+
+    parts["rs"] = int(round((rs_rating or 0) * 0.40))
+
+    mt = minervini_trend_template(window, rs_rating=rs_rating)
+    parts["trend"] = int(round(mt["pass_count"] / 8 * 30))
+
+    hi_52w = float(high.tail(252).max()) if len(high) >= 252 else float(high.max())
+    pct_from_high = (price - hi_52w) / hi_52w * 100 if hi_52w > 0 else -99
+    if pct_from_high >= -5:
+        parts["high52"] = 15
+    elif pct_from_high >= -15:
+        parts["high52"] = 10
+    elif pct_from_high >= -25:
+        parts["high52"] = 5
+    else:
+        parts["high52"] = 0
+
+    acc = 0
+    chg = close.diff()
+    v50, c50 = volume.tail(50), chg.tail(50)
+    up_vol = float(v50[c50 > 0].sum())
+    dn_vol = float(v50[c50 < 0].sum())
+    if dn_vol > 0:
+        ratio = up_vol / dn_vol
+        if ratio >= 1.5:
+            acc += 8
+        elif ratio >= 1.2:
+            acc += 5
+        elif ratio >= 1.0:
+            acc += 2
+    if len(close) >= 40 and pct_from_high >= -15:
+        vol_now = float(close.tail(20).std())
+        vol_prior = float(close.iloc[-40:-20].std())
+        if vol_prior > 0:
+            cr = vol_now / vol_prior
+            if cr < 0.8:
+                acc += 7
+            elif cr < 1.0:
+                acc += 3
+    parts["volume"] = min(acc, 15)
+
+    total = min(parts["rs"] + parts["trend"] + parts["high52"] + parts["volume"], 100)
+    return total, parts
+
+
+def weekly_direction_up(window: pd.DataFrame) -> bool:
+    """Higher-timeframe direction filter (validated 2026-07: keeps 90.6% of
+    S/A signals, lifts 20d alpha 2.37%->2.61%): price above a rising 50d MA."""
+    close = window["Close"].astype(float)
+    if len(close) < 60:
+        return False
+    price = float(close.iloc[-1])
+    sma50 = float(close.tail(50).mean())
+    sma50_prev = float(close.iloc[-55:-5].tail(50).mean())
+    return price > sma50 and sma50 > sma50_prev
+
+
 # ── Liquidity gate ───────────────────────────────────────────────────────────
 
 def liquidity_gate(df: pd.DataFrame, price: float | None, cfg: dict | None = None) -> dict[str, Any]:
