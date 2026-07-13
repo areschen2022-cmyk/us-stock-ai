@@ -1,26 +1,48 @@
 {
-  "as_of": "2026-07-10",
+  "as_of": "2026-07-13",
   "primary_source": "live_top",
   "stats": {
-    "signals": 131,
-    "completed": 81,
-    "win_rate_5d": 66.7,
-    "avg_return_5d": 1.6,
-    "stop_hit_rate": 4.9
+    "signals": 141,
+    "completed": 91,
+    "win_rate_5d": 63.7,
+    "avg_return_5d": 1.2,
+    "stop_hit_rate": 5.5,
+    "failure_attribution": {
+      "weak_after_entry": {
+        "n": 2,
+        "avg_return_10d": -7.8
+      }
+    }
   },
   "live_top_stats": {
-    "signals": 131,
-    "completed": 81,
-    "win_rate_5d": 66.7,
-    "avg_return_5d": 1.6,
-    "stop_hit_rate": 4.9
+    "signals": 141,
+    "completed": 91,
+    "win_rate_5d": 63.7,
+    "avg_return_5d": 1.2,
+    "stop_hit_rate": 5.5,
+    "failure_attribution": {
+      "weak_after_entry": {
+        "n": 2,
+        "avg_return_10d": -7.8
+      }
+    }
   },
   "shadow_stats": {
-    "signals": 89,
-    "completed": 56,
-    "win_rate_5d": 60.7,
-    "avg_return_5d": 2.3,
-    "stop_hit_rate": 5.4
+    "signals": 96,
+    "completed": 63,
+    "win_rate_5d": 57.1,
+    "avg_return_5d": 1.6,
+    "stop_hit_rate": 6.3,
+    "failure_attribution": {
+      "weak_after_entry": {
+        "n": 2,
+        "avg_return_10d": -7.8
+      },
+      "momentum_fade": {
+        "n": 1,
+        "avg_return_10d": -5.9
+      }
+    }
   },
   "watch_signals_stats": null,
   "theme_stats": [],
@@ -28,19 +50,31 @@
   "grade_stats": [
     {
       "label": "C",
-      "signals": 96,
-      "completed": 55,
-      "win_rate_5d": 61.8,
-      "avg_return_5d": 0.1,
-      "stop_hit_rate": 7.3
+      "signals": 102,
+      "completed": 65,
+      "win_rate_5d": 58.5,
+      "avg_return_5d": -0.2,
+      "stop_hit_rate": 7.7,
+      "failure_attribution": {
+        "weak_after_entry": {
+          "n": 1,
+          "avg_return_10d": -7.0
+        }
+      }
     },
     {
       "label": "D",
-      "signals": 29,
+      "signals": 33,
       "completed": 20,
       "win_rate_5d": 75.0,
       "avg_return_5d": 4.5,
-      "stop_hit_rate": 0.0
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {
+        "weak_after_entry": {
+          "n": 1,
+          "avg_return_10d": -8.7
+        }
+      }
     },
     {
       "label": "B",
@@ -48,7 +82,46 @@
       "completed": 6,
       "win_rate_5d": 83.3,
       "avg_return_5d": 5.5,
-      "stop_hit_rate": 0.0
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    }
+  ],
+  "entry_quality_stats": [
+    {
+      "label": "未標記",
+      "signals": 220,
+      "completed": 154,
+      "win_rate_5d": 61.0,
+      "avg_return_5d": 1.4,
+      "stop_hit_rate": 5.8,
+      "failure_attribution": {
+        "weak_after_entry": {
+          "n": 4,
+          "avg_return_10d": -7.8
+        },
+        "momentum_fade": {
+          "n": 1,
+          "avg_return_10d": -5.9
+        }
+      }
+    },
+    {
+      "label": "可進場",
+      "signals": 10,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    },
+    {
+      "label": "等拉回",
+      "signals": 7,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
     }
   ]
 }

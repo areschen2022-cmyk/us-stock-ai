@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10",
+  "generated_at": "2026-07-13",
   "market": {
     "SPY": 754.9500122070312,
     "QQQ": 725.510009765625,
@@ -15,12 +15,12 @@
     "grade_S": 0,
     "grade_A": 0,
     "grade_B": 0,
-    "grade_C": 8,
-    "grade_D": 32,
-    "research_grade_S": 2,
+    "grade_C": 6,
+    "grade_D": 34,
+    "research_grade_S": 1,
     "research_grade_A": 2,
     "research_grade_B": 3,
-    "research_grade_gated_out": 20
+    "research_grade_gated_out": 21
   },
   "highlights": [],
   "ai_stats": {
@@ -32,7 +32,7 @@
     "coverage_pct": null
   },
   "data_health": {
-    "elapsed_min": 2.5,
+    "elapsed_min": 1.8,
     "requested": 40,
     "scored": 40,
     "missing": 0,
@@ -48,16 +48,16 @@
     },
     "divergence": {
       "n_compared": 40,
-      "avg_gap": 24.9,
+      "avg_gap": 23.0,
       "missed_strong": [
         {
           "symbol": "AMD",
-          "grade": "D",
-          "score": 47,
+          "grade": "C",
+          "score": 50,
           "rs_rating": 99,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 52
+          "gap": 49
         },
         {
           "symbol": "CRDO",
@@ -80,29 +80,29 @@
         {
           "symbol": "ASML",
           "grade": "D",
-          "score": 24,
+          "score": 26,
           "rs_rating": 89,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 65
+          "gap": 63
         },
         {
           "symbol": "MRNA",
           "grade": "D",
-          "score": 32,
+          "score": 34,
           "rs_rating": 87,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 55
+          "gap": 53
         },
         {
           "symbol": "GEV",
           "grade": "D",
-          "score": 30,
+          "score": 39,
           "rs_rating": 84,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 54
+          "gap": 45
         },
         {
           "symbol": "TSM",
@@ -233,100 +233,100 @@
     "mode": "shadow",
     "validation": {
       "shadow": {
-        "tracked": 89,
-        "completed": 56,
-        "completed_10d": 14,
-        "win_rate": 60.7,
+        "tracked": 96,
+        "completed": 63,
+        "completed_10d": 28,
+        "win_rate": 57.1,
         "win_rate_ci95": [
-          47.6,
-          72.4
+          44.9,
+          68.6
         ],
-        "win_rate_10d": 14.3,
-        "avg_return_5d": 2.31,
-        "avg_return_10d": 2.24,
-        "avg_alpha_5d": 0.95,
-        "avg_alpha_10d": -0.73,
-        "alpha_win_rate_5d": 51.8
+        "win_rate_10d": 7.1,
+        "avg_return_5d": 1.6,
+        "avg_return_10d": 1.43,
+        "avg_alpha_5d": 0.34,
+        "avg_alpha_10d": -1.41,
+        "alpha_win_rate_5d": 47.6
       },
       "live_top": {
-        "tracked": 131,
-        "completed": 81,
-        "completed_10d": 21,
-        "win_rate": 66.7,
+        "tracked": 141,
+        "completed": 91,
+        "completed_10d": 41,
+        "win_rate": 63.7,
         "win_rate_ci95": [
-          55.9,
-          76.0
+          53.5,
+          72.9
         ],
-        "win_rate_10d": 23.8,
-        "avg_return_5d": 1.56,
-        "avg_return_10d": 4.48,
-        "avg_alpha_5d": 0.2,
-        "avg_alpha_10d": 1.55,
-        "alpha_win_rate_5d": 54.3
+        "win_rate_10d": 14.6,
+        "avg_return_5d": 1.23,
+        "avg_return_10d": 3.14,
+        "avg_alpha_5d": -0.04,
+        "avg_alpha_10d": 0.31,
+        "alpha_win_rate_5d": 51.6
       },
       "social_bullish": {
-        "tracked": 244,
-        "completed": 96,
+        "tracked": 268,
+        "completed": 127,
         "completed_10d": 0,
-        "win_rate": 50.0,
+        "win_rate": 48.0,
         "win_rate_ci95": [
-          40.2,
-          59.8
+          39.5,
+          56.7
         ],
         "win_rate_10d": null,
-        "avg_return_5d": -0.22,
+        "avg_return_5d": -0.44,
         "avg_return_10d": null,
-        "avg_alpha_5d": -1.0,
+        "avg_alpha_5d": -1.15,
         "avg_alpha_10d": null,
-        "alpha_win_rate_5d": 43.8
+        "alpha_win_rate_5d": 40.2
       },
       "confluence": {
-        "tracked": 91,
-        "completed": 36,
+        "tracked": 100,
+        "completed": 45,
         "completed_10d": 0,
-        "win_rate": 47.2,
+        "win_rate": 46.7,
         "win_rate_ci95": [
-          32.0,
-          63.0
+          32.9,
+          60.9
         ],
         "win_rate_10d": null,
-        "avg_return_5d": -0.45,
+        "avg_return_5d": -0.83,
         "avg_return_10d": null,
-        "avg_alpha_5d": -1.24,
+        "avg_alpha_5d": -1.56,
         "avg_alpha_10d": null,
-        "alpha_win_rate_5d": 41.7
+        "alpha_win_rate_5d": 37.8
       },
       "potential_radar": {
-        "tracked": 60,
-        "completed": 16,
+        "tracked": 69,
+        "completed": 23,
         "completed_10d": 0,
-        "win_rate": 50.0,
+        "win_rate": 47.8,
         "win_rate_ci95": [
-          28.0,
-          72.0
+          29.2,
+          67.0
         ],
         "win_rate_10d": null,
-        "avg_return_5d": 2.84,
+        "avg_return_5d": 1.42,
         "avg_return_10d": null,
-        "avg_alpha_5d": 1.69,
+        "avg_alpha_5d": 0.47,
         "avg_alpha_10d": null,
-        "alpha_win_rate_5d": 50.0
+        "alpha_win_rate_5d": 47.8
       },
       "research_rank": {
-        "tracked": 37,
-        "completed": 6,
+        "tracked": 43,
+        "completed": 12,
         "completed_10d": 0,
-        "win_rate": 50.0,
+        "win_rate": 41.7,
         "win_rate_ci95": [
-          18.8,
-          81.2
+          19.3,
+          68.0
         ],
         "win_rate_10d": null,
-        "avg_return_5d": -0.26,
+        "avg_return_5d": -2.28,
         "avg_return_10d": null,
-        "avg_alpha_5d": -1.63,
+        "avg_alpha_5d": -3.21,
         "avg_alpha_10d": null,
-        "alpha_win_rate_5d": 50.0
+        "alpha_win_rate_5d": 33.3
       },
       "_baseline_10y": {
         "generated_at": "2026-07-03",
@@ -359,8 +359,8 @@
       "action": "Avoid",
       "price": 186.9600067138672,
       "entry": 186.9600067138672,
-      "stop": 165.36,
-      "atr_pct": 5.777437385153487,
+      "stop": 165.35,
+      "atr_pct": 5.778583496553161,
       "themes": [
         "ai_infra",
         "cloud_saas"
@@ -396,9 +396,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1629368992.0,
+        "dollar_vol_50d": 1632061194.0,
         "entry_price": 186.9600067138672,
-        "stop_price": 165.36,
+        "stop_price": 165.35,
         "entry_quality": {
           "label": "可進場",
           "reason": "站上50MA且RSI 59 健康未過熱（進場保護區）",
@@ -412,13 +412,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 9,
-          "bearish": 1,
-          "sentiment_ratio": 0.8,
-          "watchlist_count": 20142,
+          "bullish": 5,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 20215,
           "label": "強烈看多",
-          "score_0_10": 9.0,
-          "tagged": 10
+          "score_0_10": 10.0,
+          "tagged": 5
         },
         "potential": {
           "stage": null,
@@ -439,9 +439,9 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 81.47,
-          "percentile": 85.0,
-          "research_grade": "A"
+          "composite": 81.97,
+          "percentile": 84.2,
+          "research_grade": "B"
         }
       },
       "divergence_gap": 15
@@ -449,7 +449,7 @@
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "score": 53,
+      "score": 59,
       "grade": "C",
       "action": "Avoid",
       "price": 210.9600067138672,
@@ -464,19 +464,21 @@
         "波動偏高 ATR 3.2%"
       ],
       "matched_headlines": [
-        "Why Is Meta (META) Stock Soaring Today"
+        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations",
+        "Zapata Quantum Bets Software, AI Partnerships Will Unlock Quantum Computing Value",
+        "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
       },
       "sub": {
         "T": 17,
         "F": 20,
         "Fl": 8,
-        "N": 3,
+        "N": 9,
         "M": 6,
         "R": -1
       },
@@ -489,7 +491,7 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 33752866669.0,
+        "dollar_vol_50d": 33756749759.0,
         "entry_price": 210.9600067138672,
         "stop_price": 197.36,
         "entry_quality": {
@@ -501,383 +503,16 @@
         "social": {
           "messages": 30,
           "bullish": 8,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 652145,
+          "bearish": 3,
+          "sentiment_ratio": 0.45,
+          "watchlist_count": 652281,
           "label": "強烈看多",
-          "score_0_10": 10.0,
-          "tagged": 8
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 70.79,
-          "percentile": 55.0,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 7
-    },
-    {
-      "symbol": "MELI",
-      "name": "MercadoLibre, Inc.",
-      "score": 52,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 1852.219970703125,
-      "entry": 1852.219970703125,
-      "stop": 1733.06,
-      "atr_pct": 3.2167963602285514,
-      "themes": [
-        "emerging_market",
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.2%"
-      ],
-      "matched_headlines": [
-        "How EBAY Stock’s British Experiment Signaled A 50% Surge",
-        "Wall Street Missed the Plot on MELI: Why This Massive 49% Top-Line Surge Is My E-Commerce No-Brainer",
-        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 10,
-        "F": 10,
-        "Fl": 12,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 93902340096,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 18,
-        "rs_score_0_10": 2.63,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 967313551.0,
-        "entry_price": 1852.219970703125,
-        "stop_price": 1733.06,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 76)，回測支撐再進",
-          "chase_risk": true
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 6,
-          "bearish": 1,
-          "sentiment_ratio": 0.71,
-          "watchlist_count": 22165,
-          "label": "強烈看多",
-          "score_0_10": 8.6,
-          "tagged": 7
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.83,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(117.2>116.6)",
-            "20日落後SPY -0.8%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 37.88,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -34
-    },
-    {
-      "symbol": "LLY",
-      "name": "Eli Lilly and Company",
-      "score": 52,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 1188.5799560546875,
-      "entry": 1188.5799560546875,
-      "stop": 1105.91,
-      "atr_pct": 3.4777399119624066,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.5%"
-      ],
-      "matched_headlines": [
-        "Moderna Drops 11%, ImmunityBio and Sarepta Therapeutics Tumble 8% in Biotech Rout",
-        "These 7 Stocks Are Analyst Favorites For Magnificent Earnings Growth; Citibank Earnings Approach",
-        "Record Numbers of Americans Are on GLP-1 Drugs. That's Great News for This Stock."
-      ],
-      "catalyst_confidence": {
-        "grade": "A",
-        "label": "已確認",
-        "reason": "公告/財報/正式事件佐證",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 18,
-        "F": 18,
-        "Fl": 2,
-        "N": 9,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 1059905929216,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 62,
-        "rs_score_0_10": 9.73,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3626691131.0,
-        "entry_price": 1188.5799560546875,
-        "stop_price": 1105.91,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 66，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 13,
-          "bearish": 1,
-          "sentiment_ratio": 0.86,
-          "watchlist_count": 33831,
-          "label": "強烈看多",
-          "score_0_10": 9.3,
-          "tagged": 14
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 1.35,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(160.8>157.8)",
-            "20日跑贏SPY +1.4%"
-          ],
-          "sector_etf": "XLV"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 77.24,
-          "percentile": 70.0,
-          "research_grade": "B"
-        }
-      },
-      "divergence_gap": 10
-    },
-    {
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "score": 51,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 669.2100219726562,
-      "entry": 669.2100219726562,
-      "stop": 615.54,
-      "atr_pct": 4.010271795601633,
-      "themes": [
-        "ai_infra",
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.0%"
-      ],
-      "matched_headlines": [
-        "Tech stocks live: SK Hynix begins trading on Nasdaq, SpaceX stock tumbles",
-        "Stock Market Today, July 10: Markets Edge Higher and SK Hynix Soars on Debut",
-        "Why Is Meta (META) Stock Soaring Today"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 17,
-        "F": 20,
-        "Fl": 3,
-        "N": 6,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 1698738339840,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 30,
-        "rs_score_0_10": 1.77,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 11481973432.0,
-        "entry_price": 669.2100219726562,
-        "stop_price": 615.54,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 69)，回測支撐再進",
-          "chase_risk": true
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 2,
-          "bearish": 1,
-          "sentiment_ratio": 0.33,
-          "watchlist_count": 599842,
-          "label": "資料不足",
-          "score_0_10": 6.7,
-          "tagged": 3
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -3.51,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(111.6>110.0)",
-            "20日落後SPY -3.5%"
-          ],
-          "sector_etf": "XLC"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 47.48,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -21
-    },
-    {
-      "symbol": "SNOW",
-      "name": "Snowflake Inc.",
-      "score": 51,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 261.45001220703125,
-      "entry": 261.45001220703125,
-      "stop": 235.82,
-      "atr_pct": 4.902139320228837,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [
-        "Palantir's 104% U.S. Revenue Growth is the Key Number to Watch",
-        "Snowflake Inc. (SNOW) Outperforms Broader Market: What You Need to Know",
-        "Cognizant Strengthens AI Portfolio Through Google Cloud Partnership"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "市場傳聞",
-        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 17,
-        "F": 12,
-        "Fl": 2,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 90618576896,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 50,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1865186472.0,
-        "entry_price": 261.45001220703125,
-        "stop_price": 235.82,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 72，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 9,
-          "bearish": 2,
-          "sentiment_ratio": 0.64,
-          "watchlist_count": 57772,
-          "label": "強烈看多",
-          "score_0_10": 8.2,
+          "score_0_10": 7.2,
           "tagged": 11
         },
         "potential": {
-          "stage": "early_strength",
-          "label": "早期強勢",
-          "reason": "站上50MA且轉強，未達完整Minervini條件",
-          "contraction_ratio": 0.33,
-          "contraction_quality": 67.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": 24.4
+          "stage": null,
+          "label": null
         },
         "sector": {
           "score": 20,
@@ -894,114 +529,23 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 56.14,
-          "percentile": 15.0,
+          "composite": 73.89,
+          "percentile": 68.4,
           "research_grade": "C"
         }
       },
-      "divergence_gap": -1
-    },
-    {
-      "symbol": "SE",
-      "name": "Sea Limited",
-      "score": 51,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 111.13999938964844,
-      "entry": 111.13999938964844,
-      "stop": 101.5,
-      "atr_pct": 4.33860794332183,
-      "themes": [
-        "emerging_market"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.3%"
-      ],
-      "matched_headlines": [
-        "Sea (SE) And The Growth Story Behind Its Valuation",
-        "Sea (SE) Is Up 8.8% After Analyst Upgrades Ahead of Earnings Release - What's Changed",
-        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
-      ],
-      "catalyst_confidence": {
-        "grade": "A",
-        "label": "已確認",
-        "reason": "公告/財報/正式事件佐證",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 13,
-        "F": 15,
-        "Fl": 3,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 68071530496,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 11,
-        "rs_score_0_10": 6.24,
-        "minervini_pass": 2,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 403640846.0,
-        "entry_price": 111.13999938964844,
-        "stop_price": 101.5,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 80)，回測支撐再進",
-          "chase_risk": true
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 14,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 28236,
-          "label": "強烈看多",
-          "score_0_10": 10.0,
-          "tagged": 14
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.83,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(117.2>116.6)",
-            "20日落後SPY -0.8%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 41.65,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -40
+      "divergence_gap": 1
     },
     {
       "symbol": "ABBV",
       "name": "AbbVie Inc.",
-      "score": 51,
+      "score": 54,
       "grade": "C",
       "action": "Avoid",
       "price": 248.0800018310547,
       "entry": 248.0800018310547,
       "stop": 232.86,
-      "atr_pct": 3.0668258177028997,
+      "atr_pct": 3.0666962125426918,
       "themes": [
         "glp1_biotech"
       ],
@@ -1009,19 +553,20 @@
         "波動偏高 ATR 3.1%"
       ],
       "matched_headlines": [
+        "AbbVie Is Already a Dividend King. Here's Why the $10.9 Billion Apogee Deal Could Make It a Dynasty",
         "WST Completes SmartDose Sale to AbbVie to Focus on Core Growth"
       ],
       "catalyst_confidence": {
         "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 2
       },
       "sub": {
         "T": 17,
         "F": 18,
         "Fl": 8,
-        "N": 3,
+        "N": 6,
         "M": 6,
         "R": -1
       },
@@ -1034,7 +579,7 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1664557389.0,
+        "dollar_vol_50d": 1666366091.0,
         "entry_price": 248.0800018310547,
         "stop_price": 232.86,
         "entry_quality": {
@@ -1045,13 +590,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 5,
+          "bullish": 6,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 32720,
+          "watchlist_count": 32719,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 5
+          "tagged": 6
         },
         "potential": {
           "stage": "early_strength",
@@ -1078,11 +623,289 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 64.04,
-          "percentile": 30.0,
+          "percentile": 36.8,
           "research_grade": "C"
         }
       },
-      "divergence_gap": 4
+      "divergence_gap": 1
+    },
+    {
+      "symbol": "LLY",
+      "name": "Eli Lilly and Company",
+      "score": 52,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 1188.5799560546875,
+      "entry": 1188.5799560546875,
+      "stop": 1105.91,
+      "atr_pct": 3.4777399119624066,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.5%"
+      ],
+      "matched_headlines": [
+        "3 Dividend Stocks That Are No-Brainer Buys Heading Into the Second Half of 2026",
+        "Is Pfizer on Track to Launch Its Next Lipitor -- This Time in the Weight-Loss Market?",
+        "Moderna Drops 11%, ImmunityBio and Sarepta Therapeutics Tumble 8% in Biotech Rout"
+      ],
+      "catalyst_confidence": {
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 18,
+        "F": 18,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 1059905929216,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 62,
+        "rs_score_0_10": 9.73,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3636474047.0,
+        "entry_price": 1188.5799560546875,
+        "stop_price": 1105.91,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 66，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 13,
+          "bearish": 1,
+          "sentiment_ratio": 0.86,
+          "watchlist_count": 33851,
+          "label": "強烈看多",
+          "score_0_10": 9.3,
+          "tagged": 14
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 1.35,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(160.8>157.8)",
+            "20日跑贏SPY +1.4%"
+          ],
+          "sector_etf": "XLV"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 78.24,
+          "percentile": 78.9,
+          "research_grade": "B"
+        }
+      },
+      "divergence_gap": 10
+    },
+    {
+      "symbol": "SNOW",
+      "name": "Snowflake Inc.",
+      "score": 51,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 261.45001220703125,
+      "entry": 261.45001220703125,
+      "stop": 235.82,
+      "atr_pct": 4.902411954919462,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Palantir's 104% U.S. Revenue Growth is the Key Number to Watch",
+        "Snowflake Inc. (SNOW) Outperforms Broader Market: What You Need to Know",
+        "Cognizant Strengthens AI Portfolio Through Google Cloud Partnership"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 17,
+        "F": 12,
+        "Fl": 2,
+        "N": 15,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 90618576896,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 50,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1867342410.0,
+        "entry_price": 261.45001220703125,
+        "stop_price": 235.82,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 72，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 6,
+          "bearish": 2,
+          "sentiment_ratio": 0.5,
+          "watchlist_count": 57775,
+          "label": "強烈看多",
+          "score_0_10": 7.5,
+          "tagged": 8
+        },
+        "potential": {
+          "stage": "early_strength",
+          "label": "早期強勢",
+          "reason": "站上50MA且轉強，未達完整Minervini條件",
+          "contraction_ratio": 0.33,
+          "contraction_quality": 67.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": 24.4
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 55.79,
+          "percentile": 10.5,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": -1
+    },
+    {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "score": 50,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 557.8900146484375,
+      "entry": 557.8900146484375,
+      "stop": 481.6,
+      "atr_pct": 6.8374977279224,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.8%"
+      ],
+      "matched_headlines": [
+        "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?",
+        "Why Meta Platforms Stock Surged This Week",
+        "A $26.5 Billion Milestone: What SK Hynix’s U.S. Debut Means for the AI Trade"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 24,
+        "F": 15,
+        "Fl": 2,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 909695778816,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 99,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 16457966481.0,
+        "entry_price": 557.8900146484375,
+        "stop_price": 481.6,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 53 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 6.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 5,
+          "sentiment_ratio": 0.23,
+          "watchlist_count": 560746,
+          "label": "偏多",
+          "score_0_10": 6.2,
+          "tagged": 13
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 86.37,
+          "percentile": 94.7,
+          "research_grade": "A"
+        }
+      },
+      "divergence_gap": 49
     },
     {
       "symbol": "CRDO",
@@ -1093,7 +916,7 @@
       "price": 257.7900085449219,
       "entry": 257.7900085449219,
       "stop": 199.09,
-      "atr_pct": 11.385510312630256,
+      "atr_pct": 11.38551327216875,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -1129,7 +952,7 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1987744481.0,
+        "dollar_vol_50d": 1987930667.0,
         "entry_price": 257.7900085449219,
         "stop_price": 221.15,
         "entry_quality": {
@@ -1145,13 +968,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 5,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 10717,
+          "watchlist_count": 10777,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 7
+          "tagged": 5
         },
         "potential": {
           "stage": null,
@@ -1196,13 +1019,13 @@
         "波動過大 ATR 5.3%"
       ],
       "matched_headlines": [
-        "Can Platformization Drive Palo Alto Networks' Next Growth Phase?",
-        "Palo Alto Just Soared 28% in a Month. Should Investors Take Profits and Rotate Into CrowdStrike or Fortinet?"
+        "Palo Alto Networks May Need a Breather Before Its Next Rally",
+        "Can Platformization Drive Palo Alto Networks' Next Growth Phase?"
       ],
       "catalyst_confidence": {
         "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
         "evidence_count": 2
       },
       "sub": {
@@ -1222,7 +1045,7 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2288956956.0,
+        "dollar_vol_50d": 2289972407.0,
         "entry_price": 325.9100036621094,
         "stop_price": 291.39,
         "entry_quality": {
@@ -1239,12 +1062,12 @@
         "social": {
           "messages": 30,
           "bullish": 3,
-          "bearish": 4,
-          "sentiment_ratio": -0.14,
-          "watchlist_count": 38641,
+          "bearish": 3,
+          "sentiment_ratio": 0.0,
+          "watchlist_count": 38656,
           "label": "中性",
-          "score_0_10": 4.3,
-          "tagged": 7
+          "score_0_10": 5.0,
+          "tagged": 6
         },
         "potential": {
           "stage": "early_strength",
@@ -1270,97 +1093,103 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 68.57,
-          "percentile": 45.0,
+          "composite": 68.92,
+          "percentile": 47.4,
           "research_grade": "C"
         }
       },
       "divergence_gap": 26
     },
     {
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "score": 48,
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 49,
       "grade": "D",
       "action": "Avoid",
-      "price": 315.32000732421875,
-      "entry": 315.32000732421875,
-      "stop": 297.43,
-      "atr_pct": 2.837255081591976,
+      "price": 111.13999938964844,
+      "entry": 111.13999938964844,
+      "stop": 101.5,
+      "atr_pct": 4.33860794332183,
       "themes": [
-        "ai_infra"
+        "emerging_market"
       ],
-      "warnings": [],
+      "warnings": [
+        "波動偏高 ATR 4.3%"
+      ],
       "matched_headlines": [
-        "OpenAI Back in Another Legal War Weeks After Beating Elon Musk"
+        "Sea (SE) And The Growth Story Behind Its Valuation",
+        "Sea (SE) Is Up 8.8% After Analyst Upgrades Ahead of Earnings Release - What's Changed",
+        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 3
       },
       "sub": {
-        "T": 20,
-        "F": 16,
-        "Fl": 3,
-        "N": 3,
+        "T": 13,
+        "F": 15,
+        "Fl": 4,
+        "N": 12,
         "M": 6,
-        "R": 0
+        "R": -1
       },
-      "sector": "Technology",
-      "market_cap": 4631217307648,
-      "risk_penalty": 0,
+      "sector": "Consumer Cyclical",
+      "market_cap": 68071530496,
+      "risk_penalty": 1,
       "strategy": {
-        "rs_rating": 67,
-        "rs_score_0_10": 6.23,
-        "minervini_pass": 7,
-        "phase2": true,
+        "rs_rating": 11,
+        "rs_score_0_10": 6.24,
+        "minervini_pass": 2,
+        "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 16841581841.0,
-        "entry_price": 315.32000732421875,
-        "stop_price": 297.43,
+        "dollar_vol_50d": 403891178.0,
+        "entry_price": 111.13999938964844,
+        "stop_price": 101.5,
         "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 62 健康未過熱（進場保護區）",
-          "chase_risk": false
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 80)，回測支撐再進",
+          "chase_risk": true
         },
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 2,
-          "bearish": 2,
-          "sentiment_ratio": 0.0,
-          "watchlist_count": 982363,
-          "label": "資料不足",
-          "score_0_10": 5.0,
-          "tagged": 4
+          "bullish": 13,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 28245,
+          "label": "強烈看多",
+          "score_0_10": 10.0,
+          "tagged": 13
         },
         "potential": {
           "stage": null,
           "label": null
         },
         "sector": {
-          "score": 20,
+          "score": 10,
           "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
+          "rs_vs_spy_20d": -0.83,
+          "status": "普通",
           "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
+            "站上20日均線(117.2>116.6)",
+            "20日落後SPY -0.8%"
           ],
-          "sector_etf": "XLK"
+          "sector_etf": "XLY"
         },
         "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 67.42,
-          "percentile": 40.0,
-          "research_grade": "C"
+          "composite": 41.98,
+          "percentile": null,
+          "research_grade": "D"
         }
       },
-      "divergence_gap": 19
+      "divergence_gap": -38
     },
     {
       "symbol": "NET",
@@ -1380,14 +1209,15 @@
         "波動偏高 ATR 4.8%"
       ],
       "matched_headlines": [
-        "5 Cloud Computing Stocks to Buy for 2H 2026 as Digital Demand Soars",
-        "Scotiabank Sees a New Growth Story for Cloudflare"
+        "Why Did NET, ETSY, CROX Stocks Surge To 52-Week Highs Last Week?",
+        "Wall Street Says Investors Are Missing Cloudflare’s Biggest AI Opportunity",
+        "Cloudflare (NET) Is Up 10.7% After Launching AI Search Pilot With OpenAI And New Monetization Tools"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
       },
       "sub": {
         "T": 20,
@@ -1406,7 +1236,7 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 975301127.0,
+        "dollar_vol_50d": 976794500.0,
         "entry_price": 268.3999938964844,
         "stop_price": 242.55,
         "entry_quality": {
@@ -1417,13 +1247,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 6,
-          "bearish": 4,
-          "sentiment_ratio": 0.2,
-          "watchlist_count": 34799,
-          "label": "偏多",
-          "score_0_10": 6.0,
-          "tagged": 10
+          "bullish": 2,
+          "bearish": 6,
+          "sentiment_ratio": -0.5,
+          "watchlist_count": 34804,
+          "label": "強烈看空",
+          "score_0_10": 2.5,
+          "tagged": 8
         },
         "potential": {
           "stage": "early_strength",
@@ -1449,105 +1279,103 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 61.04,
-          "percentile": 25.0,
+          "composite": 63.79,
+          "percentile": 31.6,
           "research_grade": "C"
         }
       },
       "divergence_gap": 17
     },
     {
-      "symbol": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
       "score": 47,
       "grade": "D",
       "action": "Avoid",
-      "price": 557.8900146484375,
-      "entry": 557.8900146484375,
-      "stop": 481.6,
-      "atr_pct": 6.8374977279224,
+      "price": 669.2100219726562,
+      "entry": 669.2100219726562,
+      "stop": 615.53,
+      "atr_pct": 4.010378635492767,
       "themes": [
         "ai_infra",
-        "semiconductor"
+        "cloud_saas"
       ],
       "warnings": [
-        "波動過大 ATR 6.8%"
+        "波動偏高 ATR 4.0%"
       ],
       "matched_headlines": [
-        "Why Is Meta (META) Stock Soaring Today"
+        "Why Meta Platforms Stock Surged This Week",
+        "Meta (META) Faces $2 Billion AI Deal Reversal And EU App Design Probe"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "一般新聞",
         "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "evidence_count": 2
       },
       "sub": {
-        "T": 24,
-        "F": 15,
-        "Fl": 2,
-        "N": 3,
+        "T": 17,
+        "F": 20,
+        "Fl": 5,
+        "N": 0,
         "M": 6,
-        "R": -3
+        "R": -1
       },
-      "sector": "Technology",
-      "market_cap": 909695778816,
-      "risk_penalty": 3,
+      "sector": "Communication Services",
+      "market_cap": 1698738339840,
+      "risk_penalty": 1,
       "strategy": {
-        "rs_rating": 99,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
+        "rs_rating": 30,
+        "rs_score_0_10": 1.77,
+        "minervini_pass": 3,
+        "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 16457420440.0,
-        "entry_price": 557.8900146484375,
-        "stop_price": 481.6,
+        "dollar_vol_50d": 11497428944.0,
+        "entry_price": 669.2100219726562,
+        "stop_price": 615.53,
         "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 53 健康未過熱（進場保護區）",
-          "chase_risk": false
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 69)，回測支撐再進",
+          "chase_risk": true
         },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 6.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
+        "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 9,
-          "bearish": 1,
-          "sentiment_ratio": 0.8,
-          "watchlist_count": 560708,
-          "label": "強烈看多",
-          "score_0_10": 9.0,
-          "tagged": 10
+          "bullish": 6,
+          "bearish": 5,
+          "sentiment_ratio": 0.09,
+          "watchlist_count": 599960,
+          "label": "中性",
+          "score_0_10": 5.5,
+          "tagged": 11
         },
         "potential": {
           "stage": null,
           "label": null
         },
         "sector": {
-          "score": 20,
+          "score": 10,
           "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
+          "rs_vs_spy_20d": -3.51,
+          "status": "普通",
           "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
+            "站上20日均線(111.6>110.0)",
+            "20日落後SPY -3.5%"
           ],
-          "sector_etf": "XLK"
+          "sector_etf": "XLC"
         },
         "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 83.27,
-          "percentile": 90.0,
-          "research_grade": "A"
+          "composite": 43.04,
+          "percentile": null,
+          "research_grade": "D"
         }
       },
-      "divergence_gap": 52
+      "divergence_gap": -17
     },
     {
       "symbol": "ARM",
@@ -1557,8 +1385,8 @@
       "action": "Avoid",
       "price": 323.3900146484375,
       "entry": 323.3900146484375,
-      "stop": 261.27,
-      "atr_pct": 9.60377313417898,
+      "stop": 261.24,
+      "atr_pct": 9.608654641487057,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -1594,7 +1422,7 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3571444591.0,
+        "dollar_vol_50d": 3571468230.0,
         "entry_price": 323.3900146484375,
         "stop_price": 284.64,
         "entry_quality": {
@@ -1610,12 +1438,12 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 6,
-          "bearish": 2,
-          "sentiment_ratio": 0.5,
-          "watchlist_count": 32968,
-          "label": "強烈看多",
-          "score_0_10": 7.5,
+          "bullish": 4,
+          "bearish": 4,
+          "sentiment_ratio": 0.0,
+          "watchlist_count": 32974,
+          "label": "中性",
+          "score_0_10": 5.0,
           "tagged": 8
         },
         "potential": {
@@ -1637,31 +1465,34 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 86.14,
-          "percentile": 95.0,
-          "research_grade": "S"
+          "composite": 84.89,
+          "percentile": 89.5,
+          "research_grade": "A"
         }
       },
       "divergence_gap": 47
     },
     {
-      "symbol": "GILD",
-      "name": "Gilead Sciences, Inc.",
-      "score": 45,
+      "symbol": "NU",
+      "name": "Nu Holdings Ltd.",
+      "score": 47,
       "grade": "D",
       "action": "Avoid",
-      "price": 129.8300018310547,
-      "entry": 129.8300018310547,
-      "stop": 122.16,
-      "atr_pct": 2.955788212960449,
+      "price": 13.760000228881836,
+      "entry": 13.760000228881836,
+      "stop": 12.75,
+      "atr_pct": 3.6731742924339663,
       "themes": [
-        "glp1_biotech"
+        "emerging_market",
+        "crypto_fintech"
       ],
-      "warnings": [],
+      "warnings": [
+        "波動偏高 ATR 3.7%"
+      ],
       "matched_headlines": [
-        "2 Recession-Resistant Dividend Stocks to Buy and Hold",
-        "Gilead Sciences (GILD) Wins Trodelvy Approvals And Expands Texas CAR T Access",
-        "Gilead Sciences (GILD) After Russell Growth Index Removal And A Fully Valued Narrative"
+        "Why Nu Stock Plunged 20% in the First Half of the Year",
+        "Nu vs. OneMain: Should You Pick the Digital Disruptor or the Domestic Dividend Payer in 2026?",
+        "Digital Payment Update - Open Banking Boom Sparks Fintech Growth Worldwide"
       ],
       "catalyst_confidence": {
         "grade": "B",
@@ -1670,40 +1501,308 @@
         "evidence_count": 4
       },
       "sub": {
-        "T": 6,
-        "F": 18,
-        "Fl": 3,
-        "N": 12,
+        "T": 20,
+        "F": 10,
+        "Fl": 6,
+        "N": 6,
         "M": 6,
-        "R": 0
+        "R": -1
       },
-      "sector": "Healthcare",
-      "market_cap": 161193017344,
-      "risk_penalty": 0,
+      "sector": "Financial Services",
+      "market_cap": 66467467264,
+      "risk_penalty": 1,
       "strategy": {
-        "rs_rating": 48,
-        "rs_score_0_10": 3.02,
-        "minervini_pass": 4,
+        "rs_rating": 28,
+        "rs_score_0_10": 1.47,
+        "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1021414445.0,
-        "entry_price": 129.8300018310547,
-        "stop_price": 122.16,
+        "dollar_vol_50d": 776549804.0,
+        "entry_price": 13.760000228881836,
+        "stop_price": 12.75,
         "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 60 健康未過熱（進場保護區）",
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 67，擇機進場",
           "chase_risk": false
         },
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 10,
+          "bullish": 11,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 77647,
+          "watchlist_count": 15988,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 10
+          "tagged": 11
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 2.7,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(55.7>54.3)",
+            "20日跑贏SPY +2.7%"
+          ],
+          "sector_etf": "XLF"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 45.58,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -19
+    },
+    {
+      "symbol": "MELI",
+      "name": "MercadoLibre, Inc.",
+      "score": 46,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1852.219970703125,
+      "entry": 1852.219970703125,
+      "stop": 1733.06,
+      "atr_pct": 3.2167963602285514,
+      "themes": [
+        "emerging_market",
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.2%"
+      ],
+      "matched_headlines": [
+        "Skip Broad Latin America. This Single-Country Fund Is Where the Reform Rally Is",
+        "How EBAY Stock’s British Experiment Signaled A 50% Surge",
+        "Wall Street Missed the Plot on MELI: Why This Massive 49% Top-Line Surge Is My E-Commerce No-Brainer"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 10,
+        "F": 10,
+        "Fl": 12,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 93902340096,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 18,
+        "rs_score_0_10": 2.63,
+        "minervini_pass": 1,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 967372488.0,
+        "entry_price": 1852.219970703125,
+        "stop_price": 1733.06,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 76)，回測支撐再進",
+          "chase_risk": true
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 22185,
+          "label": "強烈看多",
+          "score_0_10": 10.0,
+          "tagged": 8
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.83,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(117.2>116.6)",
+            "20日落後SPY -0.8%"
+          ],
+          "sector_etf": "XLY"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 38.58,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -28
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 315.32000732421875,
+      "entry": 315.32000732421875,
+      "stop": 297.43,
+      "atr_pct": 2.837255081591976,
+      "themes": [
+        "ai_infra"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations",
+        "‘Not Afraid Of Apple,’ Says OpenAI CEO Sam Altman After Trade Secret Lawsuit",
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 20,
+        "F": 16,
+        "Fl": 3,
+        "N": 0,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Technology",
+      "market_cap": 4631217307648,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 67,
+        "rs_score_0_10": 6.23,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 16851943666.0,
+        "entry_price": 315.32000732421875,
+        "stop_price": 297.43,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 62 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 5,
+          "bearish": 2,
+          "sentiment_ratio": 0.43,
+          "watchlist_count": 982421,
+          "label": "強烈看多",
+          "score_0_10": 7.1,
+          "tagged": 7
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 72.97,
+          "percentile": 63.2,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 22
+    },
+    {
+      "symbol": "NVO",
+      "name": "Novo Nordisk A/S",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 49.47999954223633,
+      "entry": 49.47999954223633,
+      "stop": 46.75,
+      "atr_pct": 2.763021622216658,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "3 Dividend Stocks That Are No-Brainer Buys Heading Into the Second Half of 2026",
+        "Is Pfizer on Track to Launch Its Next Lipitor -- This Time in the Weight-Loss Market?",
+        "Here's Why Shares in Novo Nordisk Rival, Agios Pharmaceutical, Soared This Week"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 10,
+        "F": 14,
+        "Fl": 0,
+        "N": 15,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Healthcare",
+      "market_cap": 218939375616,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 13,
+        "rs_score_0_10": 7.18,
+        "minervini_pass": 3,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 629859127.0,
+        "entry_price": 49.47999954223633,
+        "stop_price": 46.75,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 79，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 9,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 31334,
+          "label": "強烈看多",
+          "score_0_10": 10.0,
+          "tagged": 9
         },
         "potential": {
           "stage": null,
@@ -1726,7 +1825,96 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 62.2,
+          "composite": 43.33,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -32
+    },
+    {
+      "symbol": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "score": 45,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 129.8300018310547,
+      "entry": 129.8300018310547,
+      "stop": 122.16,
+      "atr_pct": 2.9555128593253706,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "Many Investors Are Still Treating Gilead Sciences Like a Has-Been HIV Stock. 4 Drug Launches This Year Could Prove Them Wrong.",
+        "2 Recession-Resistant Dividend Stocks to Buy and Hold",
+        "Gilead Sciences (GILD) Wins Trodelvy Approvals And Expands Texas CAR T Access"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 6,
+        "F": 18,
+        "Fl": 3,
+        "N": 12,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Healthcare",
+      "market_cap": 161193017344,
+      "risk_penalty": 0,
+      "strategy": {
+        "rs_rating": 48,
+        "rs_score_0_10": 3.02,
+        "minervini_pass": 4,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1021642250.0,
+        "entry_price": 129.8300018310547,
+        "stop_price": 122.16,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 60 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 77647,
+          "label": "強烈看多",
+          "score_0_10": 10.0,
+          "tagged": 8
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 1.35,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(160.8>157.8)",
+            "20日跑贏SPY +1.4%"
+          ],
+          "sector_etf": "XLV"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 57.7,
           "percentile": null,
           "research_grade": "D"
         }
@@ -1775,7 +1963,7 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1343147823.0,
+        "dollar_vol_50d": 1345487008.0,
         "entry_price": 257.5400085449219,
         "stop_price": 231.84,
         "entry_quality": {
@@ -1786,13 +1974,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 4,
           "bearish": 1,
-          "sentiment_ratio": 0.75,
-          "watchlist_count": 25445,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 25456,
           "label": "強烈看多",
-          "score_0_10": 8.8,
-          "tagged": 8
+          "score_0_10": 8.0,
+          "tagged": 5
         },
         "potential": {
           "stage": "early_strength",
@@ -1818,104 +2006,12 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 77.62,
-          "percentile": 75.0,
+          "composite": 77.22,
+          "percentile": 73.7,
           "research_grade": "B"
         }
       },
       "divergence_gap": 48
-    },
-    {
-      "symbol": "NU",
-      "name": "Nu Holdings Ltd.",
-      "score": 43,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 13.760000228881836,
-      "entry": 13.760000228881836,
-      "stop": 12.75,
-      "atr_pct": 3.6679836388619194,
-      "themes": [
-        "emerging_market",
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.7%"
-      ],
-      "matched_headlines": [
-        "Why Nu Stock Plunged 20% in the First Half of the Year",
-        "Nu vs. OneMain: Should You Pick the Digital Disruptor or the Domestic Dividend Payer in 2026?",
-        "Digital Payment Update - Open Banking Boom Sparks Fintech Growth Worldwide"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 17,
-        "F": 10,
-        "Fl": 5,
-        "N": 6,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Financial Services",
-      "market_cap": 66467467264,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 28,
-        "rs_score_0_10": 1.47,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 774114727.0,
-        "entry_price": 13.760000228881836,
-        "stop_price": 12.75,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 67，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 13,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 15963,
-          "label": "強烈看多",
-          "score_0_10": 10.0,
-          "tagged": 13
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 2.7,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(55.7>54.3)",
-            "20日跑贏SPY +2.7%"
-          ],
-          "sector_etf": "XLF"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 45.24,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -15
     },
     {
       "symbol": "TSM",
@@ -1926,17 +2022,17 @@
       "price": 434.1099853515625,
       "entry": 434.1099853515625,
       "stop": 391.53,
-      "atr_pct": 4.904205208864302,
+      "atr_pct": 4.9042875593380355,
       "themes": [
         "semiconductor",
         "ai_infra"
       ],
       "warnings": [
-        "財報將近（6 日）",
+        "財報 3 日內 — 跳空風險高",
         "波動偏高 ATR 4.9%"
       ],
       "matched_headlines": [
-        "Why Is Meta (META) Stock Soaring Today"
+        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations"
       ],
       "catalyst_confidence": {
         "grade": "C",
@@ -1948,20 +2044,20 @@
         "T": 13,
         "F": 19,
         "Fl": 4,
-        "N": 3,
+        "N": 6,
         "M": 6,
-        "R": -4
+        "R": -7
       },
       "sector": "Technology",
       "market_cap": 2251500027904,
-      "risk_penalty": 4,
+      "risk_penalty": 7,
       "strategy": {
         "rs_rating": 82,
         "rs_score_0_10": 7.19,
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 5797980919.0,
+        "dollar_vol_50d": 5798111795.0,
         "entry_price": 434.1099853515625,
         "stop_price": 400.68,
         "entry_quality": {
@@ -1972,13 +2068,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 18,
-          "bearish": 1,
-          "sentiment_ratio": 0.89,
-          "watchlist_count": 68012,
-          "label": "強烈看多",
-          "score_0_10": 9.5,
-          "tagged": 19
+          "bullish": 3,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 68047,
+          "label": "資料不足",
+          "score_0_10": 10.0,
+          "tagged": 3
         },
         "potential": {
           "stage": null,
@@ -1996,12 +2092,14 @@
           "sector_etf": "XLK"
         },
         "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
+          "gate_passed": false,
+          "gate_reasons": [
+            "風險扣分過高(7)"
+          ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 79.38,
-          "percentile": 80.0,
-          "research_grade": "B"
+          "composite": 79.63,
+          "percentile": null,
+          "research_grade": "D"
         }
       },
       "divergence_gap": 41
@@ -2048,7 +2146,7 @@
         "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2645024401.0,
+        "dollar_vol_50d": 2645343231.0,
         "entry_price": 506.9800109863281,
         "stop_price": 440.18,
         "entry_quality": {
@@ -2067,7 +2165,7 @@
           "bullish": 12,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 21462,
+          "watchlist_count": 21455,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 12
@@ -2106,198 +2204,106 @@
       "divergence_gap": -1
     },
     {
-      "symbol": "VST",
-      "name": "Vistra Corp.",
-      "score": 41,
+      "symbol": "GEV",
+      "name": "GE Vernova Inc.",
+      "score": 39,
       "grade": "D",
       "action": "Avoid",
-      "price": 158.86000061035156,
-      "entry": 158.86000061035156,
-      "stop": 146.06,
-      "atr_pct": 4.0297833031591175,
+      "price": 1091.5699462890625,
+      "entry": 1091.5699462890625,
+      "stop": 964.04,
+      "atr_pct": 5.841578415856209,
       "themes": [
-        "energy_power"
+        "energy_power",
+        "defense"
       ],
       "warnings": [
-        "波動偏高 ATR 4.0%"
+        "財報將近（9 日）",
+        "波動過大 ATR 5.8%"
       ],
       "matched_headlines": [
-        "Vistra Corp. (VST) Beats Stock Market Upswing: What Investors Need to Know",
-        "Can Vistra's Long-Term PPAs Act as a Catalyst for Its Growth?",
-        "Is Vistra (VST) Undervalued Following PJM's Record Fourth Of July Power Demand?"
+        "2 Top Power Stocks That Could Outperform the Market Through 2030",
+        "Chevron May Have Unlocked a Powerful New Growth Engine",
+        "MarketBeat Week in Review – 07/06 - 07/10"
       ],
       "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
+        "grade": "C",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 3
       },
       "sub": {
-        "T": 10,
-        "F": 9,
-        "Fl": 2,
-        "N": 15,
+        "T": 17,
+        "F": 8,
+        "Fl": 5,
+        "N": 9,
         "M": 6,
-        "R": -1
+        "R": -6
       },
-      "sector": "Utilities",
-      "market_cap": 53564805120,
-      "risk_penalty": 1,
+      "sector": "Industrials",
+      "market_cap": 293326684160,
+      "risk_penalty": 6,
       "strategy": {
-        "rs_rating": 33,
-        "rs_score_0_10": 3.79,
-        "minervini_pass": 1,
-        "phase2": false,
+        "rs_rating": 84,
+        "rs_score_0_10": 4.13,
+        "minervini_pass": 8,
+        "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 748059869.0,
-        "entry_price": 158.86000061035156,
-        "stop_price": 146.06,
+        "dollar_vol_50d": 2904969936.0,
+        "entry_price": 1091.5699462890625,
+        "stop_price": 964.04,
         "entry_quality": {
           "label": "可進場",
-          "reason": "站上50MA且RSI 45 健康未過熱（進場保護區）",
+          "reason": "站上50MA且RSI 48 健康未過熱（進場保護區）",
           "chase_risk": false
         },
         "failure_risks": [
           {
             "mode": "題材失靈風險",
             "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          },
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
           }
         ],
-        "social": {
-          "messages": 30,
-          "bullish": 6,
-          "bearish": 11,
-          "sentiment_ratio": -0.29,
-          "watchlist_count": 13414,
-          "label": "偏空",
-          "score_0_10": 3.5,
-          "tagged": 17
-        },
-        "potential": {
-          "stage": "low_base",
-          "label": "低基期盤整",
-          "reason": "波動收縮中(比值0.66)，貼近50MA",
-          "contraction_ratio": 0.66,
-          "contraction_quality": 34.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": 3.3
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.47,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(45.4>45.1)",
-            "20日落後SPY -0.5%"
-          ],
-          "sector_etf": "XLU"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 37.49,
-          "percentile": 5.0,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": -8
-    },
-    {
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "score": 40,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 385.1000061035156,
-      "entry": 385.1000061035156,
-      "stop": 359.75,
-      "atr_pct": 3.2918160917963126,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.3%"
-      ],
-      "matched_headlines": [
-        "AI Giants Add $350 Billion Debt as $725 Billion Spending Surges"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 4,
-        "F": 20,
-        "Fl": 8,
-        "N": 3,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 2860690440192,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 23,
-        "rs_score_0_10": 2.18,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 16513019016.0,
-        "entry_price": 385.1000061035156,
-        "stop_price": 359.75,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
         "social": {
           "messages": 30,
           "bullish": 7,
           "bearish": 1,
           "sentiment_ratio": 0.75,
-          "watchlist_count": 538951,
+          "watchlist_count": 9489,
           "label": "強烈看多",
           "score_0_10": 8.8,
           "tagged": 8
         },
         "potential": {
-          "stage": "weakening",
-          "label": "轉弱觀察",
-          "reason": "跌破50/200MA，非築底階段",
-          "contraction_ratio": 0.74,
-          "contraction_quality": 26.0,
-          "is_contracting": false,
-          "dist_from_50sma_pct": -4.5
+          "stage": null,
+          "label": null
         },
         "sector": {
           "score": 20,
           "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
+          "rs_vs_spy_20d": 3.15,
           "status": "強勢",
           "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
+            "站上20日均線(181.9>180.6)",
+            "20日跑贏SPY +3.1%"
           ],
-          "sector_etf": "XLK"
+          "sector_etf": "XLI"
         },
         "research_rank": {
           "gate_passed": false,
           "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+            "風險扣分過高(6)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 42.27,
+          "composite": 74.67,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": -17
+      "divergence_gap": 45
     },
     {
       "symbol": "CRWD",
@@ -2342,7 +2348,7 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2128030978.0,
+        "dollar_vol_50d": 2136128347.0,
         "entry_price": 187.17999267578125,
         "stop_price": 167.78,
         "entry_quality": {
@@ -2358,13 +2364,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 4,
-          "bearish": 2,
-          "sentiment_ratio": 0.33,
-          "watchlist_count": 61466,
-          "label": "偏多",
-          "score_0_10": 6.7,
-          "tagged": 6
+          "bullish": 1,
+          "bearish": 14,
+          "sentiment_ratio": -0.87,
+          "watchlist_count": 61498,
+          "label": "強烈看空",
+          "score_0_10": 0.7,
+          "tagged": 15
         },
         "potential": {
           "stage": "early_strength",
@@ -2390,8 +2396,8 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 66.57,
-          "percentile": 35.0,
+          "composite": 63.57,
+          "percentile": 26.3,
           "research_grade": "C"
         }
       },
@@ -2406,7 +2412,7 @@
       "price": 139.27000427246094,
       "entry": 139.27000427246094,
       "stop": 124.36,
-      "atr_pct": 5.3520957368348006,
+      "atr_pct": 5.352090258702901,
       "themes": [
         "cybersecurity"
       ],
@@ -2441,7 +2447,7 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 710160209.0,
+        "dollar_vol_50d": 710792486.0,
         "entry_price": 139.27000427246094,
         "stop_price": 124.36,
         "entry_quality": {
@@ -2457,13 +2463,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 13,
+          "bullish": 11,
           "bearish": 3,
-          "sentiment_ratio": 0.62,
-          "watchlist_count": 23186,
+          "sentiment_ratio": 0.57,
+          "watchlist_count": 23188,
           "label": "強烈看多",
-          "score_0_10": 8.1,
-          "tagged": 16
+          "score_0_10": 7.8,
+          "tagged": 14
         },
         "potential": {
           "stage": "weakening",
@@ -2491,7 +2497,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 28.95,
+          "composite": 28.8,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2499,112 +2505,24 @@
       "divergence_gap": -33
     },
     {
-      "symbol": "NVO",
-      "name": "Novo Nordisk A/S",
-      "score": 39,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 49.47999954223633,
-      "entry": 49.47999954223633,
-      "stop": 46.75,
-      "atr_pct": 2.762299675663721,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [],
-      "matched_headlines": [
-        "Here's Why Shares in Novo Nordisk Rival, Agios Pharmaceutical, Soared This Week",
-        "Record Numbers of Americans Are on GLP-1 Drugs. That's Great News for This Stock."
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
-      },
-      "sub": {
-        "T": 10,
-        "F": 14,
-        "Fl": 0,
-        "N": 9,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Healthcare",
-      "market_cap": 218939375616,
-      "risk_penalty": 0,
-      "strategy": {
-        "rs_rating": 13,
-        "rs_score_0_10": 7.18,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 629674154.0,
-        "entry_price": 49.47999954223633,
-        "stop_price": 46.75,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 79，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 12,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 31331,
-          "label": "強烈看多",
-          "score_0_10": 10.0,
-          "tagged": 12
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 1.35,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(160.8>157.8)",
-            "20日跑贏SPY +1.4%"
-          ],
-          "sector_etf": "XLV"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 38.83,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -26
-    },
-    {
-      "symbol": "AVGO",
-      "name": "Broadcom Inc.",
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
       "score": 38,
       "grade": "D",
       "action": "Avoid",
-      "price": 399.9700012207031,
-      "entry": 399.9700012207031,
-      "stop": 368.77,
-      "atr_pct": 3.9006488294829853,
+      "price": 385.1000061035156,
+      "entry": 385.1000061035156,
+      "stop": 359.74,
+      "atr_pct": 3.2924653417416807,
       "themes": [
-        "ai_infra",
-        "semiconductor"
+        "cloud_saas",
+        "ai_infra"
       ],
       "warnings": [
-        "波動偏高 ATR 3.9%"
+        "波動偏高 ATR 3.3%"
       ],
       "matched_headlines": [
-        "Why Is Meta (META) Stock Soaring Today"
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
       ],
       "catalyst_confidence": {
         "grade": "C",
@@ -2613,25 +2531,25 @@
         "evidence_count": 1
       },
       "sub": {
-        "T": 10,
-        "F": 18,
-        "Fl": 2,
+        "T": 4,
+        "F": 20,
+        "Fl": 6,
         "N": 3,
         "M": 6,
         "R": -1
       },
       "sector": "Technology",
-      "market_cap": 1902889402368,
+      "market_cap": 2860690440192,
       "risk_penalty": 1,
       "strategy": {
-        "rs_rating": 70,
-        "rs_score_0_10": 2.59,
-        "minervini_pass": 7,
-        "phase2": true,
+        "rs_rating": 23,
+        "rs_score_0_10": 2.18,
+        "minervini_pass": 0,
+        "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 11182791767.0,
-        "entry_price": 399.9700012207031,
-        "stop_price": 368.77,
+        "dollar_vol_50d": 16516872797.0,
+        "entry_price": 385.1000061035156,
+        "stop_price": 359.74,
         "entry_quality": {
           "label": "觀望",
           "reason": "未站上50MA趨勢",
@@ -2640,17 +2558,22 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 11,
-          "bearish": 2,
-          "sentiment_ratio": 0.69,
-          "watchlist_count": 70196,
-          "label": "強烈看多",
-          "score_0_10": 8.4,
-          "tagged": 13
+          "bullish": 10,
+          "bearish": 6,
+          "sentiment_ratio": 0.25,
+          "watchlist_count": 539049,
+          "label": "偏多",
+          "score_0_10": 6.2,
+          "tagged": 16
         },
         "potential": {
-          "stage": null,
-          "label": null
+          "stage": "weakening",
+          "label": "轉弱觀察",
+          "reason": "跌破50/200MA，非築底階段",
+          "contraction_ratio": 0.74,
+          "contraction_quality": 26.0,
+          "is_contracting": false,
+          "dist_from_50sma_pct": -4.5
         },
         "sector": {
           "score": 20,
@@ -2664,15 +2587,17 @@
           "sector_etf": "XLK"
         },
         "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 70.99,
-          "percentile": 60.0,
-          "research_grade": "C"
+          "composite": 40.3,
+          "percentile": null,
+          "research_grade": "D"
         }
       },
-      "divergence_gap": 32
+      "divergence_gap": -15
     },
     {
       "symbol": "AXON",
@@ -2718,7 +2643,7 @@
         "minervini_pass": 3,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 564422548.0,
+        "dollar_vol_50d": 564614581.0,
         "entry_price": 565.7999877929688,
         "stop_price": 490.54,
         "entry_quality": {
@@ -2735,12 +2660,12 @@
         "social": {
           "messages": 30,
           "bullish": 5,
-          "bearish": 7,
-          "sentiment_ratio": -0.17,
-          "watchlist_count": 15018,
-          "label": "偏空",
-          "score_0_10": 4.1,
-          "tagged": 12
+          "bearish": 4,
+          "sentiment_ratio": 0.11,
+          "watchlist_count": 15026,
+          "label": "中性",
+          "score_0_10": 5.6,
+          "tagged": 9
         },
         "potential": {
           "stage": null,
@@ -2763,12 +2688,105 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 38.58,
+          "composite": 39.33,
           "percentile": null,
           "research_grade": "D"
         }
       },
       "divergence_gap": -22
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "score": 36,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 245.33999633789062,
+      "entry": 245.33999633789062,
+      "stop": 229.24,
+      "atr_pct": 3.2820328533537926,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.3%"
+      ],
+      "matched_headlines": [
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett",
+        "Synchrony (SYF) Announces Executive Leadership Changes to Accelerate Digital and AI Growth"
+      ],
+      "catalyst_confidence": {
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 2
+      },
+      "sub": {
+        "T": 7,
+        "F": 12,
+        "Fl": 6,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 2639149400064,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 38,
+        "rs_score_0_10": 2.39,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 12849638498.0,
+        "entry_price": 245.33999633789062,
+        "stop_price": 229.24,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 1,
+          "sentiment_ratio": 0.78,
+          "watchlist_count": 692808,
+          "label": "強烈看多",
+          "score_0_10": 8.9,
+          "tagged": 9
+        },
+        "potential": {
+          "stage": "low_base",
+          "label": "低基期盤整",
+          "reason": "波動收縮中(比值0.53)，貼近50MA",
+          "contraction_ratio": 0.53,
+          "contraction_quality": 47.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": -3.4
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.83,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(117.2>116.6)",
+            "20日落後SPY -0.8%"
+          ],
+          "sector_etf": "XLY"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 57.03,
+          "percentile": 15.8,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 2
     },
     {
       "symbol": "MDB",
@@ -2813,7 +2831,7 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 712128627.0,
+        "dollar_vol_50d": 712132253.0,
         "entry_price": 342.0799865722656,
         "stop_price": 304.63,
         "entry_quality": {
@@ -2829,13 +2847,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 5,
+          "bullish": 6,
           "bearish": 1,
-          "sentiment_ratio": 0.67,
+          "sentiment_ratio": 0.71,
           "watchlist_count": 21188,
           "label": "強烈看多",
-          "score_0_10": 8.3,
-          "tagged": 6
+          "score_0_10": 8.6,
+          "tagged": 7
         },
         "potential": {
           "stage": "low_base",
@@ -2861,12 +2879,98 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 59.49,
-          "percentile": 20.0,
+          "composite": 59.64,
+          "percentile": 21.1,
           "research_grade": "C"
         }
       },
       "divergence_gap": 21
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "score": 35,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 399.9700012207031,
+      "entry": 399.9700012207031,
+      "stop": 368.77,
+      "atr_pct": 3.9006488294829853,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.9%"
+      ],
+      "matched_headlines": [],
+      "catalyst_confidence": {
+        "grade": "D",
+        "label": "低",
+        "reason": "未找到可佐證新聞",
+        "evidence_count": 0
+      },
+      "sub": {
+        "T": 10,
+        "F": 18,
+        "Fl": 2,
+        "N": 0,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 1902889402368,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 70,
+        "rs_score_0_10": 2.59,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 11188144709.0,
+        "entry_price": 399.9700012207031,
+        "stop_price": 368.77,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 10,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 70240,
+          "label": "強烈看多",
+          "score_0_10": 10.0,
+          "tagged": 10
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 67.29,
+          "percentile": 42.1,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 35
     },
     {
       "symbol": "RTX",
@@ -2877,23 +2981,22 @@
       "price": 195.92999267578125,
       "entry": 195.92999267578125,
       "stop": 187.31,
-      "atr_pct": 2.200769251000598,
+      "atr_pct": 2.2008604804301974,
       "themes": [
         "defense"
       ],
       "warnings": [
-        "財報將近（13 日）"
+        "財報將近（10 日）"
       ],
       "matched_headlines": [
         "Rackspace Plunges 25% After Cutting 2026 Outlook, Unveils $250M Share Offering",
-        "Why RTX (RTX) Could Beat Earnings Estimates Again",
-        "RTX (RTX) Expands European Missile Production With NATO And Diehl Defence"
+        "Why RTX (RTX) Could Beat Earnings Estimates Again"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "市場傳聞",
         "reason": "含傳聞或 sources say 類訊號，需等正式確認",
-        "evidence_count": 3
+        "evidence_count": 2
       },
       "sub": {
         "T": 17,
@@ -2912,7 +3015,7 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 984350571.0,
+        "dollar_vol_50d": 988184388.0,
         "entry_price": 195.92999267578125,
         "stop_price": 187.31,
         "entry_quality": {
@@ -2923,13 +3026,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 5,
+          "bullish": 7,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 24015,
+          "watchlist_count": 24018,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 5
+          "tagged": 7
         },
         "potential": {
           "stage": null,
@@ -2960,50 +3063,246 @@
       "divergence_gap": 17
     },
     {
-      "symbol": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "score": 33,
+      "symbol": "VST",
+      "name": "Vistra Corp.",
+      "score": 35,
       "grade": "D",
       "action": "Avoid",
-      "price": 245.33999633789062,
-      "entry": 245.33999633789062,
-      "stop": 229.24,
-      "atr_pct": 3.2820328533537926,
+      "price": 158.86000061035156,
+      "entry": 158.86000061035156,
+      "stop": 146.06,
+      "atr_pct": 4.0297833031591175,
       "themes": [
-        "cloud_saas"
+        "energy_power"
       ],
       "warnings": [
-        "波動偏高 ATR 3.3%"
+        "波動偏高 ATR 4.0%"
       ],
       "matched_headlines": [
-        "AI Giants Add $350 Billion Debt as $725 Billion Spending Surges"
+        "Vistra Corp. (VST) Beats Stock Market Upswing: What Investors Need to Know",
+        "Can Vistra's Long-Term PPAs Act as a Catalyst for Its Growth?",
+        "Is Vistra (VST) Undervalued Following PJM's Record Fourth Of July Power Demand?"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 10,
+        "F": 9,
+        "Fl": 2,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Utilities",
+      "market_cap": 53564805120,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 33,
+        "rs_score_0_10": 3.79,
+        "minervini_pass": 1,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 748063742.0,
+        "entry_price": 158.86000061035156,
+        "stop_price": 146.06,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 45 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "題材失靈風險",
+            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 4,
+          "bearish": 14,
+          "sentiment_ratio": -0.56,
+          "watchlist_count": 13435,
+          "label": "強烈看空",
+          "score_0_10": 2.2,
+          "tagged": 18
+        },
+        "potential": {
+          "stage": "low_base",
+          "label": "低基期盤整",
+          "reason": "波動收縮中(比值0.66)，貼近50MA",
+          "contraction_ratio": 0.66,
+          "contraction_quality": 34.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": 3.3
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.47,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(45.4>45.1)",
+            "20日落後SPY -0.5%"
+          ],
+          "sector_etf": "XLU"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 36.84,
+          "percentile": 5.3,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": -2
+    },
+    {
+      "symbol": "MRNA",
+      "name": "Moderna, Inc.",
+      "score": 34,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 68.2699966430664,
+      "entry": 68.2699966430664,
+      "stop": 56.09,
+      "atr_pct": 8.923602599348845,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動過大 ATR 8.9%"
+      ],
+      "matched_headlines": [
+        "Stock Market Today: Dow Ends Higher; SK Hynix Jumps In U.S. Trading Debut; Moderna Tumbles",
+        "MRNA Stock Eyes Worst Week In 11 Months After June Surge — What’s Ahead?",
+        "Moderna Drops 11%, ImmunityBio and Sarepta Therapeutics Tumble 8% in Biotech Rout"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 5
+      },
+      "sub": {
+        "T": 18,
+        "F": 2,
+        "Fl": 8,
+        "N": 3,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Healthcare",
+      "market_cap": 27088596992,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 87,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 484782093.0,
+        "entry_price": 68.2699966430664,
+        "stop_price": 56.09,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 54 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 8.9%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 4,
+          "sentiment_ratio": 0.33,
+          "watchlist_count": 110948,
+          "label": "偏多",
+          "score_0_10": 6.7,
+          "tagged": 12
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 1.35,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(160.8>157.8)",
+            "20日跑贏SPY +1.4%"
+          ],
+          "sector_etf": "XLV"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 72.82,
+          "percentile": 57.9,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 53
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "score": 29,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 357.17999267578125,
+      "entry": 357.17999267578125,
+      "stop": 334.22,
+      "atr_pct": 3.214665740688731,
+      "themes": [
+        "cloud_saas",
+        "ai_infra"
+      ],
+      "warnings": [
+        "財報將近（9 日）",
+        "波動偏高 ATR 3.2%"
+      ],
+      "matched_headlines": [
+        "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?",
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "一般新聞",
         "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "evidence_count": 2
       },
       "sub": {
-        "T": 7,
-        "F": 12,
-        "Fl": 6,
+        "T": 3,
+        "F": 18,
+        "Fl": 3,
         "N": 3,
         "M": 6,
-        "R": -1
+        "R": -4
       },
-      "sector": "Consumer Cyclical",
-      "market_cap": 2639149400064,
-      "risk_penalty": 1,
+      "sector": "Communication Services",
+      "market_cap": 4358514933760,
+      "risk_penalty": 4,
       "strategy": {
-        "rs_rating": 38,
-        "rs_score_0_10": 2.39,
-        "minervini_pass": 5,
-        "phase2": false,
+        "rs_rating": 79,
+        "rs_score_0_10": 4.21,
+        "minervini_pass": 7,
+        "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 12847888895.0,
-        "entry_price": 245.33999633789062,
-        "stop_price": 229.24,
+        "dollar_vol_50d": 12340319970.0,
+        "entry_price": 357.17999267578125,
+        "stop_price": 334.22,
         "entry_quality": {
           "label": "觀望",
           "reason": "未站上50MA趨勢",
@@ -3012,22 +3311,111 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
-          "bearish": 3,
-          "sentiment_ratio": 0.4,
-          "watchlist_count": 692741,
-          "label": "強烈看多",
-          "score_0_10": 7.0,
-          "tagged": 10
+          "bullish": 3,
+          "bearish": 1,
+          "sentiment_ratio": 0.5,
+          "watchlist_count": 219240,
+          "label": "資料不足",
+          "score_0_10": 7.5,
+          "tagged": 4
         },
         "potential": {
-          "stage": "low_base",
-          "label": "低基期盤整",
-          "reason": "波動收縮中(比值0.53)，貼近50MA",
-          "contraction_ratio": 0.53,
-          "contraction_quality": 47.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": -3.4
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -3.51,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(111.6>110.0)",
+            "20日落後SPY -3.5%"
+          ],
+          "sector_etf": "XLC"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 69.47,
+          "percentile": 52.6,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 50
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla, Inc.",
+      "score": 29,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 407.760009765625,
+      "entry": 407.760009765625,
+      "stop": 367.41,
+      "atr_pct": 4.947412262713412,
+      "themes": [
+        "ai_infra",
+        "energy_power"
+      ],
+      "warnings": [
+        "財報將近（9 日）",
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
+      },
+      "sub": {
+        "T": 12,
+        "F": 8,
+        "Fl": 4,
+        "N": 3,
+        "M": 6,
+        "R": -4
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 1531433975808,
+      "risk_penalty": 4,
+      "strategy": {
+        "rs_rating": 45,
+        "rs_score_0_10": 4.77,
+        "minervini_pass": 3,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 20170431077.0,
+        "entry_price": 407.760009765625,
+        "stop_price": 367.41,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 5,
+          "bearish": 9,
+          "sentiment_ratio": -0.29,
+          "watchlist_count": 1055666,
+          "label": "偏空",
+          "score_0_10": 3.5,
+          "tagged": 14
+        },
+        "potential": {
+          "stage": "weakening",
+          "label": "轉弱觀察",
+          "reason": "跌破50/200MA，非築底階段",
+          "contraction_ratio": 0.82,
+          "contraction_quality": 18.0,
+          "is_contracting": false,
+          "dist_from_50sma_pct": -0.4
         },
         "sector": {
           "score": 10,
@@ -3041,26 +3429,28 @@
           "sector_etf": "XLY"
         },
         "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 47.08,
-          "percentile": 10.0,
-          "research_grade": "C"
+          "composite": 41.71,
+          "percentile": null,
+          "research_grade": "D"
         }
       },
-      "divergence_gap": 5
+      "divergence_gap": 16
     },
     {
       "symbol": "PLTR",
       "name": "Palantir Technologies Inc.",
-      "score": 33,
+      "score": 29,
       "grade": "D",
       "action": "Avoid",
       "price": 126.79000091552734,
       "entry": 126.79000091552734,
-      "stop": 112.57,
-      "atr_pct": 5.6093314888043855,
+      "stop": 112.56,
+      "atr_pct": 5.609894540575243,
       "themes": [
         "ai_infra",
         "defense"
@@ -3069,20 +3459,19 @@
         "波動過大 ATR 5.6%"
       ],
       "matched_headlines": [
-        "Palantir's 104% U.S. Revenue Growth is the Key Number to Watch",
-        "5 Cloud Computing Stocks to Buy for 2H 2026 as Digital Demand Soars"
+        "MarketBeat Week in Review – 07/06 - 07/10"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "一般新聞",
         "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
+        "evidence_count": 1
       },
       "sub": {
         "T": 0,
         "F": 20,
-        "Fl": 4,
-        "N": 6,
+        "Fl": 3,
+        "N": 3,
         "M": 6,
         "R": -3
       },
@@ -3095,9 +3484,9 @@
         "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 5810919265.0,
+        "dollar_vol_50d": 5811889878.0,
         "entry_price": 126.79000091552734,
-        "stop_price": 112.57,
+        "stop_price": 112.56,
         "entry_quality": {
           "label": "觀望",
           "reason": "未站上50MA趨勢",
@@ -3111,13 +3500,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
-          "bearish": 2,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 322262,
-          "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 10
+          "bullish": 10,
+          "bearish": 5,
+          "sentiment_ratio": 0.33,
+          "watchlist_count": 322294,
+          "label": "偏多",
+          "score_0_10": 6.7,
+          "tagged": 15
         },
         "potential": {
           "stage": "weakening",
@@ -3145,396 +3534,12 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 41.33,
+          "composite": 40.35,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": -8
-    },
-    {
-      "symbol": "SMCI",
-      "name": "Super Micro Computer, Inc.",
-      "score": 32,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 28.309999465942383,
-      "entry": 28.309999465942383,
-      "stop": 23.78,
-      "atr_pct": 8.008274372466936,
-      "themes": [
-        "ai_infra"
-      ],
-      "warnings": [
-        "波動過大 ATR 8.0%"
-      ],
-      "matched_headlines": [
-        "Can SMCI Convert Strong AI Growth Into Robust Cash and Margins?",
-        "SMCI Stock Likely to Reverse from Oversold Levels as DCBBS Gains Growth Traction",
-        "Is Super Micro Stock's AI Growth Story Worth the Cash-Burning Risk?"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 0,
-        "F": 8,
-        "Fl": 6,
-        "N": 15,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Technology",
-      "market_cap": 18312974336,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 21,
-        "rs_score_0_10": 6.01,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1874925634.0,
-        "entry_price": 28.309999465942383,
-        "stop_price": 24.9,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "題材失靈風險",
-            "detail": "新聞熱度高但基本面偏弱，題材退潮易回跌（台股驗證 -8.6%）"
-          },
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 8.0%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 10,
-          "bearish": 5,
-          "sentiment_ratio": 0.33,
-          "watchlist_count": 89626,
-          "label": "偏多",
-          "score_0_10": 6.7,
-          "tagged": 15
-        },
-        "potential": {
-          "stage": "weakening",
-          "label": "轉弱觀察",
-          "reason": "跌破50/200MA，非築底階段",
-          "contraction_ratio": 0.35,
-          "contraction_quality": 65.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": -15.3
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 40.12,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -11
-    },
-    {
-      "symbol": "MRNA",
-      "name": "Moderna, Inc.",
-      "score": 32,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 68.2699966430664,
-      "entry": 68.2699966430664,
-      "stop": 56.09,
-      "atr_pct": 8.923602599348845,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動過大 ATR 8.9%"
-      ],
-      "matched_headlines": [
-        "Stock Market Today: Dow Ends Higher; SK Hynix Jumps In U.S. Trading Debut; Moderna Tumbles",
-        "MRNA Stock Eyes Worst Week In 11 Months After June Surge — What’s Ahead?",
-        "Moderna Drops 11%, ImmunityBio and Sarepta Therapeutics Tumble 8% in Biotech Rout"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "市場傳聞",
-        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 18,
-        "F": 2,
-        "Fl": 6,
-        "N": 3,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Healthcare",
-      "market_cap": 27088596992,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 87,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 484762213.0,
-        "entry_price": 68.2699966430664,
-        "stop_price": 56.09,
-        "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 54 健康未過熱（進場保護區）",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 8.9%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 5,
-          "bearish": 5,
-          "sentiment_ratio": 0.0,
-          "watchlist_count": 110947,
-          "label": "中性",
-          "score_0_10": 5.0,
-          "tagged": 10
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 1.35,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(160.8>157.8)",
-            "20日跑贏SPY +1.4%"
-          ],
-          "sector_etf": "XLV"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 71.3,
-          "percentile": 65.0,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 55
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova Inc.",
-      "score": 30,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1091.5699462890625,
-      "entry": 1091.5699462890625,
-      "stop": 964.04,
-      "atr_pct": 5.841545665629741,
-      "themes": [
-        "energy_power",
-        "defense"
-      ],
-      "warnings": [
-        "財報將近（12 日）",
-        "波動過大 ATR 5.8%"
-      ],
-      "matched_headlines": [
-        "Nvidia Is Allegedly Delaying Its Kyber Rack-Scale Architecture by More Than 12 Months. What This Means for NVDA Stock."
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 17,
-        "F": 8,
-        "Fl": 5,
-        "N": 0,
-        "M": 6,
-        "R": -6
-      },
-      "sector": "Industrials",
-      "market_cap": 293326684160,
-      "risk_penalty": 6,
-      "strategy": {
-        "rs_rating": 84,
-        "rs_score_0_10": 4.13,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 2891289050.0,
-        "entry_price": 1091.5699462890625,
-        "stop_price": 964.04,
-        "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 48 健康未過熱（進場保護區）",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 5.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 1,
-          "sentiment_ratio": 0.78,
-          "watchlist_count": 9457,
-          "label": "強烈看多",
-          "score_0_10": 8.9,
-          "tagged": 9
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 3.15,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(181.9>180.6)",
-            "20日跑贏SPY +3.1%"
-          ],
-          "sector_etf": "XLI"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "風險扣分過高(6)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 74.72,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": 54
-    },
-    {
-      "symbol": "GOOGL",
-      "name": "Alphabet Inc.",
-      "score": 29,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 357.17999267578125,
-      "entry": 357.17999267578125,
-      "stop": 334.22,
-      "atr_pct": 3.214665740688731,
-      "themes": [
-        "cloud_saas",
-        "ai_infra"
-      ],
-      "warnings": [
-        "財報將近（12 日）",
-        "波動偏高 ATR 3.2%"
-      ],
-      "matched_headlines": [
-        "AI Giants Add $350 Billion Debt as $725 Billion Spending Surges"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 3,
-        "F": 18,
-        "Fl": 3,
-        "N": 3,
-        "M": 6,
-        "R": -4
-      },
-      "sector": "Communication Services",
-      "market_cap": 4358514933760,
-      "risk_penalty": 4,
-      "strategy": {
-        "rs_rating": 79,
-        "rs_score_0_10": 4.21,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 12335427890.0,
-        "entry_price": 357.17999267578125,
-        "stop_price": 334.22,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 1,
-          "sentiment_ratio": 0.78,
-          "watchlist_count": 219192,
-          "label": "強烈看多",
-          "score_0_10": 8.9,
-          "tagged": 9
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -3.51,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(111.6>110.0)",
-            "20日落後SPY -3.5%"
-          ],
-          "sector_etf": "XLC"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 70.17,
-          "percentile": 50.0,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 50
+      "divergence_gap": -4
     },
     {
       "symbol": "NOC",
@@ -3545,12 +3550,12 @@
       "price": 539.6300048828125,
       "entry": 539.6300048828125,
       "stop": 511.76,
-      "atr_pct": 2.5822586069537365,
+      "atr_pct": 2.5821923594088947,
       "themes": [
         "defense"
       ],
       "warnings": [
-        "財報將近（11 日）"
+        "財報將近（8 日）"
       ],
       "matched_headlines": [
         "Why Northrop Grumman (NOC) is Poised to Beat Earnings Estimates Again",
@@ -3579,7 +3584,7 @@
         "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 514101489.0,
+        "dollar_vol_50d": 514103896.0,
         "entry_price": 539.6300048828125,
         "stop_price": 511.76,
         "entry_quality": {
@@ -3595,13 +3600,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 15,
+          "bullish": 13,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 11249,
+          "watchlist_count": 11255,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 15
+          "tagged": 13
         },
         "potential": {
           "stage": "weakening",
@@ -3637,204 +3642,9 @@
       "divergence_gap": 6
     },
     {
-      "symbol": "COIN",
-      "name": "Coinbase Global, Inc.",
-      "score": 28,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 159.07000732421875,
-      "entry": 159.07000732421875,
-      "stop": 138.31,
-      "atr_pct": 6.524080653513395,
-      "themes": [
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動過大 ATR 6.5%"
-      ],
-      "matched_headlines": [
-        "Circle Stock Rallies On National Bank Approval. ARK Buys More Shares.",
-        "Cathie Wood’s Perfect Timing: ARK Buys Big Into Circle Ahead of Federal Bank Approval",
-        "COIN Vs. MSTR: Coinbase Has the Structurally Superior Approach to Bitcoin Over MicroStrategy"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 0,
-        "F": 10,
-        "Fl": 0,
-        "N": 15,
-        "M": 6,
-        "R": -3
-      },
-      "sector": "Financial Services",
-      "market_cap": 41908707328,
-      "risk_penalty": 3,
-      "strategy": {
-        "rs_rating": 8,
-        "rs_score_0_10": 0.0,
-        "minervini_pass": 0,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1582423986.0,
-        "entry_price": 159.07000732421875,
-        "stop_price": 138.31,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 6.5%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 3,
-          "sentiment_ratio": 0.45,
-          "watchlist_count": 137660,
-          "label": "強烈看多",
-          "score_0_10": 7.2,
-          "tagged": 11
-        },
-        "potential": {
-          "stage": "weakening",
-          "label": "轉弱觀察",
-          "reason": "跌破50/200MA，非築底階段",
-          "contraction_ratio": 0.46,
-          "contraction_quality": 54.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": -9.2
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 2.7,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(55.7>54.3)",
-            "20日跑贏SPY +2.7%"
-          ],
-          "sector_etf": "XLF"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 32.3,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -20
-    },
-    {
-      "symbol": "TSLA",
-      "name": "Tesla, Inc.",
-      "score": 26,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 407.760009765625,
-      "entry": 407.760009765625,
-      "stop": 367.41,
-      "atr_pct": 4.947410658956086,
-      "themes": [
-        "ai_infra",
-        "energy_power"
-      ],
-      "warnings": [
-        "財報將近（12 日）",
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [],
-      "catalyst_confidence": {
-        "grade": "D",
-        "label": "低",
-        "reason": "未找到可佐證新聞",
-        "evidence_count": 0
-      },
-      "sub": {
-        "T": 12,
-        "F": 8,
-        "Fl": 4,
-        "N": 0,
-        "M": 6,
-        "R": -4
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 1531433975808,
-      "risk_penalty": 4,
-      "strategy": {
-        "rs_rating": 45,
-        "rs_score_0_10": 4.77,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 20165745751.0,
-        "entry_price": 407.760009765625,
-        "stop_price": 367.41,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 5,
-          "bearish": 2,
-          "sentiment_ratio": 0.43,
-          "watchlist_count": 1055632,
-          "label": "強烈看多",
-          "score_0_10": 7.1,
-          "tagged": 7
-        },
-        "potential": {
-          "stage": "weakening",
-          "label": "轉弱觀察",
-          "reason": "跌破50/200MA，非築底階段",
-          "contraction_ratio": 0.82,
-          "contraction_quality": 18.0,
-          "is_contracting": false,
-          "dist_from_50sma_pct": -0.4
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.83,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(117.2>116.6)",
-            "20日落後SPY -0.8%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 39.01,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": 19
-    },
-    {
       "symbol": "ASML",
       "name": "ASML Holding N.V. - New York Re",
-      "score": 24,
+      "score": 26,
       "grade": "D",
       "action": "Avoid",
       "price": 1797.3199462890625,
@@ -3845,21 +3655,23 @@
         "semiconductor"
       ],
       "warnings": [
-        "財報 5 日內 — 跳空風險高",
+        "財報 2 日內 — 跳空風險高",
         "波動過大 ATR 5.4%"
       ],
-      "matched_headlines": [],
+      "matched_headlines": [
+        "MarketBeat Week in Review – 07/06 - 07/10"
+      ],
       "catalyst_confidence": {
-        "grade": "D",
-        "label": "低",
-        "reason": "未找到可佐證新聞",
-        "evidence_count": 0
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 1
       },
       "sub": {
         "T": 11,
         "F": 15,
-        "Fl": 1,
-        "N": 0,
+        "Fl": 0,
+        "N": 3,
         "M": 6,
         "R": -9
       },
@@ -3872,7 +3684,7 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 3260838623.0,
+        "dollar_vol_50d": 3261786242.0,
         "entry_price": 1797.3199462890625,
         "stop_price": 1682.96,
         "entry_quality": {
@@ -3888,13 +3700,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 12,
-          "bearish": 4,
-          "sentiment_ratio": 0.5,
-          "watchlist_count": 30855,
-          "label": "強烈看多",
-          "score_0_10": 7.5,
-          "tagged": 16
+          "bullish": 4,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 30928,
+          "label": "資料不足",
+          "score_0_10": 10.0,
+          "tagged": 4
         },
         "potential": {
           "stage": null,
@@ -3917,59 +3729,61 @@
             "風險扣分過高(9)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 73.68,
+          "composite": 79.1,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": 65
+      "divergence_gap": 63
     },
     {
-      "symbol": "MSTR",
-      "name": "Strategy Inc",
+      "symbol": "SMCI",
+      "name": "Super Micro Computer, Inc.",
       "score": 24,
       "grade": "D",
       "action": "Avoid",
-      "price": 94.63999938964844,
-      "entry": 94.63999938964844,
-      "stop": 77.04,
-      "atr_pct": 9.29915037188001,
+      "price": 28.309999465942383,
+      "entry": 28.309999465942383,
+      "stop": 23.78,
+      "atr_pct": 8.008274372466936,
       "themes": [
-        "crypto_fintech"
+        "ai_infra"
       ],
       "warnings": [
-        "波動過大 ATR 9.3%"
+        "波動過大 ATR 8.0%",
+        "高放空比 21%"
       ],
       "matched_headlines": [
-        "COIN Vs. MSTR: Coinbase Has the Structurally Superior Approach to Bitcoin Over MicroStrategy",
-        "Circle Jumps 14% on OCC Trust Bank Approval; Coinbase and Strategy Gain 5% as Bitcoin Bounces"
+        "Missed Nvidia’s Run? SMH Holders Made 113% Over 12 Months Anyway",
+        "Can SMCI Convert Strong AI Growth Into Robust Cash and Margins?",
+        "SMCI Stock Likely to Reverse from Oversold Levels as DCBBS Gains Growth Traction"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
       },
       "sub": {
         "T": 0,
-        "F": 6,
+        "F": 8,
         "Fl": 6,
         "N": 9,
         "M": 6,
-        "R": -3
+        "R": -5
       },
       "sector": "Technology",
-      "market_cap": 33859211264,
-      "risk_penalty": 3,
+      "market_cap": 18312974336,
+      "risk_penalty": 5,
       "strategy": {
-        "rs_rating": 3,
-        "rs_score_0_10": 0.0,
-        "minervini_pass": 0,
+        "rs_rating": 21,
+        "rs_score_0_10": 6.01,
+        "minervini_pass": 1,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2734460090.0,
-        "entry_price": 94.63999938964844,
-        "stop_price": 80.17,
+        "dollar_vol_50d": 1875622970.0,
+        "entry_price": 28.309999465942383,
+        "stop_price": 24.9,
         "entry_quality": {
           "label": "觀望",
           "reason": "未站上50MA趨勢",
@@ -3982,18 +3796,202 @@
           },
           {
             "mode": "停損風險",
+            "detail": "波動過大(ATR 8.0%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 9,
+          "bearish": 4,
+          "sentiment_ratio": 0.38,
+          "watchlist_count": 89640,
+          "label": "偏多",
+          "score_0_10": 6.9,
+          "tagged": 13
+        },
+        "potential": {
+          "stage": "weakening",
+          "label": "轉弱觀察",
+          "reason": "跌破50/200MA，非築底階段",
+          "contraction_ratio": 0.35,
+          "contraction_quality": 65.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": -15.3
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 40.22,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -3
+    },
+    {
+      "symbol": "LMT",
+      "name": "Lockheed Martin Corporation",
+      "score": 19,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 523.219970703125,
+      "entry": 523.219970703125,
+      "stop": 494.81,
+      "atr_pct": 2.7149196564430462,
+      "themes": [
+        "defense"
+      ],
+      "warnings": [
+        "財報將近（10 日）"
+      ],
+      "matched_headlines": [],
+      "catalyst_confidence": {
+        "grade": "D",
+        "label": "低",
+        "reason": "未找到可佐證新聞",
+        "evidence_count": 0
+      },
+      "sub": {
+        "T": 4,
+        "F": 7,
+        "Fl": 5,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Industrials",
+      "market_cap": 120635490304,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 43,
+        "rs_score_0_10": 2.78,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 677889639.0,
+        "entry_price": 523.219970703125,
+        "stop_price": 494.81,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 54 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 13,
+          "bearish": 2,
+          "sentiment_ratio": 0.73,
+          "watchlist_count": 36849,
+          "label": "強烈看多",
+          "score_0_10": 8.7,
+          "tagged": 15
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 3.15,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(181.9>180.6)",
+            "20日跑贏SPY +3.1%"
+          ],
+          "sector_etf": "XLI"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 47.59,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": 24
+    },
+    {
+      "symbol": "MSTR",
+      "name": "Strategy Inc",
+      "score": 15,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 94.63999938964844,
+      "entry": 94.63999938964844,
+      "stop": 77.04,
+      "atr_pct": 9.29915037188001,
+      "themes": [
+        "crypto_fintech"
+      ],
+      "warnings": [
+        "波動過大 ATR 9.3%"
+      ],
+      "matched_headlines": [],
+      "catalyst_confidence": {
+        "grade": "D",
+        "label": "低",
+        "reason": "未找到可佐證新聞",
+        "evidence_count": 0
+      },
+      "sub": {
+        "T": 0,
+        "F": 6,
+        "Fl": 6,
+        "N": 0,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 33859211264,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 3,
+        "rs_score_0_10": 0.0,
+        "minervini_pass": 0,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 2735014825.0,
+        "entry_price": 94.63999938964844,
+        "stop_price": 80.17,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
             "detail": "波動過大(ATR 9.3%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
           }
         ],
         "social": {
           "messages": 30,
-          "bullish": 11,
-          "bearish": 2,
-          "sentiment_ratio": 0.69,
-          "watchlist_count": 81293,
+          "bullish": 14,
+          "bearish": 4,
+          "sentiment_ratio": 0.56,
+          "watchlist_count": 81318,
           "label": "強烈看多",
-          "score_0_10": 8.4,
-          "tagged": 13
+          "score_0_10": 7.8,
+          "tagged": 18
         },
         "potential": {
           "stage": "weakening",
@@ -4021,32 +4019,32 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 26.4,
+          "composite": 21.6,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": -21
+      "divergence_gap": -12
     },
     {
-      "symbol": "LMT",
-      "name": "Lockheed Martin Corporation",
-      "score": 19,
+      "symbol": "COIN",
+      "name": "COIN",
+      "score": 9,
       "grade": "D",
       "action": "Avoid",
-      "price": 523.219970703125,
-      "entry": 523.219970703125,
-      "stop": 494.81,
-      "atr_pct": 2.7148854937916296,
+      "price": 159.07000732421875,
+      "entry": 159.07000732421875,
+      "stop": 138.31,
+      "atr_pct": 6.524080653513395,
       "themes": [
-        "defense"
+        "crypto_fintech"
       ],
       "warnings": [
-        "財報將近（13 日）"
+        "波動過大 ATR 6.5%"
       ],
       "matched_headlines": [
-        "NLight Flashes Buy Signal On U.S. Laser Weapon Contract Win",
-        "3 Industrials Stocks with Warning Signs"
+        "Kraken To Relaunch Mobile App With Agentic Trading",
+        "Circle Stock Rallies On National Bank Approval. ARK Buys More Shares."
       ],
       "catalyst_confidence": {
         "grade": "C",
@@ -4055,68 +4053,68 @@
         "evidence_count": 2
       },
       "sub": {
-        "T": 4,
-        "F": 7,
-        "Fl": 5,
-        "N": 0,
+        "T": 0,
+        "F": 0,
+        "Fl": 0,
+        "N": 6,
         "M": 6,
         "R": -3
       },
-      "sector": "Industrials",
-      "market_cap": 120635490304,
+      "sector": "",
+      "market_cap": 0,
       "risk_penalty": 3,
       "strategy": {
-        "rs_rating": 43,
-        "rs_score_0_10": 2.78,
-        "minervini_pass": 5,
+        "rs_rating": 8,
+        "rs_score_0_10": 0.0,
+        "minervini_pass": 0,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 677791043.0,
-        "entry_price": 523.219970703125,
-        "stop_price": 494.81,
+        "dollar_vol_50d": 1582803285.0,
+        "entry_price": 159.07000732421875,
+        "stop_price": 138.31,
         "entry_quality": {
-          "label": "可進場",
-          "reason": "站上50MA且RSI 54 健康未過熱（進場保護區）",
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
           "chase_risk": false
         },
-        "failure_risks": [],
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 6.5%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
         "social": {
           "messages": 30,
-          "bullish": 16,
-          "bearish": 1,
-          "sentiment_ratio": 0.88,
-          "watchlist_count": 36833,
+          "bullish": 8,
+          "bearish": 3,
+          "sentiment_ratio": 0.45,
+          "watchlist_count": 137678,
           "label": "強烈看多",
-          "score_0_10": 9.4,
-          "tagged": 17
+          "score_0_10": 7.2,
+          "tagged": 11
         },
         "potential": {
-          "stage": null,
-          "label": null
+          "stage": "weakening",
+          "label": "轉弱觀察",
+          "reason": "跌破50/200MA，非築底階段",
+          "contraction_ratio": 0.46,
+          "contraction_quality": 54.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": -9.2
         },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 3.15,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(181.9>180.6)",
-            "20日跑贏SPY +3.1%"
-          ],
-          "sector_etf": "XLI"
-        },
+        "sector": null,
         "research_rank": {
           "gate_passed": false,
           "gate_reasons": [
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 52.44,
+          "composite": 17.8,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": 24
+      "divergence_gap": -1
     }
   ],
   "top10": [
@@ -4128,8 +4126,8 @@
       "action": "Avoid",
       "price": 186.9600067138672,
       "entry": 186.9600067138672,
-      "stop": 165.36,
-      "atr_pct": 5.777437385153487,
+      "stop": 165.35,
+      "atr_pct": 5.778583496553161,
       "themes": [
         "ai_infra",
         "cloud_saas"
@@ -4165,9 +4163,9 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1629368992.0,
+        "dollar_vol_50d": 1632061194.0,
         "entry_price": 186.9600067138672,
-        "stop_price": 165.36,
+        "stop_price": 165.35,
         "entry_quality": {
           "label": "可進場",
           "reason": "站上50MA且RSI 59 健康未過熱（進場保護區）",
@@ -4181,13 +4179,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 9,
-          "bearish": 1,
-          "sentiment_ratio": 0.8,
-          "watchlist_count": 20142,
+          "bullish": 5,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 20215,
           "label": "強烈看多",
-          "score_0_10": 9.0,
-          "tagged": 10
+          "score_0_10": 10.0,
+          "tagged": 5
         },
         "potential": {
           "stage": null,
@@ -4208,9 +4206,9 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 81.47,
-          "percentile": 85.0,
-          "research_grade": "A"
+          "composite": 81.97,
+          "percentile": 84.2,
+          "research_grade": "B"
         }
       },
       "divergence_gap": 15
@@ -4218,7 +4216,7 @@
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "score": 53,
+      "score": 59,
       "grade": "C",
       "action": "Avoid",
       "price": 210.9600067138672,
@@ -4233,19 +4231,21 @@
         "波動偏高 ATR 3.2%"
       ],
       "matched_headlines": [
-        "Why Is Meta (META) Stock Soaring Today"
+        "TSMC Q2 revenue jumps 36% from a year earlier, beating market expectations",
+        "Zapata Quantum Bets Software, AI Partnerships Will Unlock Quantum Computing Value",
+        "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
       },
       "sub": {
         "T": 17,
         "F": 20,
         "Fl": 8,
-        "N": 3,
+        "N": 9,
         "M": 6,
         "R": -1
       },
@@ -4258,7 +4258,7 @@
         "minervini_pass": 7,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 33752866669.0,
+        "dollar_vol_50d": 33756749759.0,
         "entry_price": 210.9600067138672,
         "stop_price": 197.36,
         "entry_quality": {
@@ -4270,383 +4270,16 @@
         "social": {
           "messages": 30,
           "bullish": 8,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 652145,
+          "bearish": 3,
+          "sentiment_ratio": 0.45,
+          "watchlist_count": 652281,
           "label": "強烈看多",
-          "score_0_10": 10.0,
-          "tagged": 8
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 0.97,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(185.8>184.1)",
-            "20日跑贏SPY +1.0%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 70.79,
-          "percentile": 55.0,
-          "research_grade": "C"
-        }
-      },
-      "divergence_gap": 7
-    },
-    {
-      "symbol": "MELI",
-      "name": "MercadoLibre, Inc.",
-      "score": 52,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 1852.219970703125,
-      "entry": 1852.219970703125,
-      "stop": 1733.06,
-      "atr_pct": 3.2167963602285514,
-      "themes": [
-        "emerging_market",
-        "crypto_fintech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.2%"
-      ],
-      "matched_headlines": [
-        "How EBAY Stock’s British Experiment Signaled A 50% Surge",
-        "Wall Street Missed the Plot on MELI: Why This Massive 49% Top-Line Surge Is My E-Commerce No-Brainer",
-        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 10,
-        "F": 10,
-        "Fl": 12,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 93902340096,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 18,
-        "rs_score_0_10": 2.63,
-        "minervini_pass": 1,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 967313551.0,
-        "entry_price": 1852.219970703125,
-        "stop_price": 1733.06,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 76)，回測支撐再進",
-          "chase_risk": true
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 6,
-          "bearish": 1,
-          "sentiment_ratio": 0.71,
-          "watchlist_count": 22165,
-          "label": "強烈看多",
-          "score_0_10": 8.6,
-          "tagged": 7
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.83,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(117.2>116.6)",
-            "20日落後SPY -0.8%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 37.88,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -34
-    },
-    {
-      "symbol": "LLY",
-      "name": "Eli Lilly and Company",
-      "score": 52,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 1188.5799560546875,
-      "entry": 1188.5799560546875,
-      "stop": 1105.91,
-      "atr_pct": 3.4777399119624066,
-      "themes": [
-        "glp1_biotech"
-      ],
-      "warnings": [
-        "波動偏高 ATR 3.5%"
-      ],
-      "matched_headlines": [
-        "Moderna Drops 11%, ImmunityBio and Sarepta Therapeutics Tumble 8% in Biotech Rout",
-        "These 7 Stocks Are Analyst Favorites For Magnificent Earnings Growth; Citibank Earnings Approach",
-        "Record Numbers of Americans Are on GLP-1 Drugs. That's Great News for This Stock."
-      ],
-      "catalyst_confidence": {
-        "grade": "A",
-        "label": "已確認",
-        "reason": "公告/財報/正式事件佐證",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 18,
-        "F": 18,
-        "Fl": 2,
-        "N": 9,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Healthcare",
-      "market_cap": 1059905929216,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 62,
-        "rs_score_0_10": 9.73,
-        "minervini_pass": 7,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3626691131.0,
-        "entry_price": 1188.5799560546875,
-        "stop_price": 1105.91,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 66，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 13,
-          "bearish": 1,
-          "sentiment_ratio": 0.86,
-          "watchlist_count": 33831,
-          "label": "強烈看多",
-          "score_0_10": 9.3,
-          "tagged": 14
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 20,
-          "above_ema20": true,
-          "rs_vs_spy_20d": 1.35,
-          "status": "強勢",
-          "reasons": [
-            "站上20日均線(160.8>157.8)",
-            "20日跑贏SPY +1.4%"
-          ],
-          "sector_etf": "XLV"
-        },
-        "research_rank": {
-          "gate_passed": true,
-          "gate_reasons": [],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 77.24,
-          "percentile": 70.0,
-          "research_grade": "B"
-        }
-      },
-      "divergence_gap": 10
-    },
-    {
-      "symbol": "META",
-      "name": "Meta Platforms, Inc.",
-      "score": 51,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 669.2100219726562,
-      "entry": 669.2100219726562,
-      "stop": 615.54,
-      "atr_pct": 4.010271795601633,
-      "themes": [
-        "ai_infra",
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.0%"
-      ],
-      "matched_headlines": [
-        "Tech stocks live: SK Hynix begins trading on Nasdaq, SpaceX stock tumbles",
-        "Stock Market Today, July 10: Markets Edge Higher and SK Hynix Soars on Debut",
-        "Why Is Meta (META) Stock Soaring Today"
-      ],
-      "catalyst_confidence": {
-        "grade": "B",
-        "label": "多源升溫",
-        "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 17,
-        "F": 20,
-        "Fl": 3,
-        "N": 6,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Communication Services",
-      "market_cap": 1698738339840,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 30,
-        "rs_score_0_10": 1.77,
-        "minervini_pass": 3,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 11481973432.0,
-        "entry_price": 669.2100219726562,
-        "stop_price": 615.54,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 69)，回測支撐再進",
-          "chase_risk": true
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 2,
-          "bearish": 1,
-          "sentiment_ratio": 0.33,
-          "watchlist_count": 599842,
-          "label": "資料不足",
-          "score_0_10": 6.7,
-          "tagged": 3
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -3.51,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(111.6>110.0)",
-            "20日落後SPY -3.5%"
-          ],
-          "sector_etf": "XLC"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 47.48,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -21
-    },
-    {
-      "symbol": "SNOW",
-      "name": "Snowflake Inc.",
-      "score": 51,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 261.45001220703125,
-      "entry": 261.45001220703125,
-      "stop": 235.82,
-      "atr_pct": 4.902139320228837,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.9%"
-      ],
-      "matched_headlines": [
-        "Palantir's 104% U.S. Revenue Growth is the Key Number to Watch",
-        "Snowflake Inc. (SNOW) Outperforms Broader Market: What You Need to Know",
-        "Cognizant Strengthens AI Portfolio Through Google Cloud Partnership"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "市場傳聞",
-        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 17,
-        "F": 12,
-        "Fl": 2,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Technology",
-      "market_cap": 90618576896,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 50,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 5,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 1865186472.0,
-        "entry_price": 261.45001220703125,
-        "stop_price": 235.82,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 72，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 9,
-          "bearish": 2,
-          "sentiment_ratio": 0.64,
-          "watchlist_count": 57772,
-          "label": "強烈看多",
-          "score_0_10": 8.2,
+          "score_0_10": 7.2,
           "tagged": 11
         },
         "potential": {
-          "stage": "early_strength",
-          "label": "早期強勢",
-          "reason": "站上50MA且轉強，未達完整Minervini條件",
-          "contraction_ratio": 0.33,
-          "contraction_quality": 67.0,
-          "is_contracting": true,
-          "dist_from_50sma_pct": 24.4
+          "stage": null,
+          "label": null
         },
         "sector": {
           "score": 20,
@@ -4663,114 +4296,23 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 56.14,
-          "percentile": 15.0,
+          "composite": 73.89,
+          "percentile": 68.4,
           "research_grade": "C"
         }
       },
-      "divergence_gap": -1
-    },
-    {
-      "symbol": "SE",
-      "name": "Sea Limited",
-      "score": 51,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 111.13999938964844,
-      "entry": 111.13999938964844,
-      "stop": 101.5,
-      "atr_pct": 4.33860794332183,
-      "themes": [
-        "emerging_market"
-      ],
-      "warnings": [
-        "波動偏高 ATR 4.3%"
-      ],
-      "matched_headlines": [
-        "Sea (SE) And The Growth Story Behind Its Valuation",
-        "Sea (SE) Is Up 8.8% After Analyst Upgrades Ahead of Earnings Release - What's Changed",
-        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
-      ],
-      "catalyst_confidence": {
-        "grade": "A",
-        "label": "已確認",
-        "reason": "公告/財報/正式事件佐證",
-        "evidence_count": 4
-      },
-      "sub": {
-        "T": 13,
-        "F": 15,
-        "Fl": 3,
-        "N": 15,
-        "M": 6,
-        "R": -1
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 68071530496,
-      "risk_penalty": 1,
-      "strategy": {
-        "rs_rating": 11,
-        "rs_score_0_10": 6.24,
-        "minervini_pass": 2,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 403640846.0,
-        "entry_price": 111.13999938964844,
-        "stop_price": 101.5,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "趨勢強但短線乖離大(RSI 80)，回測支撐再進",
-          "chase_risk": true
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 14,
-          "bearish": 0,
-          "sentiment_ratio": 1.0,
-          "watchlist_count": 28236,
-          "label": "強烈看多",
-          "score_0_10": 10.0,
-          "tagged": 14
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 10,
-          "above_ema20": true,
-          "rs_vs_spy_20d": -0.83,
-          "status": "普通",
-          "reasons": [
-            "站上20日均線(117.2>116.6)",
-            "20日落後SPY -0.8%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 41.65,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -40
+      "divergence_gap": 1
     },
     {
       "symbol": "ABBV",
       "name": "AbbVie Inc.",
-      "score": 51,
+      "score": 54,
       "grade": "C",
       "action": "Avoid",
       "price": 248.0800018310547,
       "entry": 248.0800018310547,
       "stop": 232.86,
-      "atr_pct": 3.0668258177028997,
+      "atr_pct": 3.0666962125426918,
       "themes": [
         "glp1_biotech"
       ],
@@ -4778,19 +4320,20 @@
         "波動偏高 ATR 3.1%"
       ],
       "matched_headlines": [
+        "AbbVie Is Already a Dividend King. Here's Why the $10.9 Billion Apogee Deal Could Make It a Dynasty",
         "WST Completes SmartDose Sale to AbbVie to Focus on Core Growth"
       ],
       "catalyst_confidence": {
         "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 2
       },
       "sub": {
         "T": 17,
         "F": 18,
         "Fl": 8,
-        "N": 3,
+        "N": 6,
         "M": 6,
         "R": -1
       },
@@ -4803,7 +4346,7 @@
         "minervini_pass": 5,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1664557389.0,
+        "dollar_vol_50d": 1666366091.0,
         "entry_price": 248.0800018310547,
         "stop_price": 232.86,
         "entry_quality": {
@@ -4814,13 +4357,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 5,
+          "bullish": 6,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 32720,
+          "watchlist_count": 32719,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 5
+          "tagged": 6
         },
         "potential": {
           "stage": "early_strength",
@@ -4847,11 +4390,289 @@
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
           "composite": 64.04,
-          "percentile": 30.0,
+          "percentile": 36.8,
           "research_grade": "C"
         }
       },
-      "divergence_gap": 4
+      "divergence_gap": 1
+    },
+    {
+      "symbol": "LLY",
+      "name": "Eli Lilly and Company",
+      "score": 52,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 1188.5799560546875,
+      "entry": 1188.5799560546875,
+      "stop": 1105.91,
+      "atr_pct": 3.4777399119624066,
+      "themes": [
+        "glp1_biotech"
+      ],
+      "warnings": [
+        "波動偏高 ATR 3.5%"
+      ],
+      "matched_headlines": [
+        "3 Dividend Stocks That Are No-Brainer Buys Heading Into the Second Half of 2026",
+        "Is Pfizer on Track to Launch Its Next Lipitor -- This Time in the Weight-Loss Market?",
+        "Moderna Drops 11%, ImmunityBio and Sarepta Therapeutics Tumble 8% in Biotech Rout"
+      ],
+      "catalyst_confidence": {
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 18,
+        "F": 18,
+        "Fl": 5,
+        "N": 6,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Healthcare",
+      "market_cap": 1059905929216,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 62,
+        "rs_score_0_10": 9.73,
+        "minervini_pass": 7,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3636474047.0,
+        "entry_price": 1188.5799560546875,
+        "stop_price": 1105.91,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 66，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 13,
+          "bearish": 1,
+          "sentiment_ratio": 0.86,
+          "watchlist_count": 33851,
+          "label": "強烈看多",
+          "score_0_10": 9.3,
+          "tagged": 14
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 1.35,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(160.8>157.8)",
+            "20日跑贏SPY +1.4%"
+          ],
+          "sector_etf": "XLV"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 78.24,
+          "percentile": 78.9,
+          "research_grade": "B"
+        }
+      },
+      "divergence_gap": 10
+    },
+    {
+      "symbol": "SNOW",
+      "name": "Snowflake Inc.",
+      "score": 51,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 261.45001220703125,
+      "entry": 261.45001220703125,
+      "stop": 235.82,
+      "atr_pct": 4.902411954919462,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.9%"
+      ],
+      "matched_headlines": [
+        "Palantir's 104% U.S. Revenue Growth is the Key Number to Watch",
+        "Snowflake Inc. (SNOW) Outperforms Broader Market: What You Need to Know",
+        "Cognizant Strengthens AI Portfolio Through Google Cloud Partnership"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 17,
+        "F": 12,
+        "Fl": 2,
+        "N": 15,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 90618576896,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 50,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 1867342410.0,
+        "entry_price": 261.45001220703125,
+        "stop_price": 235.82,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 72，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 6,
+          "bearish": 2,
+          "sentiment_ratio": 0.5,
+          "watchlist_count": 57775,
+          "label": "強烈看多",
+          "score_0_10": 7.5,
+          "tagged": 8
+        },
+        "potential": {
+          "stage": "early_strength",
+          "label": "早期強勢",
+          "reason": "站上50MA且轉強，未達完整Minervini條件",
+          "contraction_ratio": 0.33,
+          "contraction_quality": 67.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": 24.4
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 55.79,
+          "percentile": 10.5,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": -1
+    },
+    {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices, Inc.",
+      "score": 50,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 557.8900146484375,
+      "entry": 557.8900146484375,
+      "stop": 481.6,
+      "atr_pct": 6.8374977279224,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "波動過大 ATR 6.8%"
+      ],
+      "matched_headlines": [
+        "Did Nvidia's 2028 Rack Delay Under Jensen Huang Open a Door for AMD and Google?",
+        "Why Meta Platforms Stock Surged This Week",
+        "A $26.5 Billion Milestone: What SK Hynix’s U.S. Debut Means for the AI Trade"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 24,
+        "F": 15,
+        "Fl": 2,
+        "N": 6,
+        "M": 6,
+        "R": -3
+      },
+      "sector": "Technology",
+      "market_cap": 909695778816,
+      "risk_penalty": 3,
+      "strategy": {
+        "rs_rating": 99,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 16457966481.0,
+        "entry_price": 557.8900146484375,
+        "stop_price": 481.6,
+        "entry_quality": {
+          "label": "可進場",
+          "reason": "站上50MA且RSI 53 健康未過熱（進場保護區）",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 6.8%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 8,
+          "bearish": 5,
+          "sentiment_ratio": 0.23,
+          "watchlist_count": 560746,
+          "label": "偏多",
+          "score_0_10": 6.2,
+          "tagged": 13
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 86.37,
+          "percentile": 94.7,
+          "research_grade": "A"
+        }
+      },
+      "divergence_gap": 49
     },
     {
       "symbol": "CRDO",
@@ -4862,7 +4683,7 @@
       "price": 257.7900085449219,
       "entry": 257.7900085449219,
       "stop": 199.09,
-      "atr_pct": 11.385510312630256,
+      "atr_pct": 11.38551327216875,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -4898,7 +4719,7 @@
         "minervini_pass": 8,
         "phase2": true,
         "liquidity_ok": true,
-        "dollar_vol_50d": 1987744481.0,
+        "dollar_vol_50d": 1987930667.0,
         "entry_price": 257.7900085449219,
         "stop_price": 221.15,
         "entry_quality": {
@@ -4914,13 +4735,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 5,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 10717,
+          "watchlist_count": 10777,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 7
+          "tagged": 5
         },
         "potential": {
           "stage": null,
@@ -4965,13 +4786,13 @@
         "波動過大 ATR 5.3%"
       ],
       "matched_headlines": [
-        "Can Platformization Drive Palo Alto Networks' Next Growth Phase?",
-        "Palo Alto Just Soared 28% in a Month. Should Investors Take Profits and Rotate Into CrowdStrike or Fortinet?"
+        "Palo Alto Networks May Need a Breather Before Its Next Rally",
+        "Can Platformization Drive Palo Alto Networks' Next Growth Phase?"
       ],
       "catalyst_confidence": {
         "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
         "evidence_count": 2
       },
       "sub": {
@@ -4991,7 +4812,7 @@
         "minervini_pass": 6,
         "phase2": false,
         "liquidity_ok": true,
-        "dollar_vol_50d": 2288956956.0,
+        "dollar_vol_50d": 2289972407.0,
         "entry_price": 325.9100036621094,
         "stop_price": 291.39,
         "entry_quality": {
@@ -5008,12 +4829,12 @@
         "social": {
           "messages": 30,
           "bullish": 3,
-          "bearish": 4,
-          "sentiment_ratio": -0.14,
-          "watchlist_count": 38641,
+          "bearish": 3,
+          "sentiment_ratio": 0.0,
+          "watchlist_count": 38656,
           "label": "中性",
-          "score_0_10": 4.3,
-          "tagged": 7
+          "score_0_10": 5.0,
+          "tagged": 6
         },
         "potential": {
           "stage": "early_strength",
@@ -5039,12 +4860,198 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 68.57,
-          "percentile": 45.0,
+          "composite": 68.92,
+          "percentile": 47.4,
           "research_grade": "C"
         }
       },
       "divergence_gap": 26
+    },
+    {
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 49,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 111.13999938964844,
+      "entry": 111.13999938964844,
+      "stop": 101.5,
+      "atr_pct": 4.33860794332183,
+      "themes": [
+        "emerging_market"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.3%"
+      ],
+      "matched_headlines": [
+        "Sea (SE) And The Growth Story Behind Its Valuation",
+        "Sea (SE) Is Up 8.8% After Analyst Upgrades Ahead of Earnings Release - What's Changed",
+        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
+      ],
+      "catalyst_confidence": {
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 3
+      },
+      "sub": {
+        "T": 13,
+        "F": 15,
+        "Fl": 4,
+        "N": 12,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 68071530496,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 11,
+        "rs_score_0_10": 6.24,
+        "minervini_pass": 2,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 403891178.0,
+        "entry_price": 111.13999938964844,
+        "stop_price": 101.5,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 80)，回測支撐再進",
+          "chase_risk": true
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 13,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
+          "watchlist_count": 28245,
+          "label": "強烈看多",
+          "score_0_10": 10.0,
+          "tagged": 13
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 10,
+          "above_ema20": true,
+          "rs_vs_spy_20d": -0.83,
+          "status": "普通",
+          "reasons": [
+            "站上20日均線(117.2>116.6)",
+            "20日落後SPY -0.8%"
+          ],
+          "sector_etf": "XLY"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 41.98,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -38
+    },
+    {
+      "symbol": "NET",
+      "name": "Cloudflare, Inc.",
+      "score": 48,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 268.3999938964844,
+      "entry": 268.3999938964844,
+      "stop": 242.55,
+      "atr_pct": 4.815814196999224,
+      "themes": [
+        "cloud_saas",
+        "cybersecurity"
+      ],
+      "warnings": [
+        "波動偏高 ATR 4.8%"
+      ],
+      "matched_headlines": [
+        "Why Did NET, ETSY, CROX Stocks Surge To 52-Week Highs Last Week?",
+        "Wall Street Says Investors Are Missing Cloudflare’s Biggest AI Opportunity",
+        "Cloudflare (NET) Is Up 10.7% After Launching AI Search Pilot With OpenAI And New Monetization Tools"
+      ],
+      "catalyst_confidence": {
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 20,
+        "F": 12,
+        "Fl": 2,
+        "N": 9,
+        "M": 6,
+        "R": -1
+      },
+      "sector": "Technology",
+      "market_cap": 95265775616,
+      "risk_penalty": 1,
+      "strategy": {
+        "rs_rating": 65,
+        "rs_score_0_10": 9.44,
+        "minervini_pass": 5,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 976794500.0,
+        "entry_price": 268.3999938964844,
+        "stop_price": 242.55,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "趨勢強但短線乖離大(RSI 77)，回測支撐再進",
+          "chase_risk": true
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 2,
+          "bearish": 6,
+          "sentiment_ratio": -0.5,
+          "watchlist_count": 34804,
+          "label": "強烈看空",
+          "score_0_10": 2.5,
+          "tagged": 8
+        },
+        "potential": {
+          "stage": "early_strength",
+          "label": "早期強勢",
+          "reason": "站上50MA且轉強，未達完整Minervini條件",
+          "contraction_ratio": 0.68,
+          "contraction_quality": 32.0,
+          "is_contracting": true,
+          "dist_from_50sma_pct": 16.0
+        },
+        "sector": {
+          "score": 20,
+          "above_ema20": true,
+          "rs_vs_spy_20d": 0.97,
+          "status": "強勢",
+          "reasons": [
+            "站上20日均線(185.8>184.1)",
+            "20日跑贏SPY +1.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": true,
+          "gate_reasons": [],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 63.79,
+          "percentile": 31.6,
+          "research_grade": "C"
+        }
+      },
+      "divergence_gap": 17
     }
   ],
   "potential_radar": [
@@ -5109,7 +5116,7 @@
       "symbol": "ABBV",
       "name": "AbbVie Inc.",
       "price": 248.0800018310547,
-      "score": 51,
+      "score": 54,
       "stage": "early_strength",
       "label": "早期強勢",
       "reason": "站上50MA且轉強，未達完整Minervini條件",
@@ -5137,7 +5144,7 @@
       "symbol": "AMZN",
       "name": "Amazon.com, Inc.",
       "price": 245.33999633789062,
-      "score": 33,
+      "score": 36,
       "stage": "low_base",
       "label": "低基期盤整",
       "reason": "波動收縮中(比值0.53)，貼近50MA",
@@ -5145,20 +5152,6 @@
       "dist_from_50sma_pct": -3.4,
       "themes": [
         "cloud_saas"
-      ]
-    },
-    {
-      "symbol": "VST",
-      "name": "Vistra Corp.",
-      "price": 158.86000061035156,
-      "score": 41,
-      "stage": "low_base",
-      "label": "低基期盤整",
-      "reason": "波動收縮中(比值0.66)，貼近50MA",
-      "contraction_quality": 34.0,
-      "dist_from_50sma_pct": 3.3,
-      "themes": [
-        "energy_power"
       ]
     },
     {
@@ -5176,10 +5169,24 @@
       ]
     },
     {
+      "symbol": "VST",
+      "name": "Vistra Corp.",
+      "price": 158.86000061035156,
+      "score": 35,
+      "stage": "low_base",
+      "label": "低基期盤整",
+      "reason": "波動收縮中(比值0.66)，貼近50MA",
+      "contraction_quality": 34.0,
+      "dist_from_50sma_pct": 3.3,
+      "themes": [
+        "energy_power"
+      ]
+    },
+    {
       "symbol": "SMCI",
       "name": "Super Micro Computer, Inc.",
       "price": 28.309999465942383,
-      "score": 32,
+      "score": 24,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5191,9 +5198,9 @@
     },
     {
       "symbol": "COIN",
-      "name": "Coinbase Global, Inc.",
+      "name": "COIN",
       "price": 159.07000732421875,
-      "score": 28,
+      "score": 9,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5235,7 +5242,7 @@
       "symbol": "MSTR",
       "name": "Strategy Inc",
       "price": 94.63999938964844,
-      "score": 24,
+      "score": 15,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5249,7 +5256,7 @@
       "symbol": "MSFT",
       "name": "Microsoft Corporation",
       "price": 385.1000061035156,
-      "score": 40,
+      "score": 38,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5264,7 +5271,7 @@
       "symbol": "TSLA",
       "name": "Tesla, Inc.",
       "price": 407.760009765625,
-      "score": 26,
+      "score": 29,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5279,7 +5286,7 @@
       "symbol": "PLTR",
       "name": "Palantir Technologies Inc.",
       "price": 126.79000091552734,
-      "score": 33,
+      "score": 29,
       "stage": "weakening",
       "label": "轉弱觀察",
       "reason": "跌破50/200MA，非築底階段",
@@ -5317,19 +5324,19 @@
         },
         {
           "symbol": "NVDA",
-          "score": 53
+          "score": 59
         },
         {
-          "symbol": "META",
-          "score": 51
+          "symbol": "AMD",
+          "score": 50
         },
         {
           "symbol": "CRDO",
           "score": 49
         },
         {
-          "symbol": "AAPL",
-          "score": 48
+          "symbol": "META",
+          "score": 47
         }
       ],
       "prev_avg": 15.0,
@@ -5348,16 +5355,16 @@
           "score": 62
         },
         {
-          "symbol": "META",
-          "score": 51
-        },
-        {
           "symbol": "SNOW",
           "score": 51
         },
         {
           "symbol": "NET",
           "score": 48
+        },
+        {
+          "symbol": "META",
+          "score": 47
         },
         {
           "symbol": "DDOG",
@@ -5377,15 +5384,15 @@
       "symbols": [
         {
           "symbol": "NVDA",
-          "score": 53
+          "score": 59
+        },
+        {
+          "symbol": "AMD",
+          "score": 50
         },
         {
           "symbol": "CRDO",
           "score": 49
-        },
-        {
-          "symbol": "AMD",
-          "score": 47
         },
         {
           "symbol": "ARM",
@@ -5408,6 +5415,10 @@
       "count": 6,
       "symbols": [
         {
+          "symbol": "GEV",
+          "score": 39
+        },
+        {
           "symbol": "AXON",
           "score": 38
         },
@@ -5417,11 +5428,7 @@
         },
         {
           "symbol": "PLTR",
-          "score": 33
-        },
-        {
-          "symbol": "GEV",
-          "score": 30
+          "score": 29
         },
         {
           "symbol": "NOC",
@@ -5440,24 +5447,24 @@
       "count": 5,
       "symbols": [
         {
+          "symbol": "ABBV",
+          "score": 54
+        },
+        {
           "symbol": "LLY",
           "score": 52
         },
         {
-          "symbol": "ABBV",
-          "score": 51
+          "symbol": "NVO",
+          "score": 45
         },
         {
           "symbol": "GILD",
           "score": 45
         },
         {
-          "symbol": "NVO",
-          "score": 39
-        },
-        {
           "symbol": "MRNA",
-          "score": 32
+          "score": 34
         }
       ],
       "prev_avg": 5.0,
@@ -5504,20 +5511,20 @@
       "count": 4,
       "symbols": [
         {
-          "symbol": "MELI",
-          "score": 52
-        },
-        {
           "symbol": "NU",
-          "score": 43
+          "score": 47
         },
         {
-          "symbol": "COIN",
-          "score": 28
+          "symbol": "MELI",
+          "score": 46
         },
         {
           "symbol": "MSTR",
-          "score": 24
+          "score": 15
+        },
+        {
+          "symbol": "COIN",
+          "score": 9
         }
       ],
       "prev_avg": 4.0,
@@ -5532,16 +5539,16 @@
       "count": 3,
       "symbols": [
         {
-          "symbol": "MELI",
-          "score": 52
-        },
-        {
           "symbol": "SE",
-          "score": 51
+          "score": 49
         },
         {
           "symbol": "NU",
-          "score": 43
+          "score": 47
+        },
+        {
+          "symbol": "MELI",
+          "score": 46
         }
       ],
       "prev_avg": 3.0,
@@ -5556,16 +5563,16 @@
       "count": 3,
       "symbols": [
         {
-          "symbol": "VST",
-          "score": 41
+          "symbol": "GEV",
+          "score": 39
         },
         {
-          "symbol": "GEV",
-          "score": 30
+          "symbol": "VST",
+          "score": 35
         },
         {
           "symbol": "TSLA",
-          "score": 26
+          "score": 29
         }
       ],
       "prev_avg": 3.0,
@@ -5586,7 +5593,7 @@
       "price": 257.7900085449219,
       "entry": 257.7900085449219,
       "stop": 199.09,
-      "atr_pct": 11.385510312630256,
+      "atr_pct": 11.38551327216875,
       "themes": [
         "ai_infra",
         "semiconductor"
@@ -5634,13 +5641,13 @@
         "波動過大 ATR 5.3%"
       ],
       "matched_headlines": [
-        "Can Platformization Drive Palo Alto Networks' Next Growth Phase?",
-        "Palo Alto Just Soared 28% in a Month. Should Investors Take Profits and Rotate Into CrowdStrike or Fortinet?"
+        "Palo Alto Networks May Need a Breather Before Its Next Rally",
+        "Can Platformization Drive Palo Alto Networks' Next Growth Phase?"
       ],
       "catalyst_confidence": {
         "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
         "evidence_count": 2
       },
       "sub": {
@@ -5656,39 +5663,43 @@
       "risk_penalty": 3
     },
     {
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "score": 48,
+      "symbol": "SE",
+      "name": "Sea Limited",
+      "score": 49,
       "grade": "D",
       "action": "Avoid",
-      "price": 315.32000732421875,
-      "entry": 315.32000732421875,
-      "stop": 297.43,
-      "atr_pct": 2.837255081591976,
+      "price": 111.13999938964844,
+      "entry": 111.13999938964844,
+      "stop": 101.5,
+      "atr_pct": 4.33860794332183,
       "themes": [
-        "ai_infra"
+        "emerging_market"
       ],
-      "warnings": [],
+      "warnings": [
+        "波動偏高 ATR 4.3%"
+      ],
       "matched_headlines": [
-        "OpenAI Back in Another Legal War Weeks After Beating Elon Musk"
+        "Sea (SE) And The Growth Story Behind Its Valuation",
+        "Sea (SE) Is Up 8.8% After Analyst Upgrades Ahead of Earnings Release - What's Changed",
+        "Can MercadoLibre's AI Strategy Become Its Next Growth Engine?"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 3
       },
       "sub": {
-        "T": 20,
-        "F": 16,
-        "Fl": 3,
-        "N": 3,
+        "T": 13,
+        "F": 15,
+        "Fl": 4,
+        "N": 12,
         "M": 6,
-        "R": 0
+        "R": -1
       },
-      "sector": "Technology",
-      "market_cap": 4631217307648,
-      "risk_penalty": 0
+      "sector": "Consumer Cyclical",
+      "market_cap": 68071530496,
+      "risk_penalty": 1
     },
     {
       "symbol": "NET",
@@ -5708,14 +5719,15 @@
         "波動偏高 ATR 4.8%"
       ],
       "matched_headlines": [
-        "5 Cloud Computing Stocks to Buy for 2H 2026 as Digital Demand Soars",
-        "Scotiabank Sees a New Growth Story for Cloudflare"
+        "Why Did NET, ETSY, CROX Stocks Surge To 52-Week Highs Last Week?",
+        "Wall Street Says Investors Are Missing Cloudflare’s Biggest AI Opportunity",
+        "Cloudflare (NET) Is Up 10.7% After Launching AI Search Pilot With OpenAI And New Monetization Tools"
       ],
       "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 2
+        "grade": "B",
+        "label": "多源升溫",
+        "reason": "多則新聞同時命中，可信度中高",
+        "evidence_count": 4
       },
       "sub": {
         "T": 20,
@@ -5730,42 +5742,43 @@
       "risk_penalty": 1
     },
     {
-      "symbol": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
       "score": 47,
       "grade": "D",
       "action": "Avoid",
-      "price": 557.8900146484375,
-      "entry": 557.8900146484375,
-      "stop": 481.6,
-      "atr_pct": 6.8374977279224,
+      "price": 669.2100219726562,
+      "entry": 669.2100219726562,
+      "stop": 615.53,
+      "atr_pct": 4.010378635492767,
       "themes": [
         "ai_infra",
-        "semiconductor"
+        "cloud_saas"
       ],
       "warnings": [
-        "波動過大 ATR 6.8%"
+        "波動偏高 ATR 4.0%"
       ],
       "matched_headlines": [
-        "Why Is Meta (META) Stock Soaring Today"
+        "Why Meta Platforms Stock Surged This Week",
+        "Meta (META) Faces $2 Billion AI Deal Reversal And EU App Design Probe"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "一般新聞",
         "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "evidence_count": 2
       },
       "sub": {
-        "T": 24,
-        "F": 15,
-        "Fl": 2,
-        "N": 3,
+        "T": 17,
+        "F": 20,
+        "Fl": 5,
+        "N": 0,
         "M": 6,
-        "R": -3
+        "R": -1
       },
-      "sector": "Technology",
-      "market_cap": 909695778816,
-      "risk_penalty": 3
+      "sector": "Communication Services",
+      "market_cap": 1698738339840,
+      "risk_penalty": 1
     }
   ],
   "open_signals": [],
@@ -5783,7 +5796,7 @@
       "reason": "AI unavailable"
     },
     {
-      "symbol": "MELI",
+      "symbol": "ABBV",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
@@ -5795,7 +5808,7 @@
       "reason": "AI unavailable"
     },
     {
-      "symbol": "META",
+      "symbol": "SNOW",
       "action": "N/A",
       "confidence": 0.0,
       "reason": "AI unavailable"
