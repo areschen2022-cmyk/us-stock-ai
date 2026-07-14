@@ -32,7 +32,7 @@
     "coverage_pct": 100
   },
   "data_health": {
-    "elapsed_min": 2.1,
+    "elapsed_min": 2.0,
     "requested": 45,
     "scored": 45,
     "missing": 0,
@@ -48,7 +48,7 @@
     },
     "divergence": {
       "n_compared": 45,
-      "avg_gap": 25.6,
+      "avg_gap": 25.7,
       "missed_strong": [
         {
           "symbol": "DELL",
@@ -80,11 +80,11 @@
         {
           "symbol": "ASML",
           "grade": "D",
-          "score": 33,
+          "score": 30,
           "rs_rating": 88,
           "minervini_pass": 8,
           "phase2": true,
-          "gap": 55
+          "gap": 58
         },
         {
           "symbol": "MRNA",
@@ -1281,13 +1281,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 6,
           "bearish": 10,
-          "sentiment_ratio": -0.18,
-          "watchlist_count": 652421,
+          "sentiment_ratio": -0.25,
+          "watchlist_count": 652422,
           "label": "偏空",
-          "score_0_10": 4.1,
-          "tagged": 17
+          "score_0_10": 3.8,
+          "tagged": 16
         },
         "potential": {
           "stage": null,
@@ -1310,7 +1310,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 55.79,
+          "composite": 55.64,
           "percentile": null,
           "research_grade": "D"
         }
@@ -2212,7 +2212,7 @@
           "bullish": 8,
           "bearish": 4,
           "sentiment_ratio": 0.33,
-          "watchlist_count": 23186,
+          "watchlist_count": 23187,
           "label": "偏多",
           "score_0_10": 6.7,
           "tagged": 12
@@ -3589,113 +3589,6 @@
       "divergence_gap": 17
     },
     {
-      "symbol": "ASML",
-      "name": "ASML Holding N.V. - New York Re",
-      "score": 33,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 1726.0400390625,
-      "entry": 1726.0400390625,
-      "stop": 1531.31,
-      "atr_pct": 5.640987637257719,
-      "themes": [
-        "semiconductor"
-      ],
-      "warnings": [
-        "財報 1 日內 — 跳空風險高",
-        "波動過大 ATR 5.6%"
-      ],
-      "matched_headlines": [
-        "ASML Holding's Next Earnings Report on July 15 Could Send the Stock Soaring. Here's Why.",
-        "SK Hynix's record plunge drags down global chip stocks",
-        "MarketBeat Week in Review – 07/06 - 07/10"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "市場傳聞",
-        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
-        "evidence_count": 3
-      },
-      "sub": {
-        "T": 11,
-        "F": 15,
-        "Fl": 0,
-        "N": 12,
-        "M": 4,
-        "R": -9
-      },
-      "sector": "Technology",
-      "market_cap": 665246302208,
-      "risk_penalty": 9,
-      "strategy": {
-        "score_v2": 84,
-        "v2_grade": "A",
-        "v2_parts": {
-          "rs": 35,
-          "trend": 30,
-          "high52": 10,
-          "volume": 9
-        },
-        "weekly_up": true,
-        "ma20_exit": 1830.87,
-        "rs_rating": 88,
-        "rs_score_0_10": 9.29,
-        "minervini_pass": 8,
-        "phase2": true,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3275726502.0,
-        "entry_price": 1726.0400390625,
-        "stop_price": 1682.96,
-        "entry_quality": {
-          "label": "等拉回",
-          "reason": "站上趨勢但RSI 40，擇機進場",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 5.6%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 3,
-          "bearish": 6,
-          "sentiment_ratio": -0.33,
-          "watchlist_count": 30955,
-          "label": "偏空",
-          "score_0_10": 3.3,
-          "tagged": 9
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 0,
-          "above_ema20": false,
-          "rs_vs_spy_20d": -2.74,
-          "status": "偏弱",
-          "reasons": [
-            "跌破20日均線(181.3<183.8)",
-            "20日落後SPY -2.7%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "風險扣分過高(9)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 65.35,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": 55
-    },
-    {
       "symbol": "ARM",
       "name": "Arm Holdings plc",
       "score": 31,
@@ -3806,6 +3699,112 @@
       "divergence_gap": 61
     },
     {
+      "symbol": "ASML",
+      "name": "ASML Holding N.V. - New York Re",
+      "score": 30,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 1726.0400390625,
+      "entry": 1726.0400390625,
+      "stop": 1531.31,
+      "atr_pct": 5.640987637257719,
+      "themes": [
+        "semiconductor"
+      ],
+      "warnings": [
+        "財報 1 日內 — 跳空風險高",
+        "波動過大 ATR 5.6%"
+      ],
+      "matched_headlines": [
+        "ASML Holding's Next Earnings Report on July 15 Could Send the Stock Soaring. Here's Why.",
+        "SK Hynix's record plunge drags down global chip stocks"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "市場傳聞",
+        "reason": "含傳聞或 sources say 類訊號，需等正式確認",
+        "evidence_count": 2
+      },
+      "sub": {
+        "T": 11,
+        "F": 15,
+        "Fl": 0,
+        "N": 9,
+        "M": 4,
+        "R": -9
+      },
+      "sector": "Technology",
+      "market_cap": 665246302208,
+      "risk_penalty": 9,
+      "strategy": {
+        "score_v2": 84,
+        "v2_grade": "A",
+        "v2_parts": {
+          "rs": 35,
+          "trend": 30,
+          "high52": 10,
+          "volume": 9
+        },
+        "weekly_up": true,
+        "ma20_exit": 1830.87,
+        "rs_rating": 88,
+        "rs_score_0_10": 9.29,
+        "minervini_pass": 8,
+        "phase2": true,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3275726502.0,
+        "entry_price": 1726.0400390625,
+        "stop_price": 1682.96,
+        "entry_quality": {
+          "label": "等拉回",
+          "reason": "站上趨勢但RSI 40，擇機進場",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 5.6%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 3,
+          "bearish": 6,
+          "sentiment_ratio": -0.33,
+          "watchlist_count": 30955,
+          "label": "偏空",
+          "score_0_10": 3.3,
+          "tagged": 9
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 0,
+          "above_ema20": false,
+          "rs_vs_spy_20d": -2.74,
+          "status": "偏弱",
+          "reasons": [
+            "跌破20日均線(181.3<183.8)",
+            "20日落後SPY -2.7%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "風險扣分過高(9)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 65.35,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": 58
+    },
+    {
       "symbol": "PLTR",
       "name": "Palantir Technologies Inc.",
       "score": 30,
@@ -3878,7 +3877,7 @@
           "bullish": 13,
           "bearish": 3,
           "sentiment_ratio": 0.62,
-          "watchlist_count": 322337,
+          "watchlist_count": 322338,
           "label": "強烈看多",
           "score_0_10": 8.1,
           "tagged": 16
@@ -4824,7 +4823,7 @@
           "bullish": 4,
           "bearish": 7,
           "sentiment_ratio": -0.27,
-          "watchlist_count": 137680,
+          "watchlist_count": 137681,
           "label": "偏空",
           "score_0_10": 3.6,
           "tagged": 11
@@ -4933,12 +4932,12 @@
         "social": {
           "messages": 30,
           "bullish": 7,
-          "bearish": 6,
-          "sentiment_ratio": 0.08,
+          "bearish": 7,
+          "sentiment_ratio": 0.0,
           "watchlist_count": 1055721,
           "label": "中性",
-          "score_0_10": 5.4,
-          "tagged": 13
+          "score_0_10": 5.0,
+          "tagged": 14
         },
         "potential": {
           "stage": "weakening",
@@ -4967,7 +4966,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 34.86,
+          "composite": 34.66,
           "percentile": null,
           "research_grade": "D"
         }
@@ -5961,13 +5960,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 7,
+          "bullish": 6,
           "bearish": 10,
-          "sentiment_ratio": -0.18,
-          "watchlist_count": 652421,
+          "sentiment_ratio": -0.25,
+          "watchlist_count": 652422,
           "label": "偏空",
-          "score_0_10": 4.1,
-          "tagged": 17
+          "score_0_10": 3.8,
+          "tagged": 16
         },
         "potential": {
           "stage": null,
@@ -5990,7 +5989,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 55.79,
+          "composite": 55.64,
           "percentile": null,
           "research_grade": "D"
         }
@@ -6474,12 +6473,12 @@
           "score": 37
         },
         {
-          "symbol": "ASML",
-          "score": 33
-        },
-        {
           "symbol": "ARM",
           "score": 31
+        },
+        {
+          "symbol": "ASML",
+          "score": 30
         }
       ],
       "prev_avg": 7.0,
@@ -6865,49 +6864,49 @@
       "symbol": "ANET",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "ANET scores a C grade with mixed signals: strong AI infrastructure and cloud SaaS themes are offset by high volatility (ATR 6.0%) and weak technical, fundamental, and flow metrics, suggesting a wait-and-see approach."
+      "reason": "ANET shows strong AI infrastructure and cloud SaaS themes but carries high volatility (ATR 6.0%) and mixed technical, fundamental, and flow scores, warranting a cautious hold."
     },
     {
       "symbol": "FTNT",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "FTNT scores a C grade with mixed signals: strong technical volatility (ATR 4.2%) and weak fundamental/flow metrics suggest caution, but no immediate sell triggers, so holding is prudent until clearer catalysts emerge."
+      "reason": "FTNT scores a C grade with mixed signals: strong technical volatility (ATR 4.2%) and weak fundamentals and flow suggest caution, but no severe red flags warrant an outright Avoid."
     },
     {
       "symbol": "DELL",
       "action": "Avoid",
       "confidence": 0.75,
-      "reason": "DELL scores a poor D-grade overall with extremely weak technicals and fundamentals, high volatility (ATR 7.2%), and negative market and flow signals, suggesting significant downside risk."
+      "reason": "DELL scores a D-grade with extreme volatility (ATR 7.2%), weak technicals and fundamentals, and poor market and flow metrics, indicating high risk and unfavorable risk-reward."
     },
     {
       "symbol": "DDOG",
       "action": "Avoid",
       "confidence": 0.7,
-      "reason": "DDOG scores a D grade with weak technicals, fundamentals, and flow, compounded by high volatility (ATR 5.0%) and a risk penalty, suggesting significant downside risk at current elevated price levels."
+      "reason": "DDOG scores a D grade with weak technicals, fundamentals, and flow, compounded by high volatility (5% ATR) and a risk penalty, suggesting significant downside risk at current elevated price levels."
     },
     {
       "symbol": "DVA",
       "action": "Avoid",
-      "confidence": 0.85,
-      "reason": "With a very low overall score of 43 (grade D), weak technicals, poor fundamentals, and minimal positive flow or news, DVA presents significant downside risk at its current price of $235.58."
+      "confidence": 0.8,
+      "reason": "With a very low overall score of 43 (Grade D), particularly weak fundamentals and technicals, and negative flow and market signals, DVA presents significant downside risk at its current price of $235.58."
     },
     {
       "symbol": "CRDO",
       "action": "Avoid",
-      "confidence": 0.85,
-      "reason": "CRDO scores a D-grade with extreme volatility (ATR 12.0%), weak technicals and flow, and high risk penalty, despite exposure to AI infrastructure and semiconductors."
+      "confidence": 0.75,
+      "reason": "CRDO scores a D grade with extreme volatility (ATR 12.0%), weak technicals, and poor fundamentals, making it a high-risk speculative play despite AI infrastructure themes."
     },
     {
       "symbol": "JBHT",
       "action": "Avoid",
       "confidence": 0.75,
-      "reason": "JBHT scores a D grade with weak technicals, fundamentals, and flow, plus a high gap risk warning from upcoming earnings, suggesting significant downside vulnerability at $283."
+      "reason": "With a D-grade score of 40, weak technicals and fundamentals, negative news flow, and a high gap-down risk due to an imminent earnings report, JBHT presents significant downside risk at $283."
     },
     {
       "symbol": "CVS",
       "action": "Avoid",
       "confidence": 0.85,
-      "reason": "CVS scores a D grade with extremely weak fundamentals (6/100), poor technicals (20/100), and negative flow and news readings, indicating significant downside risk despite a moderate price level."
+      "reason": "CVS scores a D grade with extremely weak fundamentals (6/100) and poor technicals (20/100), indicating significant downside risk despite a moderate price level."
     }
   ],
   "market_timing": {
