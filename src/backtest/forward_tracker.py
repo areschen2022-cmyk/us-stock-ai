@@ -203,6 +203,52 @@ def fill_open_signals(store: SQLiteStore) -> int:
     return updated
 
 
+def fill_ma20_exits(store: SQLiteStore) -> int:
+    """Decide the MA20 trail-exit simulation for every shadow signal that
+    hasn't been decided yet. Runs SEPARATELY from the outcome loop because a
+    signal's 10d outcome closes long before the 40-bar trail window does.
+    One close-series fetch per symbol per run (cached across its signals)."""
+    today = date.today()
+    with store._connect() as conn:
+        conn.row_factory = sqlite3.Row
+        rows = [dict(r) for r in conn.execute(
+            "SELECT signal_date, symbol, grp, entry_price FROM shadow_signals "
+            "WHERE ma20_exit_return IS NULL AND entry_price IS NOT NULL"
+        ).fetchall()]
+    if not rows:
+        return 0
+
+    earliest: dict[str, date] = {}
+    for sig in rows:
+        sd = date.fromisoformat(sig["signal_date"])
+        if sig["symbol"] not in earliest or sd < earliest[sig["symbol"]]:
+            earliest[sig["symbol"]] = sd
+
+    closes_cache: dict[str, pd.Series | None] = {}
+    updated = 0
+    with store._connect() as conn:
+        for sig in rows:
+            sym = sig["symbol"]
+            sd = date.fromisoformat(sig["signal_date"])
+            if sd >= today:
+                continue
+            if sym not in closes_cache:
+                closes_cache[sym] = _fetch_closes(
+                    sym, earliest[sym] - timedelta(days=45), today)
+            res = _ma20_trail_exit(closes_cache[sym], sd, sig.get("entry_price"))
+            if not res:
+                continue
+            conn.execute(
+                "UPDATE shadow_signals SET ma20_exit_return=?, ma20_exit_kind=? "
+                "WHERE signal_date=? AND symbol=? AND grp=?",
+                (res["ma20_exit_return"], res["ma20_exit_kind"],
+                 sig["signal_date"], sym, sig["grp"]),
+            )
+            updated += 1
+    print(f"[ForwardTracker] MA20 trail exits decided: {updated}")
+    return updated
+
+
 _ALPHA_HORIZONS = [5, 10]  # only these need SPY comparison (matches dashboard use)
 
 
