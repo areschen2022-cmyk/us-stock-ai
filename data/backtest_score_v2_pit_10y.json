@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-07-14",
+  "years": 10,
+  "step_days": 5,
+  "membership_source": "fja05680/sp500 historical components (public dataset)",
+  "known_bias": "delisting survivorship remains (no yfinance data for dead tickers); index-foresight bias removed via point-in-time membership",
+  "summary": {
+    "n_obs": 97320,
+    "n_dates": 443,
+    "by_grade": {
+      "A": {
+        "n": 24774,
+        "avg_alpha_5d": -0.0,
+        "avg_alpha_20d": -0.24,
+        "alpha20_win": 47.6
+      },
+      "B": {
+        "n": 8519,
+        "avg_alpha_5d": -0.05,
+        "avg_alpha_20d": -0.26,
+        "alpha20_win": 47.6
+      },
+      "C": {
+        "n": 11974,
+        "avg_alpha_5d": -0.05,
+        "avg_alpha_20d": -0.27,
+        "alpha20_win": 47.1
+      },
+      "D": {
+        "n": 31151,
+        "avg_alpha_5d": -0.03,
+        "avg_alpha_20d": -0.15,
+        "alpha20_win": 48.2
+      },
+      "S": {
+        "n": 20902,
+        "avg_alpha_5d": -0.12,
+        "avg_alpha_20d": -0.19,
+        "alpha20_win": 47.3
+      }
+    },
+    "S_by_year": {
+      "2017": {
+        "n": 1070,
+        "S_alpha20": 0.2,
+        "rest_alpha20": -0.24
+      },
+      "2018": {
+        "n": 2275,
+        "S_alpha20": -0.08,
+        "rest_alpha20": -0.06
+      },
+      "2019": {
+        "n": 2768,
+        "S_alpha20": -0.59,
+        "rest_alpha20": 0.0
+      },
+      "2020": {
+        "n": 2213,
+        "S_alpha20": -0.14,
+        "rest_alpha20": -0.18
+      },
+      "2021": {
+        "n": 2305,
+        "S_alpha20": -1.24,
+        "rest_alpha20": 0.36
+      },
+      "2022": {
+        "n": 1373,
+        "S_alpha20": 0.97,
+        "rest_alpha20": 0.63
+      },
+      "2023": {
+        "n": 2096,
+        "S_alpha20": -1.15,
+        "rest_alpha20": -0.83
+      },
+      "2024": {
+        "n": 3275,
+        "S_alpha20": 0.09,
+        "rest_alpha20": -0.9
+      },
+      "2025": {
+        "n": 2401,
+        "S_alpha20": -0.36,
+        "rest_alpha20": -0.35
+      },
+      "2026": {
+        "n": 1126,
+        "S_alpha20": 2.22,
+        "rest_alpha20": -0.58
+      }
+    }
+  }
+}
