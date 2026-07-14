@@ -1,0 +1,438 @@
+{
+  "generated_at": "2026-07-14",
+  "years": 30,
+  "note": "index-level (SPY/QQQ) — zero survivorship/membership bias; production rules validated as-is, no re-tuning; overlapping-window caveat handled via non-overlapping t-stats",
+  "summary": {
+    "n_days": 7186,
+    "window": "1997-09-19 .. 2026-04-15",
+    "baseline_all_days": {
+      "avg_fwd20": 0.81,
+      "avg_fwd60": 2.44,
+      "win20": 64.3
+    },
+    "by_zone_spy": {
+      "CAUTION": {
+        "pct_of_days": 28.7,
+        "avg_fwd20": 0.53,
+        "win20": 64.1,
+        "avg_fwd60": 2.25,
+        "win60": 69.9,
+        "t_vs_all(nonoverlap)": -0.98
+      },
+      "HIGH": {
+        "pct_of_days": 29.2,
+        "avg_fwd20": 0.86,
+        "win20": 63.8,
+        "avg_fwd60": 2.22,
+        "win60": 68.1,
+        "t_vs_all(nonoverlap)": 0.17
+      },
+      "NORMAL": {
+        "pct_of_days": 17.9,
+        "avg_fwd20": 0.67,
+        "win20": 63.2,
+        "avg_fwd60": 2.15,
+        "win60": 67.4,
+        "t_vs_all(nonoverlap)": 0.54
+      },
+      "SEVERE": {
+        "pct_of_days": 24.2,
+        "avg_fwd20": 1.2,
+        "win20": 66.1,
+        "avg_fwd60": 3.14,
+        "win60": 73.0,
+        "t_vs_all(nonoverlap)": 0.01
+      }
+    },
+    "by_zone_dual_since1999": {
+      "CAUTION": {
+        "pct_of_days": 25.7,
+        "avg_fwd20": 0.63,
+        "win20": 65.4,
+        "avg_fwd60": 2.27,
+        "win60": 71.2,
+        "t_vs_all(nonoverlap)": 0.3
+      },
+      "HIGH": {
+        "pct_of_days": 28.8,
+        "avg_fwd20": 0.69,
+        "win20": 62.0,
+        "avg_fwd60": 2.07,
+        "win60": 67.1,
+        "t_vs_all(nonoverlap)": 0.4
+      },
+      "NORMAL": {
+        "pct_of_days": 13.3,
+        "avg_fwd20": 0.83,
+        "win20": 64.4,
+        "avg_fwd60": 2.38,
+        "win60": 67.4,
+        "t_vs_all(nonoverlap)": 0.28
+      },
+      "SEVERE": {
+        "pct_of_days": 32.2,
+        "avg_fwd20": 1.06,
+        "win20": 65.6,
+        "avg_fwd60": 2.93,
+        "win60": 71.7,
+        "t_vs_all(nonoverlap)": 1.05
+      }
+    },
+    "by_regime_200ma": {
+      "below": {
+        "pct_of_days": 24.8,
+        "avg_fwd20": 0.62,
+        "win20": 56.7,
+        "avg_fwd60": 1.51,
+        "win60": 57.7,
+        "t_vs_all(nonoverlap)": -0.41
+      },
+      "above": {
+        "pct_of_days": 75.2,
+        "avg_fwd20": 0.87,
+        "win20": 66.9,
+        "avg_fwd60": 2.74,
+        "win60": 73.6,
+        "t_vs_all(nonoverlap)": 0.63
+      }
+    },
+    "SEVERE_while_above200ma": {
+      "pct_of_days": 14.6,
+      "avg_fwd20": 1.53,
+      "win20": 72.4,
+      "avg_fwd60": 3.96,
+      "win60": 79.1,
+      "t_vs_all(nonoverlap)": 0.94
+    },
+    "HIGH_while_above200ma": {
+      "pct_of_days": 22.9,
+      "avg_fwd20": 0.88,
+      "win20": 65.9,
+      "avg_fwd60": 2.49,
+      "win60": 71.5,
+      "t_vs_all(nonoverlap)": -0.81
+    },
+    "severe_by_decade": {
+      "1990s": {
+        "n": 121,
+        "severe_fwd20": 0.73,
+        "all_fwd20": 1.59
+      },
+      "2000s": {
+        "n": 663,
+        "severe_fwd20": 0.47,
+        "all_fwd20": 0.09
+      },
+      "2010s": {
+        "n": 589,
+        "severe_fwd20": 1.8,
+        "all_fwd20": 1.08
+      },
+      "2020s": {
+        "n": 368,
+        "severe_fwd20": 1.7,
+        "all_fwd20": 1.25
+      }
+    },
+    "ftd_events": {
+      "n_events": 57,
+      "failure_rate_pct": 35.1,
+      "avg_fwd20": 0.73,
+      "win20": 63.2,
+      "avg_fwd60": 1.9,
+      "win60": 64.9,
+      "avg_fwd120": 4.87,
+      "win120": 70.2,
+      "events_after_10pct_declines": [
+        {
+          "date": "1998-09-11",
+          "decline_pct": 19.0,
+          "swing_low_date": "1998-08-31",
+          "fwd20": -2.76,
+          "fwd60": 17.38,
+          "fwd120": 26.29,
+          "failed": false
+        },
+        {
+          "date": "1999-10-08",
+          "decline_pct": 10.3,
+          "swing_low_date": "1999-09-29",
+          "fwd20": 2.99,
+          "fwd60": 4.64,
+          "fwd120": 11.62,
+          "failed": true
+        },
+        {
+          "date": "2000-04-25",
+          "decline_pct": 11.4,
+          "swing_low_date": "2000-04-14",
+          "fwd20": -6.86,
+          "fwd60": 1.91,
+          "fwd120": -6.7,
+          "failed": false
+        },
+        {
+          "date": "2000-10-27",
+          "decline_pct": 12.5,
+          "swing_low_date": "2000-10-12",
+          "fwd20": -2.33,
+          "fwd60": -2.03,
+          "fwd120": -11.73,
+          "failed": true
+        },
+        {
+          "date": "2000-12-05",
+          "decline_pct": 13.1,
+          "swing_low_date": "2000-11-22",
+          "fwd20": -2.73,
+          "fwd60": -9.15,
+          "fwd120": -8.49,
+          "failed": true
+        },
+        {
+          "date": "2001-01-03",
+          "decline_pct": 12.7,
+          "swing_low_date": "2000-12-20",
+          "fwd20": 2.17,
+          "fwd60": -13.33,
+          "fwd120": -9.46,
+          "failed": false
+        },
+        {
+          "date": "2001-04-10",
+          "decline_pct": 19.8,
+          "swing_low_date": "2001-04-03",
+          "fwd20": 7.72,
+          "fwd60": 2.35,
+          "fwd120": -7.47,
+          "failed": false
+        },
+        {
+          "date": "2001-09-28",
+          "decline_pct": 21.3,
+          "swing_low_date": "2001-09-21",
+          "fwd20": 5.63,
+          "fwd60": 10.23,
+          "fwd120": 10.84,
+          "failed": false
+        },
+        {
+          "date": "2002-05-14",
+          "decline_pct": 10.5,
+          "swing_low_date": "2002-05-07",
+          "fwd20": -6.93,
+          "fwd60": -17.19,
+          "fwd120": -17.45,
+          "failed": true
+        },
+        {
+          "date": "2002-07-29",
+          "decline_pct": 28.9,
+          "swing_low_date": "2002-07-23",
+          "fwd20": 6.12,
+          "fwd60": 0.17,
+          "fwd120": 1.94,
+          "failed": false
+        },
+        {
+          "date": "2002-10-15",
+          "decline_pct": 18.9,
+          "swing_low_date": "2002-10-09",
+          "fwd20": 0.29,
+          "fwd60": 5.43,
+          "fwd120": 0.32,
+          "failed": false
+        },
+        {
+          "date": "2003-03-17",
+          "decline_pct": 13.7,
+          "swing_low_date": "2003-03-11",
+          "fwd20": 2.91,
+          "fwd60": 16.05,
+          "fwd120": 19.4,
+          "failed": false
+        },
+        {
+          "date": "2008-01-31",
+          "decline_pct": 15.0,
+          "swing_low_date": "2008-01-22",
+          "fwd20": -2.58,
+          "fwd60": 2.15,
+          "fwd120": -5.77,
+          "failed": true
+        },
+        {
+          "date": "2008-04-01",
+          "decline_pct": 14.4,
+          "swing_low_date": "2008-03-10",
+          "fwd20": 1.81,
+          "fwd60": -3.03,
+          "fwd120": -8.16,
+          "failed": false
+        },
+        {
+          "date": "2008-07-29",
+          "decline_pct": 15.0,
+          "swing_low_date": "2008-07-15",
+          "fwd20": 0.88,
+          "fwd60": -27.81,
+          "fwd120": -35.31,
+          "failed": false
+        },
+        {
+          "date": "2008-09-25",
+          "decline_pct": 12.8,
+          "swing_low_date": "2008-09-17",
+          "fwd20": -24.09,
+          "fwd60": -26.4,
+          "fwd120": -34.12,
+          "failed": true
+        },
+        {
+          "date": "2008-10-16",
+          "decline_pct": 31.9,
+          "swing_low_date": "2008-10-10",
+          "fwd20": -2.77,
+          "fwd60": -6.35,
+          "fwd120": -7.09,
+          "failed": true
+        },
+        {
+          "date": "2008-11-04",
+          "decline_pct": 35.4,
+          "swing_low_date": "2008-10-27",
+          "fwd20": -13.04,
+          "fwd60": -17.09,
+          "fwd120": -11.63,
+          "failed": true
+        },
+        {
+          "date": "2008-12-02",
+          "decline_pct": 41.7,
+          "swing_low_date": "2008-11-20",
+          "fwd20": 6.69,
+          "fwd60": -16.53,
+          "fwd120": 6.77,
+          "failed": false
+        },
+        {
+          "date": "2009-03-18",
+          "decline_pct": 27.1,
+          "swing_low_date": "2009-03-09",
+          "fwd20": 8.99,
+          "fwd60": 19.81,
+          "fwd120": 30.44,
+          "failed": false
+        },
+        {
+          "date": "2010-06-15",
+          "decline_pct": 13.4,
+          "swing_low_date": "2010-06-07",
+          "fwd20": -1.63,
+          "fwd60": -0.49,
+          "fwd120": 10.84,
+          "failed": true
+        },
+        {
+          "date": "2010-07-13",
+          "decline_pct": 15.7,
+          "swing_low_date": "2010-07-02",
+          "fwd20": 2.48,
+          "fwd60": 6.38,
+          "fwd120": 15.89,
+          "failed": false
+        },
+        {
+          "date": "2011-08-23",
+          "decline_pct": 17.1,
+          "swing_low_date": "2011-08-08",
+          "fwd20": 0.68,
+          "fwd60": 7.11,
+          "fwd120": 17.44,
+          "failed": false
+        },
+        {
+          "date": "2011-10-18",
+          "decline_pct": 17.9,
+          "swing_low_date": "2011-10-03",
+          "fwd20": 2.86,
+          "fwd60": 5.77,
+          "fwd120": 12.97,
+          "failed": false
+        },
+        {
+          "date": "2016-01-29",
+          "decline_pct": 11.5,
+          "swing_low_date": "2016-01-20",
+          "fwd20": -0.08,
+          "fwd60": 8.4,
+          "fwd120": 12.8,
+          "failed": true
+        },
+        {
+          "date": "2016-03-01",
+          "decline_pct": 12.7,
+          "swing_low_date": "2016-02-11",
+          "fwd20": 4.53,
+          "fwd60": 6.18,
+          "fwd120": 11.46,
+          "failed": false
+        },
+        {
+          "date": "2020-04-06",
+          "decline_pct": 33.7,
+          "swing_low_date": "2020-03-23",
+          "fwd20": 8.05,
+          "fwd60": 17.76,
+          "fwd120": 25.16,
+          "failed": false
+        },
+        {
+          "date": "2022-03-15",
+          "decline_pct": 12.9,
+          "swing_low_date": "2022-03-08",
+          "fwd20": 3.16,
+          "fwd60": -5.51,
+          "fwd120": -7.63,
+          "failed": false
+        },
+        {
+          "date": "2022-05-27",
+          "decline_pct": 15.6,
+          "swing_low_date": "2022-05-19",
+          "fwd20": -7.94,
+          "fwd60": 0.05,
+          "fwd120": -4.26,
+          "failed": true
+        },
+        {
+          "date": "2022-06-24",
+          "decline_pct": 20.6,
+          "swing_low_date": "2022-06-16",
+          "fwd20": 1.41,
+          "fwd60": -1.13,
+          "fwd120": 2.81,
+          "failed": false
+        },
+        {
+          "date": "2022-10-21",
+          "decline_pct": 16.7,
+          "swing_low_date": "2022-10-12",
+          "fwd20": 5.81,
+          "fwd60": 4.31,
+          "fwd120": 11.53,
+          "failed": false
+        },
+        {
+          "date": "2025-04-22",
+          "decline_pct": 18.8,
+          "swing_low_date": "2025-04-08",
+          "fwd20": 12.44,
+          "fwd60": 19.38,
+          "fwd120": 26.48,
+          "failed": false
+        }
+      ]
+    }
+  }
+}
