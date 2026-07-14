@@ -80,6 +80,46 @@ def _fetch_price(symbol: str, target_date: date) -> float | None:
         return None
 
 
+def _fetch_closes(symbol: str, start_date: date, end_date: date) -> pd.Series | None:
+    """Daily closes start..end (inclusive), date-indexed. Used for the MA20
+    trail-exit simulation, which needs ~20 bars BEFORE the signal date."""
+    try:
+        df = yf.download(symbol, start=str(start_date), end=str(end_date + timedelta(days=1)),
+                         progress=False, auto_adjust=True)
+        if df is None or df.empty:
+            return None
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
+        close = df["Close"].dropna()
+        close.index = [i.date() if hasattr(i, "date") else i for i in close.index]
+        return close
+    except Exception as e:
+        logger.warning("close-series fetch failed %s: %s", symbol, e)
+        return None
+
+
+_MA20_CAP_BARS = 40  # simulate at most 40 trading days, then exit at close
+
+
+def _ma20_trail_exit(closes: pd.Series, signal_date: date, entry: float) -> dict | None:
+    """Simulate the MA20 trailing exit for one signal: exit at the first
+    post-signal close below the 20d SMA; cap at 40 bars. Returns the update
+    dict when decided, None while the position is still 'open'."""
+    if closes is None or entry in (None, 0):
+        return None
+    sma20 = closes.rolling(20).mean()
+    post = closes[[d for d in closes.index if d > signal_date]]
+    for bar_n, (d, c) in enumerate(post.items(), start=1):
+        s = sma20.get(d)
+        if s is not None and not pd.isna(s) and float(c) < float(s):
+            return {"ma20_exit_return": round((float(c) / entry - 1) * 100, 2),
+                    "ma20_exit_kind": "ma_trail"}
+        if bar_n >= _MA20_CAP_BARS:
+            return {"ma20_exit_return": round((float(c) / entry - 1) * 100, 2),
+                    "ma20_exit_kind": "cap40"}
+    return None
+
+
 def _classify_failure(ret3: float | None, ret10: float, stop_hit: int | None) -> str:
     """US port of tw-stock-ai's three-way failure attribution
     (kp_tw_failure_pattern_summary). Applied only to outcome='loss' signals:
