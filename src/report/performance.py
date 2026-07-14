@@ -98,6 +98,32 @@ def build_performance_payload(store: SQLiteStore, as_of: date | None = None) -> 
         grade = str(row.get("live_grade") or "未分級")
         grade_groups.setdefault(grade, []).append(row)
 
+    # exit comparison (live adjudication of the 10y exit sweep): for signals
+    # where both the 20d hold return and the MA20-trail simulation are decided,
+    # compare hold-20d vs 2ATR-stop-clipped vs MA20-trail per group
+    def _exit_comparison(rows: list[dict[str, Any]]) -> dict | None:
+        done = [r for r in rows
+                if r.get("return_20d") is not None and r.get("ma20_exit_return") is not None]
+        if len(done) < 5:
+            return None
+        hold = [float(r["return_20d"]) for r in done]
+        trail = [float(r["ma20_exit_return"]) for r in done]
+        stop_clipped = []
+        for r in done:
+            if int(r.get("stop_hit") or 0) == 1 and r.get("stop_price") and r.get("entry_price"):
+                stop_clipped.append((float(r["stop_price"]) / float(r["entry_price"]) - 1) * 100)
+            else:
+                stop_clipped.append(float(r["return_20d"]))
+        return {"n": len(done),
+                "hold20_avg": _pct(mean(hold)),
+                "stop2atr_avg": _pct(mean(stop_clipped)),
+                "ma20_trail_avg": _pct(mean(trail))}
+
+    exit_comparison = {
+        grp: cmp for grp, rows_g in (("live_top", live_top_rows), ("shadow", shadow_rows))
+        if (cmp := _exit_comparison(rows_g)) is not None
+    }
+
     # entry-quality validation (port of tw's 進場條件保護 measurement): group
     # forward returns by the entry_quality label stamped at signal time, so we
     # can verify on US data whether 可進場 really beats 等拉回/避免追高
