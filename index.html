@@ -664,18 +664,21 @@ function render(data) {
     return `<button class="filter-btn${g==='ALL'?' on':''}" data-g="${g}" onclick="applyGradeFilter('${g}')">${g} (${cnt})</button>`;
   }).join('');
 
-  // 市場時機（IBD 分配日 / FTD / VCP 候選）
+  // 市場時機：主軸=200MA regime+FTD（30年驗證有效）；分配日降為參考顯示
   const mt = data.market_timing;
   if (mt) {
     const dist = mt.distribution || {};
-    const risk = mt.risk || {};
     const ftd = mt.ftd || {};
-    const riskColor = {SEVERE:'var(--red)', HIGH:'var(--red)', CAUTION:'var(--yellow)', NORMAL:'var(--green)'}[risk.zone] || 'var(--muted)';
+    const posture = mt.posture || {};
     const ddStr = ['SPY','QQQ'].map(k => (dist[k]||{}).count != null ? `${k} ${dist[k].count} 天` : null).filter(Boolean).join('、');
     const vcp = (mt.vcp_candidates || []).map(c => `<span class="theme-tag">${c.symbol}${c.label ? ' ' + c.label : ''}</span>`).join('');
+    const maStr = mt.spy_above_200ma != null
+      ? `<span style="color:${mt.spy_above_200ma ? 'var(--green)' : 'var(--red)'}">SPY ${mt.spy_above_200ma ? '站上' : '跌破'} 200MA</span>` : '';
     document.getElementById('market-timing-body').innerHTML =
-      (ddStr ? `▸ 分配日（25 日）：${ddStr}｜風險：<b style="color:${riskColor}">${risk.label || '—'}</b><br>` : '') +
+      (posture.label ? `▸ 大盤姿態：<b>${posture.label}</b>${maStr ? '｜' + maStr : ''}<br>` +
+        (posture.detail ? `<span style="color:var(--muted);font-size:.78rem">${posture.detail}</span><br>` : '') : '') +
       (ftd.label ? `▸ FTD 底部確認：${ftd.label}<br>` : '') +
+      (ddStr ? `▸ 分配日（參考）：${ddStr} <span style="color:var(--muted);font-size:.75rem" title="30年回測：分配日計數在多頭中無預測力（SEVERE 日後市反而偏強），勿作為降曝險依據">ⓘ 30年驗證：多頭中無預測力</span><br>` : '') +
       (vcp ? `▸ VCP 觀察：${vcp}` : '');
     document.getElementById('market-timing-block').style.display = '';
   }
