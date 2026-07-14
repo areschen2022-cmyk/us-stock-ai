@@ -26,7 +26,7 @@ from src.report.dashboard import build_dashboard_json, write_dashboard_json
 from src.report.performance import build_performance_payload, write_performance_json
 from src.report.history import update_divergence_history
 from src.notifier.telegram import TelegramNotifier
-from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals
+from src.backtest.forward_tracker import fill_open_signals, fill_shadow_signals, fill_ma20_exits
 from src.strategy import us_market, tw_lessons
 from src.strategy.research_rank import build_research_rank
 from src.indicators.technical import calc_atr_pct
@@ -441,6 +441,7 @@ def run_daily_update() -> None:
     # 6. Forward return fill-back (live watch signals + shadow validation)
     fill_open_signals(store)
     fill_shadow_signals(store)
+    fill_ma20_exits(store)  # MA20-trail exit shadow comparison (decoupled: 40-bar window)
 
     # 7. AI council (token-gated) — coverage driven by the validated v2 S/A +
     # weekly-up research tier (the live >=75 threshold is unreachable under
