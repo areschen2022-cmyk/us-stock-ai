@@ -39,7 +39,9 @@ def _fmt_date(v) -> str:
     return str(d()) if callable(d) else str(v)[:10]
 
 
-def _fetch_daily(symbol: str, period: str = "6mo") -> pd.DataFrame | None:
+def _fetch_daily(symbol: str, period: str = "2y") -> pd.DataFrame | None:
+    # 2y (not 6mo): the 200MA regime read needs >=200 bars; 6mo (~125) made
+    # the standalone-fetch path degrade posture to 資料不足 (caught in audit)
     try:
         df = yf.download(symbol, period=period, auto_adjust=True, progress=False)
         if df is None or df.empty:
@@ -136,13 +138,43 @@ def ftd_state(df: pd.DataFrame) -> dict[str, Any]:
     }
 
 
+def _posture(above_200ma: bool | None, ftd: dict | None) -> dict[str, str]:
+    """主軸判讀 (validated by the 30y index backtest, kp_us_market_timing_30y):
+    200MA regime (above: 66.9% 20d win vs below: 56.7%) + FTD state (57 events,
+    35% failure rate, +4.9% avg 120d). Distribution days showed NO predictive
+    power over 30y and are demoted to reference-only display."""
+    state = (ftd or {}).get("state")
+    if above_200ma is None:
+        return {"label": "資料不足", "detail": ""}
+    if above_200ma:
+        if state in ("UPTREND", None):
+            return {"label": "多頭（維持既有部位）",
+                    "detail": "站上200MA且無進行中修正。"}
+        if state == "FTD_CONFIRMED":
+            return {"label": "底部確認（可試探性進場）",
+                    "detail": "FTD已確認：首倉小額（如25%），跌破反彈起漲低點即停損；"
+                              "30年歷史FTD失敗率35%，確認有效再分批加碼。"}
+        return {"label": "多頭中修正（等FTD確認）",
+                "detail": "站上200MA但修正未獲FTD確認：新多單保守、首倉宜小。"}
+    if state == "FTD_CONFIRMED":
+        return {"label": "防禦中出現FTD（僅試探倉）",
+                "detail": "跌破200MA的FTD可靠度較低，僅小額試探並嚴設停損。"}
+    return {"label": "防禦（跌破200MA）",
+            "detail": "200MA之下勝率顯著下降（30年：56.7% vs 66.9%），不做新多。"}
+
+
 def market_timing_summary(spy_df: pd.DataFrame | None = None,
                           qqq_df: pd.DataFrame | None = None) -> dict[str, Any]:
-    """Full block for dashboard/telegram. Fetches SPY/QQQ if not provided."""
+    """Full block for dashboard/telegram. Fetches SPY/QQQ if not provided.
+
+    2026-07-14 restructure per the 30y validation: primary read = 200MA regime
+    + FTD state ('posture'); distribution-day counts demoted to reference-only
+    ('dd_zone', explicitly annotated as non-predictive in bull trends)."""
     spy_df = spy_df if spy_df is not None and not spy_df.empty else _fetch_daily("SPY")
     qqq_df = qqq_df if qqq_df is not None and not qqq_df.empty else _fetch_daily("QQQ")
 
-    out: dict[str, Any] = {"distribution": {}, "ftd": None, "risk": None}
+    out: dict[str, Any] = {"distribution": {}, "ftd": None, "dd_zone": None,
+                           "spy_above_200ma": None, "posture": None}
     counts = []
     for name, df in (("SPY", spy_df), ("QQQ", qqq_df)):
         if df is None:
@@ -157,9 +189,17 @@ def market_timing_summary(spy_df: pd.DataFrame | None = None,
         worst = max(counts)
         for threshold, zone, zh in _RISK_ZONES:
             if worst >= threshold:
-                out["risk"] = {"zone": zone, "label": zh, "worst_count": worst}
+                out["dd_zone"] = {
+                    "zone": zone, "label": zh, "worst_count": worst,
+                    "note": "參考指標：30年驗證顯示分配日計數在多頭中無預測力"
+                            "（SEVERE日後市反而偏強），勿作為降曝險依據",
+                }
                 break
 
-    if spy_df is not None:
+    if spy_df is not None and len(spy_df) >= 200:
+        close = spy_df["Close"].astype(float)
+        out["spy_above_200ma"] = bool(float(close.iloc[-1]) > float(close.tail(200).mean()))
         out["ftd"] = ftd_state(spy_df)
+
+    out["posture"] = _posture(out["spy_above_200ma"], out["ftd"])
     return out

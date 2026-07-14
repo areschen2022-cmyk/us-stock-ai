@@ -150,20 +150,29 @@ def _build_morning_report(
             body = ""
         body += segment
 
-    # === 市場時機（IBD 分配日 / FTD / VCP 候選，由晚間排程算好快取） ===
+    # === 市場時機（主軸=200MA+FTD，30年驗證；分配日降為參考） ===
     mt = overview.get("market_timing") or {}
     if mt:
         dist = mt.get("distribution", {}) or {}
-        risk = mt.get("risk") or {}
         ftd = mt.get("ftd") or {}
+        posture = mt.get("posture") or {}
+        lines = "市場時機\n"
+        if posture.get("label"):
+            ma_str = ""
+            if mt.get("spy_above_200ma") is not None:
+                ma_str = f"（SPY {'站上' if mt['spy_above_200ma'] else '跌破'}200MA）"
+            lines += f"▸ 大盤姿態：{posture['label']}{ma_str}\n"
+            if posture.get("detail"):
+                lines += f"  {posture['detail']}\n"
+        if ftd.get("label"):
+            lines += f"▸ FTD：{ftd['label']}\n"
         spy_dd = (dist.get("SPY") or {}).get("count")
         qqq_dd = (dist.get("QQQ") or {}).get("count")
         dd_str = "、".join(f"{k} {v}天" for k, v in (("SPY", spy_dd), ("QQQ", qqq_dd)) if v is not None)
-        lines = "市場時機\n"
         if dd_str:
-            lines += f"▸ 分配日(25日)：{dd_str}｜風險：{risk.get('label', '—')}\n"
-        if ftd.get("label"):
-            lines += f"▸ FTD：{ftd['label']}\n"
+            # 30y validation: DD counts have no predictive power in uptrends —
+            # reference display only, no risk framing (kp_us_market_timing_30y)
+            lines += f"▸ 分配日(參考)：{dd_str}\n"
         vcp = mt.get("vcp_candidates") or []
         if vcp:
             vcp_str = "、".join(f"{c['symbol']}({c.get('label') or ''})" for c in vcp[:6])
