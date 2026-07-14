@@ -220,6 +220,9 @@ class SQLiteStore:
             "spy_entry_price": "REAL", "spy_return_5d": "REAL", "spy_return_10d": "REAL",
             "alpha_5d": "REAL", "alpha_10d": "REAL", "stop_hit": "INTEGER",
             "failure_reason": "TEXT", "entry_quality": "TEXT",
+            # MA20-trail exit shadow comparison (10y sweep best protected
+            # variant PF 1.72 vs tight-stop 1.58) — live adjudication columns
+            "ma20_exit_return": "REAL", "ma20_exit_kind": "TEXT",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
