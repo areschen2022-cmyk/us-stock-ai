@@ -37,7 +37,7 @@ from scripts.backtest_score_v2_sp500 import fetch_all
 _HORIZONS = [5, 20]
 _WARMUP_DAYS = 280
 _PIT_URL = ("https://raw.githubusercontent.com/fja05680/sp500/master/"
-            "S%26P%20500%20Historical%20Components%20%26%20Changes(MM-DD-YYYY).csv")
+            "S%26P%20500%20Historical%20Components%20%26%20Changes%20(Updated).csv")
 
 
 def load_pit_membership() -> pd.DataFrame:
