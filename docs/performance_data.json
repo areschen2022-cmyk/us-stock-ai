@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-07-14",
+  "as_of": "2026-07-15",
   "primary_source": "live_top",
   "stats": {
-    "signals": 151,
-    "completed": 101,
-    "win_rate_5d": 63.4,
-    "avg_return_5d": 1.2,
-    "stop_hit_rate": 5.0,
+    "signals": 161,
+    "completed": 111,
+    "win_rate_5d": 61.3,
+    "avg_return_5d": 0.9,
+    "stop_hit_rate": 4.5,
     "failure_attribution": {
       "weak_after_entry": {
         "n": 4,
@@ -15,15 +15,19 @@
       "stop_hit": {
         "n": 4,
         "avg_return_10d": -27.1
+      },
+      "momentum_fade": {
+        "n": 2,
+        "avg_return_10d": -9.0
       }
     }
   },
   "live_top_stats": {
-    "signals": 151,
-    "completed": 101,
-    "win_rate_5d": 63.4,
-    "avg_return_5d": 1.2,
-    "stop_hit_rate": 5.0,
+    "signals": 161,
+    "completed": 111,
+    "win_rate_5d": 61.3,
+    "avg_return_5d": 0.9,
+    "stop_hit_rate": 4.5,
     "failure_attribution": {
       "weak_after_entry": {
         "n": 4,
@@ -32,27 +36,31 @@
       "stop_hit": {
         "n": 4,
         "avg_return_10d": -27.1
+      },
+      "momentum_fade": {
+        "n": 2,
+        "avg_return_10d": -9.0
       }
     }
   },
   "shadow_stats": {
-    "signals": 102,
-    "completed": 69,
-    "win_rate_5d": 53.6,
-    "avg_return_5d": 1.1,
-    "stop_hit_rate": 5.8,
+    "signals": 108,
+    "completed": 75,
+    "win_rate_5d": 52.0,
+    "avg_return_5d": 0.8,
+    "stop_hit_rate": 5.3,
     "failure_attribution": {
       "weak_after_entry": {
+        "n": 6,
+        "avg_return_10d": -12.2
+      },
+      "momentum_fade": {
         "n": 5,
-        "avg_return_10d": -11.1
+        "avg_return_10d": -7.3
       },
       "stop_hit": {
         "n": 3,
         "avg_return_10d": -11.0
-      },
-      "momentum_fade": {
-        "n": 1,
-        "avg_return_10d": -5.9
       }
     }
   },
@@ -62,11 +70,11 @@
   "grade_stats": [
     {
       "label": "C",
-      "signals": 106,
-      "completed": 71,
-      "win_rate_5d": 59.2,
-      "avg_return_5d": -0.0,
-      "stop_hit_rate": 7.0,
+      "signals": 114,
+      "completed": 79,
+      "win_rate_5d": 57.0,
+      "avg_return_5d": -0.2,
+      "stop_hit_rate": 6.3,
       "failure_attribution": {
         "stop_hit": {
           "n": 4,
@@ -75,15 +83,19 @@
         "weak_after_entry": {
           "n": 3,
           "avg_return_10d": -10.4
+        },
+        "momentum_fade": {
+          "n": 2,
+          "avg_return_10d": -9.0
         }
       }
     },
     {
       "label": "D",
-      "signals": 39,
-      "completed": 24,
-      "win_rate_5d": 70.8,
-      "avg_return_5d": 3.7,
+      "signals": 41,
+      "completed": 26,
+      "win_rate_5d": 69.2,
+      "avg_return_5d": 3.5,
       "stop_hit_rate": 0.0,
       "failure_attribution": {
         "weak_after_entry": {
@@ -106,28 +118,28 @@
     {
       "label": "未標記",
       "signals": 220,
-      "completed": 170,
-      "win_rate_5d": 59.4,
-      "avg_return_5d": 1.2,
-      "stop_hit_rate": 5.3,
+      "completed": 186,
+      "win_rate_5d": 57.5,
+      "avg_return_5d": 0.9,
+      "stop_hit_rate": 4.8,
       "failure_attribution": {
         "weak_after_entry": {
-          "n": 9,
-          "avg_return_10d": -10.6
+          "n": 10,
+          "avg_return_10d": -11.3
         },
         "stop_hit": {
           "n": 7,
           "avg_return_10d": -20.2
         },
         "momentum_fade": {
-          "n": 1,
-          "avg_return_10d": -5.9
+          "n": 7,
+          "avg_return_10d": -7.8
         }
       }
     },
     {
-      "label": "等拉回",
-      "signals": 16,
+      "label": "可進場",
+      "signals": 25,
       "completed": 0,
       "win_rate_5d": 0.0,
       "avg_return_5d": 0.0,
@@ -135,8 +147,8 @@
       "failure_attribution": {}
     },
     {
-      "label": "可進場",
-      "signals": 15,
+      "label": "等拉回",
+      "signals": 21,
       "completed": 0,
       "win_rate_5d": 0.0,
       "avg_return_5d": 0.0,
@@ -146,6 +158,15 @@
     {
       "label": "觀望",
       "signals": 2,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    },
+    {
+      "label": "避免追高",
+      "signals": 1,
       "completed": 0,
       "win_rate_5d": 0.0,
       "avg_return_5d": 0.0,
