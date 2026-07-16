@@ -115,8 +115,54 @@ def scan(top_n: int) -> dict:
         "s_grade_total": len(rows),
         "s_grade_in_watchlist": sum(1 for r in rows if r["in_watchlist"]),
         "candidates": candidates,
+        "pool_exit": exit_block,
         "note": "全市場 v2 S 級掃描（watchlist 候補）。依據 kp_us_score_v2_sp500_validation："
                 "選池是 alpha 主要來源，此管道把選池系統化。候補僅供研究，加入 watchlist 由人工決定。",
+    }
+
+
+_EXIT_STATE = _REPO_ROOT / "data" / "pool_exit_state.json"
+_EXIT_V2_THRESHOLD = 40
+_EXIT_STREAK_WEEKS = 4
+_EXIT_HISTORY_KEEP = 8
+
+
+def _update_pool_exit_state(wl_v2: dict[str, int]) -> dict:
+    """Append this week's watchlist v2 snapshot to the rolling state and
+    return exit candidates (v2 < threshold for N consecutive weekly checks)."""
+    state: dict = {}
+    if _EXIT_STATE.exists():
+        try:
+            state = json.loads(_EXIT_STATE.read_text(encoding="utf-8"))
+        except Exception:
+            state = {}
+    today = str(date.today())
+    for sym, v2 in wl_v2.items():
+        hist = state.get(sym, [])
+        if not hist or hist[-1].get("date") != today:
+            hist.append({"date": today, "v2": v2})
+        else:
+            hist[-1]["v2"] = v2  # same-day rerun overwrites
+        state[sym] = hist[-_EXIT_HISTORY_KEEP:]
+    # drop symbols no longer in the pool
+    state = {s: h for s, h in state.items() if s in wl_v2}
+    _EXIT_STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    candidates = []
+    for sym, hist in state.items():
+        streak = 0
+        for rec in reversed(hist):
+            if rec["v2"] < _EXIT_V2_THRESHOLD:
+                streak += 1
+            else:
+                break
+        if streak >= _EXIT_STREAK_WEEKS:
+            candidates.append({"symbol": sym, "streak_weeks": streak,
+                               "v2_history": [r["v2"] for r in hist[-streak:]]})
+    return {
+        "checked": len(wl_v2),
+        "candidates": sorted(candidates, key=lambda c: -c["streak_weeks"]),
+        "rule": f"v2 < {_EXIT_V2_THRESHOLD} 連續 {_EXIT_STREAK_WEEKS} 週（每週一檢）→ 退池候選，人工確認後移除",
     }
 
 
