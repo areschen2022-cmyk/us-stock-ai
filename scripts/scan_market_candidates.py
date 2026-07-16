@@ -95,6 +95,20 @@ def scan(top_n: int) -> dict:
 
     rows.sort(key=lambda r: r["score_v2"], reverse=True)
     candidates = [r for r in rows if not r["in_watchlist"]][:top_n]
+
+    # ── pool-exit governance (kp_us_deepseek_scoring_review): symmetric to
+    # the entry pipeline — watchlist names whose v2 stays < 40 for 4
+    # consecutive weekly checks become REMOVAL candidates (human confirms)
+    wl_v2: dict[str, int] = {}
+    for sym in watch:
+        df = frames.get(sym)
+        if df is None or sym not in composites:
+            continue
+        price = float(df["Close"].astype(float).iloc[-1])
+        total, _ = us_market.score_v2(df, rs_pct.get(sym))
+        wl_v2[sym] = total
+    exit_block = _update_pool_exit_state(wl_v2)
+
     return {
         "generated_at": str(date.today()),
         "universe_size": len(frames),
