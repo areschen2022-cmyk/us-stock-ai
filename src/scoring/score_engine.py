@@ -82,7 +82,14 @@ def compute_score(
         raw_news_score, matched_headlines = score_news_catalyst(symbol, name, news_items)
     theme_bonus = theme_catalyst_score(symbol, matched_headlines)
     n_score = min(raw_news_score + theme_bonus, 15)
+    # Sentiment gate (VADER): negative coverage must not score as a catalyst
+    # just because it hits a theme keyword. Graceful no-op when VADER absent.
+    sentiment = news_sentiment(matched_headlines)
+    if sentiment is not None and sentiment <= -0.15:
+        n_score = min(n_score, 3)
     n_reasons = matched_headlines[:3]
+    if sentiment is not None and sentiment <= -0.15:
+        n_reasons = [f"⚠ 新聞情緒偏負({sentiment:+.2f})，題材分已壓低"] + n_reasons[:2]
 
     # Evidence-quality grade (A confirmed / B credible report / C rumor /
     # D speculative) — display-only per tw-stock-ai's design, does not
