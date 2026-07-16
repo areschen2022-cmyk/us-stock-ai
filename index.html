@@ -336,7 +336,7 @@ function renderCard(s) {
     <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${s.name || ''}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
     <div class="score-bar"><div class="score-fill" style="width:${fill}%"></div></div>
     <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}${(s.strategy||{}).ma20_exit != null ? `<span style="color:var(--muted)" title="10年出場掃描最優有保護出場（跌破20日均線出場，PF 1.72 vs 緊停損 1.58）">｜MA20出場 ${fmtPrice(s.strategy.ma20_exit)}</span>` : ''}</div>
-    <div class="sub-scores">
+    <div class="sub-scores" title="評分v3（2026-07-14起）：總分 = v2×0.6 +（基+流+聞）×0.8 − 風險扣分；技術/市場情緒欄僅供參考不再計入總分">
       <span class="sub" title="技術">技${sub.T||0}</span>
       <span class="sub" title="基本面">基${sub.F||0}</span>
       <span class="sub" title="資金流">流${sub.Fl||0}</span>
