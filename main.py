@@ -19,7 +19,7 @@ from src.data_provider.sec_client import search_company_cik, get_company_facts, 
 from src.news.rss_fetcher import fetch_news, fetch_symbol_news
 from src.data_provider.social_sentiment import fetch_stocktwits_sentiment
 from src.scoring.score_engine import StockScore, compute_score
-from src.scoring.grade import grade_label
+from src.scoring.grade import grade_label, action_from_grade
 from src.storage.sqlite_store import SQLiteStore
 from src.ai.model_council import ModelCouncil
 from src.report.dashboard import build_dashboard_json, write_dashboard_json
@@ -101,6 +101,39 @@ def _build_shadow_signals(strategy_raw: dict[str, dict], spy_ohlcv) -> dict:
     breadth_pct = round(phase2_count / len(strategy_raw) * 100, 1) if strategy_raw else None
     regime = us_market.market_regime(spy_ohlcv, breadth_pct)
     return {"per_symbol": per_symbol, "regime": regime}
+
+
+def _apply_score_v3(scores: list[StockScore], per_symbol: dict) -> int:
+    """Official score v3 (2026-07-14, fixes the grade ceiling for good).
+
+    Diagnosis history: the 5-factor additive score topped out ~61 because every
+    component's full marks are rare, semi-independent events (single-day volume
+    surge, uniform market points, unreachable insider criteria) — and a v2-for-
+    technical swap alone still capped at ~63 because fundamental/flow/news
+    underdeliver simultaneously. Nominal-100 additive scales never reach their
+    band tops, so grades S/A/B were unreachable BY CONSTRUCTION.
+
+    v3 = v2 * 0.60  (price/volume composite — the validated, full-range part)
+       + (fundamental + flow + news) * 0.80  (50 -> 40 pts, supplementary)
+       - risk_penalty
+    Live simulation on 2026-07-14 data: A×1 / B×9 / C×13 / D×22 — spread
+    without inflation; S requires v2≈95 plus strong fundamentals.
+    Side effects (intended): watch_signals gate (>=65) and council threshold
+    (>=75) become reachable — both were dead code under the old ceiling.
+    Grade history note: grades before 2026-07-14 use the old formula."""
+    changed = 0
+    for sc in scores:
+        sig = per_symbol.get(sc.symbol) or {}
+        v2 = sig.get("score_v2")
+        if v2 is None:
+            continue  # insufficient history — keep legacy score
+        other = sc.fundamental_score + sc.flow_score + sc.news_catalyst_score
+        sc.total_score = max(0, min(100, round(v2 * 0.60 + other * 0.80 - sc.risk_penalty)))
+        sc.grade = grade_label(sc.total_score)
+        sc.action = action_from_grade(sc.grade, sc.risk_penalty)
+        changed += 1
+    print(f"[Main] score v3 applied to {changed} symbols")
+    return changed
 
 
 def _log_ai_review_signals(store, today, ai_reviews: dict, scores, per_symbol: dict,
@@ -433,6 +466,10 @@ def run_daily_update() -> None:
     for sym, rr in research_rank.items():
         if sym in strategy_signals["per_symbol"]:
             strategy_signals["per_symbol"][sym]["research_rank"] = rr
+
+    # 5b3. OFFICIAL SCORE v3: v2-dominant blend replaces the ceiling-bound
+    # 5-factor total (grades before 2026-07-14 used the old formula)
+    _apply_score_v3(scores, strategy_signals["per_symbol"])
 
     # 5c. VALIDATION: log shadow picks vs live top picks for forward comparison
     spy_price_today = float(spy_close.iloc[-1]) if spy_close is not None and not spy_close.empty else None
