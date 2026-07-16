@@ -92,6 +92,8 @@ def main() -> int:
     print(f"[Watchlist] added {', '.join(to_add)} (now {len(reloaded)} symbols); "
           f"logged to {_LOG.name}")
     print("[Watchlist] Note: new symbols enter scoring on the next daily run.")
+    print("[Watchlist] 建議：入池前用 market-researcher agent 檢視產業格局、"
+          "earnings-reviewer 檢視最近財報（見 CLAUDE.md 整合手冊）")
     return 0
 
 
