@@ -95,6 +95,24 @@ def fetch_symbol_news(symbol: str, max_items: int = 10) -> list[dict]:
     return out
 
 
+def news_sentiment(headlines: list[str]) -> float | None:
+    """Mean VADER compound sentiment of the matched headlines (-1..+1).
+
+    Fixes the keyword-only blind spot (kp_us_deepseek_scoring_review): a
+    biotech's 'trial FAILED' headline used to ADD news points because it
+    matched the theme keyword. Returns None when VADER is unavailable or
+    there are no headlines — callers must treat None as 'no adjustment'."""
+    if not headlines:
+        return None
+    try:
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    except ImportError:
+        return None
+    analyzer = SentimentIntensityAnalyzer()
+    vals = [analyzer.polarity_scores(str(h))["compound"] for h in headlines]
+    return round(sum(vals) / len(vals), 3)
+
+
 def score_symbol_news(news_list: list[dict]) -> tuple[int, list[str]]:
     """Keyword catalyst score on already-symbol-specific news (no matching
     needed). Returns (score 0-15, matched headlines)."""
