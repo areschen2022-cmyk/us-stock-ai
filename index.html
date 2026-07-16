@@ -704,6 +704,10 @@ function render(data) {
         ` <span class="strat-badge">RS ${c.rs_rating}</span>` +
         ` <span class="strat-badge" style="color:${c.weekly_up ? 'var(--green)' : 'var(--muted)'}">週線${c.weekly_up ? '↑' : '—'}</span>` +
         ` <span style="color:var(--muted)">${fmtPrice(c.price)}</span></div>`).join('') +
+      ( ((scan.pool_exit || {}).candidates || []).length
+        ? `<div style="margin-top:6px;color:var(--red)">▸ 退池觀察（${scan.pool_exit.rule}）：` +
+          scan.pool_exit.candidates.map(c => `${c.symbol}（連續${c.streak_weeks}週，v2: ${c.v2_history.join('→')}）`).join('、') + `</div>`
+        : '' ) +
       `<div class="updated" style="margin-top:4px">掃描日：${scan.generated_at}｜全池 S 級 ${scan.s_grade_total} 檔（其中 ${scan.s_grade_in_watchlist} 檔已在觀察名單）</div>`;
     document.getElementById('market-scan-block').style.display = '';
   }
