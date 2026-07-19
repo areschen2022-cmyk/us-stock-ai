@@ -150,6 +150,11 @@ def _build_morning_report(
             body = ""
         body += segment
 
+    # === 等級分佈守門（分佈退化才顯示） ===
+    gg = overview.get("grade_guard") or {}
+    if gg.get("status") == "warn":
+        _flush("⚠ 等級守門：" + "；".join(gg.get("issues", [])) + "\n\n")
+
     # === 市場時機（主軸=200MA+FTD，30年驗證；分配日降為參考） ===
     mt = overview.get("market_timing") or {}
     if mt:

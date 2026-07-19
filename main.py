@@ -136,6 +136,24 @@ def _apply_score_v3(scores: list[StockScore], per_symbol: dict) -> int:
     return changed
 
 
+def _grade_guard(scores: list[StockScore]) -> dict:
+    """Grade-distribution guard (kp_us_deepseek_scoring_review follow-up):
+    the old formula's ceiling failure was SILENT for weeks — every stock C/D
+    and nothing complained. This trips a visible warning when the scale
+    degenerates again: no B-or-above at all, or one grade swallowing >=80%."""
+    from collections import Counter
+    dist = Counter(s.grade for s in scores)
+    n = len(scores) or 1
+    issues = []
+    if sum(v for g, v in dist.items() if g in ("S", "A", "B")) == 0:
+        issues.append("全池無 B 級以上（量表疑似再度失效）")
+    top_grade, top_n = dist.most_common(1)[0] if dist else ("-", 0)
+    if top_n / n >= 0.8:
+        issues.append(f"單一等級 {top_grade} 佔 {top_n / n:.0%}（分佈退化）")
+    return {"status": "warn" if issues else "ok",
+            "distribution": dict(sorted(dist.items())), "issues": issues}
+
+
 def _log_ai_review_signals(store, today, ai_reviews: dict, scores, per_symbol: dict,
                            scan_snapshot: dict | None, spy_price: float | None) -> None:
     """Forward-validation for the AI council itself: log every reviewed symbol
@@ -470,6 +488,9 @@ def run_daily_update() -> None:
     # 5b3. OFFICIAL SCORE v3: v2-dominant blend replaces the ceiling-bound
     # 5-factor total (grades before 2026-07-14 used the old formula)
     _apply_score_v3(scores, strategy_signals["per_symbol"])
+    grade_guard = _grade_guard(scores)
+    if grade_guard["status"] == "warn":
+        print(f"[Main] GRADE GUARD WARN: {grade_guard['issues']}")
 
     # 5c. VALIDATION: log shadow picks vs live top picks for forward comparison
     spy_price_today = float(spy_close.iloc[-1]) if spy_close is not None and not spy_close.empty else None
@@ -554,6 +575,8 @@ def run_daily_update() -> None:
         dash_data["market_timing"] = mt
     except Exception as _mt_e:
         print(f"[Main] market timing failed (non-fatal): {_mt_e}")
+
+    dash_data["grade_guard"] = grade_guard
 
     # Knowledge-hub readback (closes the 2026-06-23 loop: write-only until now).
     # data/trading_hub_context.json is refreshed by the local auto_sync run and
@@ -676,6 +699,7 @@ def run_morning_telegram() -> None:
     strategy_block = dash_data["strategy"]
     eq_map: dict[str, str] = {}
     mt_block = None
+    gg_block = None
     try:
         from pathlib import Path as _Path
         cached = _Path(__file__).parent / "docs" / "dashboard_data.json"
@@ -686,6 +710,7 @@ def run_morning_telegram() -> None:
                 strategy_block = persisted
             eq_map = _entry_quality_map(persisted_full)
             mt_block = persisted_full.get("market_timing")
+            gg_block = persisted_full.get("grade_guard")
     except Exception as _e:
         print(f"[Main] could not load persisted dashboard: {_e}")
 
@@ -703,6 +728,7 @@ def run_morning_telegram() -> None:
         "strategy": strategy_block,
         "entry_quality_map": eq_map or _entry_quality_map(dash_data),
         "market_timing": mt_block,
+        "grade_guard": gg_block,
     }
     overview["data_date"] = str(data_date)
     notifier = TelegramNotifier()
