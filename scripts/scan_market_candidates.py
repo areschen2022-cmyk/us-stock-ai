@@ -37,8 +37,15 @@ _HISTORY_DAYS = 400  # enough for 252d high/low + 12m momentum
 
 
 def scan(top_n: int) -> dict:
+    from src.data_provider.tv_screener import fetch_momentum_universe
     watch = set(get_config().get("symbols", []))
-    universe = sorted(set(get_sp500_symbols()) | watch)
+    sp500 = set(get_sp500_symbols())
+    # broad-market momentum funnel (TradingView, whole US market) — the
+    # screener only NOMINATES; our v2 score still decides (see tv_screener.py)
+    broad = set(fetch_momentum_universe())
+    print(f"[Scan] universe: sp500={len(sp500)} broad-momentum={len(broad)} "
+          f"(new outside sp500: {len(broad - sp500)})")
+    universe = sorted(sp500 | watch | broad)
     print(f"[Scan] Fetching ~2y history for {len(universe)} symbols...")
 
     frames: dict[str, pd.DataFrame] = {}
@@ -90,6 +97,7 @@ def scan(top_n: int) -> dict:
             "weekly_up": us_market.weekly_direction_up(df),
             "price": round(price, 2),
             "in_watchlist": sym in watch,
+            "outside_sp500": sym not in sp500,
             "parts": parts,
         })
 
