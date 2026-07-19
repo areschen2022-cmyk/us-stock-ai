@@ -664,6 +664,15 @@ function render(data) {
     return `<button class="filter-btn${g==='ALL'?' on':''}" data-g="${g}" onclick="applyGradeFilter('${g}')">${g} (${cnt})</button>`;
   }).join('');
 
+  // 等級分佈守門：分佈退化時顯示紅色橫幅（量表靜默失效的教訓）
+  const gg = data.grade_guard;
+  if (gg && gg.status === 'warn') {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'background:rgba(220,50,50,.15);border:1px solid var(--red);color:var(--red);padding:8px 12px;border-radius:8px;margin-bottom:10px;font-size:.85rem';
+    banner.textContent = '⚠ 等級分佈守門：' + (gg.issues || []).join('；');
+    document.getElementById('overview').prepend(banner);
+  }
+
   // 市場時機：主軸=200MA regime+FTD（30年驗證有效）；分配日降為參考顯示
   const mt = data.market_timing;
   if (mt) {
