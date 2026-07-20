@@ -378,7 +378,7 @@ function renderStrategyBadges(st) {
   // 台股移植：進場品質（可進場/等拉回/避免追高/觀望）
   const eq = st.entry_quality || {};
   const eqColor = {'可進場':'var(--green)','等拉回':'var(--yellow)','避免追高':'var(--red)','觀望':'var(--muted)'}[eq.label] || 'var(--muted)';
-  const eqBadge = eq.label ? `<span class="strat-badge" style="color:${eqColor};border:1px solid ${eqColor}" title="${eq.reason||''}">進場：${eq.label}</span>` : '';
+  const eqBadge = eq.label ? `<span class="strat-badge" style="color:${eqColor};border:1px solid ${eqColor}" title="${esc(eq.reason)}">進場：${esc(eq.label)}</span>` : '';
   const risks = st.failure_risks || [];
   const riskBadges = risks.map(r => `<span class="strat-badge" style="color:var(--red)" title="${r.detail||''}">⚠️${r.mode}</span>`).join('');
   // 社群情緒（StockTwits）
@@ -557,7 +557,7 @@ function render(data) {
         <span class="div-sym" style="color:${stageColor[r.stage]||'var(--muted)'}">${r.symbol}</span>
         <span style="font-size:.78rem;color:var(--muted)">${r.name||''}</span>
         <span class="strat-badge" style="color:${stageColor[r.stage]||'var(--muted)'}">${r.label}</span>
-        <span class="div-detail">${r.reason||''}${r.contraction_quality!=null?` · 收縮品質 ${r.contraction_quality}`:''}${r.dist_from_50sma_pct!=null?` · 距50MA ${r.dist_from_50sma_pct}%`:''}</span>
+        <span class="div-detail">${esc(r.reason)}${r.contraction_quality!=null?` · 收縮品質 ${r.contraction_quality}`:''}${r.dist_from_50sma_pct!=null?` · 距50MA ${r.dist_from_50sma_pct}%`:''}</span>
       </div>`).join('');
   } else {
     radarBlock.style.display = 'none';
@@ -643,7 +643,7 @@ function render(data) {
       const detail = a.prev_avg ? `今日 ${a.count} 檔（前均 ${a.prev_avg} 檔）` : `今日 ${a.count} 檔（新題材）`;
       return `<div class="alert-item">
         <span class="alert-icon">⚠️</span>
-        <span class="alert-theme">${a.theme_zh || a.theme}</span>
+        <span class="alert-theme">${esc(a.theme_zh || a.theme)}</span>
         <span class="alert-detail">${detail}</span>
       </div>`;
     }).join('');
@@ -693,8 +693,8 @@ function render(data) {
       ? `<span style="color:${mt.spy_above_200ma ? 'var(--green)' : 'var(--red)'}">SPY ${mt.spy_above_200ma ? '站上' : '跌破'} 200MA</span>` : '';
     document.getElementById('market-timing-body').innerHTML =
       (posture.label ? `▸ 大盤姿態：<b>${posture.label}</b>${maStr ? '｜' + maStr : ''}<br>` +
-        (posture.detail ? `<span style="color:var(--muted);font-size:.78rem">${posture.detail}</span><br>` : '') : '') +
-      (ftd.label ? `▸ FTD 底部確認：${ftd.label}<br>` : '') +
+        (posture.detail ? `<span style="color:var(--muted);font-size:.78rem">${esc(posture.detail)}</span><br>` : '') : '') +
+      (ftd.label ? `▸ FTD 底部確認：${esc(ftd.label)}<br>` : '') +
       (ddStr ? `▸ 分配日（參考）：${ddStr} <span style="color:var(--muted);font-size:.75rem" title="30年回測：分配日計數在多頭中無預測力（SEVERE 日後市反而偏強），勿作為降曝險依據">ⓘ 30年驗證：多頭中無預測力</span><br>` : '') +
       (vcp ? `▸ VCP 觀察：${vcp}` : '');
     document.getElementById('market-timing-block').style.display = '';
@@ -779,7 +779,7 @@ function render(data) {
         <div style="font-size:.8rem;color:var(--muted)">
           信心度：${r.confidence!=null?(r.confidence*100).toFixed(0)+'%':'?'}
         </div>
-        <div style="font-size:.82rem;margin-top:6px;line-height:1.5">${r.reason||''}</div>
+        <div style="font-size:.82rem;margin-top:6px;line-height:1.5">${esc(r.reason)}</div>
       </div>`).join('') ||
     '<p class="empty-hint">今日無 AI 複核。</p>';
 
