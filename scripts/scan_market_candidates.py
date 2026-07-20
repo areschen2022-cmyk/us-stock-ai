@@ -117,7 +117,7 @@ def scan(top_n: int) -> dict:
         price = float(df["Close"].astype(float).iloc[-1])
         total, _ = us_market.score_v2(df, rs_pct.get(sym))
         wl_v2[sym] = total
-    exit_block = _update_pool_exit_state(wl_v2)
+    exit_block = _update_pool_exit_state(wl_v2, watch)
 
     return {
         "generated_at": str(date.today()),
@@ -137,15 +137,27 @@ _EXIT_STREAK_WEEKS = 4
 _EXIT_HISTORY_KEEP = 8
 
 
-def _update_pool_exit_state(wl_v2: dict[str, int]) -> dict:
+def _update_pool_exit_state(wl_v2: dict[str, int], watch: set[str]) -> dict:
     """Append this week's watchlist v2 snapshot to the rolling state and
-    return exit candidates (v2 < threshold for N consecutive weekly checks)."""
+    return exit candidates (v2 < threshold for N consecutive weekly checks).
+
+    Codex audit-2 #6 fixes: histories are pruned by POOL membership (watch),
+    not by this week's download success — a transient yfinance failure used
+    to delete a symbol's history and reset its exit streak. And below 80%
+    coverage the state is not updated at all (a half-empty snapshot would
+    fabricate streak breaks)."""
     state: dict = {}
     if _EXIT_STATE.exists():
         try:
             state = json.loads(_EXIT_STATE.read_text(encoding="utf-8"))
         except Exception:
             state = {}
+    coverage = len(wl_v2) / len(watch) if watch else 0
+    if coverage < 0.8:
+        print(f"[Scan] pool-exit coverage {coverage:.0%} < 80% — keeping previous state untouched")
+        return {"checked": len(wl_v2), "coverage": round(coverage * 100, 1),
+                "stale": True, "candidates": [],
+                "rule": "本週資料覆蓋率不足，退池狀態未更新"}
     today = str(date.today())
     for sym, v2 in wl_v2.items():
         hist = state.get(sym, [])
@@ -154,8 +166,8 @@ def _update_pool_exit_state(wl_v2: dict[str, int]) -> dict:
         else:
             hist[-1]["v2"] = v2  # same-day rerun overwrites
         state[sym] = hist[-_EXIT_HISTORY_KEEP:]
-    # drop symbols no longer in the pool
-    state = {s: h for s, h in state.items() if s in wl_v2}
+    # prune by pool membership only — never by download success
+    state = {s: h for s, h in state.items() if s in watch}
     _EXIT_STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
 
     candidates = []

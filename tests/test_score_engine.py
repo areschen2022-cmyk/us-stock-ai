@@ -85,4 +85,8 @@ def test_compute_score_applies_earnings_risk_penalty() -> None:
     )
 
     assert score.risk_penalty >= 6
-    assert any("Earnings in 3d" in warning for warning in score.warnings)
+    # language-neutral: assert the earnings-proximity warning fired with the
+    # right day count, not the exact copy (which moved to Chinese and broke
+    # this test silently — CI wasn't running pytest; Codex audit-2 #9)
+    assert any("3" in warning and ("財報" in warning or "Earnings" in warning)
+               for warning in score.warnings)

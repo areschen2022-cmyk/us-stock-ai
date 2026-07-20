@@ -408,6 +408,21 @@ def run_daily_update() -> None:
     fetch_list = symbols + fetch_extra
     ohlcv_map = fetch_batch_ohlcv(fetch_list)
     spy_ohlcv = ohlcv_map.get("SPY")
+
+    # Market-holiday gate (Codex audit-2 #1): on US holidays the evening CI
+    # run would re-score yesterday's bars under today's date — duplicate
+    # signals, wrong forward horizons, stale morning brief. Applies only to
+    # the post-close window (>=21 UTC) so pre-market manual runs still work.
+    from datetime import datetime, timezone as _tz
+    if spy_ohlcv is not None and len(spy_ohlcv):
+        _last_bar = spy_ohlcv.index[-1]
+        _last_bar_date = _last_bar.date() if hasattr(_last_bar, "date") else _last_bar
+        if datetime.now(_tz.utc).hour >= 21 and _last_bar_date < today:
+            print(f"[Main] No new market bar (last={_last_bar_date}, today={today}) — "
+                  "US market holiday, skipping daily update")
+            store.log_delivery("daily_update", "skipped",
+                               f"holiday: last bar {_last_bar_date}")
+            return
     spy_close_for_sectors = spy_ohlcv["Close"] if (spy_ohlcv is not None and not spy_ohlcv.empty) else None
     sector_scores = sector.build_sector_scores(
         {etf: ohlcv_map.get(etf) for etf in sector.SECTOR_ETFS}, spy_close_for_sectors
@@ -419,6 +434,7 @@ def run_daily_update() -> None:
     # 5. Score each symbol
     scores: list[StockScore] = []
     missing_data = 0
+    scoring_failures = 0
     strategy_raw: dict[str, dict] = {}  # SHADOW: per-symbol US-strategy signals
     spy_close = spy_ohlcv["Close"] if (spy_ohlcv is not None and not spy_ohlcv.empty) else None
     for symbol in symbols:
@@ -469,8 +485,18 @@ def run_daily_update() -> None:
         except Exception as exc:
             print(f"[Main] Error scoring {symbol}: {exc}")
             traceback.print_exc()
+            scoring_failures += 1
 
-    print(f"[Main] Scored {len(scores)} symbols")
+    print(f"[Main] Scored {len(scores)} symbols "
+          f"(ohlcv missing: {missing_data}, scoring failures: {scoring_failures})")
+
+    # Data-quality circuit breaker (Codex audit-2 #2): scoring exceptions were
+    # counted as success — 10/46 scored could still publish a "healthy"
+    # dashboard. Below 60% success, fail the run instead of publishing garbage.
+    if symbols and len(scores) < 0.6 * len(symbols):
+        raise RuntimeError(
+            f"scoring circuit breaker: only {len(scores)}/{len(symbols)} scored "
+            f"(missing={missing_data}, failures={scoring_failures}) — refusing to publish")
 
     # 5b. SHADOW: cross-sectional RS percentile + Minervini + market regime
     strategy_signals = _build_shadow_signals(strategy_raw, spy_ohlcv)
@@ -557,6 +583,7 @@ def run_daily_update() -> None:
         "requested": requested,
         "scored": success,
         "missing": missing_data,
+        "scoring_failures": scoring_failures,
         "source_status": source_status,
         "quality": quality,
     }
