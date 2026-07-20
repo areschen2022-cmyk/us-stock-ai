@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Run tests (gate)
+        run: pip install pytest && python -m pytest -q
+
       - name: Full-market S-grade scan (Mondays; watchlist candidates)
         continue-on-error: true
         run: python scripts/scan_market_candidates.py
