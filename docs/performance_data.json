@@ -1,66 +1,66 @@
 {
-  "as_of": "2026-07-19",
+  "as_of": "2026-07-20",
   "primary_source": "live_top",
   "stats": {
-    "signals": 191,
-    "completed": 131,
-    "win_rate_5d": 58.0,
-    "avg_return_5d": 0.4,
-    "stop_hit_rate": 3.8,
+    "signals": 201,
+    "completed": 141,
+    "win_rate_5d": 58.2,
+    "avg_return_5d": 0.5,
+    "stop_hit_rate": 3.5,
     "failure_attribution": {
       "weak_after_entry": {
-        "n": 6,
-        "avg_return_10d": -10.4
+        "n": 8,
+        "avg_return_10d": -10.0
       },
       "momentum_fade": {
-        "n": 6,
-        "avg_return_10d": -12.0
+        "n": 7,
+        "avg_return_10d": -13.7
       },
       "stop_hit": {
-        "n": 4,
-        "avg_return_10d": -27.1
+        "n": 5,
+        "avg_return_10d": -23.3
       }
     }
   },
   "live_top_stats": {
-    "signals": 191,
-    "completed": 131,
-    "win_rate_5d": 58.0,
-    "avg_return_5d": 0.4,
-    "stop_hit_rate": 3.8,
+    "signals": 201,
+    "completed": 141,
+    "win_rate_5d": 58.2,
+    "avg_return_5d": 0.5,
+    "stop_hit_rate": 3.5,
     "failure_attribution": {
       "weak_after_entry": {
-        "n": 6,
-        "avg_return_10d": -10.4
+        "n": 8,
+        "avg_return_10d": -10.0
       },
       "momentum_fade": {
-        "n": 6,
-        "avg_return_10d": -12.0
+        "n": 7,
+        "avg_return_10d": -13.7
       },
       "stop_hit": {
-        "n": 4,
-        "avg_return_10d": -27.1
+        "n": 5,
+        "avg_return_10d": -23.3
       }
     }
   },
   "shadow_stats": {
-    "signals": 128,
-    "completed": 89,
-    "win_rate_5d": 44.9,
-    "avg_return_5d": -0.9,
-    "stop_hit_rate": 4.5,
+    "signals": 135,
+    "completed": 95,
+    "win_rate_5d": 44.2,
+    "avg_return_5d": -1.2,
+    "stop_hit_rate": 4.2,
     "failure_attribution": {
       "weak_after_entry": {
-        "n": 12,
-        "avg_return_10d": -12.4
+        "n": 15,
+        "avg_return_10d": -13.0
       },
       "momentum_fade": {
-        "n": 9,
-        "avg_return_10d": -9.7
+        "n": 11,
+        "avg_return_10d": -11.6
       },
       "stop_hit": {
-        "n": 3,
-        "avg_return_10d": -11.0
+        "n": 4,
+        "avg_return_10d": -10.3
       }
     }
   },
@@ -70,32 +70,32 @@
   "grade_stats": [
     {
       "label": "C",
-      "signals": 134,
-      "completed": 96,
-      "win_rate_5d": 53.1,
-      "avg_return_5d": -0.6,
-      "stop_hit_rate": 5.2,
+      "signals": 140,
+      "completed": 100,
+      "win_rate_5d": 54.0,
+      "avg_return_5d": -0.5,
+      "stop_hit_rate": 5.0,
       "failure_attribution": {
-        "momentum_fade": {
-          "n": 5,
-          "avg_return_10d": -12.6
-        },
         "weak_after_entry": {
-          "n": 4,
-          "avg_return_10d": -9.1
+          "n": 6,
+          "avg_return_10d": -8.9
+        },
+        "momentum_fade": {
+          "n": 6,
+          "avg_return_10d": -14.4
         },
         "stop_hit": {
-          "n": 4,
-          "avg_return_10d": -27.1
+          "n": 5,
+          "avg_return_10d": -23.3
         }
       }
     },
     {
       "label": "D",
       "signals": 41,
-      "completed": 29,
-      "win_rate_5d": 69.0,
-      "avg_return_5d": 2.9,
+      "completed": 35,
+      "win_rate_5d": 65.7,
+      "avg_return_5d": 2.4,
       "stop_hit_rate": 0.0,
       "failure_attribution": {
         "weak_after_entry": {
@@ -110,7 +110,7 @@
     },
     {
       "label": "B",
-      "signals": 16,
+      "signals": 20,
       "completed": 6,
       "win_rate_5d": 83.3,
       "avg_return_5d": 5.5,
@@ -128,31 +128,40 @@
       "stop_hit_rate": 4.1,
       "failure_attribution": {
         "weak_after_entry": {
-          "n": 18,
-          "avg_return_10d": -11.7
+          "n": 23,
+          "avg_return_10d": -11.9
         },
         "momentum_fade": {
-          "n": 15,
-          "avg_return_10d": -10.6
+          "n": 18,
+          "avg_return_10d": -12.4
         },
         "stop_hit": {
-          "n": 7,
-          "avg_return_10d": -20.2
+          "n": 9,
+          "avg_return_10d": -17.5
         }
       }
     },
     {
       "label": "可進場",
-      "signals": 56,
-      "completed": 0,
-      "win_rate_5d": 0.0,
-      "avg_return_5d": 0.0,
+      "signals": 67,
+      "completed": 5,
+      "win_rate_5d": 40.0,
+      "avg_return_5d": -3.6,
       "stop_hit_rate": 0.0,
       "failure_attribution": {}
     },
     {
       "label": "等拉回",
-      "signals": 27,
+      "signals": 29,
+      "completed": 9,
+      "win_rate_5d": 55.6,
+      "avg_return_5d": -0.4,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    },
+    {
+      "label": "避免追高",
+      "signals": 11,
       "completed": 0,
       "win_rate_5d": 0.0,
       "avg_return_5d": 0.0,
@@ -161,19 +170,10 @@
     },
     {
       "label": "觀望",
-      "signals": 8,
-      "completed": 0,
-      "win_rate_5d": 0.0,
-      "avg_return_5d": 0.0,
-      "stop_hit_rate": 0.0,
-      "failure_attribution": {}
-    },
-    {
-      "label": "避免追高",
-      "signals": 8,
-      "completed": 0,
-      "win_rate_5d": 0.0,
-      "avg_return_5d": 0.0,
+      "signals": 9,
+      "completed": 2,
+      "win_rate_5d": 50.0,
+      "avg_return_5d": -2.4,
       "stop_hit_rate": 0.0,
       "failure_attribution": {}
     }
