@@ -100,8 +100,14 @@ class ModelCouncil:
         return results
 
     def get_ai_summaries(self, reviews: dict[str, dict]) -> dict[str, str]:
-        """Compact {symbol: 'action: reason'} for Telegram."""
-        return {
-            sym: f"{r.get('action','?')} (conf={r.get('confidence',0):.0%}): {r.get('reason','')}"
-            for sym, r in reviews.items()
-        }
+        """Compact {symbol: 'action: reason'} for Telegram. Defensive float():
+        pre-validation rows or hand-edited DB rows may carry non-numeric
+        confidence (Codex audit-2 #4)."""
+        out: dict[str, str] = {}
+        for sym, r in reviews.items():
+            try:
+                conf = float(r.get("confidence") or 0)
+            except (TypeError, ValueError):
+                conf = 0.0
+            out[sym] = f"{r.get('action', '?')} (conf={conf:.0%}): {r.get('reason', '')}"
+        return out
