@@ -392,10 +392,14 @@ class SQLiteStore:
             )
 
     def get_open_shadow_signals(self) -> list[dict]:
+        # outcome-set signals with missing alpha stay eligible: a transient SPY
+        # fetch failure used to leave alpha_5d/10d NULL forever once the 10d
+        # outcome was written (Codex audit-2 #3)
         with self._connect() as conn:
             conn.row_factory = sqlite3.Row
             rows = conn.execute(
-                "SELECT * FROM shadow_signals WHERE outcome IS NULL ORDER BY signal_date DESC"
+                "SELECT * FROM shadow_signals WHERE outcome IS NULL "
+                "OR alpha_5d IS NULL OR alpha_10d IS NULL ORDER BY signal_date DESC"
             ).fetchall()
             return [dict(r) for r in rows]
 
