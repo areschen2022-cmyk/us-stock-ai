@@ -173,10 +173,12 @@ def fill_open_signals(store: SQLiteStore) -> int:
                     updates[col] = ret
 
             # stop_hit: did the LOW during the holding period ever touch the
-            # stop, not just the close on a settlement date (a close-only
-            # check misses intraday stop triggers entirely)
+            # stop, not just the close on a settlement date. Window aligned to
+            # the 10d OUTCOME horizon (Codex audit-2 #7): the old max-horizon
+            # (20d) window let a day-15 stop touch contaminate 10d attribution.
             if sig.get("stop_hit") is None and stop_price:
-                low = _fetch_period_low(symbol, signal_date, min(max_target, today))
+                stop_window_end = _trading_days_later(signal_date, 10)
+                low = _fetch_period_low(symbol, signal_date, min(stop_window_end, today))
                 if low is not None:
                     updates["stop_hit"] = 1 if low <= stop_price else 0
 
