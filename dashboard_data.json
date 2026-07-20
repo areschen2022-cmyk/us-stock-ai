@@ -3,7 +3,7 @@
   "market": {
     "SPY": 743.2899780273438,
     "QQQ": 695.3300170898438,
-    "VIX": 18.770000457763672,
+    "VIX": 18.510000228881836,
     "TLT": 84.5199966430664,
     "HYG": 79.6500015258789,
     "IWM": 294.0400085449219,
@@ -24,15 +24,15 @@
   },
   "highlights": [],
   "ai_stats": {
-    "buy": 5,
-    "hold": 8,
+    "buy": 4,
+    "hold": 9,
     "avoid": 0,
     "total": 13,
     "candidates": 13,
     "coverage_pct": 100
   },
   "data_health": {
-    "elapsed_min": 3.6,
+    "elapsed_min": 2.9,
     "requested": 46,
     "scored": 46,
     "missing": 0,
@@ -48,7 +48,7 @@
     },
     "divergence": {
       "n_compared": 46,
-      "avg_gap": 14.0,
+      "avg_gap": 14.1,
       "missed_strong": [
         {
           "symbol": "DELL",
@@ -336,7 +336,7 @@
         "alpha_win_rate_5d": 50.0
       },
       "ai_buy": {
-        "tracked": 14,
+        "tracked": 13,
         "completed": 5,
         "completed_10d": 0,
         "win_rate": 80.0,
@@ -352,7 +352,7 @@
         "alpha_win_rate_5d": 80.0
       },
       "ai_hold": {
-        "tracked": 38,
+        "tracked": 39,
         "completed": 1,
         "completed_10d": 0,
         "win_rate": 0.0,
@@ -877,7 +877,7 @@
           "bullish": 5,
           "bearish": 4,
           "sentiment_ratio": 0.11,
-          "watchlist_count": 28793,
+          "watchlist_count": 28792,
           "label": "中性",
           "score_0_10": 5.6,
           "tagged": 9
@@ -1364,7 +1364,7 @@
           "bullish": 5,
           "bearish": 7,
           "sentiment_ratio": -0.17,
-          "watchlist_count": 983424,
+          "watchlist_count": 983425,
           "label": "偏空",
           "score_0_10": 4.1,
           "tagged": 12
@@ -1766,13 +1766,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 5,
+          "bullish": 6,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 68912,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 5
+          "tagged": 6
         },
         "potential": {
           "stage": null,
@@ -1908,112 +1908,6 @@
         }
       },
       "divergence_gap": 34
-    },
-    {
-      "symbol": "ARM",
-      "name": "Arm Holdings plc",
-      "score": 55,
-      "grade": "C",
-      "action": "Avoid",
-      "price": 267.19000244140625,
-      "entry": 267.19000244140625,
-      "stop": 210.48,
-      "atr_pct": 10.613046827862638,
-      "themes": [
-        "ai_infra",
-        "semiconductor"
-      ],
-      "warnings": [
-        "財報將近（9 日）",
-        "波動過大 ATR 10.6%"
-      ],
-      "matched_headlines": [
-        "ARM's Expanding Royalty Opportunity Is Powering Its AI Growth Story"
-      ],
-      "catalyst_confidence": {
-        "grade": "C",
-        "label": "一般新聞",
-        "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
-      },
-      "sub": {
-        "T": 0,
-        "F": 19,
-        "Fl": 5,
-        "N": 3,
-        "M": 4,
-        "R": -6
-      },
-      "sector": "Technology",
-      "market_cap": 285379985408,
-      "risk_penalty": 6,
-      "strategy": {
-        "score_v2": 65,
-        "v2_grade": "B",
-        "v2_parts": {
-          "rs": 38,
-          "trend": 22,
-          "high52": 0,
-          "volume": 5
-        },
-        "weekly_up": false,
-        "ma20_exit": 328.3,
-        "rs_rating": 95,
-        "rs_score_0_10": 10.0,
-        "minervini_pass": 6,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 3638478106.0,
-        "entry_price": 267.19000244140625,
-        "stop_price": 238.26,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [
-          {
-            "mode": "停損風險",
-            "detail": "波動過大(ATR 10.6%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
-          }
-        ],
-        "social": {
-          "messages": 30,
-          "bullish": 12,
-          "bearish": 2,
-          "sentiment_ratio": 0.71,
-          "watchlist_count": 33021,
-          "label": "強烈看多",
-          "score_0_10": 8.6,
-          "tagged": 14
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 0,
-          "above_ema20": false,
-          "rs_vs_spy_20d": -5.96,
-          "status": "偏弱",
-          "reasons": [
-            "跌破20日均線(175.6<182.3)",
-            "20日落後SPY -6.0%"
-          ],
-          "sector_etf": "XLK"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "風險扣分過高(6)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 70.72,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": 40
     },
     {
       "symbol": "ANET",
@@ -2287,13 +2181,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
+          "bullish": 9,
           "bearish": 2,
-          "sentiment_ratio": 0.6,
+          "sentiment_ratio": 0.64,
           "watchlist_count": 560986,
           "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 10
+          "score_0_10": 8.2,
+          "tagged": 11
         },
         "potential": {
           "stage": null,
@@ -2314,7 +2208,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 65.59,
+          "composite": 65.69,
           "percentile": 65.2,
           "research_grade": "C"
         }
@@ -2383,13 +2277,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 10,
-          "bearish": 5,
-          "sentiment_ratio": 0.33,
-          "watchlist_count": 653390,
+          "bullish": 9,
+          "bearish": 4,
+          "sentiment_ratio": 0.38,
+          "watchlist_count": 653394,
           "label": "偏多",
-          "score_0_10": 6.7,
-          "tagged": 15
+          "score_0_10": 6.9,
+          "tagged": 13
         },
         "potential": {
           "stage": null,
@@ -2412,12 +2306,119 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 47.69,
+          "composite": 47.79,
           "percentile": null,
           "research_grade": "D"
         }
       },
       "divergence_gap": -1
+    },
+    {
+      "symbol": "ARM",
+      "name": "Arm Holdings plc",
+      "score": 52,
+      "grade": "C",
+      "action": "Avoid",
+      "price": 267.19000244140625,
+      "entry": 267.19000244140625,
+      "stop": 210.48,
+      "atr_pct": 10.613046827862638,
+      "themes": [
+        "ai_infra",
+        "semiconductor"
+      ],
+      "warnings": [
+        "財報將近（9 日）",
+        "波動過大 ATR 10.6%"
+      ],
+      "matched_headlines": [
+        "Wall Street plunges in AI ‘bloodbath’",
+        "ARM's Expanding Royalty Opportunity Is Powering Its AI Growth Story"
+      ],
+      "catalyst_confidence": {
+        "grade": "C",
+        "label": "一般新聞",
+        "reason": "新聞命中但缺少正式佐證",
+        "evidence_count": 2
+      },
+      "sub": {
+        "T": 0,
+        "F": 19,
+        "Fl": 5,
+        "N": 0,
+        "M": 4,
+        "R": -6
+      },
+      "sector": "Technology",
+      "market_cap": 285379985408,
+      "risk_penalty": 6,
+      "strategy": {
+        "score_v2": 65,
+        "v2_grade": "B",
+        "v2_parts": {
+          "rs": 38,
+          "trend": 22,
+          "high52": 0,
+          "volume": 5
+        },
+        "weekly_up": false,
+        "ma20_exit": 328.3,
+        "rs_rating": 95,
+        "rs_score_0_10": 10.0,
+        "minervini_pass": 6,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 3638478106.0,
+        "entry_price": 267.19000244140625,
+        "stop_price": 238.26,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [
+          {
+            "mode": "停損風險",
+            "detail": "波動過大(ATR 10.6%)，停損距離難匹配，易開盤被洗（台股驗證 100% 觸損）"
+          }
+        ],
+        "social": {
+          "messages": 30,
+          "bullish": 12,
+          "bearish": 2,
+          "sentiment_ratio": 0.71,
+          "watchlist_count": 33021,
+          "label": "強烈看多",
+          "score_0_10": 8.6,
+          "tagged": 14
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 0,
+          "above_ema20": false,
+          "rs_vs_spy_20d": -5.96,
+          "status": "偏弱",
+          "reasons": [
+            "跌破20日均線(175.6<182.3)",
+            "20日落後SPY -6.0%"
+          ],
+          "sector_etf": "XLK"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "風險扣分過高(6)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 70.72,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": 43
     },
     {
       "symbol": "GEV",
@@ -2902,13 +2903,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 6,
+          "bullish": 7,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 24029,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 6
+          "tagged": 7
         },
         "potential": {
           "stage": null,
@@ -3111,7 +3112,7 @@
           "bullish": 13,
           "bearish": 2,
           "sentiment_ratio": 0.73,
-          "watchlist_count": 110938,
+          "watchlist_count": 110937,
           "label": "強烈看多",
           "score_0_10": 8.7,
           "tagged": 15
@@ -3209,7 +3210,7 @@
           "bullish": 6,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 693542,
+          "watchlist_count": 693543,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 6
@@ -3313,7 +3314,7 @@
           "bullish": 6,
           "bearish": 3,
           "sentiment_ratio": 0.33,
-          "watchlist_count": 600666,
+          "watchlist_count": 600667,
           "label": "偏多",
           "score_0_10": 6.7,
           "tagged": 9
@@ -4037,7 +4038,7 @@
           "bullish": 8,
           "bearish": 4,
           "sentiment_ratio": 0.33,
-          "watchlist_count": 539944,
+          "watchlist_count": 539947,
           "label": "偏多",
           "score_0_10": 6.7,
           "tagged": 12
@@ -4461,7 +4462,7 @@
           "bullish": 11,
           "bearish": 1,
           "sentiment_ratio": 0.83,
-          "watchlist_count": 1056307,
+          "watchlist_count": 1056309,
           "label": "強烈看多",
           "score_0_10": 9.2,
           "tagged": 12
@@ -4672,13 +4673,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 12,
+          "bullish": 11,
           "bearish": 2,
-          "sentiment_ratio": 0.71,
-          "watchlist_count": 36878,
+          "sentiment_ratio": 0.69,
+          "watchlist_count": 36880,
           "label": "強烈看多",
-          "score_0_10": 8.6,
-          "tagged": 14
+          "score_0_10": 8.4,
+          "tagged": 13
         },
         "potential": {
           "stage": "weakening",
@@ -4707,7 +4708,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 37.72,
+          "composite": 37.62,
           "percentile": null,
           "research_grade": "D"
         }
@@ -4892,7 +4893,7 @@
           "bullish": 14,
           "bearish": 1,
           "sentiment_ratio": 0.87,
-          "watchlist_count": 89689,
+          "watchlist_count": 89690,
           "label": "強烈看多",
           "score_0_10": 9.4,
           "tagged": 15
@@ -4948,15 +4949,15 @@
         "波動過大 ATR 5.8%"
       ],
       "matched_headlines": [
+        "Coinbase CEO Armstrong Dismisses Chamath’s Bitcoin Mining Warning: Will Price Suffer?",
         "Coinbase CEO Changed His Profile Picture and This Meme Coin Soared 37x",
-        "JPMorgan slashes Coinbase price target",
-        "Circle Stock Is Downgraded As Stablecoin Competition Heats Up"
+        "JPMorgan slashes Coinbase price target"
       ],
       "catalyst_confidence": {
         "grade": "B",
         "label": "多源升溫",
         "reason": "多則新聞同時命中，可信度中高",
-        "evidence_count": 3
+        "evidence_count": 4
       },
       "sub": {
         "T": 4,
@@ -5004,7 +5005,7 @@
           "bullish": 17,
           "bearish": 2,
           "sentiment_ratio": 0.79,
-          "watchlist_count": 137659,
+          "watchlist_count": 137658,
           "label": "強烈看多",
           "score_0_10": 8.9,
           "tagged": 19
@@ -5112,12 +5113,12 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 8,
-          "bearish": 2,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 81275,
+          "bullish": 7,
+          "bearish": 3,
+          "sentiment_ratio": 0.4,
+          "watchlist_count": 81276,
           "label": "強烈看多",
-          "score_0_10": 8.0,
+          "score_0_10": 7.0,
           "tagged": 10
         },
         "potential": {
@@ -5147,7 +5148,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 15.2,
+          "composite": 14.7,
           "percentile": null,
           "research_grade": "D"
         }
@@ -5627,7 +5628,7 @@
           "bullish": 5,
           "bearish": 4,
           "sentiment_ratio": 0.11,
-          "watchlist_count": 28793,
+          "watchlist_count": 28792,
           "label": "中性",
           "score_0_10": 5.6,
           "tagged": 9
@@ -6114,7 +6115,7 @@
           "bullish": 5,
           "bearish": 7,
           "sentiment_ratio": -0.17,
-          "watchlist_count": 983424,
+          "watchlist_count": 983425,
           "label": "偏空",
           "score_0_10": 4.1,
           "tagged": 12
@@ -6424,12 +6425,12 @@
           "score": 56
         },
         {
-          "symbol": "ARM",
+          "symbol": "ANET",
           "score": 55
         },
         {
-          "symbol": "ANET",
-          "score": 55
+          "symbol": "AMD",
+          "score": 54
         }
       ],
       "prev_avg": 15.0,
@@ -6488,12 +6489,12 @@
           "score": 56
         },
         {
-          "symbol": "ARM",
-          "score": 55
-        },
-        {
           "symbol": "AMD",
           "score": 54
+        },
+        {
+          "symbol": "NVDA",
+          "score": 53
         }
       ],
       "prev_avg": 7.0,
@@ -6680,7 +6681,7 @@
     {
       "symbol": "ARM",
       "name": "Arm Holdings plc",
-      "score": 55,
+      "score": 52,
       "grade": "C",
       "action": "Avoid",
       "price": 267.19000244140625,
@@ -6696,19 +6697,20 @@
         "波動過大 ATR 10.6%"
       ],
       "matched_headlines": [
+        "Wall Street plunges in AI ‘bloodbath’",
         "ARM's Expanding Royalty Opportunity Is Powering Its AI Growth Story"
       ],
       "catalyst_confidence": {
         "grade": "C",
         "label": "一般新聞",
         "reason": "新聞命中但缺少正式佐證",
-        "evidence_count": 1
+        "evidence_count": 2
       },
       "sub": {
         "T": 0,
         "F": 19,
         "Fl": 5,
-        "N": 3,
+        "N": 0,
         "M": 4,
         "R": -6
       },
@@ -6878,79 +6880,79 @@
       "symbol": "PANW",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "Palo Alto Networks has strong cybersecurity themes and a solid fundamental score, but elevated volatility (ATR 5.4%) and weak flow/news signals suggest waiting for a better entry point."
+      "reason": "Palo Alto Networks has strong cybersecurity fundamentals and a B grade, but elevated volatility (ATR 5.4%) and mixed technical/flow signals suggest waiting for a clearer entry point."
     },
     {
       "symbol": "FTNT",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "FTNT scores a B grade with moderate technicals and fundamentals, but elevated volatility and upcoming earnings on the 9th suggest waiting for clarity before committing."
+      "reason": "FTNT scores a B-grade with moderate technical and fundamental metrics, but near-term earnings risk and elevated volatility suggest waiting for clearer direction."
     },
     {
       "symbol": "JBHT",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "JBHT's B-grade score of 66 reflects a balanced profile with moderate technicals and fundamentals, but elevated volatility (ATR 3.4%) and a neutral news/flow backdrop suggest waiting for clearer catalysts before adding positions."
+      "reason": "JBHT scores a B-grade with solid fundamentals and flow, but elevated volatility (ATR 3.4%) and a neutral technical outlook suggest waiting for a clearer entry point near support."
     },
     {
       "symbol": "CRWD",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "CRWD shows a solid B grade with strong technicals and cybersecurity theme tailwinds, but high volatility (ATR 5.7%) and a modest fundamental score warrant caution at current levels."
+      "reason": "CRWD scores a B grade with strong technicals and cybersecurity theme tailwinds, but elevated volatility (ATR 5.7%) and a risk penalty warrant caution at current levels."
     },
     {
       "symbol": "DELL",
       "action": "Hold",
-      "confidence": 0.5,
-      "reason": "DELL scores a C-grade with mixed signals: strong fundamentals (10) and technicals (8) are offset by weak market sentiment (4), high volatility (ATR 8.4%), and a risk penalty, suggesting caution until volatility subsides."
+      "confidence": 0.6,
+      "reason": "DELL scores a C grade with strong fundamentals and technicals, but high volatility (ATR 8.4%) and weak market/flow signals warrant caution at current elevated price levels."
     },
     {
       "symbol": "DVA",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "DVA's technical score is moderate at 20, but weak fundamentals (7) and neutral flow (6) with no news catalyst suggest limited upside, warranting a cautious hold near $237."
+      "reason": "DVA's technical score is moderate, but weak fundamentals and neutral news flow suggest limited upside, warranting a cautious hold until clearer catalysts emerge."
     },
     {
       "symbol": "ASML",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "ASML's strong fundamental score (17) and critical role in semiconductor themes are offset by high volatility (ATR 5.3%) and weak technical/flow signals, suggesting a cautious hold at current elevated price levels."
+      "reason": "ASML's fundamental score of 17 is solid given its monopoly in EUV lithography, but the technical score of 11, high volatility (ATR 5.3%), and lack of flow and news momentum suggest near-term uncertainty, warranting a cautious hold."
     },
     {
       "symbol": "CVS",
       "action": "Hold",
-      "confidence": 0.5,
-      "reason": "CVS's low fundamental and technical scores suggest limited near-term upside, but the stock is not showing extreme risk or negative news, making a hold appropriate until clearer catalysts emerge."
+      "confidence": 0.6,
+      "reason": "CVS scores a C grade overall with weak fundamentals and news sentiment, but the technical score is decent and the stock is near a support level, suggesting limited downside for now."
     },
     {
       "symbol": "AGL",
       "action": "Buy",
       "confidence": 0.85,
-      "reason": "AGL scores a near-perfect 98/100 on the full-market scan with a 95 RS rating, strong upward weekly trend, and solid component scores across trend, momentum, and volume, indicating robust relative strength and technical momentum for a potential watchlist addition."
+      "reason": "AGL exhibits exceptional technical strength with a 98/100 composite score, a 95 RS rating, an upward weekly trend, and strong volume and 52-week high components, indicating robust momentum and relative outperformance."
     },
     {
       "symbol": "LQDA",
       "action": "Buy",
       "confidence": 0.85,
-      "reason": "LQDA shows exceptional relative strength (RS=94) and a strong technical trend (score 30/30) near its 52-week high, supported by robust volume, indicating sustained bullish momentum for a potential watchlist addition."
+      "reason": "LQDA exhibits exceptional relative strength (RS rating 94) and a strong upward weekly trend, supported by robust volume and near 52-week highs, indicating sustained institutional demand and momentum."
     },
     {
       "symbol": "XMTR",
       "action": "Buy",
       "confidence": 0.85,
-      "reason": "XMTR scores a strong 94/100 with an 86 RS rating, a confirmed weekly uptrend, and solid volume and 52-week high components, indicating robust momentum and relative strength for a potential watchlist addition."
+      "reason": "XMTR scores a strong 94/100 with robust relative strength (86), a confirmed weekly uptrend, and solid volume and 52-week high components, indicating bullish momentum and potential for further upside."
     },
     {
       "symbol": "CLDT",
-      "action": "Buy",
-      "confidence": 0.75,
-      "reason": "CLDT shows strong technical momentum with a high composite score of 93, an RS rating of 83, and a positive weekly trend, though its price near $13.37 and lack of current watchlist inclusion suggest it may be a timely addition for growth-oriented investors."
+      "action": "Hold",
+      "confidence": 0.6,
+      "reason": "CLDT shows strong technical momentum with a 93/100 v2 score and an uptrend, but its RS rating of 83 and price near $13.37 suggest limited upside from here, warranting caution until a clearer catalyst emerges."
     },
     {
       "symbol": "ELVN",
       "action": "Buy",
-      "confidence": 0.85,
-      "reason": "ELVN scores a strong 93/100 with an 83 RS rating, a confirmed weekly uptrend, and robust volume and trend components, indicating solid momentum and relative strength for a potential watchlist addition."
+      "confidence": 0.75,
+      "reason": "ELVN scores a strong 93/100 with an 83 RS rating, a confirmed weekly uptrend, and solid technical components across trend, volume, and proximity to 52-week highs, suggesting robust relative strength and momentum for a potential watchlist addition."
     }
   ],
   "market_timing": {
