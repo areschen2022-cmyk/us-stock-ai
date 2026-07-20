@@ -152,6 +152,7 @@ def write_performance_json(payload: dict[str, Any], output_dir: Path | None = No
     output_dir = output_dir or _DOCS_DIR
     output_dir.mkdir(parents=True, exist_ok=True)
     out = output_dir / "performance_data.json"
-    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    from src.atomic_io import atomic_write_text
+    atomic_write_text(out, json.dumps(payload, ensure_ascii=False, indent=2))
     print(f"[Performance] Written {out}")
     return out
