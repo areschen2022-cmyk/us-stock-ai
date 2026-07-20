@@ -66,6 +66,12 @@ def scan(top_n: int) -> dict:
             except Exception:
                 pass
     print(f"[Scan] {len(frames)} symbols with sufficient history")
+    # Minimum-coverage gate (Codex audit #7/#6): a half-failed download must
+    # not overwrite the candidate board with a fabricated shortlist — keep the
+    # previous dated snapshot and exit nonzero (step is continue-on-error).
+    if len(frames) < 0.7 * len(universe):
+        print(f"[Scan] coverage {len(frames)}/{len(universe)} < 70% — aborting without overwrite")
+        sys.exit(2)
 
     composites: dict[str, float] = {}
     for sym, df in frames.items():
@@ -168,7 +174,8 @@ def _update_pool_exit_state(wl_v2: dict[str, int], watch: set[str]) -> dict:
         state[sym] = hist[-_EXIT_HISTORY_KEEP:]
     # prune by pool membership only — never by download success
     state = {s: h for s, h in state.items() if s in watch}
-    _EXIT_STATE.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
+    from src.atomic_io import atomic_write_text
+    atomic_write_text(_EXIT_STATE, json.dumps(state, ensure_ascii=False, indent=1))
 
     candidates = []
     for sym, hist in state.items():
@@ -199,7 +206,8 @@ if __name__ == "__main__":
         sys.exit(0)
 
     result = scan(args.top)
-    _OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    from src.atomic_io import atomic_write_text
+    atomic_write_text(_OUT, json.dumps(result, ensure_ascii=False, indent=2))
     print(f"[Scan] Written {_OUT}: {result['s_grade_total']} S-grade, "
           f"{len(result['candidates'])} non-watchlist candidates")
     for c in result["candidates"][:10]:

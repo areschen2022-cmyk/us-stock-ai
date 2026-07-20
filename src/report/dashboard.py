@@ -363,6 +363,7 @@ def build_dashboard_json(
 def write_dashboard_json(data: dict[str, Any]) -> Path:
     _DOCS_DIR.mkdir(parents=True, exist_ok=True)
     out = _DOCS_DIR / "dashboard_data.json"
-    out.write_text(json.dumps(data, ensure_ascii=False, indent=2))
+    from src.atomic_io import atomic_write_text
+    atomic_write_text(out, json.dumps(data, ensure_ascii=False, indent=2))
     print(f"[Dashboard] Written {out}")
     return out
