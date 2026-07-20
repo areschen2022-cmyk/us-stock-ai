@@ -120,6 +120,12 @@ def _ma20_trail_exit(closes: pd.Series, signal_date: date, entry: float) -> dict
     return None
 
 
+def _first_set(a, b):
+    """None-aware coalescing: `a or b` treats an exact 0.0 return as missing
+    (Codex audit #5), leaving such signals without an outcome forever."""
+    return a if a is not None else b
+
+
 def _classify_failure(ret3: float | None, ret10: float, stop_hit: int | None) -> str:
     """US port of tw-stock-ai's three-way failure attribution
     (kp_tw_failure_pattern_summary). Applied only to outcome='loss' signals:
