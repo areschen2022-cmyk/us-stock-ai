@@ -708,7 +708,7 @@ function render(data) {
   if (scan && (scan.candidates || []).length) {
     document.getElementById('market-scan-list').innerHTML =
       scan.candidates.map(c =>
-        `<div>▸ ${symLink(c.symbol, `<b>${c.symbol}</b>`)}${nameZh(c.symbol) ? `（${nameZh(c.symbol)}）` : ''}` +
+        `<div>▸ ${symLink(c.symbol, `<b>${c.symbol}</b>`)}${(nameZh(c.symbol) || c.name) ? `（${nameZh(c.symbol) || c.name}）` : ''}` +
         (c.outside_sp500 ? ` <span class="strat-badge" style="color:var(--yellow)" title="來自全市場動能漏斗(TradingView)，非S&P500成分">廣域</span>` : '') +
         ` <span class="strat-badge" style="color:var(--green)">v2 ${c.score_v2}分S</span>` +
         ` <span class="strat-badge">RS ${c.rs_rating}</span>` +
