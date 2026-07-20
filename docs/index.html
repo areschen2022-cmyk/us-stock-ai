@@ -41,6 +41,8 @@
   .card:hover { border-color:var(--accent); }
   .card-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
   .symbol { font-weight:700; font-size:1rem; }
+  /* 外部評測共識：ticker 用等寬字體，視覺上成為清晰的「標籤」 */
+  .symbol, .hl-symbol, .div-sym, .risk-sym, td b { font-family: Consolas, 'Roboto Mono', 'Courier New', monospace; letter-spacing:.02em; }
   .grade { font-size:.75rem; font-weight:700; padding:2px 8px; border-radius:12px; }
   .grade-S { background:#553c9a; color:#e9d8fd; }
   .grade-A { background:#2b6cb0; color:#bee3f8; }
@@ -151,12 +153,28 @@
   <button onclick="showTab('themes',this)">🎯 主題板塊</button>
   <button onclick="showTab('signals',this)">📈 選股記錄</button>
   <button onclick="showTab('ai',this)">🤖 AI 複核</button>
-  <button onclick="showTab('debug',this)">🔧 系統偵錯</button>
+  <button onclick="showTab('debug',this)" style="margin-left:auto;opacity:.45" title="開發者偵錯資訊">⚙</button>
 </nav>
 
 <!-- 總覽 -->
 <div id="overview" class="tab active">
   <div class="updated" id="updated-at"></div>
+
+  <!-- 今日決策摘要（四家外部評測共識首項：3分鐘情境的唯一必看卡） -->
+  <div id="decision-band" style="display:none;border-radius:10px;padding:14px 16px;margin-bottom:14px;border:1px solid var(--border)"></div>
+
+  <!-- 評分說明（可信度共識項：分數不再黑盒） -->
+  <details style="margin-bottom:14px;font-size:.8rem;color:var(--muted)">
+    <summary style="cursor:pointer">ℹ️ 評分怎麼算？（點開說明）</summary>
+    <div style="padding:10px 4px;line-height:1.8">
+      <b>正式總分（v3，2026-07-14 起）</b>＝ v2 價量分 × 0.60 ＋（基本面20＋資金流15＋新聞15）× 0.80 − 風險扣分。<br>
+      <b>等級門檻</b>：S ≥85 ／ A ≥75 ／ B ≥65 ／ C ≥50 ／ D &lt;50。卡片上的「技術」「市場情緒」欄僅供參考，不計入總分。<br>
+      <b>v2 價量分</b>（經 10 年回測驗證）＝ RS 相對強度百分位×0.4 ＋ Minervini 趨勢樣板(0-8)/8×30 ＋ 52週高點距離(≤5%:15/≤15%:10/≤25%:5) ＋ 量能累積15。RS 為<b>池內相對</b>排名（1-99）。<br>
+      <b>廣域</b>徽章＝來自全美市場 TradingView 動能漏斗的提名（非 S&P 500 成分），仍由本站 v2 評分裁決。<br>
+      <b>分配日</b>為參考指標：30 年回測顯示其在多頭中無預測力，判讀主軸是 200MA＋FTD（大盤姿態）。<br>
+      ⚠️ 所有評分供研究追蹤，非投資建議；線上驗證樣本仍在累積中，statistics 見「選股記錄」分頁。
+    </div>
+  </details>
 
   <!-- 市場 regime（影子策略） -->
   <div id="regime-banner" style="display:none"></div>
@@ -167,11 +185,11 @@
     <div id="market-timing-body" style="font-size:.85rem;line-height:1.7"></div>
   </div>
 
-  <!-- 知識庫要點（Trading Knowledge Hub 讀回，高信心 adopted/backtest_supported） -->
-  <div class="section-block" id="hub-context-block" style="display:none">
-    <div class="section-title">📚 知識庫要點</div>
-    <div id="hub-context-list" style="font-size:.8rem;line-height:1.6"></div>
-  </div>
+  <!-- 知識庫要點（預設收合：靜態紀律不佔第一屏 — 外部評測共識） -->
+  <details class="section-block" id="hub-context-block" style="display:none">
+    <summary class="section-title" style="cursor:pointer">📚 知識庫要點（操作紀律，點開查看）</summary>
+    <div id="hub-context-list" style="font-size:.8rem;line-height:1.6;padding-top:8px"></div>
+  </details>
 
   <!-- 觀察名單候補（每週一全市場 v2 S 級掃描） -->
   <div class="section-block" id="market-scan-block" style="display:none">
@@ -338,7 +356,7 @@ function renderCard(s) {
   const themes = (s.themes || []).map(t => `<span class="theme-tag">${thZh(t)}</span>`).join('');
   return `<div class="card" data-grade="${s.grade}">
     <div class="card-header">
-      <span class="symbol">${symLink(s.symbol, s.symbol)}</span>
+      <span class="symbol">${symLink(s.symbol, s.symbol)}${(s.warnings||[]).some(w => String(w).includes('財報')) ? ' <span style="font-size:.7rem;color:var(--yellow)" title="' + esc((s.warnings||[]).find(w => String(w).includes('財報'))) + '">⏰財報</span>' : ''}</span>
       <span class="${gradeClass(s.grade)}">${s.grade} ${s.score}分</span>
     </div>
     <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${esc(s.name)}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
@@ -633,7 +651,23 @@ function render(data) {
       <span class="hl-action">${zhAction(h.action)}</span>
       <span class="hl-ai ${aiCls}">${aiLabel}</span>
     </div>`;
-  }).join('') : '<p class="empty-hint">今日無 S/A 級候選股。</p>';
+  }).join('') : (function () {
+    // 外部評測共識：「上面說沒有、下面一堆 S 級」的認知衝突 — 正式評分無
+    // S/A 時，改列研究級（v2）前三名並明確標示，不再留矛盾的空狀態
+    const aiMap2 = {}; (data.ai_reviews || []).forEach(r => { aiMap2[r.symbol] = r.action; });
+    const research = (data.watchlist || [])
+      .filter(c => ['S','A'].includes(((c.strategy||{}).v2_grade)) && (c.strategy||{}).weekly_up)
+      .sort((a, b) => ((b.strategy||{}).score_v2||0) - ((a.strategy||{}).score_v2||0)).slice(0, 3);
+    if (!research.length) return '<p class="empty-hint">今日無正式或研究級候選 — 按兵不動。</p>';
+    return `<p class="empty-hint" style="margin-bottom:6px">正式評分今日無 S/A 級；以下為<b>研究級（v2）</b>前三名，未達正式門檻、僅供觀察：</p>` +
+      research.map(c => `<div class="highlight-row">
+        <span class="hl-symbol">${esc(c.symbol)}</span>
+        <span class="hl-score">v2 ${(c.strategy||{}).score_v2}</span>
+        <span class="${gradeClass((c.strategy||{}).v2_grade)} hl-grade">${(c.strategy||{}).v2_grade}（研究）</span>
+        <span class="hl-action">觀察</span>
+        <span class="hl-ai ${AI_ACTION_COLOR_CLASS[aiMap2[c.symbol]] || 'hl-ai-none'}">${AI_ACTION_ZH[aiMap2[c.symbol]] || '未複核'}</span>
+      </div>`).join('');
+  })();
 
   // 題材升溫提醒
   const themeAlerts = data.theme_alerts || [];
@@ -671,6 +705,56 @@ function render(data) {
     const cnt = g === 'ALL' ? (data.top10||[]).length : (gradeCounts[g]||0);
     return `<button class="filter-btn${g==='ALL'?' on':''}" data-g="${g}" onclick="applyGradeFilter('${g}')">${g} (${cnt})</button>`;
   }).join('');
+
+  // 今日決策摘要卡（外部評測四家共識首項）：3分鐘情境的唯一必看資訊。
+  // 綜合大盤姿態＋正式/研究評級＋AI意見＋退池/危險名單，無動作也明講。
+  (function renderDecisionBand() {
+    const band = document.getElementById('decision-band');
+    if (!band) return;
+    const posture = ((data.market_timing || {}).posture) || {};
+    const label = posture.label || '';
+    let color = 'var(--muted)', bg = 'rgba(113,128,150,.08)';
+    if (label.includes('多頭（')) { color = 'var(--green)'; bg = 'rgba(72,187,120,.08)'; }
+    else if (label.includes('修正') || label.includes('等FTD')) { color = 'var(--yellow)'; bg = 'rgba(237,137,54,.08)'; }
+    else if (label.includes('防禦')) { color = 'var(--red)'; bg = 'rgba(245,101,101,.08)'; }
+    else if (label.includes('底部確認')) { color = 'var(--blue)'; bg = 'rgba(99,179,237,.08)'; }
+    const wl = data.watchlist || [];
+    const aiMap = {}; (data.ai_reviews || []).forEach(r => { aiMap[r.symbol] = r.action; });
+    const tier = wl.filter(c => {
+      const st = c.strategy || {};
+      return (['S','A'].includes(c.grade) || (['S','A'].includes(st.v2_grade) && st.weekly_up))
+        && aiMap[c.symbol] !== 'Avoid';
+    }).sort((a, b) => ((b.strategy||{}).score_v2||0) - ((a.strategy||{}).score_v2||0));
+    const isWait = c => ['等拉回','避免追高'].includes((((c.strategy||{}).entry_quality)||{}).label);
+    const go = tier.filter(c => !isWait(c)).slice(0, 3);
+    const wait = tier.filter(isWait).slice(0, 3);
+    const exits = (((data.market_scan||{}).pool_exit)||{}).candidates || [];
+    const riskN = (data.risk_alerts || []).length;
+    const fmtRow = c => {
+      const st = c.strategy || {};
+      const isOfficial = ['S','A'].includes(c.grade);
+      return `${symLink(c.symbol, `<b>${esc(c.symbol)}</b>`)} ` +
+        `<span style="color:var(--muted)">${isOfficial ? c.grade + '級' : 'v2 ' + st.v2_grade + '（研究級）'}` +
+        `｜停損 ${fmtPrice(c.stop)}${st.ma20_exit != null ? '｜MA20 ' + fmtPrice(st.ma20_exit) : ''}</span>`;
+    };
+    band.style.background = bg;
+    band.style.borderColor = color;
+    band.innerHTML =
+      `<div style="font-size:1.05rem;font-weight:700;color:${color};margin-bottom:6px">🧭 ${esc(label) || '大盤姿態載入中'}</div>` +
+      (posture.detail ? `<div style="font-size:.78rem;color:var(--muted);margin-bottom:8px">${esc(posture.detail)}</div>` : '') +
+      `<div style="font-size:.88rem;line-height:1.9">` +
+      (go.length
+        ? `▸ <b style="color:var(--green)">可關注（${go.length}）</b>：` + go.map(fmtRow).join('　')
+        : `▸ <b>今日無可執行標的</b> — 按兵不動也是決策`) + `<br>` +
+      (wait.length ? `▸ <b style="color:var(--yellow)">等拉回（${wait.length}）</b>：` + wait.map(c => symLink(c.symbol, `<b>${esc(c.symbol)}</b>`)).join('、') + `<br>` : '') +
+      ((exits.length || riskN)
+        ? `▸ <b style="color:var(--red)">風險端</b>：` +
+          (exits.length ? `退池觀察 ${exits.length} 檔（${exits.map(x => esc(x.symbol)).join('、')}）` : '') +
+          (exits.length && riskN ? '｜' : '') + (riskN ? `危險名單 ${riskN} 檔` : '') + `<br>` : '') +
+      `<span class="updated">資料日：${esc(data.generated_at || '')}｜評分為研究追蹤非投資建議</span>` +
+      `</div>`;
+    band.style.display = '';
+  })();
 
   // 等級分佈守門：分佈退化時顯示紅色橫幅（量表靜默失效的教訓）
   const gg = data.grade_guard;

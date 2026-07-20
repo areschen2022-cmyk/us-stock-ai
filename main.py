@@ -621,8 +621,14 @@ def run_daily_update() -> None:
         hub_path = Path(__file__).parent / "data" / "trading_hub_context.json"
         if hub_path.exists():
             hub = json.loads(hub_path.read_text(encoding="utf-8"))
+            import re as _re
+            _dev_pat = _re.compile(r"\.py|\.js|bug|修復|欄位|watcher|CI\b|workflow|schema|亂碼|API|secret",
+                                   _re.IGNORECASE)
             rows = [r for r in hub.get("rows", [])
-                    if r.get("status") in ("adopted", "backtest_supported")]
+                    if r.get("status") in ("adopted", "backtest_supported")
+                    # trading rules only — dev/maintenance notes leaking into the
+                    # public dashboard hurt credibility (external UX review 2026-07-21)
+                    and not _dev_pat.search(f"{r.get('topic', '')} {r.get('claim', '')}")]
             rows.sort(key=lambda r: r.get("confidence") or 0, reverse=True)
             dash_data["hub_context"] = {
                 "generated_at": hub.get("generated_at"),
