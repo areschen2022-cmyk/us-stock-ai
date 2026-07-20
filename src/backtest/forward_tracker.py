@@ -184,14 +184,14 @@ def fill_open_signals(store: SQLiteStore) -> int:
                 continue
 
             # Determine outcome when 10d return is available
-            ret10 = updates.get("return_10d") or sig.get("return_10d")
+            ret10 = _first_set(updates.get("return_10d"), sig.get("return_10d"))
             if ret10 is not None:
                 if ret10 >= 10:
                     updates["outcome"] = "win"
                 elif ret10 <= -5:
                     updates["outcome"] = "loss"
                     if sig.get("failure_reason") is None:
-                        ret3 = updates.get("return_3d") or sig.get("return_3d")
+                        ret3 = _first_set(updates.get("return_3d"), sig.get("return_3d"))
                         sh = updates.get("stop_hit", sig.get("stop_hit"))
                         updates["failure_reason"] = _classify_failure(ret3, ret10, sh)
                 else:
