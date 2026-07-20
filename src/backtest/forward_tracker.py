@@ -17,14 +17,32 @@ logger = logging.getLogger(__name__)
 _HORIZONS = [3, 5, 10, 20]
 
 
+_NYSE_HOLIDAYS: list | None = None
+
+
+def _nyse_holidays() -> list:
+    """NYSE holiday list for busday math (Codex audit-2 #8: plain Mon-Fri
+    busday settled 3/5/10/20d horizons early across Thanksgiving/Christmas/
+    Good Friday etc.). Cached; graceful fallback to weekend-only when
+    pandas_market_calendars is unavailable."""
+    global _NYSE_HOLIDAYS
+    if _NYSE_HOLIDAYS is None:
+        try:
+            import pandas_market_calendars as mcal
+            cal = mcal.get_calendar("NYSE")
+            hol = cal.holidays().holidays  # tuple of np.datetime64
+            _NYSE_HOLIDAYS = [h for h in hol
+                              if np.datetime64("2015-01-01") <= h <= np.datetime64("2030-12-31")]
+        except Exception as e:
+            logger.warning("NYSE calendar unavailable (%s) — weekend-only busday fallback", e)
+            _NYSE_HOLIDAYS = []
+    return _NYSE_HOLIDAYS
+
+
 def _trading_days_later(d: date, n: int) -> date:
-    """Advance n *trading* (weekday) days from d. Was previously n *calendar*
-    days, which understates elapsed trading time whenever the window crosses
-    a weekend — e.g. a Friday signal's "3-day" target landed on Monday (only
-    1 trading day elapsed), silently mixing horizons. Uses numpy's Mon-Fri
-    business-day calendar (ignores market holidays — an approximation, but a
-    large improvement over pure calendar days)."""
-    return np.busday_offset(d.isoformat(), n, roll="forward").astype("datetime64[D]").astype(date)
+    """Advance n NYSE *trading* days from d (weekends + market holidays)."""
+    return np.busday_offset(d.isoformat(), n, roll="forward",
+                            holidays=_nyse_holidays()).astype("datetime64[D]").astype(date)
 
 
 def _fetch_period_low(symbol: str, start_date: date, end_date: date) -> float | None:
