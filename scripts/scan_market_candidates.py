@@ -42,7 +42,8 @@ def scan(top_n: int) -> dict:
     sp500 = set(get_sp500_symbols())
     # broad-market momentum funnel (TradingView, whole US market) — the
     # screener only NOMINATES; our v2 score still decides (see tv_screener.py)
-    broad = set(fetch_momentum_universe())
+    broad_syms, broad_names = fetch_momentum_universe()
+    broad = set(broad_syms)
     print(f"[Scan] universe: sp500={len(sp500)} broad-momentum={len(broad)} "
           f"(new outside sp500: {len(broad - sp500)})")
     universe = sorted(sp500 | watch | broad)
@@ -92,6 +93,7 @@ def scan(top_n: int) -> dict:
             continue
         rows.append({
             "symbol": sym,
+            "name": broad_names.get(sym, ""),
             "score_v2": total,
             "rs_rating": rs_pct.get(sym),
             "weekly_up": us_market.weekly_direction_up(df),
