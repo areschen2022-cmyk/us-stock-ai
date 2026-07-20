@@ -48,6 +48,7 @@ def update_divergence_history(
     history = history[-max_days:]
 
     _DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
+    from src.atomic_io import atomic_write_text
+    atomic_write_text(out, json.dumps(history, ensure_ascii=False, indent=2))
     print(f"[History] divergence_history → {len(history)} points")
     return out
