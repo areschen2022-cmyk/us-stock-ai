@@ -115,6 +115,20 @@ class OpenRouterClient:
             return {"action": "N/A", "confidence": 0.0, "reason": "AI unavailable"}
         try:
             clean = result.strip().lstrip("```json").rstrip("```").strip()
-            return json.loads(clean)
+            parsed = json.loads(clean)
         except Exception:
             return {"action": "N/A", "confidence": 0.0, "reason": result[:120]}
+        # Schema validation (Codex audit-2 #4): a JSON list, non-numeric
+        # confidence, or missing keys used to crash the whole daily pipeline
+        # downstream (review["score"]=..., f"{conf:.0%}"). Normalize hard.
+        if not isinstance(parsed, dict):
+            return {"action": "N/A", "confidence": 0.0, "reason": str(parsed)[:120]}
+        action = str(parsed.get("action") or "N/A").strip().title()
+        if action not in ("Buy", "Hold", "Avoid"):
+            action = "N/A"
+        try:
+            confidence = max(0.0, min(1.0, float(parsed.get("confidence"))))
+        except (TypeError, ValueError):
+            confidence = 0.0
+        return {"action": action, "confidence": confidence,
+                "reason": str(parsed.get("reason") or "")[:300]}
