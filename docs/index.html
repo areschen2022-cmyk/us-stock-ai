@@ -317,6 +317,14 @@ const NAME_ZH = {
   NVO:'諾和諾德', ABBV:'艾伯維', GILD:'吉利德', MRNA:'莫德納',
 };
 function nameZh(sym) { return NAME_ZH[sym] || ''; }
+// HTML-escape for externally sourced strings (TradingView descriptions,
+// news headlines, hub claims) before innerHTML interpolation — Codex audit
+// 2026-07-19 flagged the raw injection as an XSS sink.
+function esc(v) {
+  return String(v == null ? '' : v)
+    .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+}
 // 代碼超連結 → 玩股網個股走勢頁
 function symLink(sym, inner) {
   return `<a href="https://www.wantgoo.com/global/${String(sym).toLowerCase()}" target="_blank" rel="noopener" `
@@ -333,7 +341,7 @@ function renderCard(s) {
       <span class="symbol">${symLink(s.symbol, s.symbol)}</span>
       <span class="${gradeClass(s.grade)}">${s.grade} ${s.score}分</span>
     </div>
-    <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${s.name || ''}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
+    <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${esc(s.name)}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
     <div class="score-bar"><div class="score-fill" style="width:${fill}%"></div></div>
     <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}${(s.strategy||{}).ma20_exit != null ? `<span style="color:var(--muted)" title="10年出場掃描最優有保護出場（跌破20日均線出場，PF 1.72 vs 緊停損 1.58）">｜MA20出場 ${fmtPrice(s.strategy.ma20_exit)}</span>` : ''}</div>
     <div class="sub-scores" title="評分v3（2026-07-14起）：總分 = v2×0.6 +（基+流+聞）×0.8 − 風險扣分；技術/市場情緒欄僅供參考不再計入總分">
@@ -356,7 +364,7 @@ function renderCard(s) {
 function renderCatalystConfidence(cc) {
   if (!cc || !cc.grade || !cc.evidence_count) return '';
   const color = {'A':'var(--green)','B':'var(--blue)','C':'var(--yellow)','D':'var(--muted)'}[cc.grade] || 'var(--muted)';
-  return `<div style="margin:2px 0"><span class="strat-badge" style="color:${color};border:1px solid ${color}" title="${cc.reason||''}">📰${cc.grade}級 ${cc.label}</span></div>`;
+  return `<div style="margin:2px 0"><span class="strat-badge" style="color:${color};border:1px solid ${color}" title="${esc(cc.reason)}">📰${esc(cc.grade)}級 ${esc(cc.label)}</span></div>`;
 }
 
 // SHADOW: US-strategy badges (RS rating / Minervini / liquidity). Display-only.
@@ -415,7 +423,7 @@ function renderStrategyBadges(st) {
 function renderWatchlistRow(s) {
   const themes = (s.themes || []).map(thZh).join('、');
   return `<tr>
-    <td>${symLink(s.symbol, `<b>${s.symbol}</b>`)}<br><small style="color:var(--muted)">${s.name||''}</small>${nameZh(s.symbol) ? `<br><small style="color:var(--blue)">${nameZh(s.symbol)}</small>` : ''}</td>
+    <td>${symLink(s.symbol, `<b>${esc(s.symbol)}</b>`)}<br><small style="color:var(--muted)">${esc(s.name)}</small>${nameZh(s.symbol) ? `<br><small style="color:var(--blue)">${nameZh(s.symbol)}</small>` : ''}</td>
     <td><b>${s.score}</b></td>
     <td><span class="${gradeClass(s.grade)}">${s.grade}</span></td>
     <td>${fmtPrice(s.price)}</td>
@@ -696,9 +704,9 @@ function render(data) {
   const hub = data.hub_context;
   if (hub && (hub.points || []).length) {
     document.getElementById('hub-context-list').innerHTML =
-      hub.points.map(p => `<div style="margin-bottom:4px">▸ <b>${p.topic}</b>` +
+      hub.points.map(p => `<div style="margin-bottom:4px">▸ <b>${esc(p.topic)}</b>` +
         `<span class="strat-badge" style="margin-left:6px;color:${p.status === 'backtest_supported' ? 'var(--blue)' : 'var(--green)'}">${p.status === 'backtest_supported' ? '回測支持' : '已採納'}</span>` +
-        `<br><span style="color:var(--muted)">${p.claim}</span></div>`).join('') +
+        `<br><span style="color:var(--muted)">${esc(p.claim)}</span></div>`).join('') +
       `<div class="updated" style="margin-top:4px">快照時間：${(hub.generated_at || '').slice(0, 16).replace('T', ' ')}</div>`;
     document.getElementById('hub-context-block').style.display = '';
   }
@@ -708,7 +716,7 @@ function render(data) {
   if (scan && (scan.candidates || []).length) {
     document.getElementById('market-scan-list').innerHTML =
       scan.candidates.map(c =>
-        `<div>▸ ${symLink(c.symbol, `<b>${c.symbol}</b>`)}${(nameZh(c.symbol) || c.name) ? `（${nameZh(c.symbol) || c.name}）` : ''}` +
+        `<div>▸ ${symLink(c.symbol, `<b>${esc(c.symbol)}</b>`)}${(nameZh(c.symbol) || c.name) ? `（${nameZh(c.symbol) || esc(c.name)}）` : ''}` +
         (c.outside_sp500 ? ` <span class="strat-badge" style="color:var(--yellow)" title="來自全市場動能漏斗(TradingView)，非S&P500成分">廣域</span>` : '') +
         ` <span class="strat-badge" style="color:var(--green)">v2 ${c.score_v2}分S</span>` +
         ` <span class="strat-badge">RS ${c.rs_rating}</span>` +

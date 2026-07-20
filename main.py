@@ -447,9 +447,10 @@ def run_daily_update() -> None:
                 symbol_news=sym_news,
             )
             scores.append(score)
-            store.upsert_score(today, score)
-            if score.grade in ("S", "A"):
-                store.upsert_watch_signal(score, today)
+            # NOTE: persistence happens AFTER _apply_score_v3 (5b3) — writing
+            # here stored pre-v3 scores, so the morning brief (rebuilt from
+            # daily_scores) showed stale grades and the watch_signals S/A gate
+            # never saw v3 grades. Found by Codex independent audit 2026-07-19.
 
             # SHADOW strategy signals (display-only, does not affect grade yet)
             try:
@@ -491,6 +492,14 @@ def run_daily_update() -> None:
     grade_guard = _grade_guard(scores)
     if grade_guard["status"] == "warn":
         print(f"[Main] GRADE GUARD WARN: {grade_guard['issues']}")
+
+    # Canonical post-v3 persistence (single path — Codex audit finding #1):
+    # daily_scores rows and the watch_signals S/A gate now see the same v3
+    # scores the dashboard, AI council, and morning brief display.
+    for score in scores:
+        store.upsert_score(today, score)
+        if score.grade in ("S", "A"):
+            store.upsert_watch_signal(score, today)
 
     # 5c. VALIDATION: log shadow picks vs live top picks for forward comparison
     spy_price_today = float(spy_close.iloc[-1]) if spy_close is not None and not spy_close.empty else None
