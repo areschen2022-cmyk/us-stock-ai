@@ -20,13 +20,16 @@ def fetch_momentum_universe(
     min_avg_vol_10d: int = 300_000,
     min_market_cap: float = 500_000_000,
     limit: int = 300,
-) -> list[str]:
-    """Symbols of liquid US stocks with strong 6M momentum, best first."""
+) -> tuple[list[str], dict[str, str]]:
+    """(symbols, {symbol: company_name}) of liquid US stocks with strong 6M
+    momentum, best first. Company names ride along in the same free query so
+    the candidate list can display them without extra API calls."""
     try:
         from tradingview_screener import Query, col
         q = (Query()
              .set_markets("america")
-             .select("name", "close", "average_volume_10d_calc", "Perf.6M", "market_cap_basic")
+             .select("name", "description", "close", "average_volume_10d_calc",
+                     "Perf.6M", "market_cap_basic")
              .where(
                  col("type") == "stock",
                  col("close") >= min_price,
@@ -38,8 +41,13 @@ def fetch_momentum_universe(
              .limit(limit))
         _, df = q.get_scanner_data()
         # 'name' is the bare symbol; normalize share-class dots for yfinance
-        syms = [str(s).replace(".", "-").strip() for s in df["name"].tolist()]
-        return [s for s in dict.fromkeys(syms) if s]
+        syms, names = [], {}
+        for _, row in df.iterrows():
+            s = str(row["name"]).replace(".", "-").strip()
+            if s and s not in names:
+                syms.append(s)
+                names[s] = str(row.get("description") or "").strip()
+        return syms, names
     except Exception as exc:
         print(f"[TVScreener] unavailable, falling back to S&P500-only universe: {exc}")
-        return []
+        return [], {}
