@@ -44,7 +44,7 @@
     }
   },
   "shadow_stats": {
-    "signals": 135,
+    "signals": 140,
     "completed": 135,
     "win_rate_5d": 45.2,
     "avg_return_5d": -1.2,
@@ -65,7 +65,7 @@
     }
   },
   "watch_signals_stats": {
-    "signals": 1,
+    "signals": 2,
     "completed": 0,
     "win_rate_5d": 0.0,
     "avg_return_5d": 0.0,
@@ -75,7 +75,7 @@
   "theme_stats": [
     {
       "label": "未分類",
-      "signals": 1,
+      "signals": 2,
       "completed": 0,
       "win_rate_5d": 0.0,
       "avg_return_5d": 0.0,
@@ -86,7 +86,7 @@
   "action_stats": [
     {
       "label": "觀察，等拉回買入",
-      "signals": 1,
+      "signals": 2,
       "completed": 0,
       "win_rate_5d": 0.0,
       "avg_return_5d": 0.0,
@@ -97,7 +97,7 @@
   "grade_stats": [
     {
       "label": "C",
-      "signals": 148,
+      "signals": 146,
       "completed": 140,
       "win_rate_5d": 54.3,
       "avg_return_5d": -0.3,
@@ -119,7 +119,7 @@
     },
     {
       "label": "D",
-      "signals": 43,
+      "signals": 41,
       "completed": 41,
       "win_rate_5d": 61.0,
       "avg_return_5d": 1.8,
@@ -137,11 +137,20 @@
     },
     {
       "label": "B",
-      "signals": 20,
+      "signals": 23,
       "completed": 20,
       "win_rate_5d": 40.0,
       "avg_return_5d": -0.9,
       "stop_hit_rate": 10.0,
+      "failure_attribution": {}
+    },
+    {
+      "label": "A",
+      "signals": 1,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
+      "stop_hit_rate": 0.0,
       "failure_attribution": {}
     }
   ],
@@ -170,7 +179,7 @@
     },
     {
       "label": "可進場",
-      "signals": 68,
+      "signals": 81,
       "completed": 68,
       "win_rate_5d": 52.9,
       "avg_return_5d": -0.5,
@@ -184,7 +193,7 @@
     },
     {
       "label": "等拉回",
-      "signals": 30,
+      "signals": 32,
       "completed": 30,
       "win_rate_5d": 33.3,
       "avg_return_5d": -3.0,
@@ -201,20 +210,20 @@
       }
     },
     {
-      "label": "觀望",
-      "signals": 18,
-      "completed": 8,
-      "win_rate_5d": 75.0,
-      "avg_return_5d": 1.3,
-      "stop_hit_rate": 0.0,
-      "failure_attribution": {}
-    },
-    {
       "label": "避免追高",
       "signals": 10,
       "completed": 10,
       "win_rate_5d": 20.0,
       "avg_return_5d": -0.8,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    },
+    {
+      "label": "觀望",
+      "signals": 8,
+      "completed": 8,
+      "win_rate_5d": 75.0,
+      "avg_return_5d": 1.3,
       "stop_hit_rate": 0.0,
       "failure_attribution": {}
     }
