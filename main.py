@@ -136,6 +136,20 @@ def _apply_score_v3(scores: list[StockScore], per_symbol: dict) -> int:
     return changed
 
 
+def _bar_date(v):
+    """OHLCV index element -> date, tolerant of Timestamp OR string index
+    (the CI string-index trap bit twice: market_timing._fmt_date, then the
+    holiday gate crashed every >=21UTC scheduled run 7/21-7/24 with
+    `str < date` TypeError). Returns None when unparseable — callers must
+    treat None as 'no gate'."""
+    try:
+        if hasattr(v, "date") and callable(v.date):
+            return v.date()
+        return date.fromisoformat(str(v)[:10])
+    except Exception:
+        return None
+
+
 def _grade_guard(scores: list[StockScore]) -> dict:
     """Grade-distribution guard (kp_us_deepseek_scoring_review follow-up):
     the old formula's ceiling failure was SILENT for weeks — every stock C/D
@@ -415,9 +429,8 @@ def run_daily_update() -> None:
     # the post-close window (>=21 UTC) so pre-market manual runs still work.
     from datetime import datetime, timezone as _tz
     if spy_ohlcv is not None and len(spy_ohlcv):
-        _last_bar = spy_ohlcv.index[-1]
-        _last_bar_date = _last_bar.date() if hasattr(_last_bar, "date") else _last_bar
-        if datetime.now(_tz.utc).hour >= 21 and _last_bar_date < today:
+        _last_bar_date = _bar_date(spy_ohlcv.index[-1])
+        if _last_bar_date and datetime.now(_tz.utc).hour >= 21 and _last_bar_date < today:
             print(f"[Main] No new market bar (last={_last_bar_date}, today={today}) — "
                   "US market holiday, skipping daily update")
             store.log_delivery("daily_update", "skipped",
