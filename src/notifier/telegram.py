@@ -155,6 +155,18 @@ def _build_morning_report(
     if gg.get("status") == "warn":
         _flush("⚠ 等級守門：" + "；".join(gg.get("issues", [])) + "\n\n")
 
+    # === 池自動調整（autopilot 有動作才顯示，無人值守透明化） ===
+    pc = overview.get("pool_changes") or {}
+    if pc.get("added") or pc.get("removed"):
+        line = f"🔄 池自動調整（{pc.get('date', '')}）："
+        if pc.get("added"):
+            line += "入 " + "、".join(a["symbol"] if isinstance(a, dict) else str(a) for a in pc["added"])
+        if pc.get("added") and pc.get("removed"):
+            line += "｜"
+        if pc.get("removed"):
+            line += "退 " + "、".join(pc["removed"][:8]) + ("…" if len(pc["removed"]) > 8 else "")
+        _flush(line + "\n\n")
+
     # === 市場時機（主軸=200MA+FTD，30年驗證；分配日降為參考） ===
     mt = overview.get("market_timing") or {}
     if mt:

@@ -663,6 +663,16 @@ def run_daily_update() -> None:
     except Exception as _rs_e:
         print(f"[Main] recent signals readback failed (non-fatal): {_rs_e}")
 
+    # Pool-autopilot transparency: unattended add/removes must be visible
+    try:
+        pc_path = Path(__file__).parent / "data" / "pool_changes.json"
+        if pc_path.exists():
+            pc = json.loads(pc_path.read_text(encoding="utf-8"))
+            if (pc.get("added") or pc.get("removed")):
+                dash_data["pool_changes"] = pc
+    except Exception as _pc_e:
+        print(f"[Main] pool changes readback failed (non-fatal): {_pc_e}")
+
     write_dashboard_json(dash_data)
 
     perf_data = build_performance_payload(store, today)
