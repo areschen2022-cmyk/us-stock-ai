@@ -58,6 +58,10 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python main.py
 
+      - name: Pool autopilot (Mondays; unattended add/remove with caps)
+        continue-on-error: true
+        run: python scripts/pool_autopilot.py --apply
+
       - name: Post-update health check
         run: python scripts/post_update_check.py
 
