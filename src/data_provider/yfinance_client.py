@@ -64,6 +64,7 @@ def fetch_ohlcv(symbol: str, period: str = "6mo") -> pd.DataFrame:
                 return pd.DataFrame()
             df.index = df.index.strftime("%Y-%m-%d")
             _save_cache(cache_key, df.to_dict())
+            df.index = pd.to_datetime(df.index)  # restore the DatetimeIndex contract
             return df
         except Exception as e:
             logger.warning("yfinance OHLCV attempt %d failed for %s: %s", attempt + 1, symbol, e)
