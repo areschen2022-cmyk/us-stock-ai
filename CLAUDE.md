@@ -19,6 +19,10 @@
 - 新聞分有 VADER 情緒閘門：負面新聞（情緒 ≤ -0.15）題材分壓到 ≤3
 - 池治理：入池走 `scripts/add_watchlist_symbol.py`（強制 --reason 留痕）；
   退池候選由週一掃描產生（v2<40 連續 4 週），人工確認後移除
+- **池規模政策（2026-07-22 起）**：目標區間 60-90 檔，經每週治理式吸納達成。
+  入池資格＝廣域掃描 S 級＋週線向上＋AI 複核非 Avoid＋財報 ≥7 天；
+  單一產業每週最多吸納 4 檔（生技 binary 風險）；被財報排除者次週自動重審。
+  超過 ~120 檔前需重估 CI 執行時間與 yfinance 配額
 - 市場時機主軸 = 200MA regime + FTD 狀態（30 年驗證）；分配日僅參考
 - 所有 universe 級回測宣稱必須用點時成分（`backtest_score_v2_pit.py` 的 `load_pit_membership`）
 - 本 repo 有背景 auto-commit watcher；push 前先 `git pull --rebase`
