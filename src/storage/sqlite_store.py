@@ -406,6 +406,23 @@ class SQLiteStore:
     SHADOW_GROUPS = ("shadow", "live_top", "social_bullish", "confluence", "potential_radar",
                      "research_rank", "score_v2_sa", "ai_buy", "ai_hold", "ai_avoid")
 
+    def get_recent_shadow_signals(self, limit: int = 60,
+                                  groups: tuple = ("live_top", "score_v2_sa", "ai_buy")) -> list[dict]:
+        """Recent research-tier signal rows for the 選股記錄 tab — the official
+        watch_signals table stays empty until a true S/A appears (grade-ceiling
+        history), which read as '系統沒在選股' to users. These are the signals
+        the system actually logs and forward-tracks every day."""
+        ph = ",".join("?" for _ in groups)
+        with self._connect() as conn:
+            conn.row_factory = sqlite3.Row
+            rows = conn.execute(
+                f"SELECT signal_date, symbol, grp, live_score, live_grade, entry_price, "
+                f"return_5d, return_10d, outcome FROM shadow_signals WHERE grp IN ({ph}) "
+                f"ORDER BY signal_date DESC, grp LIMIT ?",
+                (*groups, limit),
+            ).fetchall()
+            return [dict(r) for r in rows]
+
     def get_shadow_performance(self) -> dict:
         """Aggregate win-rate / avg forward return per group ('shadow',
         'live_top', 'social_bullish'). Primary horizon is 5d (fills first) so
