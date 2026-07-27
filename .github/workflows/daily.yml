@@ -90,6 +90,7 @@ jobs:
             cp -r "$_TMP"/data/. data/ 2>/dev/null || true
             git add docs/dashboard_data.json docs/performance_data.json docs/divergence_history.json
             git add data/market_scan.json data/pool_exit_state.json 2>/dev/null || true
+            git add config.yaml data/watchlist_changes.jsonl data/pool_changes.json data/candidate_streak.json 2>/dev/null || true
             git add -f data/us_stock_ai.sqlite3 || true
             git diff --staged --quiet || git commit -m "chore: update dashboard $(date -u +%Y-%m-%d)"
             if git push; then _pushed=1; break; fi
