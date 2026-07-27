@@ -198,7 +198,7 @@ def _update_pool_exit_state(wl_v2: dict[str, int], watch: set[str]) -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="run regardless of weekday")
-    parser.add_argument("--top", type=int, default=15)
+    parser.add_argument("--top", type=int, default=25)  # 15->25 (2026-07 pool expansion)
     args = parser.parse_args()
 
     if not args.force and date.today().weekday() != 0:
