@@ -1,20 +1,20 @@
 {
-  "as_of": "2026-07-20",
+  "as_of": "2026-07-27",
   "primary_source": "live_top",
   "stats": {
-    "signals": 201,
-    "completed": 141,
-    "win_rate_5d": 58.2,
-    "avg_return_5d": 0.5,
-    "stop_hit_rate": 3.5,
+    "signals": 211,
+    "completed": 201,
+    "win_rate_5d": 54.2,
+    "avg_return_5d": 0.1,
+    "stop_hit_rate": 4.5,
     "failure_attribution": {
       "weak_after_entry": {
-        "n": 8,
-        "avg_return_10d": -10.0
+        "n": 13,
+        "avg_return_10d": -10.4
       },
       "momentum_fade": {
-        "n": 7,
-        "avg_return_10d": -13.7
+        "n": 10,
+        "avg_return_10d": -12.6
       },
       "stop_hit": {
         "n": 5,
@@ -23,19 +23,19 @@
     }
   },
   "live_top_stats": {
-    "signals": 201,
-    "completed": 141,
-    "win_rate_5d": 58.2,
-    "avg_return_5d": 0.5,
-    "stop_hit_rate": 3.5,
+    "signals": 211,
+    "completed": 201,
+    "win_rate_5d": 54.2,
+    "avg_return_5d": 0.1,
+    "stop_hit_rate": 4.5,
     "failure_attribution": {
       "weak_after_entry": {
-        "n": 8,
-        "avg_return_10d": -10.0
+        "n": 13,
+        "avg_return_10d": -10.4
       },
       "momentum_fade": {
-        "n": 7,
-        "avg_return_10d": -13.7
+        "n": 10,
+        "avg_return_10d": -12.6
       },
       "stop_hit": {
         "n": 5,
@@ -44,19 +44,19 @@
     }
   },
   "shadow_stats": {
-    "signals": 135,
-    "completed": 95,
-    "win_rate_5d": 44.2,
+    "signals": 142,
+    "completed": 135,
+    "win_rate_5d": 45.2,
     "avg_return_5d": -1.2,
-    "stop_hit_rate": 4.2,
+    "stop_hit_rate": 6.7,
     "failure_attribution": {
       "weak_after_entry": {
-        "n": 15,
-        "avg_return_10d": -13.0
+        "n": 28,
+        "avg_return_10d": -13.9
       },
       "momentum_fade": {
-        "n": 11,
-        "avg_return_10d": -11.6
+        "n": 14,
+        "avg_return_10d": -11.8
       },
       "stop_hit": {
         "n": 4,
@@ -64,25 +64,52 @@
       }
     }
   },
-  "watch_signals_stats": null,
-  "theme_stats": [],
-  "action_stats": [],
+  "watch_signals_stats": {
+    "signals": 1,
+    "completed": 0,
+    "win_rate_5d": 0.0,
+    "avg_return_5d": 0.0,
+    "stop_hit_rate": 0.0,
+    "failure_attribution": {}
+  },
+  "theme_stats": [
+    {
+      "label": "未分類",
+      "signals": 1,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    }
+  ],
+  "action_stats": [
+    {
+      "label": "觀察，等拉回買入",
+      "signals": 1,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
+      "stop_hit_rate": 0.0,
+      "failure_attribution": {}
+    }
+  ],
   "grade_stats": [
     {
       "label": "C",
-      "signals": 140,
-      "completed": 100,
-      "win_rate_5d": 54.0,
-      "avg_return_5d": -0.5,
+      "signals": 145,
+      "completed": 140,
+      "win_rate_5d": 54.3,
+      "avg_return_5d": -0.3,
       "stop_hit_rate": 5.0,
       "failure_attribution": {
         "weak_after_entry": {
-          "n": 6,
-          "avg_return_10d": -8.9
+          "n": 10,
+          "avg_return_10d": -9.2
         },
         "momentum_fade": {
-          "n": 6,
-          "avg_return_10d": -14.4
+          "n": 8,
+          "avg_return_10d": -13.4
         },
         "stop_hit": {
           "n": 5,
@@ -93,27 +120,36 @@
     {
       "label": "D",
       "signals": 41,
-      "completed": 35,
-      "win_rate_5d": 65.7,
-      "avg_return_5d": 2.4,
+      "completed": 41,
+      "win_rate_5d": 61.0,
+      "avg_return_5d": 1.8,
       "stop_hit_rate": 0.0,
       "failure_attribution": {
         "weak_after_entry": {
-          "n": 2,
-          "avg_return_10d": -13.1
+          "n": 3,
+          "avg_return_10d": -14.5
         },
         "momentum_fade": {
-          "n": 1,
-          "avg_return_10d": -9.3
+          "n": 2,
+          "avg_return_10d": -9.4
         }
       }
     },
     {
       "label": "B",
-      "signals": 20,
-      "completed": 6,
-      "win_rate_5d": 83.3,
-      "avg_return_5d": 5.5,
+      "signals": 24,
+      "completed": 20,
+      "win_rate_5d": 40.0,
+      "avg_return_5d": -0.9,
+      "stop_hit_rate": 10.0,
+      "failure_attribution": {}
+    },
+    {
+      "label": "A",
+      "signals": 1,
+      "completed": 0,
+      "win_rate_5d": 0.0,
+      "avg_return_5d": 0.0,
       "stop_hit_rate": 0.0,
       "failure_attribution": {}
     }
@@ -128,12 +164,12 @@
       "stop_hit_rate": 4.1,
       "failure_attribution": {
         "weak_after_entry": {
-          "n": 23,
-          "avg_return_10d": -11.9
+          "n": 39,
+          "avg_return_10d": -12.7
         },
         "momentum_fade": {
-          "n": 18,
-          "avg_return_10d": -12.4
+          "n": 23,
+          "avg_return_10d": -12.3
         },
         "stop_hit": {
           "n": 9,
@@ -143,37 +179,51 @@
     },
     {
       "label": "可進場",
-      "signals": 68,
-      "completed": 5,
-      "win_rate_5d": 40.0,
-      "avg_return_5d": -3.6,
-      "stop_hit_rate": 0.0,
-      "failure_attribution": {}
+      "signals": 82,
+      "completed": 68,
+      "win_rate_5d": 52.9,
+      "avg_return_5d": -0.5,
+      "stop_hit_rate": 10.3,
+      "failure_attribution": {
+        "weak_after_entry": {
+          "n": 1,
+          "avg_return_10d": -19.3
+        }
+      }
     },
     {
       "label": "等拉回",
-      "signals": 30,
-      "completed": 9,
-      "win_rate_5d": 55.6,
-      "avg_return_5d": -0.4,
+      "signals": 31,
+      "completed": 30,
+      "win_rate_5d": 33.3,
+      "avg_return_5d": -3.0,
+      "stop_hit_rate": 6.7,
+      "failure_attribution": {
+        "momentum_fade": {
+          "n": 1,
+          "avg_return_10d": -9.6
+        },
+        "weak_after_entry": {
+          "n": 1,
+          "avg_return_10d": -10.0
+        }
+      }
+    },
+    {
+      "label": "觀望",
+      "signals": 10,
+      "completed": 8,
+      "win_rate_5d": 75.0,
+      "avg_return_5d": 1.3,
       "stop_hit_rate": 0.0,
       "failure_attribution": {}
     },
     {
       "label": "避免追高",
       "signals": 10,
-      "completed": 0,
-      "win_rate_5d": 0.0,
-      "avg_return_5d": 0.0,
-      "stop_hit_rate": 0.0,
-      "failure_attribution": {}
-    },
-    {
-      "label": "觀望",
-      "signals": 8,
-      "completed": 2,
-      "win_rate_5d": 50.0,
-      "avg_return_5d": -2.4,
+      "completed": 10,
+      "win_rate_5d": 20.0,
+      "avg_return_5d": -0.8,
       "stop_hit_rate": 0.0,
       "failure_attribution": {}
     }
