@@ -643,6 +643,13 @@ def run_daily_update() -> None:
     if scan_snapshot:
         dash_data["market_scan"] = scan_snapshot
 
+    # Research-tier signal log for the 選股記錄 tab (official watch_signals
+    # stays empty until a true S/A appears — users read that as "沒在選股")
+    try:
+        dash_data["recent_signals"] = store.get_recent_shadow_signals()
+    except Exception as _rs_e:
+        print(f"[Main] recent signals readback failed (non-fatal): {_rs_e}")
+
     write_dashboard_json(dash_data)
 
     perf_data = build_performance_payload(store, today)

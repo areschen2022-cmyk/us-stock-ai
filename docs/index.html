@@ -270,6 +270,17 @@
 
 <!-- 選股記錄 -->
 <div id="signals" class="tab">
+  <div class="section-title">🧪 研究級訊號記錄（每日自動記錄並追蹤前瞻報酬）</div>
+  <div class="updated" style="margin-bottom:6px">分組：Top10＝現行評分前十｜v2＝研究評級 S/A＋週線向上｜AI買＝DeepSeek 複核 Buy。統計彙總見總覽「前瞻驗證」。</div>
+  <table>
+    <thead><tr>
+      <th>訊號日期</th><th>分組</th><th>代碼</th><th>評分</th><th>等級</th>
+      <th>進場價</th><th>5日報酬</th><th>10日報酬</th><th>結果</th>
+    </tr></thead>
+    <tbody id="research-signals-body"></tbody>
+  </table>
+
+  <div class="section-title" style="margin-top:22px">🏅 正式 S/A 級訊號</div>
   <table>
     <thead><tr>
       <th>訊號日期</th><th>代碼</th><th>評分</th><th>等級</th>
@@ -844,10 +855,33 @@ function render(data) {
       </div>`).join('') ||
     '<p class="empty-hint">無主題資料。</p>';
 
-  // Signals
+  // 研究級訊號記錄（shadow_signals 三組）— 正式表空著時使用者才知道
+  // 系統其實每天都在選股與追蹤（外部評測「空表格歧義」+ 使用者提問修正）
+  const GRP_ZH = { live_top: 'Top10', score_v2_sa: 'v2', ai_buy: 'AI買' };
+  const rs = data.recent_signals || [];
+  document.getElementById('research-signals-body').innerHTML = rs.length ? rs.map(s => {
+    const r5 = s.return_5d != null
+      ? `<span style="color:${s.return_5d >= 0 ? 'var(--green)' : 'var(--red)'}">${s.return_5d > 0 ? '+' : ''}${s.return_5d}%</span>` : '—';
+    const r10 = s.return_10d != null
+      ? `<span style="color:${s.return_10d >= 0 ? 'var(--green)' : 'var(--red)'}">${s.return_10d > 0 ? '+' : ''}${s.return_10d}%</span>` : '—';
+    const oc = s.outcome ? `<span class="pill ${OUTCOME_CLASS[s.outcome] || ''}">${OUTCOME_ZH[s.outcome] || s.outcome}</span>`
+      : '<span style="color:var(--muted)">追蹤中</span>';
+    return `<tr>
+      <td>${esc(s.signal_date)}</td>
+      <td><span class="strat-badge">${GRP_ZH[s.grp] || esc(s.grp)}</span></td>
+      <td>${symLink(s.symbol, `<b>${esc(s.symbol)}</b>`)}</td>
+      <td>${s.live_score != null ? s.live_score : '—'}</td>
+      <td>${s.live_grade ? `<span class="${gradeClass(s.live_grade)}">${esc(s.live_grade)}</span>` : '—'}</td>
+      <td>${fmtPrice(s.entry_price)}</td>
+      <td>${r5}</td><td>${r10}</td><td>${oc}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="9" style="color:var(--muted);padding:16px">研究級訊號將於下次每日排程後出現。</td></tr>';
+
+  // 正式 S/A 訊號（watch_signals）
   document.getElementById('signals-body').innerHTML =
     (data.open_signals || []).map(renderSignalRow).join('') ||
-    '<tr><td colspan="8" style="color:var(--muted);padding:16px">尚無選股記錄。</td></tr>';
+    '<tr><td colspan="8" style="color:var(--muted);padding:16px">迄今 0 筆 — 正式評分需達 S/A 級（≥75 分）才記錄；' +
+    '舊公式時代有評分天花板不可能觸發，v3 上線後至今最高為 B 級。首筆正式 S/A 出現時會自動列於此。</td></tr>';
 
   // AI reviews
   const AI_C = { Buy:'var(--green)', Avoid:'var(--red)', Hold:'var(--yellow)' };
