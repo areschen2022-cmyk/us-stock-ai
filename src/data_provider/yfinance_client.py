@@ -44,7 +44,16 @@ def fetch_ohlcv(symbol: str, period: str = "6mo") -> pd.DataFrame:
     cache_key = f"ohlcv_{symbol}_{period}_{date.today()}"
     cached = _load_cache(cache_key, max_age_hours=8)
     if cached:
-        return pd.DataFrame(cached)
+        df = pd.DataFrame(cached)
+        # CONTRACT: every OHLCV path returns a DatetimeIndex. The stringified
+        # cache index leaked str dates into consumers and spawned a bug family
+        # (holiday-gate crash 7/21-24, market_timing _fmt_date) — root cause
+        # fixed here 2026-07-27; _bar_date/_fmt_date stay as defense in depth.
+        try:
+            df.index = pd.to_datetime(df.index)
+        except Exception:
+            pass
+        return df
 
     for attempt in range(3):
         try:
