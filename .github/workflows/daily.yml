@@ -78,7 +78,8 @@ jobs:
           # artifacts, reset to origin/main, and rebuild the commit on top.
           _TMP=$(mktemp -d)
           for f in docs/dashboard_data.json docs/performance_data.json docs/divergence_history.json \
-                   data/market_scan.json data/pool_exit_state.json data/us_stock_ai.sqlite3; do
+                   data/market_scan.json data/pool_exit_state.json data/us_stock_ai.sqlite3 \
+                   config.yaml data/watchlist_changes.jsonl data/pool_changes.json data/candidate_streak.json; do
             [ -f "$f" ] && mkdir -p "$_TMP/$(dirname "$f")" && cp "$f" "$_TMP/$f"
           done
           _pushed=0
