@@ -23,6 +23,8 @@ from pathlib import Path
 from statistics import mean, stdev
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from src.backtest.forward_tracker import _trading_days_later
 sys.stdout.reconfigure(encoding="utf-8")
 
 _DB = Path(__file__).parent.parent / "data" / "us_stock_ai.sqlite3"
@@ -265,6 +267,7 @@ def main() -> int:
         "exit_comparison": exit_comparison(rows),
         "ai_discrimination": ai_discrimination(rows),
         "v2_check": v2_check(rows),
+        "factor_relative": factor_relative(rows),
         "entry_quality": entry_quality(rows),
         "failure_attribution": failure_attribution(rows),
     }
