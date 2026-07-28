@@ -731,6 +731,16 @@ def run_morning_telegram() -> None:
         scores_raw = store.get_scores_for_date(data_date)
         print(f"[Main] Using latest scored date {data_date} for morning report")
 
+    # Staleness guard (7/21-24 incident: the evening pipeline crashed for four
+    # days and this fallback silently served 7/20 data every morning) — lag
+    # beyond 2 trading days now shouts at the top of the brief.
+    import numpy as _np
+    stale_warning = None
+    lag_days = int(_np.busday_count(data_date, today))
+    if lag_days > 2:
+        stale_warning = (f"⚠️ 資料已落後 {lag_days} 個交易日（資料日 {data_date}）— "
+                         "晚間更新管線可能中斷，本報內容非最新，請檢查系統")
+
     # Reconstruct full StockScore objects (incl. warnings) from stored rows
     import json as _json
 
@@ -801,6 +811,7 @@ def run_morning_telegram() -> None:
         "entry_quality_map": eq_map or _entry_quality_map(dash_data),
         "market_timing": mt_block,
         "grade_guard": gg_block,
+        "stale_warning": stale_warning,
     }
     overview["data_date"] = str(data_date)
     notifier = TelegramNotifier()

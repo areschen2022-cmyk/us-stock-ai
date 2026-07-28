@@ -143,6 +143,10 @@ def _build_morning_report(
     parts: list[str] = []
     body = header
 
+    # 資料過期警示置頂（7/21-24 事故教訓：stale fallback 不可無聲）
+    if overview.get("stale_warning"):
+        body = overview["stale_warning"] + "\n\n" + body
+
     def _flush(segment: str) -> None:
         nonlocal body
         if len(body) + len(segment) > 3800:
