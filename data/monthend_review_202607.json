@@ -1,15 +1,15 @@
 {
   "as_of": "2026-07-28",
-  "total_signals": 1378,
+  "total_signals": 1454,
   "date_range": [
     "2026-06-25",
-    "2026-07-27"
+    "2026-07-28"
   ],
   "min_n_for_decision": 5,
   "groups": [
     {
       "group": "social_bullish",
-      "signals": 480,
+      "signals": 505,
       "return_5d": {
         "n": 452,
         "avg": -1.57,
@@ -43,7 +43,7 @@
     },
     {
       "group": "live_top",
-      "signals": 211,
+      "signals": 221,
       "return_5d": {
         "n": 201,
         "avg": 0.08,
@@ -78,7 +78,7 @@
     },
     {
       "group": "confluence",
-      "signals": 177,
+      "signals": 186,
       "return_5d": {
         "n": 167,
         "avg": -1.88,
@@ -112,7 +112,7 @@
     },
     {
       "group": "shadow",
-      "signals": 141,
+      "signals": 147,
       "return_5d": {
         "n": 135,
         "avg": -1.21,
@@ -147,7 +147,7 @@
     },
     {
       "group": "potential_radar",
-      "signals": 128,
+      "signals": 134,
       "return_5d": {
         "n": 122,
         "avg": -0.55,
@@ -181,7 +181,7 @@
     },
     {
       "group": "research_rank",
-      "signals": 91,
+      "signals": 97,
       "return_5d": {
         "n": 85,
         "avg": -3.23,
@@ -215,7 +215,7 @@
     },
     {
       "group": "score_v2_sa",
-      "signals": 67,
+      "signals": 74,
       "return_5d": {
         "n": 60,
         "avg": -1.58,
@@ -224,8 +224,8 @@
       },
       "return_10d": {
         "n": 18,
-        "avg": -5.44,
-        "t": -3.48,
+        "avg": -5.59,
+        "t": -3.66,
         "win_rate": 27.8
       },
       "return_20d": {
@@ -241,15 +241,15 @@
       },
       "alpha_10d": {
         "n": 18,
-        "avg": -3.89,
-        "t": -2.49,
+        "avg": -4.04,
+        "t": -2.65,
         "win_rate": 27.8
       },
       "stop_hit_rate": 6.7
     },
     {
       "group": "ai_hold",
-      "signals": 44,
+      "signals": 50,
       "return_5d": {
         "n": 38,
         "avg": -1.42,
@@ -283,7 +283,7 @@
     },
     {
       "group": "ai_avoid",
-      "signals": 20,
+      "signals": 21,
       "return_5d": {
         "n": 19,
         "avg": -1.98,
@@ -292,8 +292,8 @@
       },
       "return_10d": {
         "n": 13,
-        "avg": -3.92,
-        "t": -2.11,
+        "avg": -4.12,
+        "t": -2.28,
         "win_rate": 38.5
       },
       "return_20d": {
@@ -309,8 +309,8 @@
       },
       "alpha_10d": {
         "n": 13,
-        "avg": -2.4,
-        "t": -1.29,
+        "avg": -2.61,
+        "t": -1.44,
         "win_rate": 38.5
       },
       "stop_hit_rate": 5.3
@@ -411,7 +411,7 @@
       }
     },
     "ai_hold": {
-      "signals": 44,
+      "signals": 50,
       "alpha_10d": {
         "n": 3,
         "avg": -5.98,
@@ -426,30 +426,30 @@
       }
     },
     "ai_avoid": {
-      "signals": 20,
+      "signals": 21,
       "alpha_10d": {
         "n": 13,
-        "avg": -2.4,
-        "t": -1.29,
+        "avg": -2.61,
+        "t": -1.44,
         "win_rate": 38.5
       },
       "return_10d": {
         "n": 13,
-        "avg": -3.92,
-        "t": -2.11,
+        "avg": -4.12,
+        "t": -2.28,
         "win_rate": 38.5
       }
     },
-    "buy_minus_avoid_alpha10": 3.94,
+    "buy_minus_avoid_alpha10": 4.15,
     "min_n": 3
   },
   "v2_check": {
     "score_v2_sa": {
-      "signals": 67,
+      "signals": 74,
       "alpha_10d": {
         "n": 18,
-        "avg": -3.89,
-        "t": -2.49,
+        "avg": -4.04,
+        "t": -2.65,
         "win_rate": 27.8
       },
       "alpha_5d": {
@@ -460,7 +460,7 @@
       }
     },
     "live_top": {
-      "signals": 211,
+      "signals": 221,
       "alpha_10d": {
         "n": 151,
         "avg": -1.98,
@@ -474,7 +474,7 @@
         "win_rate": 52.2
       }
     },
-    "v2_minus_live_alpha10": -1.91
+    "v2_minus_live_alpha10": -2.06
   },
   "factor_relative": {
     "shadow": {
@@ -611,45 +611,45 @@
     },
     "score_v2_sa": {
       "n": 18,
-      "raw_return_10d": -5.44,
+      "raw_return_10d": -5.59,
       "alpha_vs_SPY": {
         "n": 18,
-        "avg": -3.9,
-        "t": -2.5,
+        "avg": -4.05,
+        "t": -2.66,
         "win_rate": 27.8
       },
       "alpha_vs_MTUM": {
         "n": 18,
-        "avg": -0.68,
-        "t": -0.44,
+        "avg": -0.82,
+        "t": -0.54,
         "win_rate": 38.9
       },
       "alpha_vs_IWM": {
         "n": 18,
-        "avg": -5.05,
-        "t": -3.24,
+        "avg": -5.2,
+        "t": -3.42,
         "win_rate": 27.8
       }
     },
     "ai_avoid": {
       "n": 13,
-      "raw_return_10d": -3.92,
+      "raw_return_10d": -4.12,
       "alpha_vs_SPY": {
         "n": 13,
-        "avg": -2.41,
-        "t": -1.29,
+        "avg": -2.62,
+        "t": -1.44,
         "win_rate": 38.5
       },
       "alpha_vs_MTUM": {
         "n": 13,
-        "avg": 0.7,
-        "t": 0.37,
+        "avg": 0.5,
+        "t": 0.27,
         "win_rate": 53.8
       },
       "alpha_vs_IWM": {
         "n": 13,
-        "avg": -3.57,
-        "t": -1.91,
+        "avg": -3.77,
+        "t": -2.08,
         "win_rate": 38.5
       }
     },
@@ -677,23 +677,23 @@
     },
     "POOLED": {
       "n": 834,
-      "raw_return_10d": -3.61,
+      "raw_return_10d": -3.62,
       "alpha_vs_SPY": {
         "n": 834,
         "avg": -3.08,
-        "t": -10.78,
+        "t": -10.8,
         "win_rate": 37.5
       },
       "alpha_vs_MTUM": {
         "n": 834,
-        "avg": 0.32,
-        "t": 1.07,
+        "avg": 0.31,
+        "t": 1.05,
         "win_rate": 54.8
       },
       "alpha_vs_IWM": {
         "n": 834,
         "avg": -2.55,
-        "t": -8.75,
+        "t": -8.78,
         "win_rate": 39.9
       }
     }
@@ -711,17 +711,17 @@
     },
     {
       "entry_quality": "可進場",
-      "signals": 346,
+      "signals": 404,
       "alpha_10d": {
         "n": 68,
-        "avg": -4.0,
-        "t": -4.03,
+        "avg": -4.07,
+        "t": -4.14,
         "win_rate": 23.5
       }
     },
     {
       "entry_quality": "等拉回",
-      "signals": 200,
+      "signals": 201,
       "alpha_10d": {
         "n": 75,
         "avg": -0.73,
@@ -731,7 +731,7 @@
     },
     {
       "entry_quality": "觀望",
-      "signals": 124,
+      "signals": 139,
       "alpha_10d": {
         "n": 28,
         "avg": -2.49,
@@ -741,7 +741,7 @@
     },
     {
       "entry_quality": "避免追高",
-      "signals": 36,
+      "signals": 38,
       "alpha_10d": {
         "n": 6,
         "avg": -6.33,
