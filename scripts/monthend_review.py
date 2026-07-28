@@ -165,6 +165,60 @@ def v2_check(rows: list[dict]) -> dict:
     return out
 
 
+_BENCH = ("SPY", "MTUM", "IWM")
+
+
+def factor_relative(rows: list[dict]) -> dict:
+    """Alpha against a momentum benchmark, not just SPY.
+
+    Our selection is explicitly momentum (RS rating, Minervini template,
+    52w-high proximity, volume accumulation). Judging it purely against SPY
+    conflates two different questions: 'do we pick well?' and 'is the momentum
+    factor in favour?'. In 2026-06/07 MTUM lost 8.7pp to SPY, which made every
+    group's SPY-alpha look catastrophic while several were in fact beating
+    their own factor. Report both; SPY-alpha alone is a mis-specified yardstick.
+    """
+    import pandas as pd
+    import yfinance as yf
+
+    dates = [r["signal_date"] for r in rows if r.get("return_10d") is not None]
+    if not dates:
+        return {}
+    px = yf.download(list(_BENCH), start=min(dates), end=None,
+                     auto_adjust=True, progress=False)["Close"]
+    px.index = px.index.tz_localize(None).normalize()
+
+    def at(sym: str, d: date) -> float | None:
+        s = px[sym].dropna()
+        s = s[s.index <= pd.Timestamp(d)]
+        return float(s.iloc[-1]) if len(s) else None
+
+    groups: dict[str, list[dict]] = {}
+    for r in rows:
+        stock = _f(r, "return_10d")
+        if stock is None:
+            continue
+        sd = date.fromisoformat(r["signal_date"])
+        tgt = _trading_days_later(sd, 10)
+        rec = {"stock": stock}
+        if any((e := at(b, sd)) is None or (p := at(b, tgt)) is None
+               or rec.update({b: (p / e - 1) * 100}) for b in _BENCH):
+            continue
+        groups.setdefault(str(r.get("grp") or "?"), []).append(rec)
+
+    def block(rs: list[dict]) -> dict:
+        out = {"n": len(rs), "raw_return_10d": _agg([x["stock"] for x in rs])["avg"]}
+        for b in _BENCH:
+            out[f"alpha_vs_{b}"] = _agg([x["stock"] - x[b] for x in rs])
+        return out
+
+    result = {g: block(rs) for g, rs in groups.items() if len(rs) >= _MIN_N}
+    allr = [x for rs in groups.values() for x in rs]
+    if allr:
+        result["POOLED"] = block(allr)
+    return result
+
+
 def entry_quality(rows: list[dict]) -> list[dict]:
     groups: dict[str, list[dict]] = {}
     for r in rows:
