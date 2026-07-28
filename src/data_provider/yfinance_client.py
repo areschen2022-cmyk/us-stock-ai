@@ -107,9 +107,12 @@ def fetch_batch_ohlcv(symbols: list[str], period: str = "2y") -> dict[str, pd.Da
         result: dict[str, pd.DataFrame] = {}
         for sym in symbols:
             try:
-                df = raw[sym].dropna(how="all")
-                df.index = df.index.strftime("%Y-%m-%d")
-                result[sym] = df
+                # No stringify here: nothing on this path is JSON-cached, and the
+                # <=10-symbol branch above delegates to fetch_ohlcv, which returns
+                # a DatetimeIndex. Formatting only the large-batch branch made the
+                # index type depend on batch size — that is what fed the holiday
+                # gate a str and crashed it 7/21-24. Same contract on every path.
+                result[sym] = raw[sym].dropna(how="all")
             except Exception:
                 result[sym] = pd.DataFrame()
         return result
