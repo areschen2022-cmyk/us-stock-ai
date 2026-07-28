@@ -348,6 +348,16 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
                 if low is not None:
                     updates["stop_hit"] = 1 if low <= stop_price else 0
 
+            # Separate 20d-window flag for the three-way exit comparison, which
+            # holds to 20 days. Only decided once the window has fully elapsed,
+            # otherwise a not-yet-triggered stop would be frozen in as a 0.
+            if sig.get("stop_hit_20d") is None and stop_price:
+                end20 = _trading_days_later(signal_date, 20)
+                if end20 <= today:
+                    low20 = _fetch_period_low(symbol, signal_date, end20)
+                    if low20 is not None:
+                        updates["stop_hit_20d"] = 1 if low20 <= stop_price else 0
+
             if not updates:
                 continue
             ret10 = _first_set(updates.get("return_10d"), sig.get("return_10d"))
