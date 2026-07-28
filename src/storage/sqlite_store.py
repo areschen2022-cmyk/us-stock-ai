@@ -223,6 +223,14 @@ class SQLiteStore:
             # MA20-trail exit shadow comparison (10y sweep best protected
             # variant PF 1.72 vs tight-stop 1.58) — live adjudication columns
             "ma20_exit_return": "REAL", "ma20_exit_kind": "TEXT",
+            # stop_hit is deliberately scoped to the 10d OUTCOME window (Codex
+            # audit-2 #7) so a day-15 touch can't contaminate 10d attribution.
+            # But the three-way exit comparison holds for 20 days, and reusing
+            # the 10d flag there understated the 2xATR arm badly (month-end
+            # 2026-07-28: 15/31 stops really triggered by day 20, only 4 were
+            # flagged, so 2xATR rendered identical to buy-and-hold). Separate
+            # column, separate window — never share a flag across horizons.
+            "stop_hit_20d": "INTEGER",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
