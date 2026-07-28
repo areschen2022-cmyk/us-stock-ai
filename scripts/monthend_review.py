@@ -201,10 +201,12 @@ def factor_relative(rows: list[dict]) -> dict:
         sd = date.fromisoformat(r["signal_date"])
         tgt = _trading_days_later(sd, 10)
         rec = {"stock": stock}
-        if any((e := at(b, sd)) is None or (p := at(b, tgt)) is None
-               or rec.update({b: (p / e - 1) * 100}) for b in _BENCH):
-            continue
-        groups.setdefault(str(r.get("grp") or "?"), []).append(rec)
+        for b in _BENCH:
+            entry, exit_ = at(b, sd), at(b, tgt)
+            if entry and exit_:
+                rec[b] = (exit_ / entry - 1) * 100
+        if len(rec) == len(_BENCH) + 1:  # every benchmark priced, else drop the row
+            groups.setdefault(str(r.get("grp") or "?"), []).append(rec)
 
     def block(rs: list[dict]) -> dict:
         out = {"n": len(rs), "raw_return_10d": _agg([x["stock"] for x in rs])["avg"]}
