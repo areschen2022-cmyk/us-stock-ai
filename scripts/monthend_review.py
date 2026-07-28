@@ -99,7 +99,7 @@ def exit_comparison(rows: list[dict]) -> list[dict]:
         stop = []
         for r in done:
             sp, ep = _f(r, "stop_price"), _f(r, "entry_price")
-            if int(r.get("stop_hit") or 0) == 1 and sp and ep:
+            if int(r.get("stop_hit_20d") or 0) == 1 and sp and ep:
                 stop.append((sp / ep - 1) * 100)
             else:
                 stop.append(_f(r, "return_20d"))
