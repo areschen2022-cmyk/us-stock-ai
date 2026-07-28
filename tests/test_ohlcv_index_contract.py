@@ -53,3 +53,26 @@ def test_cache_hit_survives_unparseable_index(fake_cache):
     df = yc.fetch_ohlcv("JUNK", period="6mo")
 
     assert len(df) == 2
+
+
+def test_batch_path_returns_datetime_index(monkeypatch):
+    """The large-batch branch feeds main.py's holiday gate. It used to stringify
+    the index while the <=10-symbol branch did not, so the index type silently
+    depended on batch size. Every symbol on every branch returns a DatetimeIndex.
+    """
+    symbols = [f"S{i}" for i in range(12)]
+    idx = pd.DatetimeIndex(["2026-07-24", "2026-07-27"])
+    raw = pd.concat(
+        {s: pd.DataFrame({"Close": [1.0, 2.0], "Volume": [10, 20]}, index=idx)
+         for s in symbols},
+        axis=1,
+    )
+    monkeypatch.setattr(yc.yf, "download", lambda *a, **k: raw)
+
+    result = yc.fetch_batch_ohlcv(symbols, period="2y")
+
+    assert set(result) == set(symbols)
+    for sym, df in result.items():
+        assert isinstance(df.index, pd.DatetimeIndex), f"{sym} lost the contract"
+        # the holiday gate's exact operation
+        assert df.index[-1].date() == date(2026, 7, 27)
