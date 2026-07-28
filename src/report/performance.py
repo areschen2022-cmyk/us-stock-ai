@@ -108,9 +108,13 @@ def build_performance_payload(store: SQLiteStore, as_of: date | None = None) -> 
             return None
         hold = [float(r["return_20d"]) for r in done]
         trail = [float(r["ma20_exit_return"]) for r in done]
+        # 2xATR arm must use the 20d-window stop flag: this comparison holds for
+        # 20 days, while `stop_hit` is scoped to the 10d outcome window. Reusing
+        # the 10d flag here made 2xATR look identical to buy-and-hold (month-end
+        # 2026-07-28 found 15/31 real stops vs 4 flagged).
         stop_clipped = []
         for r in done:
-            if int(r.get("stop_hit") or 0) == 1 and r.get("stop_price") and r.get("entry_price"):
+            if int(r.get("stop_hit_20d") or 0) == 1 and r.get("stop_price") and r.get("entry_price"):
                 stop_clipped.append((float(r["stop_price"]) / float(r["entry_price"]) - 1) * 100)
             else:
                 stop_clipped.append(float(r["return_20d"]))
