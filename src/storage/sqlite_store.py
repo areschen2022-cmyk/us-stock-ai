@@ -391,11 +391,22 @@ class SQLiteStore:
     def upsert_shadow_signal(self, signal_date: date, grp: str, data: dict) -> None:
         with self._connect() as conn:
             conn.execute(
-                """INSERT OR IGNORE INTO shadow_signals
+                # ON CONFLICT fills newly-added descriptive columns on a re-run
+                # instead of silently skipping the row. Plain INSERT OR IGNORE
+                # meant a column added mid-day was never written for signals
+                # already logged that day (2026-07-31: selector_score shipped,
+                # CI went green, and zero rows got a value). Only ever fills
+                # NULLs — entry prices and forward returns are history and must
+                # not be rewritten by a later run.
+                """INSERT INTO shadow_signals
                    (signal_date, symbol, grp, rs_rating, minervini_pass, phase2,
                     live_grade, live_score, entry_price, stop_price, spy_entry_price,
                     entry_quality, selector_score, selector_percentile)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                   ON CONFLICT(signal_date, symbol, grp) DO UPDATE SET
+                     selector_score = COALESCE(shadow_signals.selector_score, excluded.selector_score),
+                     selector_percentile = COALESCE(shadow_signals.selector_percentile, excluded.selector_percentile),
+                     entry_quality = COALESCE(shadow_signals.entry_quality, excluded.entry_quality)""",
                 (
                     str(signal_date), data["symbol"], grp,
                     data.get("rs_rating"), data.get("minervini_pass"),
