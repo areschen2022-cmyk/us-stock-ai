@@ -346,6 +346,23 @@ const NAME_ZH = {
   NVO:'諾和諾德', ABBV:'艾伯維', GILD:'吉利德', MRNA:'莫德納',
 };
 function nameZh(sym) { return NAME_ZH[sym] || ''; }
+// Exit guidance, MA20-trail first. Promoted to the primary rule by the 2026-07
+// month-end review: over 62 adjudicated signals MA20-trail returned -1.13% vs
+// -5.86% for a 20d hold and -7.01% for the 2xATR stop (paired t=4.76, MA20
+// better on 71%). The 2xATR level stays visible as a disaster floor — it is an
+// intraday hard stop while MA20 is a close-based trailing rule.
+function exitText(s) {
+  const ma = (s.strategy || {}).ma20_exit;
+  const stopTxt = s.stop != null ? `｜災難停損 ${fmtPrice(s.stop)}` : '';
+  if (ma == null) return s.stop != null ? ` &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}` : '';
+  const tip = '月底對照 n=62：MA20追蹤 -1.13% vs 持有20日 -5.86% vs 2xATR停損 -7.01%（配對 t=4.76）';
+  if (s.price != null && s.price < ma) {
+    return ` &nbsp;→&nbsp; <span style="color:var(--red)" title="${tip}">⚠ 已跌破 MA20 ${fmtPrice(ma)} — 依規則出場</span>` +
+           `<span style="color:var(--muted)">${stopTxt}</span>`;
+  }
+  return ` &nbsp;→&nbsp; <span title="${tip}">出場：收盤跌破 MA20 ${fmtPrice(ma)}</span>` +
+         `<span style="color:var(--muted)">${stopTxt}</span>`;
+}
 // HTML-escape for externally sourced strings (TradingView descriptions,
 // news headlines, hub claims) before innerHTML interpolation — Codex audit
 // 2026-07-19 flagged the raw injection as an XSS sink.
@@ -372,7 +389,7 @@ function renderCard(s) {
     </div>
     <div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">${esc(s.name)}${nameZh(s.symbol) ? `<span style="color:var(--blue)">（${nameZh(s.symbol)}）</span>` : ''}</div>
     <div class="score-bar"><div class="score-fill" style="width:${fill}%"></div></div>
-    <div style="font-size:.85rem">現價 ${fmtPrice(s.price)} &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}${(s.strategy||{}).ma20_exit != null ? `<span style="color:var(--muted)" title="10年出場掃描最優有保護出場（跌破20日均線出場，PF 1.72 vs 緊停損 1.58）">｜MA20出場 ${fmtPrice(s.strategy.ma20_exit)}</span>` : ''}</div>
+    <div style="font-size:.85rem">現價 ${fmtPrice(s.price)}${exitText(s)}</div>
     <div class="sub-scores" title="評分v3（2026-07-14起）：總分 = v2×0.6 +（基+流+聞）×0.8 − 風險扣分；技術/市場情緒欄僅供參考不再計入總分">
       <span class="sub" title="技術">技${sub.T||0}</span>
       <span class="sub" title="基本面">基${sub.F||0}</span>
@@ -746,7 +763,7 @@ function render(data) {
       const isOfficial = ['S','A'].includes(c.grade);
       return `${symLink(c.symbol, `<b>${esc(c.symbol)}</b>`)} ` +
         `<span style="color:var(--muted)">${isOfficial ? c.grade + '級' : 'v2 ' + st.v2_grade + '（研究級）'}` +
-        `｜停損 ${fmtPrice(c.stop)}${st.ma20_exit != null ? '｜MA20 ' + fmtPrice(st.ma20_exit) : ''}</span>`;
+        `${st.ma20_exit != null ? '｜MA20 ' + fmtPrice(st.ma20_exit) : ''}｜災難停損 ${fmtPrice(c.stop)}</span>`;
     };
     band.style.background = bg;
     band.style.borderColor = color;

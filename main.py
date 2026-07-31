@@ -215,6 +215,27 @@ def _entry_quality_map(dash_data: dict) -> dict[str, str]:
     return out
 
 
+def _ma20_exit_map(dash_data: dict) -> dict[str, dict]:
+    """{symbol: {level, below}} for the MA20 trailing exit, for Telegram.
+
+    Promoted to the primary exit rule by the 2026-07 month-end review: over 62
+    adjudicated signals MA20-trail returned -1.13% vs -5.86% for a 20d hold and
+    -7.01% for the 2xATR stop (paired t=4.76, MA20 better on 71% of signals).
+    `below` flags a name already closing under its MA20 — there the rule says
+    exit now, so rendering a "target" above the current price would be wrong.
+    """
+    out: dict[str, dict] = {}
+    for c in dash_data.get("watchlist", []):
+        level = (c.get("strategy") or {}).get("ma20_exit")
+        price = c.get("price")
+        if level is not None:
+            out[c["symbol"]] = {
+                "level": level,
+                "below": bool(price is not None and price < level),
+            }
+    return out
+
+
 _SOCIAL_MIN_TAGGED = 5      # need enough sentiment-TAGGED posts (bull+bear) to
                              # trust the ratio — NOT total stream messages,
                              # which StockTwits returns as ~30 regardless of
@@ -697,6 +718,7 @@ def run_daily_update() -> None:
             "data_health": dash_data["data_health"],
             "strategy": dash_data["strategy"],
             "entry_quality_map": _entry_quality_map(dash_data),
+            "ma20_exit_map": _ma20_exit_map(dash_data),
         }
         notifier = TelegramNotifier()
         ok = notifier.send_morning_report(top, market_prices, today, ai_summaries, overview)
@@ -780,6 +802,7 @@ def run_morning_telegram() -> None:
     # entry-quality persisted by the evening daily-update run.
     strategy_block = dash_data["strategy"]
     eq_map: dict[str, str] = {}
+    ma20_map: dict[str, dict] = {}
     mt_block = None
     gg_block = None
     try:
@@ -791,6 +814,7 @@ def run_morning_telegram() -> None:
             if persisted and (persisted.get("divergence", {}) or {}).get("n_compared"):
                 strategy_block = persisted
             eq_map = _entry_quality_map(persisted_full)
+            ma20_map = _ma20_exit_map(persisted_full)
             mt_block = persisted_full.get("market_timing")
             gg_block = persisted_full.get("grade_guard")
     except Exception as _e:
@@ -809,6 +833,7 @@ def run_morning_telegram() -> None:
         "data_health": {"source_status": "讀取快取", "quality": "高"},
         "strategy": strategy_block,
         "entry_quality_map": eq_map or _entry_quality_map(dash_data),
+        "ma20_exit_map": ma20_map or _ma20_exit_map(dash_data),
         "market_timing": mt_block,
         "grade_guard": gg_block,
         "stale_warning": stale_warning,

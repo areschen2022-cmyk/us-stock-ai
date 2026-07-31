@@ -206,19 +206,52 @@ def _build_morning_report(
         highlights = top_scores[:3]
 
     eq_map = overview.get("entry_quality_map", {}) or {}
+    ma20_map = overview.get("ma20_exit_map", {}) or {}
+
+    def _exit_line(s) -> str:
+        """Exit guidance, MA20-trail first.
+
+        Month-end 2026-07 adjudication (n=62): MA20-trail -1.13% vs 20d-hold
+        -5.86% vs 2xATR stop -7.01%, paired t=4.76. The 2xATR level is still
+        shown as a disaster floor — it is an intraday hard stop, while MA20 is
+        a close-based trailing rule, so they guard different failure modes and
+        the tighter one firing 55% of the time is exactly why it lost.
+        """
+        info = ma20_map.get(s.symbol) or {}
+        level, atr_stop = info.get("level"), s.stop_price
+        if level is None:
+            return f"  停損 {_fmt_price(atr_stop)}\n" if atr_stop else "\n"
+        if info.get("below"):
+            return (f"  ⚠ 已跌破 MA20 {_fmt_price(level)} — 依規則出場"
+                    f"（災難停損 {_fmt_price(atr_stop)}）\n")
+        return (f"  出場：收盤跌破 MA20 {_fmt_price(level)}"
+                f"（災難停損 {_fmt_price(atr_stop)}）\n")
+    # === 出場警示（MA20 已跌破）===
+    # The exit rule only counts if the day it fires is visible. A name that has
+    # closed under its MA20 is the most actionable line in the brief, but it
+    # can rank anywhere — including the "其他追蹤標的" tail, which prints no
+    # exit detail — so it gets hoisted into its own block ahead of new ideas.
+    breached = [s for s in top_scores if (ma20_map.get(s.symbol) or {}).get("below")]
+    if breached:
+        _flush("⚠ 出場警示 — 已跌破 MA20\n")
+        for s in breached:
+            lvl = _fmt_price((ma20_map.get(s.symbol) or {}).get("level"))
+            _flush(f"{s.symbol}｜現價 {_fmt_price(s.price)}｜MA20 {lvl} — 依規則出場\n")
+        _flush("\n")
+
     if highlights:
         _flush("今日重點\n")
         for s in highlights:
             ai_tag = ""
             if s.symbol in ai_summaries:
                 ai_tag = "｜AI 同意" if "buy" in ai_summaries[s.symbol].lower() or "強" in ai_summaries[s.symbol] else "｜AI 複核"
-            stop_str = _fmt_price(s.stop_price)
             eq = eq_map.get(s.symbol)
             eq_tag = f"｜進場：{eq}" if eq else ""
             _flush(
                 f"▸ {s.symbol}｜{s.total_score}/100｜{s.grade}｜"
                 f"{_zh_action(s.action)}{ai_tag}{eq_tag}\n"
-                f"  現價 {_fmt_price(s.price)}  停損 {stop_str}\n"
+                f"  現價 {_fmt_price(s.price)}\n"
+                + _exit_line(s)
             )
 
     if ai_total > 0:
@@ -276,8 +309,9 @@ def _build_morning_report(
             themes_tag = _zh_themes(s.themes)
             _flush(
                 f"{s.symbol} [{s.grade}] {s.total_score} 分\n"
-                f"  {_fmt_price(s.price)}  停損 {_fmt_price(s.stop_price)}\n"
-                f"  操作：{_zh_action(s.action)}\n"
+                f"  {_fmt_price(s.price)}\n"
+                + _exit_line(s)
+                + f"  操作：{_zh_action(s.action)}\n"
                 + (f"  題材：{themes_tag}\n" if themes_tag else "")
                 + f"  技{s.technical_score} 基{s.fundamental_score} "
                   f"流{s.flow_score} 聞{s.news_catalyst_score} "
