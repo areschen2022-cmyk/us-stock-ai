@@ -257,7 +257,7 @@
   <table>
     <thead><tr>
       <th>代碼 / 名稱</th><th>評分</th><th>等級</th><th>現價</th>
-      <th>停損價</th><th>建議操作</th><th>主題</th>
+      <th title="主要出場＝收盤跌破 MA20；災難停損為 2×ATR 硬停損">出場 MA20 / 停損</th><th>建議操作</th><th>主題</th>
     </tr></thead>
     <tbody id="watchlist-body"></tbody>
   </table>
@@ -351,6 +351,19 @@ function nameZh(sym) { return NAME_ZH[sym] || ''; }
 // -5.86% for a 20d hold and -7.01% for the 2xATR stop (paired t=4.76, MA20
 // better on 71%). The 2xATR level stays visible as a disaster floor — it is an
 // intraday hard stop while MA20 is a close-based trailing rule.
+// Table-cell variant of exitText: MA20 on top as the operative level, 2xATR
+// beneath as the disaster floor. The watchlist table used to show only the ATR
+// stop, which after the 2026-07-31 rule change would have shown a reader the
+// superseded exit while the cards showed the new one.
+function exitCell(s) {
+  const ma = (s.strategy || {}).ma20_exit;
+  const below = s.price != null && ma != null && s.price < ma;
+  if (ma == null) return `<span style="color:var(--red)">${fmtPrice(s.stop)}</span>`;
+  const maColor = below ? 'var(--red)' : 'var(--fg)';
+  return `<span style="color:${maColor}" title="${below ? '已跌破 MA20 — 依規則出場' : '收盤跌破即出場'}">` +
+         `${below ? '⚠ ' : ''}${fmtPrice(ma)}</span>` +
+         `<br><small style="color:var(--muted)" title="災難停損（2×ATR 盤中硬停損）">${fmtPrice(s.stop)}</small>`;
+}
 function exitText(s) {
   const ma = (s.strategy || {}).ma20_exit;
   const stopTxt = s.stop != null ? `｜災難停損 ${fmtPrice(s.stop)}` : '';
@@ -473,7 +486,7 @@ function renderWatchlistRow(s) {
     <td><b>${s.score}</b></td>
     <td><span class="${gradeClass(s.grade)}">${s.grade}</span></td>
     <td>${fmtPrice(s.price)}</td>
-    <td style="color:var(--red)">${fmtPrice(s.stop)}</td>
+    <td>${exitCell(s)}</td>
     <td style="font-size:.78rem;color:var(--green)">${zhAction(s.action)}</td>
     <td style="font-size:.72rem;color:var(--blue)">${themes}</td>
   </tr>`;
