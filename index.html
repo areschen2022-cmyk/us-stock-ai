@@ -272,6 +272,7 @@
 <div id="signals" class="tab">
   <div class="section-title">🧪 研究級訊號記錄（每日自動記錄並追蹤前瞻報酬）</div>
   <div class="updated" style="margin-bottom:6px">分組：Top10＝現行評分前十｜v2＝研究評級 S/A＋週線向上｜AI買＝DeepSeek 複核 Buy。統計彙總見總覽「前瞻驗證」。</div>
+  <div class="updated" style="margin-bottom:8px;color:var(--red)">⚠ 這些是<b>驗證用的觀察記錄，不是買賣建議</b>。2026-07-31 月底對照：research_rank 組線上前瞻報酬顯著為負（對動能基準 −4.08%，t=−4.32），且 71 筆訊號僅來自 16 檔股票、產業高度集中（科技 9/16）。該組評級是<b>相對百分位、無絕對門檻</b>——「B 級」只代表當日通過濾網者的前 30%，不代表品質達標。已加註待 8/10 後以新樣本複審。</div>
   <table>
     <thead><tr>
       <th>訊號日期</th><th>分組</th><th>代碼</th><th>評分</th><th>等級</th>
@@ -452,8 +453,13 @@ function renderStrategyBadges(st) {
   const rr = st.research_rank || {};
   let rrBadge = '';
   if (rr.gate_passed) {
-    const rrColor = {'S':'var(--green)','A':'var(--green)','B':'var(--blue)','C':'var(--muted)'}[rr.research_grade] || 'var(--muted)';
-    rrBadge = `<span class="strat-badge" style="color:${rrColor};border:1px solid ${rrColor}" title="Gate通過，同期百分位${rr.percentile}%">研究級 ${rr.research_grade}</span>`;
+    // Neutral, not green: the 2026-07-31 review found this group's live record
+    // significantly negative (-4.08% vs the MTUM momentum benchmark, t=-4.32,
+    // 71 signals from just 16 names). A green "S" reads as a recommendation the
+    // forward data does not support. Kept visible as research, not endorsed.
+    rrBadge = `<span class="strat-badge" style="color:var(--muted);border:1px solid var(--muted)" ` +
+      `title="研究用，非建議｜同期百分位 ${rr.percentile}%｜此組線上前瞻報酬顯著為負（對動能基準 -4.08%，t=-4.32），評級為相對排名、無絕對門檻">` +
+      `研究級 ${rr.research_grade} ⚠</span>`;
   } else if (rr.gate_reasons && rr.gate_reasons.length) {
     rrBadge = `<span class="strat-badge" style="color:var(--muted)" title="${rr.gate_reasons.join('、')}">研究：未過濾網</span>`;
   }
