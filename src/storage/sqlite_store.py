@@ -386,8 +386,8 @@ class SQLiteStore:
                 """INSERT OR IGNORE INTO shadow_signals
                    (signal_date, symbol, grp, rs_rating, minervini_pass, phase2,
                     live_grade, live_score, entry_price, stop_price, spy_entry_price,
-                    entry_quality)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+                    entry_quality, selector_score, selector_percentile)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (
                     str(signal_date), data["symbol"], grp,
                     data.get("rs_rating"), data.get("minervini_pass"),
@@ -396,6 +396,7 @@ class SQLiteStore:
                     data.get("entry_price"), data.get("stop_price"),
                     data.get("spy_entry_price"),
                     data.get("entry_quality"),
+                    data.get("selector_score"), data.get("selector_percentile"),
                 ),
             )
 
