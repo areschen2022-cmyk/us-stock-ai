@@ -3,7 +3,7 @@
   "market": {
     "SPY": 741.6900024414062,
     "QQQ": 683.5499877929688,
-    "VIX": 16.829999923706055,
+    "VIX": 16.790000915527344,
     "TLT": 82.80000305175781,
     "HYG": 79.47000122070312,
     "IWM": 292.5899963378906,
@@ -35,14 +35,14 @@
   ],
   "ai_stats": {
     "buy": 0,
-    "hold": 6,
-    "avoid": 1,
+    "hold": 7,
+    "avoid": 0,
     "total": 7,
     "candidates": 7,
     "coverage_pct": 100
   },
   "data_health": {
-    "elapsed_min": 2.2,
+    "elapsed_min": 2.1,
     "requested": 35,
     "scored": 35,
     "missing": 0,
@@ -59,7 +59,7 @@
     },
     "divergence": {
       "n_compared": 35,
-      "avg_gap": 19.1,
+      "avg_gap": 19.0,
       "missed_strong": [
         {
           "symbol": "ORKA",
@@ -336,7 +336,7 @@
         "alpha_win_rate_5d": 57.1
       },
       "ai_hold": {
-        "tracked": 65,
+        "tracked": 66,
         "completed": 38,
         "completed_10d": 21,
         "win_rate": 42.1,
@@ -352,7 +352,7 @@
         "alpha_win_rate_5d": 44.7
       },
       "ai_avoid": {
-        "tracked": 25,
+        "tracked": 24,
         "completed": 19,
         "completed_10d": 19,
         "win_rate": 47.4,
@@ -869,7 +869,7 @@
           "bullish": 10,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 33231,
+          "watchlist_count": 33232,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 10
@@ -1543,7 +1543,7 @@
         "R": -1
       },
       "sector": "Industrials",
-      "market_cap": 25282838528,
+      "market_cap": 25278818304,
       "risk_penalty": 1,
       "strategy": {
         "score_v2": 57,
@@ -1768,13 +1768,13 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 4,
+          "bullish": 5,
           "bearish": 5,
-          "sentiment_ratio": -0.11,
-          "watchlist_count": 985856,
+          "sentiment_ratio": 0.0,
+          "watchlist_count": 985859,
           "label": "中性",
-          "score_0_10": 4.5,
-          "tagged": 9
+          "score_0_10": 5.0,
+          "tagged": 10
         },
         "potential": {
           "stage": null,
@@ -1795,7 +1795,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 44.38,
+          "composite": 44.62,
           "percentile": 26.7,
           "research_grade": "C"
         }
@@ -1978,7 +1978,7 @@
           "bullish": 12,
           "bearish": 2,
           "sentiment_ratio": 0.71,
-          "watchlist_count": 20310,
+          "watchlist_count": 20309,
           "label": "強烈看多",
           "score_0_10": 8.6,
           "tagged": 14
@@ -2152,7 +2152,7 @@
         "R": -9
       },
       "sector": "Technology",
-      "market_cap": 0,
+      "market_cap": 791477223424,
       "risk_penalty": 9,
       "strategy": {
         "score_v2": 69,
@@ -2186,13 +2186,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 14,
+          "bullish": 15,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 561734,
+          "watchlist_count": 561733,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 14
+          "tagged": 15
         },
         "potential": {
           "stage": null,
@@ -2258,7 +2258,7 @@
         "R": -7
       },
       "sector": "Healthcare",
-      "market_cap": 0,
+      "market_cap": 1029934481408,
       "risk_penalty": 7,
       "strategy": {
         "score_v2": 60,
@@ -2392,7 +2392,7 @@
           "bullish": 13,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 222813,
+          "watchlist_count": 222814,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 13
@@ -3357,7 +3357,7 @@
     {
       "symbol": "AMZN",
       "name": "Amazon.com, Inc.",
-      "score": 39,
+      "score": 37,
       "grade": "D",
       "action": "Avoid",
       "price": 235.5,
@@ -3369,9 +3369,9 @@
       ],
       "warnings": [],
       "matched_headlines": [
-        "The AI spending boom is forcing a rethink on stock buybacks: One Big Investment Idea",
         "Amazon Q2 earnings results beat Wall Street's estimates, as AWS continues to boom",
-        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge"
+        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge",
+        "Earn 8.4% On AAPL Stock By Selling Upside You Might Not Miss"
       ],
       "catalyst_confidence": {
         "grade": "A",
@@ -3383,7 +3383,7 @@
         "T": 6,
         "F": 12,
         "Fl": 3,
-        "N": 15,
+        "N": 12,
         "M": 6,
         "R": 0
       },
@@ -3418,12 +3418,12 @@
         "social": {
           "messages": 30,
           "bullish": 8,
-          "bearish": 3,
-          "sentiment_ratio": 0.45,
-          "watchlist_count": 695936,
+          "bearish": 2,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 695937,
           "label": "強烈看多",
-          "score_0_10": 7.2,
-          "tagged": 11
+          "score_0_10": 8.0,
+          "tagged": 10
         },
         "potential": {
           "stage": null,
@@ -3446,12 +3446,12 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 35.9,
+          "composite": 36.3,
           "percentile": null,
           "research_grade": "D"
         }
       },
-      "divergence_gap": -32
+      "divergence_gap": -30
     },
     {
       "symbol": "NVDA",
@@ -3518,12 +3518,12 @@
         "social": {
           "messages": 30,
           "bullish": 14,
-          "bearish": 2,
-          "sentiment_ratio": 0.75,
-          "watchlist_count": 655922,
+          "bearish": 1,
+          "sentiment_ratio": 0.87,
+          "watchlist_count": 655923,
           "label": "強烈看多",
-          "score_0_10": 8.8,
-          "tagged": 16
+          "score_0_10": 9.4,
+          "tagged": 15
         },
         "potential": {
           "stage": null,
@@ -3546,7 +3546,7 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 35.37,
+          "composite": 35.67,
           "percentile": null,
           "research_grade": "D"
         }
@@ -3621,12 +3621,12 @@
         "social": {
           "messages": 30,
           "bullish": 10,
-          "bearish": 2,
-          "sentiment_ratio": 0.67,
+          "bearish": 1,
+          "sentiment_ratio": 0.82,
           "watchlist_count": 110877,
           "label": "強烈看多",
-          "score_0_10": 8.3,
-          "tagged": 12
+          "score_0_10": 9.1,
+          "tagged": 11
         },
         "potential": {
           "stage": null,
@@ -3649,7 +3649,7 @@
             "風險扣分過高(9)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 57.97,
+          "composite": 58.37,
           "percentile": null,
           "research_grade": "D"
         }
@@ -4449,7 +4449,7 @@
           "bullish": 10,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 33231,
+          "watchlist_count": 33232,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 10
@@ -5580,44 +5580,44 @@
     {
       "symbol": "LQDA",
       "action": "Hold",
-      "confidence": 0.6,
-      "reason": "Strong technicals and fundamentals support the stock, but high volatility (ATR 6.7%) and upcoming earnings on the 12th introduce significant near-term uncertainty, warranting a cautious hold."
+      "confidence": 0.65,
+      "reason": "Strong technicals and positive news are offset by high volatility and imminent earnings risk, warranting a wait-and-see stance despite the high score."
     },
     {
       "symbol": "DDOG",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "DDOG has solid fundamentals and cloud/SaaS momentum but faces near-term earnings risk and high volatility, warranting a wait-and-see stance despite a B-grade score."
+      "reason": "DDOG has solid fundamentals and cloud/SaaS momentum, but elevated volatility and an upcoming earnings report in 6 days warrant waiting for a clearer entry point."
     },
     {
       "symbol": "ELVN",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "ELVN scores a B with balanced technicals but weak fundamentals and high volatility ahead of earnings, suggesting caution despite positive news flow."
+      "reason": "ELVN scores a B with strong technicals and positive news flow, but the high ATR (4.6%) and upcoming earnings on the 12th introduce significant near-term volatility, warranting caution despite the favorable overall score."
     },
     {
       "symbol": "ORKA",
-      "action": "Avoid",
-      "confidence": 0.7,
-      "reason": "Weak technicals and fundamentals (score 24/2) plus high volatility (ATR 5.5%) and imminent earnings create an unfavorable risk/reward, despite modest news and market support."
+      "action": "Hold",
+      "confidence": 0.55,
+      "reason": "Score of 63 (C) with weak technicals/fundamentals and high volatility near earnings, but positive news and market momentum offset some downside, warranting caution rather than a clear buy or avoid."
     },
     {
       "symbol": "DELL",
       "action": "Hold",
-      "confidence": 0.6,
-      "reason": "DELL's high volatility (ATR 8.8%) and weak technical/fundamental scores offset its AI server demand narrative, but the stock is not in a clear breakdown, warranting a cautious hold rather than a buy or avoid."
+      "confidence": 0.55,
+      "reason": "DELL's high volatility (ATR 8.8%) and weak technical/fundamental scores offset its AI server demand narrative, warranting a cautious hold until price stabilizes and news catalysts improve."
     },
     {
       "symbol": "DVA",
       "action": "Hold",
-      "confidence": 0.6,
-      "reason": "DVA's mixed score (C) reflects weak technicals and fundamentals, but the stock is not in a clear sell zone; however, the upcoming earnings report within 4 days introduces high gap risk, warranting caution."
+      "confidence": 0.55,
+      "reason": "DVA's mixed technicals and weak fundamentals are offset by stable dialysis demand, but the imminent earnings report within 4 days creates high gap risk, warranting caution."
     },
     {
       "symbol": "IMVT",
       "action": "Hold",
       "confidence": 0.55,
-      "reason": "IMVT has weak fundamentals and high volatility near earnings, but technicals and news are neutral-to-positive, so waiting for the earnings catalyst is prudent before taking a directional stance."
+      "reason": "IMVT has weak fundamentals and high volatility near earnings, but technicals and news are mildly supportive, warranting a cautious hold rather than a buy or avoid."
     }
   ],
   "market_timing": {
