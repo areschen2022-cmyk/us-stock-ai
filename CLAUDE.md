@@ -23,6 +23,9 @@
   入池資格＝廣域掃描 S 級＋週線向上＋AI 複核非 Avoid＋財報 ≥7 天；
   單一產業每週最多吸納 4 檔（生技 binary 風險）；被財報排除者次週自動重審。
   超過 ~120 檔前需重估 CI 執行時間與 yfinance 配額
+- **出場規則（2026-07-28 起）**：主要出場 = 收盤跌破 MA20（月底對照 n=62 裁決，
+  配對 t=4.76）；2×ATR 降為災難停損併列顯示。`stop_price` 欄位語意不變，
+  仍供 shadow 停損驗證迴路使用，勿重新定義
 - 市場時機主軸 = 200MA regime + FTD 狀態（30 年驗證）；分配日僅參考
 - 所有 universe 級回測宣稱必須用點時成分（`backtest_score_v2_pit.py` 的 `load_pit_membership`）
 - 本 repo 有背景 auto-commit watcher；push 前先 `git pull --rebase`
