@@ -3,7 +3,7 @@
   "market": {
     "SPY": 741.6900024414062,
     "QQQ": 683.5499877929688,
-    "VIX": 16.790000915527344,
+    "VIX": 16.81999969482422,
     "TLT": 82.80000305175781,
     "HYG": 79.47000122070312,
     "IWM": 292.5899963378906,
@@ -35,14 +35,14 @@
   ],
   "ai_stats": {
     "buy": 0,
-    "hold": 7,
-    "avoid": 0,
+    "hold": 6,
+    "avoid": 1,
     "total": 7,
     "candidates": 7,
     "coverage_pct": 100
   },
   "data_health": {
-    "elapsed_min": 2.1,
+    "elapsed_min": 1.9,
     "requested": 35,
     "scored": 35,
     "missing": 0,
@@ -240,7 +240,7 @@
         "alpha_win_rate_5d": 52.2
       },
       "social_bullish": {
-        "tracked": 599,
+        "tracked": 600,
         "completed": 452,
         "completed_10d": 387,
         "win_rate": 40.5,
@@ -336,7 +336,7 @@
         "alpha_win_rate_5d": 57.1
       },
       "ai_hold": {
-        "tracked": 66,
+        "tracked": 65,
         "completed": 38,
         "completed_10d": 21,
         "win_rate": 42.1,
@@ -352,7 +352,7 @@
         "alpha_win_rate_5d": 44.7
       },
       "ai_avoid": {
-        "tracked": 24,
+        "tracked": 25,
         "completed": 19,
         "completed_10d": 19,
         "win_rate": 47.4,
@@ -1543,7 +1543,7 @@
         "R": -1
       },
       "sector": "Industrials",
-      "market_cap": 25278818304,
+      "market_cap": 25282838528,
       "risk_penalty": 1,
       "strategy": {
         "score_v2": 57,
@@ -1721,7 +1721,7 @@
       "warnings": [],
       "matched_headlines": [
         "Earnings live: Amazon stock surges on earnings beat, Apple stock slides",
-        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge",
+        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do As AI Stocks Rally",
         "Apple's New Leasing Program Could Spur More Upgrades. Here's What Investors Should Be Watching"
       ],
       "catalyst_confidence": {
@@ -1768,12 +1768,12 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 5,
-          "bearish": 5,
-          "sentiment_ratio": 0.0,
-          "watchlist_count": 985859,
-          "label": "中性",
-          "score_0_10": 5.0,
+          "bullish": 8,
+          "bearish": 2,
+          "sentiment_ratio": 0.6,
+          "watchlist_count": 985864,
+          "label": "強烈看多",
+          "score_0_10": 8.0,
           "tagged": 10
         },
         "potential": {
@@ -1795,7 +1795,7 @@
           "gate_passed": true,
           "gate_reasons": [],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 44.62,
+          "composite": 46.12,
           "percentile": 26.7,
           "research_grade": "C"
         }
@@ -2152,7 +2152,7 @@
         "R": -9
       },
       "sector": "Technology",
-      "market_cap": 791477223424,
+      "market_cap": 0,
       "risk_penalty": 9,
       "strategy": {
         "score_v2": 69,
@@ -2186,13 +2186,13 @@
         ],
         "social": {
           "messages": 30,
-          "bullish": 15,
+          "bullish": 12,
           "bearish": 0,
           "sentiment_ratio": 1.0,
           "watchlist_count": 561733,
           "label": "強烈看多",
           "score_0_10": 10.0,
-          "tagged": 15
+          "tagged": 12
         },
         "potential": {
           "stage": null,
@@ -2240,7 +2240,7 @@
         "波動偏高 ATR 3.0%"
       ],
       "matched_headlines": [
-        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge",
+        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do As AI Stocks Rally",
         "Pfizer Inc. (PFE) vs. Eli Lilly and Company (LLY): The Growth vs. Value Play in Pharma"
       ],
       "catalyst_confidence": {
@@ -2258,7 +2258,7 @@
         "R": -7
       },
       "sector": "Healthcare",
-      "market_cap": 1029934481408,
+      "market_cap": 0,
       "risk_penalty": 7,
       "strategy": {
         "score_v2": 60,
@@ -2392,7 +2392,7 @@
           "bullish": 13,
           "bearish": 0,
           "sentiment_ratio": 1.0,
-          "watchlist_count": 222814,
+          "watchlist_count": 222816,
           "label": "強烈看多",
           "score_0_10": 10.0,
           "tagged": 13
@@ -3355,105 +3355,6 @@
       "divergence_gap": -22
     },
     {
-      "symbol": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "score": 37,
-      "grade": "D",
-      "action": "Avoid",
-      "price": 235.5,
-      "entry": 235.5,
-      "stop": 221.6,
-      "atr_pct": 2.952078164690438,
-      "themes": [
-        "cloud_saas"
-      ],
-      "warnings": [],
-      "matched_headlines": [
-        "Amazon Q2 earnings results beat Wall Street's estimates, as AWS continues to boom",
-        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge",
-        "Earn 8.4% On AAPL Stock By Selling Upside You Might Not Miss"
-      ],
-      "catalyst_confidence": {
-        "grade": "A",
-        "label": "已確認",
-        "reason": "公告/財報/正式事件佐證",
-        "evidence_count": 5
-      },
-      "sub": {
-        "T": 6,
-        "F": 12,
-        "Fl": 3,
-        "N": 12,
-        "M": 6,
-        "R": 0
-      },
-      "sector": "Consumer Cyclical",
-      "market_cap": 2533299322880,
-      "risk_penalty": 0,
-      "strategy": {
-        "score_v2": 25,
-        "v2_grade": "D",
-        "v2_parts": {
-          "rs": 3,
-          "trend": 15,
-          "high52": 5,
-          "volume": 2
-        },
-        "weekly_up": false,
-        "ma20_exit": 242.41,
-        "rs_rating": 7,
-        "rs_score_0_10": 2.31,
-        "minervini_pass": 4,
-        "phase2": false,
-        "liquidity_ok": true,
-        "dollar_vol_50d": 12249412050.0,
-        "entry_price": 235.5,
-        "stop_price": 221.64,
-        "entry_quality": {
-          "label": "觀望",
-          "reason": "未站上50MA趨勢",
-          "chase_risk": false
-        },
-        "failure_risks": [],
-        "social": {
-          "messages": 30,
-          "bullish": 8,
-          "bearish": 2,
-          "sentiment_ratio": 0.6,
-          "watchlist_count": 695937,
-          "label": "強烈看多",
-          "score_0_10": 8.0,
-          "tagged": 10
-        },
-        "potential": {
-          "stage": null,
-          "label": null
-        },
-        "sector": {
-          "score": 0,
-          "above_ema20": false,
-          "rs_vs_spy_20d": -4.28,
-          "status": "偏弱",
-          "reasons": [
-            "跌破20日均線(112.4<113.8)",
-            "20日落後SPY -4.3%"
-          ],
-          "sector_etf": "XLY"
-        },
-        "research_rank": {
-          "gate_passed": false,
-          "gate_reasons": [
-            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
-          ],
-          "regime_at_signal": "可進場（多頭）",
-          "composite": 36.3,
-          "percentile": null,
-          "research_grade": "D"
-        }
-      },
-      "divergence_gap": -30
-    },
-    {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
       "score": 36,
@@ -3517,12 +3418,12 @@
         "failure_risks": [],
         "social": {
           "messages": 30,
-          "bullish": 14,
-          "bearish": 1,
-          "sentiment_ratio": 0.87,
+          "bullish": 15,
+          "bearish": 0,
+          "sentiment_ratio": 1.0,
           "watchlist_count": 655923,
           "label": "強烈看多",
-          "score_0_10": 9.4,
+          "score_0_10": 10.0,
           "tagged": 15
         },
         "potential": {
@@ -3546,12 +3447,111 @@
             "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
           ],
           "regime_at_signal": "可進場（多頭）",
-          "composite": 35.67,
+          "composite": 35.97,
           "percentile": null,
           "research_grade": "D"
         }
       },
       "divergence_gap": -24
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "score": 36,
+      "grade": "D",
+      "action": "Avoid",
+      "price": 235.5,
+      "entry": 235.5,
+      "stop": 221.6,
+      "atr_pct": 2.952078164690438,
+      "themes": [
+        "cloud_saas"
+      ],
+      "warnings": [],
+      "matched_headlines": [
+        "Amazon Q2 earnings results beat Wall Street's estimates, as AWS continues to boom",
+        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do As AI Stocks Rally",
+        "Earn 8.4% On AAPL Stock By Selling Upside You Might Not Miss"
+      ],
+      "catalyst_confidence": {
+        "grade": "A",
+        "label": "已確認",
+        "reason": "公告/財報/正式事件佐證",
+        "evidence_count": 4
+      },
+      "sub": {
+        "T": 6,
+        "F": 14,
+        "Fl": 3,
+        "N": 9,
+        "M": 6,
+        "R": 0
+      },
+      "sector": "Consumer Cyclical",
+      "market_cap": 2533299322880,
+      "risk_penalty": 0,
+      "strategy": {
+        "score_v2": 25,
+        "v2_grade": "D",
+        "v2_parts": {
+          "rs": 3,
+          "trend": 15,
+          "high52": 5,
+          "volume": 2
+        },
+        "weekly_up": false,
+        "ma20_exit": 242.41,
+        "rs_rating": 7,
+        "rs_score_0_10": 2.31,
+        "minervini_pass": 4,
+        "phase2": false,
+        "liquidity_ok": true,
+        "dollar_vol_50d": 12249412050.0,
+        "entry_price": 235.5,
+        "stop_price": 221.64,
+        "entry_quality": {
+          "label": "觀望",
+          "reason": "未站上50MA趨勢",
+          "chase_risk": false
+        },
+        "failure_risks": [],
+        "social": {
+          "messages": 30,
+          "bullish": 9,
+          "bearish": 2,
+          "sentiment_ratio": 0.64,
+          "watchlist_count": 695939,
+          "label": "強烈看多",
+          "score_0_10": 8.2,
+          "tagged": 11
+        },
+        "potential": {
+          "stage": null,
+          "label": null
+        },
+        "sector": {
+          "score": 0,
+          "above_ema20": false,
+          "rs_vs_spy_20d": -4.28,
+          "status": "偏弱",
+          "reasons": [
+            "跌破20日均線(112.4<113.8)",
+            "20日落後SPY -4.3%"
+          ],
+          "sector_etf": "XLY"
+        },
+        "research_rank": {
+          "gate_passed": false,
+          "gate_reasons": [
+            "無明確趨勢證據(RS<70且非phase2且非潛力雷達)"
+          ],
+          "regime_at_signal": "可進場（多頭）",
+          "composite": 37.4,
+          "percentile": null,
+          "research_grade": "D"
+        }
+      },
+      "divergence_gap": -29
     },
     {
       "symbol": "MRNA",
@@ -3676,7 +3676,7 @@
       "matched_headlines": [
         "Amazon stock soars after Q2 earnings beat expectations as AI, chip businesses see $25 billion run rate",
         "Earnings live: Amazon stock surges on earnings beat, Apple stock slides",
-        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge"
+        "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do As AI Stocks Rally"
       ],
       "catalyst_confidence": {
         "grade": "A",
@@ -3725,7 +3725,7 @@
           "bullish": 10,
           "bearish": 5,
           "sentiment_ratio": 0.33,
-          "watchlist_count": 602929,
+          "watchlist_count": 602931,
           "label": "偏多",
           "score_0_10": 6.7,
           "tagged": 15
@@ -5580,44 +5580,44 @@
     {
       "symbol": "LQDA",
       "action": "Hold",
-      "confidence": 0.65,
-      "reason": "Strong technicals and positive news are offset by high volatility and imminent earnings risk, warranting a wait-and-see stance despite the high score."
+      "confidence": 0.6,
+      "reason": "Strong technical and fundamental scores are offset by high volatility and imminent earnings risk, warranting a cautious hold despite the A-grade composite."
     },
     {
       "symbol": "DDOG",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "DDOG has solid fundamentals and cloud/SaaS momentum, but elevated volatility and an upcoming earnings report in 6 days warrant waiting for a clearer entry point."
+      "reason": "DDOG has solid fundamentals and cloud/SaaS tailwinds, but high volatility and upcoming earnings on June 6 create uncertainty, while weak flow and market signals cap upside near-term."
     },
     {
       "symbol": "ELVN",
       "action": "Hold",
       "confidence": 0.6,
-      "reason": "ELVN scores a B with strong technicals and positive news flow, but the high ATR (4.6%) and upcoming earnings on the 12th introduce significant near-term volatility, warranting caution despite the favorable overall score."
+      "reason": "ELVN scores a B with balanced technicals and positive news/flow, but weak fundamentals, high volatility (ATR 4.6%), and imminent earnings on the 12th warrant caution despite the current price near $54."
     },
     {
       "symbol": "ORKA",
-      "action": "Hold",
-      "confidence": 0.55,
-      "reason": "Score of 63 (C) with weak technicals/fundamentals and high volatility near earnings, but positive news and market momentum offset some downside, warranting caution rather than a clear buy or avoid."
+      "action": "Avoid",
+      "confidence": 0.7,
+      "reason": "Weak technicals and fundamentals (score 24/2), high volatility (ATR 5.5%), and imminent earnings risk outweigh the modest news/market support, making the risk/reward unfavorable."
     },
     {
       "symbol": "DELL",
       "action": "Hold",
-      "confidence": 0.55,
-      "reason": "DELL's high volatility (ATR 8.8%) and weak technical/fundamental scores offset its AI server demand narrative, warranting a cautious hold until price stabilizes and news catalysts improve."
+      "confidence": 0.6,
+      "reason": "DELL trades at a fair valuation with solid fundamentals but extreme volatility (ATR 8.8%) and weak technical/flow signals warrant caution despite AI server demand."
     },
     {
       "symbol": "DVA",
       "action": "Hold",
-      "confidence": 0.55,
+      "confidence": 0.6,
       "reason": "DVA's mixed technicals and weak fundamentals are offset by stable dialysis demand, but the imminent earnings report within 4 days creates high gap risk, warranting caution."
     },
     {
       "symbol": "IMVT",
       "action": "Hold",
       "confidence": 0.55,
-      "reason": "IMVT has weak fundamentals and high volatility near earnings, but technicals and news are mildly supportive, warranting a cautious hold rather than a buy or avoid."
+      "reason": "IMVT has a weak fundamental score and high volatility with earnings approaching, but technicals and news are mildly supportive, warranting a cautious hold rather than a buy or avoid."
     }
   ],
   "market_timing": {
