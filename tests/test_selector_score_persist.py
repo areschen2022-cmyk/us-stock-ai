@@ -55,6 +55,35 @@ def test_absent_selector_score_is_null_not_zero(store):
     assert _read(store, "selector_score, selector_percentile") == (None, None)
 
 
+def test_rerun_fills_a_column_added_after_the_row_existed(store):
+    """The 2026-07-31 miss: selector_score shipped, CI went green, and not one
+    row got a value — the day's signals were already inserted, and INSERT OR
+    IGNORE skipped them. A re-run must enrich, not silently no-op."""
+    first = _signal()
+    del first["selector_score"], first["selector_percentile"]
+    store.upsert_shadow_signal(date(2026, 7, 31), "research_rank", first)
+    assert _read(store, "selector_score") == (None,)
+
+    store.upsert_shadow_signal(date(2026, 7, 31), "research_rank", _signal())
+
+    assert _read(store, "selector_score, selector_percentile") == (78.87, 100.0)
+    with store._connect() as conn:
+        assert conn.execute("SELECT COUNT(1) FROM shadow_signals").fetchone()[0] == 1
+
+
+def test_rerun_never_rewrites_history(store):
+    """Entry price and forward returns are settled facts. A later run with a
+    different price must not move them — that would silently restate results."""
+    store.upsert_shadow_signal(date(2026, 7, 31), "research_rank", _signal())
+    with store._connect() as conn:
+        conn.execute("UPDATE shadow_signals SET return_10d = -9.5")
+
+    store.upsert_shadow_signal(date(2026, 7, 31), "research_rank",
+                               _signal(entry_price=99.0, selector_score=1.0))
+
+    assert _read(store, "entry_price, return_10d, selector_score") == (10.0, -9.5, 78.87)
+
+
 def test_migration_adds_columns_to_a_preexisting_table(tmp_path):
     """The column must appear on databases created before this change, not just
     on fresh ones — the production DB is committed and long-lived."""
