@@ -415,6 +415,10 @@ def _log_validation_signals(store, today, scores, per_symbol: dict, spy_price: f
                 "stop_price": sig.get("stop_price"),
                 "spy_entry_price": spy_price,
                 "entry_quality": (sig.get("entry_quality") or {}).get("label"),
+                # persisted so a floor can be calibrated from outcomes later —
+                # the grade alone is a percentile and carries no absolute level
+                "selector_score": rr.get("composite"),
+                "selector_percentile": rr.get("percentile"),
             })
             research_n += 1
 
