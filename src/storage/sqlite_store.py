@@ -231,6 +231,14 @@ class SQLiteStore:
             # flagged, so 2xATR rendered identical to buy-and-hold). Separate
             # column, separate window — never share a flag across horizons.
             "stop_hit_20d": "INTEGER",
+            # The selecting group's own score/percentile at signal time.
+            # research_rank grades purely by cross-sectional percentile with no
+            # absolute floor ("B" = top 30% of whoever passed the gate, however
+            # weak that field is). The 2026-07-31 post-mortem could not test
+            # whether a floor would help, because the composite was computed,
+            # used, and thrown away. Persisting it makes that calibration a
+            # query instead of a rewrite.
+            "selector_score": "REAL", "selector_percentile": "REAL",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
