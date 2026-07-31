@@ -28,6 +28,12 @@ THEME_ZH = {
 
 DASHBOARD_URL = "https://areschen2022-cmyk.github.io/us-stock-ai/"
 
+# In a broad momentum drawdown most of the pool breaches MA20 at once (2026-07-31:
+# 24 of 35). Listing every one with prices would bury the rest of the brief, so
+# the deepest breaches get full detail and the tail is named in one line — the
+# count still tells you it is a regime event rather than a single-name problem.
+_MAX_EXIT_ALERTS = 8
+
 
 def _zh_action(action: str) -> str:
     return ACTION_ZH.get(action, action or "未分類")
@@ -231,12 +237,22 @@ def _build_morning_report(
     # closed under its MA20 is the most actionable line in the brief, but it
     # can rank anywhere — including the "其他追蹤標的" tail, which prints no
     # exit detail — so it gets hoisted into its own block ahead of new ideas.
-    breached = [s for s in top_scores if (ma20_map.get(s.symbol) or {}).get("below")]
+    # Driven by the whole watchlist map, NOT by top_scores: the exit rule applies
+    # to what you hold, and a name that fell out of today's top 10 *because it
+    # dropped* is exactly the case this alert exists for — keying off the top 10
+    # would go silent on the worst ones.
+    breached = sorted(
+        ((sym, d) for sym, d in ma20_map.items() if d.get("below")),
+        key=lambda kv: (kv[1].get("price") or 0) / (kv[1].get("level") or 1),
+    )
     if breached:
-        _flush("⚠ 出場警示 — 已跌破 MA20\n")
-        for s in breached:
-            lvl = _fmt_price((ma20_map.get(s.symbol) or {}).get("level"))
-            _flush(f"{s.symbol}｜現價 {_fmt_price(s.price)}｜MA20 {lvl} — 依規則出場\n")
+        _flush(f"⚠ 出場警示 — 已跌破 MA20（{len(breached)} 檔）\n")
+        for sym, d in breached[:_MAX_EXIT_ALERTS]:
+            _flush(f"{sym}｜現價 {_fmt_price(d.get('price'))}｜"
+                   f"MA20 {_fmt_price(d.get('level'))} — 依規則出場\n")
+        if len(breached) > _MAX_EXIT_ALERTS:
+            rest = ", ".join(s for s, _ in breached[_MAX_EXIT_ALERTS:])
+            _flush(f"另有 {len(breached) - _MAX_EXIT_ALERTS} 檔：{rest}\n")
         _flush("\n")
 
     if highlights:

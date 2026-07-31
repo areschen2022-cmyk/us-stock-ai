@@ -38,7 +38,7 @@ def test_ma20_is_the_primary_exit_and_atr_is_the_floor():
     s = _score()
     text = _render([s], {
         "total_scanned": 1, "grade_s": 1,
-        "ma20_exit_map": {"AAA": {"level": 95.0, "below": False}},
+        "ma20_exit_map": {"AAA": {"level": 95.0, "price": 100.0, "below": False}},
     })
     assert "收盤跌破 MA20 $95.00" in text
     assert "災難停損 $88.00" in text
@@ -52,7 +52,7 @@ def test_already_below_ma20_says_exit_now():
     s = _score(price=90.0)
     text = _render([s], {
         "total_scanned": 1, "grade_s": 1,
-        "ma20_exit_map": {"AAA": {"level": 95.0, "below": True}},
+        "ma20_exit_map": {"AAA": {"level": 95.0, "price": 90.0, "below": True}},
     })
     assert "已跌破 MA20" in text and "依規則出場" in text
 
@@ -71,8 +71,8 @@ def test_breached_name_is_hoisted_into_its_own_alert_block():
     strong, weak = _score("AAA", 100.0, 88.0, "S", 90), _score("ZZZ", 50.0, 44.0, "D", 30)
     text = _render([strong, weak], {
         "total_scanned": 2, "grade_s": 1,
-        "ma20_exit_map": {"AAA": {"level": 95.0, "below": False},
-                          "ZZZ": {"level": 55.0, "below": True}},
+        "ma20_exit_map": {"AAA": {"level": 95.0, "price": 100.0, "below": False},
+                          "ZZZ": {"level": 55.0, "price": 50.0, "below": True}},
     })
     assert "出場警示" in text
     assert "ZZZ｜現價 $50.00｜MA20 $55.00" in text
@@ -80,11 +80,36 @@ def test_breached_name_is_hoisted_into_its_own_alert_block():
     assert text.index("出場警示") < text.index("今日重點")
 
 
+def test_mass_breach_is_capped_but_still_counted():
+    """2026-07-31 reality: 24 of 35 names breached at once in a momentum
+    drawdown. Full detail for every one would bury the brief, but the total
+    must stay visible — that is what tells you it is a regime event."""
+    ma20 = {f"S{i:02d}": {"level": 100.0, "price": 100.0 - i, "below": True}
+            for i in range(24)}
+    text = _render([_score()], {"total_scanned": 24, "ma20_exit_map": ma20})
+
+    assert "已跌破 MA20（24 檔）" in text
+    assert "另有 16 檔" in text
+    # deepest breach ranks first, shallowest is relegated to the tail line
+    assert text.index("S23") < text.index("另有")
+    assert text.index("S00") > text.index("另有")
+
+
+def test_alert_covers_names_outside_the_top_scores():
+    """The map is the source of truth: a held name can drop out of the ranked
+    list entirely, which is precisely when its exit alert matters most."""
+    text = _render([_score("AAA")], {
+        "total_scanned": 1,
+        "ma20_exit_map": {"QQQX": {"level": 55.0, "price": 50.0, "below": True}},
+    })
+    assert "QQQX｜現價 $50.00｜MA20 $55.00" in text
+
+
 def test_no_breach_means_no_alert_block():
     s = _score()
     text = _render([s], {
         "total_scanned": 1, "grade_s": 1,
-        "ma20_exit_map": {"AAA": {"level": 95.0, "below": False}},
+        "ma20_exit_map": {"AAA": {"level": 95.0, "price": 100.0, "below": False}},
     })
     assert "出場警示" not in text
 

@@ -231,6 +231,7 @@ def _ma20_exit_map(dash_data: dict) -> dict[str, dict]:
         if level is not None:
             out[c["symbol"]] = {
                 "level": level,
+                "price": price,
                 "below": bool(price is not None and price < level),
             }
     return out
