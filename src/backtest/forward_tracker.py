@@ -307,9 +307,15 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
             if spy_entry is None:
                 spy_entry = spy_at(signal_date)
 
+            mtum_entry = sig.get("mtum_entry_price")
+            if mtum_entry is None:
+                mtum_entry = bench_at("MTUM", signal_date)
+
             updates: dict[str, object] = {}
             if sig.get("spy_entry_price") is None and spy_entry is not None:
                 updates["spy_entry_price"] = spy_entry
+            if sig.get("mtum_entry_price") is None and mtum_entry is not None:
+                updates["mtum_entry_price"] = mtum_entry
 
             max_target = signal_date
             for h in _HORIZONS:
