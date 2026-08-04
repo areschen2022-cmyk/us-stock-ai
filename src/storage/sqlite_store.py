@@ -239,6 +239,18 @@ class SQLiteStore:
             # used, and thrown away. Persisting it makes that calibration a
             # query instead of a rewrite.
             "selector_score": "REAL", "selector_percentile": "REAL",
+            # Momentum-factor benchmark alongside SPY. Selection here is
+            # explicitly momentum (RS rating, Minervini template, 52w-high
+            # proximity, volume accumulation), so SPY-only alpha conflates "our
+            # picks are bad" with "the momentum factor drew down" — in 2026-07
+            # MTUM lost 8.7pp to SPY and every group's SPY-alpha looked
+            # catastrophic while several were beating their own factor.
+            # Persisted rather than recomputed per report so the benchmark
+            # entry price is the one at signal time, not whatever a later
+            # backfill happens to fetch.
+            "mtum_entry_price": "REAL",
+            "mtum_return_5d": "REAL", "mtum_return_10d": "REAL",
+            "alpha_mtum_5d": "REAL", "alpha_mtum_10d": "REAL",
         }
         for col, coltype in new_cols.items():
             if col not in cols:
