@@ -208,7 +208,12 @@ def run(apply: bool, force_remove: list[str] | None = None) -> dict:
         if len(admits) >= MAX_ADMIT_PER_WEEK or projected + len(admits) >= POOL_CEILING:
             break
         sym = c["symbol"]
-        if new_streak.get(sym, 0) < MIN_STREAK_WEEKS:
+        wk = new_streak.get(sym, 0)
+        if wk < MIN_STREAK_WEEKS:
+            # Logged, not silent: this branch skipped the board's top names on
+            # 2026-08-03 leaving no trace, which made "why did the pool not
+            # grow?" take a full investigation. Every skip reason is evidence.
+            result["notes"].append(f"{sym}: streak {wk}/{MIN_STREAK_WEEKS} → skip")
             continue
         act = ai.get(sym)
         if act not in ("Buy", "Hold"):
