@@ -272,7 +272,7 @@
 <div id="signals" class="tab">
   <div class="section-title">🧪 研究級訊號記錄（每日自動記錄並追蹤前瞻報酬）</div>
   <div class="updated" style="margin-bottom:6px">分組：Top10＝現行評分前十｜v2＝研究評級 S/A＋週線向上｜AI買＝DeepSeek 複核 Buy。統計彙總見總覽「前瞻驗證」。</div>
-  <div class="updated" style="margin-bottom:8px;color:var(--red)">⚠ 這些是<b>驗證用的觀察記錄，不是買賣建議</b>。2026-07-31 月底對照：research_rank 組線上前瞻報酬顯著為負（對動能基準 −4.08%，t=−4.32），且 71 筆訊號僅來自 16 檔股票、產業高度集中（科技 9/16）。該組評級是<b>相對百分位、無絕對門檻</b>——「B 級」只代表當日通過濾網者的前 30%，不代表品質達標。已加註待 8/10 後以新樣本複審。</div>
+  <div class="updated" style="margin-bottom:8px;color:var(--red)">⚠ 這些是<b>驗證用的觀察記錄，不是買賣建議</b>。2026-07-31 月底對照：research_rank 是所有組中最差的一組（對動能基準 −2.56%），但 71 筆訊號僅來自 <b>16 檔股票</b>、產業高度集中（科技 9/16），一檔一票校正後 t=−1.76 <b>未達統計顯著</b> —— 差是真的，但還不到可以斷定的程度。該組評級是<b>相對百分位、無絕對門檻</b>——「B 級」只代表當日通過濾網者的前 30%，不代表品質達標。已加註待 8/10 後以新樣本複審。</div>
   <table>
     <thead><tr>
       <th>訊號日期</th><th>分組</th><th>代碼</th><th>評分</th><th>等級</th>
@@ -369,7 +369,7 @@ function exitText(s) {
   const ma = (s.strategy || {}).ma20_exit;
   const stopTxt = s.stop != null ? `｜災難停損 ${fmtPrice(s.stop)}` : '';
   if (ma == null) return s.stop != null ? ` &nbsp;→&nbsp; 停損 ${fmtPrice(s.stop)}` : '';
-  const tip = '月底對照 n=62：MA20追蹤 -1.13% vs 持有20日 -5.86% vs 2xATR停損 -7.01%（配對 t=4.76）';
+  const tip = '月底對照 n=187：MA20 -4.00% vs 持有20日 -8.14% vs 2xATR -6.64%；一檔一票後 t=0.96 未達顯著，方向在 4/5 組一致並有 10 年回測支持';
   if (s.price != null && s.price < ma) {
     return ` &nbsp;→&nbsp; <span style="color:var(--red)" title="${tip}">⚠ 已跌破 MA20 ${fmtPrice(ma)} — 依規則出場</span>` +
            `<span style="color:var(--muted)">${stopTxt}</span>`;
@@ -458,7 +458,7 @@ function renderStrategyBadges(st) {
     // 71 signals from just 16 names). A green "S" reads as a recommendation the
     // forward data does not support. Kept visible as research, not endorsed.
     rrBadge = `<span class="strat-badge" style="color:var(--muted);border:1px solid var(--muted)" ` +
-      `title="研究用，非建議｜同期百分位 ${rr.percentile}%｜此組線上前瞻報酬顯著為負（對動能基準 -4.08%，t=-4.32），評級為相對排名、無絕對門檻">` +
+      `title="研究用，非建議｜同期百分位 ${rr.percentile}%｜此組線上前瞻報酬為所有組最差（對動能基準 -2.56%，但一檔一票後 t=-1.76 未達顯著），評級為相對排名、無絕對門檻">` +
       `研究級 ${rr.research_grade} ⚠</span>`;
   } else if (rr.gate_reasons && rr.gate_reasons.length) {
     rrBadge = `<span class="strat-badge" style="color:var(--muted)" title="${rr.gate_reasons.join('、')}">研究：未過濾網</span>`;
