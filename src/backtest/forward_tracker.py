@@ -357,6 +357,18 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
                         updates[f"spy_return_{h}d"] = spy_ret
                         updates[f"alpha_{h}d"] = round(stock_ret - spy_ret, 2)
 
+                # Same computation against the momentum factor. Reported next to
+                # the SPY figure, never instead of it: SPY answers "did this beat
+                # the market", MTUM answers "did this beat the factor we are
+                # deliberately exposed to". Only the pair separates picking skill
+                # from factor timing.
+                if need_mtum and stock_ret is not None and target <= today:
+                    mtum_price = bench_at("MTUM", target)
+                    if mtum_price:
+                        mtum_ret = round((mtum_price - mtum_entry) / mtum_entry * 100, 2)
+                        updates[f"mtum_return_{h}d"] = mtum_ret
+                        updates[f"alpha_mtum_{h}d"] = round(stock_ret - mtum_ret, 2)
+
             if sig.get("stop_hit") is None and stop_price:
                 stop_window_end = _trading_days_later(signal_date, 10)  # align to 10d outcome
                 low = _fetch_period_low(symbol, signal_date, min(stop_window_end, today))
