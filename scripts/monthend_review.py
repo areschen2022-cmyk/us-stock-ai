@@ -239,12 +239,14 @@ def factor_relative(rows: list[dict]) -> dict:
             continue
         sd = date.fromisoformat(r["signal_date"])
         tgt = _trading_days_later(sd, 10)
-        rec = {"stock": stock}
+        rec = {"stock": stock, "symbol": str(r.get("symbol") or "?")}
+        priced = 0
         for b in _BENCH:
             entry, exit_ = at(b, sd), at(b, tgt)
             if entry and exit_:
                 rec[b] = (exit_ / entry - 1) * 100
-        if len(rec) == len(_BENCH) + 1:  # every benchmark priced, else drop the row
+                priced += 1
+        if priced == len(_BENCH):  # every benchmark priced, else drop the row
             groups.setdefault(str(r.get("grp") or "?"), []).append(rec)
 
     def block(rs: list[dict]) -> dict:
