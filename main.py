@@ -591,7 +591,17 @@ def run_daily_update() -> None:
             scan_snapshot = json.loads(scan_path.read_text(encoding="utf-8"))
     except Exception as _scan_e:
         print(f"[Main] scan snapshot read failed (non-fatal): {_scan_e}")
-    scan_reviews = council.review_scan_candidates(scan_snapshot, today)
+    # Aim the small review budget at candidates the autopilot could actually
+    # admit — admission needs a same-day verdict, so reviewing in raw scan
+    # order left qualified names permanently stuck on "no-review".
+    _admit_priority: list[str] = []
+    try:
+        from scripts.pool_autopilot import admission_priority
+        _admit_priority = admission_priority(scan_snapshot)
+    except Exception as _ap_e:
+        print(f"[Main] admission priority unavailable (non-fatal): {_ap_e}")
+    scan_reviews = council.review_scan_candidates(
+        scan_snapshot, today, priority_symbols=_admit_priority)
     ai_reviews.update(scan_reviews)
     ai_candidates_count = len(candidates) + len(scan_reviews)
     ai_summaries = council.get_ai_summaries(ai_reviews)
