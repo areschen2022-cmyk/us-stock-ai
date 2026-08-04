@@ -45,20 +45,46 @@ def _f(row: dict, col: str) -> float | None:
     return None if v is None else float(v)
 
 
-def _agg(vals: list[float]) -> dict:
-    """Mean plus a paired-t-style significance hint. With n this small the
-    t-stat is directional evidence, not proof — the report prints n beside it
-    everywhere so a 4-sample 'win' can never be read as settled."""
+def _t(vals: list[float]) -> float | None:
+    if len(vals) < 3:
+        return None
+    sd = stdev(vals)
+    return round(mean(vals) / (sd / (len(vals) ** 0.5)), 2) if sd > 0 else None
+
+
+def _agg(vals: list[float], symbols: list[str] | None = None) -> dict:
+    """Mean plus BOTH a naive per-signal t and a symbol-clustered t.
+
+    The per-signal t is not trustworthy on its own and must never be quoted as
+    the headline. This project re-signals the same names every day, so one
+    stock contributes many rows that move together — 2026-07-31 examples:
+    research_rank's 71 signals came from 16 names, the MA20 exit comparison's
+    187 from 33, and 避免追高's 22 from 5. Treating those as independent
+    inflated t from 0.96 to 6.63 on the exit decision alone.
+
+    `t_clustered` collapses each symbol to its own mean first, so n is the
+    number of distinct bets. It is the conservative number and the one to
+    decide on; `t` is kept only to show how much the naive view overstates.
+    """
     if not vals:
-        return {"n": 0, "avg": None, "t": None}
-    n = len(vals)
-    avg = mean(vals)
-    out = {"n": n, "avg": round(avg, 2), "t": None, "win_rate": None}
-    out["win_rate"] = round(sum(1 for v in vals if v > 0) / n * 100, 1)
-    if n >= 3:
-        sd = stdev(vals)
-        if sd > 0:
-            out["t"] = round(avg / (sd / (n ** 0.5)), 2)
+        return {"n": 0, "avg": None, "t": None, "t_clustered": None, "n_symbols": 0}
+    out = {
+        "n": len(vals),
+        "avg": round(mean(vals), 2),
+        "t": _t(vals),
+        "win_rate": round(sum(1 for v in vals if v > 0) / len(vals) * 100, 1),
+        "t_clustered": None,
+        "n_symbols": None,
+        "avg_clustered": None,
+    }
+    if symbols and len(symbols) == len(vals):
+        per: dict[str, list[float]] = {}
+        for sym, v in zip(symbols, vals):
+            per.setdefault(sym, []).append(v)
+        cl = [mean(v) for v in per.values()]
+        out["n_symbols"] = len(cl)
+        out["avg_clustered"] = round(mean(cl), 2)
+        out["t_clustered"] = _t(cl)
     return out
 
 
