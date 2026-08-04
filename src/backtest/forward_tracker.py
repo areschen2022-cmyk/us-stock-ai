@@ -333,7 +333,12 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
                     and sig.get(f"alpha_{h}d") is None
                     and (stock_ret is not None or target <= today)
                 )
-                if not need_return and not need_alpha:
+                need_mtum = (
+                    h in _ALPHA_HORIZONS and mtum_entry
+                    and sig.get(f"alpha_mtum_{h}d") is None
+                    and (stock_ret is not None or target <= today)
+                )
+                if not need_return and not need_alpha and not need_mtum:
                     continue
 
                 if need_return:
