@@ -287,12 +287,16 @@ def fill_shadow_signals(store: SQLiteStore) -> int:
     today = date.today()
     open_sigs = store.get_open_shadow_signals()
     updated = 0
-    spy_cache: dict[date, float | None] = {}
+    bench_cache: dict[tuple[str, date], float | None] = {}
+
+    def bench_at(sym: str, d: date) -> float | None:
+        key = (sym, d)
+        if key not in bench_cache:
+            bench_cache[key] = _fetch_price(sym, d)
+        return bench_cache[key]
 
     def spy_at(d: date) -> float | None:
-        if d not in spy_cache:
-            spy_cache[d] = _fetch_price("SPY", d)
-        return spy_cache[d]
+        return bench_at("SPY", d)
 
     with store._connect() as conn:
         for sig in open_sigs:
