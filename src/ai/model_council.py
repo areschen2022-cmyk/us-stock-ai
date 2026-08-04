@@ -49,16 +49,33 @@ class ModelCouncil:
         eligible.sort(key=lambda s: (s.symbol in pri, s.total_score), reverse=True)
         return eligible[:_MAX_REVIEWS]
 
-    def review_scan_candidates(self, scan: dict | None, today: date | None = None) -> dict[str, dict[str, Any]]:
+    def review_scan_candidates(
+        self,
+        scan: dict | None,
+        today: date | None = None,
+        priority_symbols: list[str] | None = None,
+    ) -> dict[str, dict[str, Any]]:
         """AI second opinion on full-market scan candidates — non-watchlist
         names with no StockScore, where an independent read adds the most
         value. Only runs when the scan snapshot is from today (Mondays),
-        so stale candidates don't burn budget every day."""
+        so stale candidates don't burn budget every day.
+
+        `priority_symbols` (from pool_autopilot.admission_priority) orders the
+        queue by who can actually be admitted. Admission requires a same-day
+        verdict, so spending the 5-review budget in raw scan order silently
+        starved the pool: 2026-08-03 reviewed 5 names of which 1 was eligible,
+        leaving 10 qualified candidates skipped as "no-review". Same budget,
+        aimed at the names the decision actually depends on.
+        """
         today = today or date.today()
         if not scan or scan.get("generated_at") != str(today):
             return {}
+        rows = list(scan.get("candidates") or [])
+        if priority_symbols:
+            order = {s: i for i, s in enumerate(priority_symbols)}
+            rows.sort(key=lambda r: order.get(r.get("symbol"), len(order)))
         results: dict[str, dict[str, Any]] = {}
-        for row in (scan.get("candidates") or [])[:_SCAN_REVIEW_CAP]:
+        for row in rows[:_SCAN_REVIEW_CAP]:
             summary = (
                 f"Full-market v2 research scan hit: score_v2={row.get('score_v2')}/100 (S) "
                 f"RS_rating={row.get('rs_rating')} weekly_trend_up={row.get('weekly_up')} "
