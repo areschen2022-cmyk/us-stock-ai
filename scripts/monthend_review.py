@@ -109,7 +109,11 @@ def group_table(rows: list[dict]) -> list[dict]:
     table = []
     for grp, rs in groups.items():
         rec = {"group": grp, "signals": len(rs)}
-        for col in ("return_5d", "return_10d", "return_20d", "alpha_5d", "alpha_10d"):
+        # alpha_10d (vs SPY) and alpha_mtum_10d (vs the momentum factor) are both
+        # persisted columns now — read, not recomputed, so the benchmark entry
+        # price is the one from signal time rather than a later refetch.
+        for col in ("return_5d", "return_10d", "return_20d",
+                    "alpha_5d", "alpha_10d", "alpha_mtum_5d", "alpha_mtum_10d"):
             rec[col] = _agg(*_cols(rs, col))
         stops = [r for r in rs if r.get("stop_hit") is not None]
         rec["stop_hit_rate"] = (
