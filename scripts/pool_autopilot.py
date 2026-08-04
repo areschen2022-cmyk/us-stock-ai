@@ -59,6 +59,41 @@ POOL_CEILING = 90
 MIN_STREAK_WEEKS = 2
 
 
+def admission_priority(scan: dict | None) -> list[str]:
+    """Scan candidates ordered by how close they are to actually being admitted.
+
+    The AI review budget is small (5 scan reviews/run) while the candidate board
+    runs to ~24, and admission REQUIRES a same-day AI verdict. Reviewing the
+    board in raw scan order therefore spent the whole budget on names that were
+    not admissible anyway: on 2026-08-03, 11 candidates had cleared the streak
+    threshold, only 1 of them fell inside the reviewed top-5 (and that one was
+    then blocked by earnings), so 10 fully-qualified names were skipped as
+    "no-review" and the pool sat at 35 against a 60-90 target.
+
+    Ordering here rather than in the council keeps the governance rules in the
+    governance module — the council should not have to know what makes a
+    candidate admissible.
+    """
+    if not scan:
+        return []
+    streak: dict = {}
+    if _STREAK.exists():
+        try:
+            streak = json.loads(_STREAK.read_text(encoding="utf-8"))
+        except Exception:
+            streak = {}
+    board = [c for c in scan.get("candidates", []) if not c.get("in_watchlist")]
+
+    def rank(c: dict) -> tuple:
+        sym = c.get("symbol", "")
+        # +1 because the autopilot increments the streak on the same run that
+        # reads the review — eligibility is judged on next week's value.
+        eligible = streak.get(sym, 0) + 1 >= MIN_STREAK_WEEKS
+        return (eligible, c.get("score_v2") or 0)
+
+    return [c["symbol"] for c in sorted(board, key=rank, reverse=True) if c.get("symbol")]
+
+
 def _pool() -> list[str]:
     return yaml.safe_load(_CONFIG.read_text(encoding="utf-8")).get("symbols", [])
 
