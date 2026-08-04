@@ -443,6 +443,7 @@ class SQLiteStore:
                 "SELECT * FROM shadow_signals WHERE outcome IS NULL "
                 "OR alpha_5d IS NULL OR alpha_10d IS NULL OR return_20d IS NULL "
                 "OR stop_hit_20d IS NULL "
+                "OR alpha_mtum_5d IS NULL OR alpha_mtum_10d IS NULL "
                 "ORDER BY signal_date DESC"
             ).fetchall()
             return [dict(r) for r in rows]
