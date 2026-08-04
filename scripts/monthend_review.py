@@ -88,6 +88,17 @@ def _agg(vals: list[float], symbols: list[str] | None = None) -> dict:
     return out
 
 
+def _cols(rs: list[dict], col: str) -> tuple[list[float], list[str]]:
+    """Values plus the symbol each came from, so _agg can cluster by name."""
+    vals, syms = [], []
+    for r in rs:
+        v = _f(r, col)
+        if v is not None:
+            vals.append(v)
+            syms.append(str(r.get("symbol") or "?"))
+    return vals, syms
+
+
 def group_table(rows: list[dict]) -> list[dict]:
     """Per-group forward performance. alpha_10d is the headline: it strips SPY
     beta, so a group is only 'good' if it beats the market, not just rises."""
@@ -99,7 +110,7 @@ def group_table(rows: list[dict]) -> list[dict]:
     for grp, rs in groups.items():
         rec = {"group": grp, "signals": len(rs)}
         for col in ("return_5d", "return_10d", "return_20d", "alpha_5d", "alpha_10d"):
-            rec[col] = _agg([v for r in rs if (v := _f(r, col)) is not None])
+            rec[col] = _agg(*_cols(rs, col))
         stops = [r for r in rs if r.get("stop_hit") is not None]
         rec["stop_hit_rate"] = (
             round(sum(1 for r in stops if int(r["stop_hit"]) == 1) / len(stops) * 100, 1)
@@ -139,7 +150,7 @@ def exit_comparison(rows: list[dict]) -> list[dict]:
             "hold20": round(mean(hold), 2),
             "stop2atr": round(mean(stop), 2),
             "ma20_trail": round(mean(trail), 2),
-            "ma20_minus_hold": _agg(diff),
+            "ma20_minus_hold": _agg(diff, [str(r.get("symbol") or "?") for r in done]),
             "ma20_beats_hold_pct": round(sum(1 for d in diff if d > 0) / len(diff) * 100, 1),
         }
 
@@ -162,8 +173,8 @@ def ai_discrimination(rows: list[dict]) -> dict:
         rs = [r for r in rows if r.get("grp") == grp]
         out[grp] = {
             "signals": len(rs),
-            "alpha_10d": _agg([v for r in rs if (v := _f(r, "alpha_10d")) is not None]),
-            "return_10d": _agg([v for r in rs if (v := _f(r, "return_10d")) is not None]),
+            "alpha_10d": _agg(*_cols(rs, "alpha_10d")),
+            "return_10d": _agg(*_cols(rs, "return_10d")),
         }
     b, a = out["ai_buy"]["alpha_10d"], out["ai_avoid"]["alpha_10d"]
     out["buy_minus_avoid_alpha10"] = (
@@ -182,8 +193,8 @@ def v2_check(rows: list[dict]) -> dict:
         rs = [r for r in rows if r.get("grp") == grp]
         out[grp] = {
             "signals": len(rs),
-            "alpha_10d": _agg([v for r in rs if (v := _f(r, "alpha_10d")) is not None]),
-            "alpha_5d": _agg([v for r in rs if (v := _f(r, "alpha_5d")) is not None]),
+            "alpha_10d": _agg(*_cols(rs, "alpha_10d")),
+            "alpha_5d": _agg(*_cols(rs, "alpha_5d")),
         }
     v2a, lta = out["score_v2_sa"]["alpha_10d"], out["live_top"]["alpha_10d"]
     out["v2_minus_live_alpha10"] = (
@@ -237,9 +248,10 @@ def factor_relative(rows: list[dict]) -> dict:
             groups.setdefault(str(r.get("grp") or "?"), []).append(rec)
 
     def block(rs: list[dict]) -> dict:
-        out = {"n": len(rs), "raw_return_10d": _agg([x["stock"] for x in rs])["avg"]}
+        syms = [x["symbol"] for x in rs]
+        out = {"n": len(rs), "raw_return_10d": _agg([x["stock"] for x in rs], syms)["avg"]}
         for b in _BENCH:
-            out[f"alpha_vs_{b}"] = _agg([x["stock"] - x[b] for x in rs])
+            out[f"alpha_vs_{b}"] = _agg([x["stock"] - x[b] for x in rs], syms)
         return out
 
     result = {g: block(rs) for g, rs in groups.items() if len(rs) >= _MIN_N}
@@ -258,20 +270,21 @@ def entry_quality(rows: list[dict]) -> list[dict]:
         out.append({
             "entry_quality": label,
             "signals": len(rs),
-            "alpha_10d": _agg([v for r in rs if (v := _f(r, "alpha_10d")) is not None]),
+            "alpha_10d": _agg(*_cols(rs, "alpha_10d")),
         })
     return sorted(out, key=lambda d: -d["signals"])
 
 
 def failure_attribution(rows: list[dict]) -> list[dict]:
-    groups: dict[str, list[float]] = {}
+    groups: dict[str, list[tuple[float, str]]] = {}
     for r in rows:
         reason = r.get("failure_reason")
         v = _f(r, "return_10d")
         if reason and v is not None:
-            groups.setdefault(str(reason), []).append(v)
+            groups.setdefault(str(reason), []).append((v, str(r.get("symbol") or "?")))
     return sorted(
-        ({"reason": k, **_agg(v)} for k, v in groups.items()),
+        ({"reason": k, **_agg([v for v, _ in pairs], [s for _, s in pairs])}
+         for k, pairs in groups.items()),
         key=lambda d: -d["n"],
     )
 
