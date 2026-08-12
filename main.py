@@ -215,6 +215,34 @@ def _entry_quality_map(dash_data: dict) -> dict[str, str]:
     return out
 
 
+def _signal_log_summary(rows: list[dict]) -> dict:
+    """Settled-only summary for the 選股記錄 tab.
+
+    The table is long and its newest rows are always still tracking, so the
+    question it exists to answer — "did the picks work?" — was buried. This
+    puts the settled numbers on top. Distinct-symbol counts ride along because
+    this project's signals repeat the same names daily; a mean over 400 rows
+    drawn from 40 stocks is 40 bets, not 400 (see CLAUDE.md statistics rule).
+    """
+    def _stat(key: str) -> dict | None:
+        vals = [(float(r[key]), r["symbol"]) for r in rows if r.get(key) is not None]
+        if not vals:
+            return None
+        nums = [v for v, _ in vals]
+        return {
+            "n": len(nums),
+            "n_symbols": len({s for _, s in vals}),
+            "avg": round(sum(nums) / len(nums), 2),
+            "win_rate": round(sum(1 for v in nums if v > 0) / len(nums) * 100, 1),
+        }
+
+    return {
+        "tracking": sum(1 for r in rows if r.get("return_5d") is None),
+        "settled_5d": _stat("return_5d"),
+        "settled_10d": _stat("return_10d"),
+    }
+
+
 def _ma20_exit_map(dash_data: dict) -> dict[str, dict]:
     """{symbol: {level, below}} for the MA20 trailing exit, for Telegram.
 
@@ -695,7 +723,9 @@ def run_daily_update() -> None:
     # Research-tier signal log for the 選股記錄 tab (official watch_signals
     # stays empty until a true S/A appears — users read that as "沒在選股")
     try:
-        dash_data["recent_signals"] = store.get_recent_shadow_signals()
+        _rs = store.get_recent_shadow_signals()
+        dash_data["recent_signals"] = _rs
+        dash_data["recent_signals_summary"] = _signal_log_summary(_rs)
     except Exception as _rs_e:
         print(f"[Main] recent signals readback failed (non-fatal): {_rs_e}")
 

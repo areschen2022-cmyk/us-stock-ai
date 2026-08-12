@@ -273,6 +273,7 @@
   <div class="section-title">🧪 研究級訊號記錄（每日自動記錄並追蹤前瞻報酬）</div>
   <div class="updated" style="margin-bottom:6px">分組：Top10＝現行評分前十｜v2＝研究評級 S/A＋週線向上｜AI買＝DeepSeek 複核 Buy。統計彙總見總覽「前瞻驗證」。</div>
   <div class="updated" style="margin-bottom:8px;color:var(--red)">⚠ 這些是<b>驗證用的觀察記錄，不是買賣建議</b>。2026-07-31 月底對照：research_rank 是所有組中最差的一組（對動能基準 −2.56%），但 71 筆訊號僅來自 <b>16 檔股票</b>、產業高度集中（科技 9/16），一檔一票校正後 t=−1.76 <b>未達統計顯著</b> —— 差是真的，但還不到可以斷定的程度。該組評級是<b>相對百分位、無絕對門檻</b>——「B 級」只代表當日通過濾網者的前 30%，不代表品質達標。已加註待 8/14 後以新樣本複審（該日起訊號才滿 10 個交易日）。</div>
+  <div id="research-signals-summary" class="updated" style="margin-bottom:8px"></div>
   <table>
     <thead><tr>
       <th>訊號日期</th><th>分組</th><th>代碼</th><th>評分</th><th>等級</th>
@@ -895,6 +896,25 @@ function render(data) {
   // 系統其實每天都在選股與追蹤（外部評測「空表格歧義」+ 使用者提問修正）
   const GRP_ZH = { live_top: 'Top10', score_v2_sa: 'v2', ai_buy: 'AI買' };
   const rs = data.recent_signals || [];
+  // Settled summary on top: the newest rows are always still tracking (a 5-day
+  // return needs 5 trading days), so without this the tab answered "did the
+  // picks work?" with a screen of dashes.
+  const sum = data.recent_signals_summary;
+  const sumEl = document.getElementById('research-signals-summary');
+  if (sumEl && sum) {
+    const fmt = (s, label) => {
+      if (!s) return `<span style="color:var(--muted)">${label} 尚無已定案</span>`;
+      const col = s.avg >= 0 ? 'var(--green)' : 'var(--red)';
+      return `${label} <b style="color:${col}">${s.avg > 0 ? '+' : ''}${s.avg}%</b>` +
+             `<span style="color:var(--muted)"> (勝率 ${s.win_rate}%｜${s.n} 筆／${s.n_symbols} 檔)</span>`;
+    };
+    sumEl.innerHTML =
+      `<b>已定案結果</b>：${fmt(sum.settled_5d, '5日')} ｜ ${fmt(sum.settled_10d, '10日')}` +
+      `<span style="color:var(--muted)">｜追蹤中 ${sum.tracking} 筆</span>` +
+      `<div style="color:var(--muted);font-size:.78rem;margin-top:3px">` +
+      `最新訊號必然顯示「追蹤中」——5 日報酬要滿 5 個交易日才會有值。` +
+      `平均值的有效樣本是「檔數」而非「筆數」（同一檔每天重複入選）。</div>`;
+  }
   document.getElementById('research-signals-body').innerHTML = rs.length ? rs.map(s => {
     const r5 = s.return_5d != null
       ? `<span style="color:${s.return_5d >= 0 ? 'var(--green)' : 'var(--red)'}">${s.return_5d > 0 ? '+' : ''}${s.return_5d}%</span>` : '—';

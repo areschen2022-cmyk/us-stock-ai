@@ -451,12 +451,20 @@ class SQLiteStore:
     SHADOW_GROUPS = ("shadow", "live_top", "social_bullish", "confluence", "potential_radar",
                      "research_rank", "score_v2_sa", "ai_buy", "ai_hold", "ai_avoid")
 
-    def get_recent_shadow_signals(self, limit: int = 60,
+    def get_recent_shadow_signals(self, limit: int = 300,
                                   groups: tuple = ("live_top", "score_v2_sa", "ai_buy")) -> list[dict]:
         """Recent research-tier signal rows for the 選股記錄 tab — the official
         watch_signals table stays empty until a true S/A appears (grade-ceiling
         history), which read as '系統沒在選股' to users. These are the signals
-        the system actually logs and forward-tracks every day."""
+        the system actually logs and forward-tracks every day.
+
+        The limit must span past the 10-trading-day settlement horizon. At 60 it
+        covered only ~4 days, so every row on the tab was younger than its own
+        5-day column and the whole table read "追蹤中" forever — 406 settled
+        signals existed and none could ever be displayed (found 2026-08-12 when
+        the user asked why the return columns never move). ~20 signals/day means
+        300 rows ≈ 15 trading days, comfortably past the 10d horizon.
+        """
         ph = ",".join("?" for _ in groups)
         with self._connect() as conn:
             conn.row_factory = sqlite3.Row
