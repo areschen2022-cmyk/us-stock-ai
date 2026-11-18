@@ -1,8 +1,8 @@
 {
-  "as_of": "2026-11-17",
+  "as_of": "2026-11-18",
   "primary_source": "live_top",
   "stats": {
-    "signals": 951,
+    "signals": 961,
     "completed": 678,
     "win_rate_5d": 50.6,
     "avg_return_5d": -0.2,
@@ -23,7 +23,7 @@
     }
   },
   "live_top_stats": {
-    "signals": 951,
+    "signals": 961,
     "completed": 678,
     "win_rate_5d": 50.6,
     "avg_return_5d": -0.2,
@@ -44,7 +44,7 @@
     }
   },
   "shadow_stats": {
-    "signals": 429,
+    "signals": 434,
     "completed": 422,
     "win_rate_5d": 50.2,
     "avg_return_5d": -0.1,
@@ -138,7 +138,7 @@
   "grade_stats": [
     {
       "label": "C",
-      "signals": 533,
+      "signals": 538,
       "completed": 461,
       "win_rate_5d": 53.4,
       "avg_return_5d": -0.1,
@@ -160,7 +160,7 @@
     },
     {
       "label": "D",
-      "signals": 241,
+      "signals": 242,
       "completed": 45,
       "win_rate_5d": 55.6,
       "avg_return_5d": 1.2,
@@ -182,7 +182,7 @@
     },
     {
       "label": "B",
-      "signals": 166,
+      "signals": 170,
       "completed": 161,
       "win_rate_5d": 41.0,
       "avg_return_5d": -1.1,
@@ -224,7 +224,7 @@
   "entry_quality_stats": [
     {
       "label": "觀望",
-      "signals": 474,
+      "signals": 481,
       "completed": 208,
       "win_rate_5d": 55.3,
       "avg_return_5d": 1.1,
@@ -246,7 +246,7 @@
     },
     {
       "label": "可進場",
-      "signals": 384,
+      "signals": 388,
       "completed": 377,
       "win_rate_5d": 52.0,
       "avg_return_5d": 0.1,
@@ -263,6 +263,28 @@
         "stop_hit": {
           "n": 13,
           "avg_return_10d": -12.7
+        }
+      }
+    },
+    {
+      "label": "等拉回",
+      "signals": 224,
+      "completed": 215,
+      "win_rate_5d": 48.4,
+      "avg_return_5d": -0.7,
+      "stop_hit_rate": 3.7,
+      "failure_attribution": {
+        "weak_after_entry": {
+          "n": 45,
+          "avg_return_10d": -11.4
+        },
+        "momentum_fade": {
+          "n": 18,
+          "avg_return_10d": -11.1
+        },
+        "stop_hit": {
+          "n": 5,
+          "avg_return_10d": -14.6
         }
       }
     },
@@ -285,28 +307,6 @@
         "stop_hit": {
           "n": 9,
           "avg_return_10d": -17.5
-        }
-      }
-    },
-    {
-      "label": "等拉回",
-      "signals": 220,
-      "completed": 215,
-      "win_rate_5d": 48.4,
-      "avg_return_5d": -0.7,
-      "stop_hit_rate": 3.7,
-      "failure_attribution": {
-        "weak_after_entry": {
-          "n": 45,
-          "avg_return_10d": -11.4
-        },
-        "momentum_fade": {
-          "n": 18,
-          "avg_return_10d": -11.1
-        },
-        "stop_hit": {
-          "n": 5,
-          "avg_return_10d": -14.6
         }
       }
     },
